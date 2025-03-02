@@ -1,0 +1,41 @@
+{
+  "id": "MAP_AQUA_HIDEOUT_UNUSED_RUBY_MAP2",
+  "name": "AquaHideout_UnusedRubyMap2",
+  "layout": "LAYOUT_AQUA_HIDEOUT_UNUSED_RUBY_MAP2",
+  "music": "MUS_RG_ROCKET_HIDEOUT",
+  "region_map_section": "MAPSEC_ROCKET_HIDEOUT",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_MAGMA",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 23,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_FIVE_ISLE_MEADOW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 24,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_FIVE_ISLE_MEADOW",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "id": "MAP_ONE_ISLAND_POKEMON_CENTRE",
+  "name": "ONE_ISLAND_POKEMON_CENTRE",
+  "layout": "LAYOUT_ONE_ISLAND_POKEMON_CENTRE",
+  "music": "MUS_RG_POKE_CENTER",
+  "region_map_section": "MAPSEC_ONE_ISLAND",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NURSE",
+      "x": 7,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_PokemonCenter_1F_EventScript_Nurse",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NURSE",
+      "x": 7,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_PokemonCenter_1F_EventScript_Nurse",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NURSE",
+      "x": 7,
+      "y": 34,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_PokemonCenter_1F_EventScript_Nurse",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NURSE",
+      "x": 7,
+      "y": 50,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_PokemonCenter_1F_EventScript_Nurse",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NURSE",
+      "x": 7,
+      "y": 66,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_PokemonCenter_1F_EventScript_Nurse",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NURSE",
+      "x": 7,
+      "y": 82,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_PokemonCenter_1F_EventScript_Nurse",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NURSE",
+      "x": 7,
+      "y": 98,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_PokemonCenter_1F_EventScript_Nurse",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 7,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_ONE_ISLAND",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_ONE_ISLAND",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_TWO_ISLAND",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_TWO_ISLAND",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 42,
+      "elevation": 0,
+      "dest_map": "MAP_THREE_ISLAND",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 42,
+      "elevation": 0,
+      "dest_map": "MAP_THREE_ISLAND",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 58,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 58,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 6,
+      "y": 74,
+      "elevation": 0,
+      "dest_map": "MAP_FIVE_ISLAND",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 74,
+      "elevation": 0,
+      "dest_map": "MAP_FIVE_ISLAND",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 6,
+      "y": 90,
+      "elevation": 0,
+      "dest_map": "MAP_SIX_ISLAND",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 90,
+      "elevation": 0,
+      "dest_map": "MAP_SIX_ISLAND",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 106,
+      "elevation": 0,
+      "dest_map": "MAP_SEVEN_ISLAND",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 106,
+      "elevation": 0,
+      "dest_map": "MAP_SEVEN_ISLAND",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

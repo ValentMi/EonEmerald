@@ -1,0 +1,59 @@
+{
+  "id": "MAP_NAVEL_ROCK_UP2",
+  "name": "NavelRock_Up2",
+  "layout": "LAYOUT_NAVEL_ROCK_LADDER_ROOM2",
+  "music": "MUS_RG_SEVII_CAVE",
+  "region_map_section": "MAPSEC_SEAFOAM_ISLANDS",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_SKY",
+  "connections": [
+    {
+      "map": "MAP_NAVEL_ROCK_UP3",
+      "offset": 0,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BIG_LAPRAS_DOLL",
+      "x": 8,
+      "y": 3,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyPillar_Top_EventScript_Articuno",
+      "flag": "FLAG_DEFEATED_ARTICUNO"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 3,
+      "y": 3,
+      "elevation": 3,
+      "dest_map": "MAP_NAVEL_ROCK_UP1",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 4,
+      "y": 13,
+      "elevation": 3,
+      "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

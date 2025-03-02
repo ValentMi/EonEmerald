@@ -1,0 +1,2 @@
+VIAPOIS_CHAMBER_INTERIOR_MapScripts::
+	.byte 0

@@ -1,0 +1,307 @@
+{
+  "id": "MAP_LOST_CAVE",
+  "name": "LOST_CAVE",
+  "layout": "LAYOUT_LOST_CAVE",
+  "music": "MUS_RG_MT_MOON",
+  "region_map_section": "MAPSEC_LOST_CAVE",
+  "requires_flash": false,
+  "weather": "WEATHER_FOG_HORIZONTAL",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 27,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 8,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE_ENTRANCE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 16,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 38,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 38,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 49,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 49,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 60,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 71,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 19,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "13"
+    },
+    {
+      "x": 13,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "12"
+    },
+    {
+      "x": 71,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "15"
+    },
+    {
+      "x": 60,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "14"
+    },
+    {
+      "x": 49,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "17"
+    },
+    {
+      "x": 60,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "16"
+    },
+    {
+      "x": 24,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "19"
+    },
+    {
+      "x": 30,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "18"
+    },
+    {
+      "x": 35,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "21"
+    },
+    {
+      "x": 19,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "20"
+    },
+    {
+      "x": 24,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "23"
+    },
+    {
+      "x": 41,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "22"
+    },
+    {
+      "x": 46,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "25"
+    },
+    {
+      "x": 46,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "24"
+    },
+    {
+      "x": 57,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "29"
+    },
+    {
+      "x": 52,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "32"
+    },
+    {
+      "x": 52,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "30"
+    },
+    {
+      "x": 74,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "26"
+    },
+    {
+      "x": 68,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "28"
+    },
+    {
+      "x": 63,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "33"
+    },
+    {
+      "x": 35,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "27"
+    },
+    {
+      "x": 41,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "31"
+    },
+    {
+      "x": 49,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "35"
+    },
+    {
+      "x": 71,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "34"
+    },
+    {
+      "x": 38,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "37"
+    },
+    {
+      "x": 38,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "36"
+    },
+    {
+      "x": 27,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "39"
+    },
+    {
+      "x": 16,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_LOST_CAVE",
+      "dest_warp_id": "38"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

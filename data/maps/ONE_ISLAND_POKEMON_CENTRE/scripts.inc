@@ -1,0 +1,2 @@
+ONE_ISLAND_POKEMON_CENTRE_MapScripts::
+	.byte 0
