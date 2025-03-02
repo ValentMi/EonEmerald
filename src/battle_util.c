@@ -2794,7 +2794,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     break;
                 case ABILITY_THICK_FAT: //Ice Body Effect
 				case ABILITY_SNOW_WARNING:
-				case ABILITY_SNOW_WARNING:
+				case ABILITY_PERMAFROST:
                     if (gBattleWeather & B_WEATHER_HAIL && gBattleMons[battler].maxHP > gBattleMons[battler].hp && (gBattleMons[battler].species == SPECIES_SPHEAL || gBattleMons[battler].species == SPECIES_SEALEO || gBattleMons[battler].species == SPECIES_WALREIN || gBattleMons[battler].species == SPECIES_GLALIE || gBattleMons[battler].species == SPECIES_SNORUNT))
                     {
                         BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
