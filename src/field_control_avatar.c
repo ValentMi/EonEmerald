@@ -37,7 +37,6 @@
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPrevMetatileBehavior = 0;
-static EWRAM_DATA u8 sPlayerSelectHoldFrames = 0;
 
 COMMON_DATA u8 gSelectedObjectEvent = 0;
 
@@ -84,8 +83,6 @@ void FieldClearPlayerInput(struct FieldInput *input)
     input->input_field_1_1 = FALSE;
     input->input_field_1_2 = FALSE;
     input->input_field_1_3 = FALSE;
-	input->input_field_1_6 = FALSE;
-    input->input_field_1_7 = FALSE;
     input->dpadDirection = 0;
 }
 
@@ -107,16 +104,6 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
                 input->pressedAButton = TRUE;
             if (newKeys & B_BUTTON)
                 input->pressedBButton = TRUE;
-            if (sPlayerSelectHoldFrames == 60)
-                input->input_field_1_7 = TRUE;
-            if (JOY_HELD(SELECT_BUTTON))
-                sPlayerSelectHoldFrames = sPlayerSelectHoldFrames < 0xFF ? sPlayerSelectHoldFrames + 1 : 0xFF;
-            else if (sPlayerSelectHoldFrames != 0)
-            {
-               if (sPlayerSelectHoldFrames < 60)
-                    input->input_field_1_6 = TRUE;
-                sPlayerSelectHoldFrames = 0;
-            }
         }
 
         if (heldKeys & (DPAD_UP | DPAD_DOWN | DPAD_LEFT | DPAD_RIGHT))
@@ -198,10 +185,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         ShowStartMenu();
         return TRUE;
     }
-    if (input->input_field_1_6 && UseRegisteredKeyItemOnField(FALSE) == TRUE)
-        return TRUE;
-    
-    if (input->input_field_1_7 && UseRegisteredKeyItemOnField(TRUE) == TRUE)
+    if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
         return TRUE;
 
     return FALSE;

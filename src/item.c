@@ -628,15 +628,6 @@ void SwapRegisteredBike(void)
         gSaveBlock1Ptr->registeredItem = ITEM_MACH_BIKE;
         break;
     }
-	switch (gSaveBlock1Ptr->registeredLongItem)
-    {
-    case ITEM_MACH_BIKE:
-        gSaveBlock1Ptr->registeredLongItem = ITEM_ACRO_BIKE;
-        break;
-    case ITEM_ACRO_BIKE:
-        gSaveBlock1Ptr->registeredLongItem = ITEM_MACH_BIKE;
-        break;
-    }
 }
 
 u16 BagGetItemIdByPocketPosition(u8 pocketId, u16 pocketPos)
