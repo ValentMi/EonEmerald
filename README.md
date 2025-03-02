@@ -1,6 +1,6 @@
 **Overview:**
 
-EonEmerald is a hack that aims to provide a modern-ish and unique experience while still feeling vanilla. I wanted to see a hack that let players see everything gen 3 had to offer in its original state, even being compatible with vanilla saves while offering numerous QoL changes. I felt it was also important for the hack to be somewhat PKhex compatible for some players as well for ease of access or transferring old mons. There are no cross gen evolutions added as PKhex wouldn’t be able to detect them, but I don’t believe they would be a bad addition as an option for players.
+EonEmerald is a hack that aims to provide a modern-ish and unique experience while still feeling vanilla. I wanted to see a hack that let players see as much content as gen 3 had to offer, even being compatible with vanilla saves while offering numerous QoL changes. I felt it was also important for the hack to be somewhat PKhex compatible for some players as well for ease of access or transferring old mons. There are no cross gen evolutions added as PKhex wouldn’t be able to detect them, but I don’t believe they would be a bad addition as an option for players.
 
 [You can find the hack's documentation here](https://docs.google.com/spreadsheets/d/1CpPiIwOjtla2IpimvYV5ud4QEYM3cf64GHh-ZYKtDrw/edit?usp=sharing).
 
