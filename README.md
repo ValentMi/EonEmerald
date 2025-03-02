@@ -9,6 +9,7 @@ Screenshots:
 ![pokeemerald3](https://github.com/user-attachments/assets/27b59bdf-ff89-4502-a38f-1c11a1034a01)
 ![pokeemerald2](https://github.com/user-attachments/assets/48e63e80-16fc-44b5-9cbd-d243f0d210b6)
 ![pokeemerald](https://github.com/user-attachments/assets/966c6c8c-6985-4b23-baa2-1582861450e2)
+![pokeemerald](https://github.com/user-attachments/assets/d0f7f0c5-f7ba-427b-943e-78f1262d2f5b)
 
 
 
