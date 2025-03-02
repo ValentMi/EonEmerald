@@ -3379,11 +3379,13 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
     if ((MOVE_POWDER_SNOW) && attacker->species == SPECIES_PILOSWINE)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
-if ((type == TYPE_GHOST) && (attacker->species == SPECIES_BANETTE || attacker->species == SPECIES_SHEDINJA))
+	if ((type == TYPE_GHOST) && (attacker->species == SPECIES_BANETTE || attacker->species == SPECIES_SHEDINJA))
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
     if ((MOVE_ICE_PUNCH || MOVE_FIRE_PUNCH || MOVE_THUNDER_PUNCH) && attacker->species == SPECIES_HITMONCHAN)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
     if ((MOVE_ICE_PUNCH || MOVE_FIRE_PUNCH || MOVE_THUNDER_PUNCH) && attacker->species == SPECIES_MEDICHAM)
+		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
+    if ((MOVE_ICE_PUNCH || MOVE_FIRE_PUNCH || MOVE_THUNDER_PUNCH) && attacker->species == SPECIES_ELECTABUZZ)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
 	if ((MOVE_SILVER_WIND) && attacker->species == SPECIES_BUTTERFREE || attacker->species == SPECIES_VENOMOTH || attacker->species == SPECIES_BEAUTIFLY|| attacker->species == SPECIES_DUSTOX || attacker->species == SPECIES_MASQUERAIN || attacker->species == SPECIES_YANMA)
 		gBattleMoves[move].category == MOVE_CATEGORY_SPECIAL;
