@@ -214,7 +214,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_FLINCH_HIT,
         .power = 75,
-        .type = TYPE_NORMAL,
+        .type = TYPE_BUG,
         .accuracy = 95,
         .pp = 10,
         .secondaryEffectChance = 30,
