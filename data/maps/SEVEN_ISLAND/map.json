@@ -66,8 +66,8 @@
       "x": 4,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_SEVEN_ISLAND",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_SEVII_POKEMART",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [

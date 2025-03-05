@@ -1,5 +1,10 @@
 SEVEN_ISLAND_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SevenIsland_PokemonCenter_1F_OnTransition
 	.byte 0
+	
+SevenIsland_PokemonCenter_1F_OnTransition::
+	setrespawn HEAL_LOCATION_SEVEN_ISLAND
+	end
 
 SevenIsland_EventScript_IslandSign::
 	msgbox SevenIsland_Text_IslandSign, MSGBOX_SIGN

@@ -4910,6 +4910,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/NewMap1/border.bin",
       "blockdata_filepath": "data/layouts/NewMap1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEVII_POKEMART",
+      "name": "SEVII_POKEMART_Layout",
+      "width": 11,
+      "height": 34,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/SEVII_POKEMART/border.bin",
+      "blockdata_filepath": "data/layouts/SEVII_POKEMART/map.bin"
     }
   ]
 }

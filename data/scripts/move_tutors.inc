@@ -287,3 +287,57 @@ MoveTutor_EventScript_OpenPartyMenu::
 MoveTutor_EventScript_CanOnlyBeLearnedOnce::
 	msgbox MoveTutor_Text_ThisMoveCanOnlyBeLearnedOnce, MSGBOX_YESNO
 	return
+	
+GSCMoveTutor_EventScript_FirePunchTutor::
+	lock
+	faceplayer
+	msgbox MoveTutor_Text_FIRE_PUNCH_Teach, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
+	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
+	msgbox MoveTutor_Text_GSCMoveTutorWhichMon, MSGBOX_DEFAULT
+	setvar VAR_0x8005, TUTOR_MOVE_FIRE_PUNCH
+	call MoveTutor_EventScript_OpenPartyMenu
+	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_GSCMoveTutorDeclined
+	goto MoveTutor_EventScript_GSCMoveTutorTaught
+	end
+	
+GSCMoveTutor_EventScript_IcePunchTutor::
+	lock
+	faceplayer
+	msgbox MoveTutor_Text_ICE_PUNCH_Teach, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
+	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
+	msgbox MoveTutor_Text_GSCMoveTutorWhichMon, MSGBOX_DEFAULT
+	setvar VAR_0x8005, TUTOR_MOVE_ICE_PUNCH
+	call MoveTutor_EventScript_OpenPartyMenu
+	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_GSCMoveTutorDeclined
+	goto MoveTutor_EventScript_GSCMoveTutorTaught
+	end
+	
+GSCMoveTutor_EventScript_ThunderPunchTutor::
+	lock
+	faceplayer
+	msgbox MoveTutor_Text_THUNDER_PUNCH_Teach, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
+	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
+	msgbox MoveTutor_Text_GSCMoveTutorWhichMon, MSGBOX_DEFAULT
+	setvar VAR_0x8005, TUTOR_MOVE_THUNDER_PUNCH
+	call MoveTutor_EventScript_OpenPartyMenu
+	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_GSCMoveTutorDeclined
+	goto MoveTutor_EventScript_GSCMoveTutorTaught
+	end
+	
+MoveTutor_Text_FIRE_PUNCH_Teach::
+    .string "Would you like me to teach a\n"
+    .string "Pokemon the move Fire Punch?.$"
+	
+MoveTutor_Text_ICE_PUNCH_Teach::
+    .string "Would you like me to teach a\n"
+    .string "Pokemon the move Ice Punch?.$"
+	
+MoveTutor_Text_THUNDER_PUNCH_Teach::
+    .string "Would you like me to teach a\n"
+    .string "Pokemon the move Thunderpunch?.$"

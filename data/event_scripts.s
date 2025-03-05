@@ -1210,3 +1210,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/VIAPOIS_CHAMBER_INTERIOR/scripts.inc"
 
 	.include "data/maps/NewMap1/scripts.inc"
+
+	.include "data/maps/SEVII_POKEMART/scripts.inc"

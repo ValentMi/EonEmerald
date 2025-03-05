@@ -2,8 +2,13 @@
 
 FOUR_ISLAND_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FOUR_ISLAND_OnTransition
+	map_script MAP_SCRIPT_ON_TRANSITION, FourIsland_PokemonCenter_1F_OnTransition
 	.byte 0
 	
+FourIsland_PokemonCenter_1F_OnTransition::
+	setrespawn HEAL_LOCATION_FOUR_ISLAND
+	end
+
 FOUR_ISLAND_OnTransition:
 	call FOUR_ISLAND_EventScript_TryMoveDayCareMan
 	end
