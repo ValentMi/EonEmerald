@@ -11828,64 +11828,64 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 10,
-                "max_level": 10,
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_MACHOKE"
+              },
+              {
+                "min_level": 61,
+                "max_level": 61,
+                "species": "SPECIES_PARASECT"
+              },
+              {
+                "min_level": 61,
+                "max_level": 61,
+                "species": "SPECIES_PRIMEAPE"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_KADABRA"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_ALAKAZAM"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_PARASECT"
+              },
+              {
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_MACHOKE"
+              },
+              {
+                "min_level": 52,
+                "max_level": 52,
                 "species": "SPECIES_MACHAMP"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_MACHAMP"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_ALAKAZAM"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 61,
+                "max_level": 61,
+                "species": "SPECIES_PRIMEAPE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 61,
+                "max_level": 61,
+                "species": "SPECIES_PARASECT"
               }
             ]
           }
@@ -11897,64 +11897,64 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_MACHAMP"
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_MACHOKE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 61,
+                "max_level": 61,
+                "species": "SPECIES_PARASECT"
+              },
+              {
+                "min_level": 61,
+                "max_level": 61,
+                "species": "SPECIES_PRIMEAPE"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_KADABRA"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
                 "species": "SPECIES_ALAKAZAM"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_PARASECT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_MACHOKE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_MACHAMP"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_MACHAMP"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_ALAKAZAM"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 61,
+                "max_level": 61,
+                "species": "SPECIES_PRIMEAPE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 61,
+                "max_level": 61,
+                "species": "SPECIES_PARASECT"
               }
             ]
           }
@@ -15220,6 +15220,243 @@
                 "min_level": 25,
                 "max_level": 25,
                 "species": "SPECIES_UNOWN_EMARK"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_MT_EMBER_1",
+          "base_label": "gMT_EMBER_10",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_RAPIDASH"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_FEAROW"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_MACHOKE"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_FEAROW"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_FEAROW"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_SLUGMA"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_RAPIDASH"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_RAPIDASH"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_MACHAMP"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_MACHAMP"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_MACHAMP"
+              }
+            ]
+          },
+          "rock_smash_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GOLEM"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_MT_EMBER_2",
+          "base_label": "gMT_EMBER_20",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_SLUGMA"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_MACHOKE"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_SLUGMA"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_SLUGMA"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_SLUGMA"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_MACHAMP"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_MACHAMP"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_MACHAMP"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_MT_EMBER_3",
+          "base_label": "gMT_EMBER_30",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_SLUGMA"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_MACHOKE"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_SLUGMA"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_SLUGMA"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_SLUGMA"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_MACHAMP"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_MACHAMP"
+              },
+              {
+                "min_level": 42,
+                "max_level": 42,
+                "species": "SPECIES_MACHAMP"
               }
             ]
           }

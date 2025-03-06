@@ -1,0 +1,106 @@
+{
+  "id": "MAP_EMBER_SPA_INTERIOR",
+  "name": "EMBER_SPA_INTERIOR",
+  "layout": "LAYOUT_EMBER_SPA_INTERIOR",
+  "music": "MUS_RG_PEWTER",
+  "region_map_section": "MAPSEC_EMBER_SPA",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+      "x": 6,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "OneIsland_KindleRoad_EmberSpa_EventScript_BlackBelt",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+      "x": 11,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "OneIsland_KindleRoad_EmberSpa_EventScript_OldMan",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+      "x": 21,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "OneIsland_KindleRoad_EmberSpa_EventScript_OldWoman",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
+      "x": 15,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "OneIsland_KindleRoad_EmberSpa_EventScript_BaldingMan1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
+      "x": 10,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "OneIsland_KindleRoad_EmberSpa_EventScript_BaldingMan2",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 13,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_KINDLE_ROAD",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "OneIsland_KindleRoad_EmberSpa_EventScript_SpaHeal"
+    }
+  ],
+  "bg_events": [
+
+  ]
+}

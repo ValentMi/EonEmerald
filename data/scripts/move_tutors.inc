@@ -332,12 +332,12 @@ GSCMoveTutor_EventScript_ThunderPunchTutor::
 	
 MoveTutor_Text_FIRE_PUNCH_Teach::
     .string "Would you like me to teach a\n"
-    .string "Pokemon the move Fire Punch?.$"
+    .string "Pokemon the move Fire Punch?$"
 	
 MoveTutor_Text_ICE_PUNCH_Teach::
     .string "Would you like me to teach a\n"
-    .string "Pokemon the move Ice Punch?.$"
+    .string "Pokemon the move Ice Punch?$"
 	
 MoveTutor_Text_THUNDER_PUNCH_Teach::
     .string "Would you like me to teach a\n"
-    .string "Pokemon the move Thunderpunch?.$"
+    .string "Pokemon the move Thunderpunch?$"

@@ -4694,8 +4694,8 @@
     {
       "id": "LAYOUT_EMBER_SPA",
       "name": "EMBER_SPA_Layout",
-      "width": 27,
-      "height": 39,
+      "width": 1,
+      "height": 1,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/EMBER_SPA/border.bin",
@@ -4920,6 +4920,16 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/SEVII_POKEMART/border.bin",
       "blockdata_filepath": "data/layouts/SEVII_POKEMART/map.bin"
+    },
+    {
+      "id": "LAYOUT_EMBER_SPA_INTERIOR",
+      "name": "EMBER_SPA_INTERIOR_Layout",
+      "width": 27,
+      "height": 39,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/EMBER_SPA_INTERIOR/border.bin",
+      "blockdata_filepath": "data/layouts/EMBER_SPA_INTERIOR/map.bin"
     }
   ]
 }

@@ -199,10 +199,9 @@ ThreeIsland_House2_Text_IAdmireSabrina::
     .string "customer and beautiful, too.$"
 	
 ThreeIsland_House1_Text_YoureAlwaysSoCool::
-    .string "LOSTELLE: Hi, {PLAYER}!\n"
-    .string "You're always so cool!\p"
-    .string "I'll make lunch for you, too, one\n"
-    .string "day, {PLAYER}.$"
+    .string "LOSTELLE: Hi, what's your name?\p"
+    .string "{PLAYER}? Well that's a\n"
+	.string "great name.$"
 
 ThreeIsland_House1_Text_RareRocksGemsDisplayed::
     .string "Rare rocks and gems are displayed.$"

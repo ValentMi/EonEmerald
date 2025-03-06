@@ -30,6 +30,20 @@
       "elevation": 0,
       "dest_map": "MAP_MT_EMBER_2",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 28,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_MT_EMBER_3",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 39,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_MT_EMBER_3",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

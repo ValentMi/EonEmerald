@@ -1242,9 +1242,9 @@
     },
     {
       "map_section": "MAPSEC_SEVII_ISLE_6",
-      "name": "SEVII ISLE 6",
-      "x": 0,
-      "y": 0,
+      "name": "SEVII ISLES",
+      "x": 22,
+      "y": 1,
       "width": 1,
       "height": 1
     },
@@ -1402,9 +1402,9 @@
     },
     {
       "map_section": "MAPSEC_MT_EMBER",
-      "name": "MAGMA HIDEOUT",
-      "x": 6,
-      "y": 3,
+      "name": "MT. EMBER",
+      "x": 17,
+      "y": 0,
       "width": 1,
       "height": 1
     },
@@ -1693,6 +1693,14 @@
       "name": "TRAINER HILL",
       "x": 9,
       "y": 5,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_EMBER_SPA",
+      "name": "EMBER SPA",
+      "x": 17,
+      "y": 0,
       "width": 1,
       "height": 1
     }
