@@ -732,9 +732,9 @@ static void PrintDecorationCategoryMenuItems(u8 taskId)
     for (i = 0; i < DECORCAT_COUNT; i++)
     {
         // Only DOLL and CUSHION decorations are enabled when decorating the player's room.
-        if (shouldDisable == TRUE && i != DECORCAT_DOLL && i != DECORCAT_CUSHION)
-            PrintDecorationCategoryMenuItem(windowId, i, 8, i * 16, TRUE, TEXT_SKIP_DRAW);
-        else
+        //if (shouldDisable == TRUE && i != DECORCAT_DOLL && i != DECORCAT_CUSHION)
+        //    PrintDecorationCategoryMenuItem(windowId, i, 8, i * 16, TRUE, TEXT_SKIP_DRAW);
+        //else
             PrintDecorationCategoryMenuItem(windowId, i, 8, i * 16, FALSE, TEXT_SKIP_DRAW);
     }
 

@@ -107,6 +107,15 @@ MauvilleCity_GameCorner_EventScript_PrizeCornerDolls::
 	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_ChooseDollPrizeMessage
 	release
 	end
+	
+MauvilleCity_GameCorner_EventScript_PrizeCornerSeviiDolls::
+	lock
+	faceplayer
+	msgbox MauvilleCity_GameCorner_Text_ExchangeCoinsForPrizes, MSGBOX_DEFAULT
+	checkitem ITEM_COIN_CASE
+	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_ChooseSeviiDollPrizeMessage
+	release
+	end
 
 MauvilleCity_GameCorner_EventScript_ChooseDollPrizeMessage::
 	message MauvilleCity_GameCorner_Text_WhichPrize
@@ -114,6 +123,13 @@ MauvilleCity_GameCorner_EventScript_ChooseDollPrizeMessage::
 	setvar VAR_TEMP_1, 0
 	showcoinsbox 1, 1
 	goto MauvilleCity_GameCorner_EventScript_ChooseDollPrize
+	
+MauvilleCity_GameCorner_EventScript_ChooseSeviiDollPrizeMessage::
+	message MauvilleCity_GameCorner_Text_WhichPrize
+	waitmessage
+	setvar VAR_TEMP_1, 0
+	showcoinsbox 1, 1
+	goto MauvilleCity_GameCorner_EventScript_ChooseSeviiDollPrize
 
 MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize::
 	message MauvilleCity_GameCorner_Text_WhichPrize
@@ -126,6 +142,16 @@ MauvilleCity_GameCorner_EventScript_ChooseDollPrize::
 	case 0, MauvilleCity_GameCorner_EventScript_TreeckoDoll
 	case 1, MauvilleCity_GameCorner_EventScript_TorchicDoll
 	case 2, MauvilleCity_GameCorner_EventScript_MudkipDoll
+	case 3, MauvilleCity_GameCorner_EventScript_CancelDollSelect
+	goto MauvilleCity_GameCorner_EventScript_CancelDollSelect
+	end
+	
+MauvilleCity_GameCorner_EventScript_ChooseSeviiDollPrize::
+	multichoice 12, 0, MULTI_GAME_CORNER_DOLLS, FALSE
+	switch VAR_RESULT
+	case 0, MauvilleCity_GameCorner_EventScript_RegirockDoll
+	case 1, MauvilleCity_GameCorner_EventScript_RegiceDoll
+	case 2, MauvilleCity_GameCorner_EventScript_RegisteelDoll
 	case 3, MauvilleCity_GameCorner_EventScript_CancelDollSelect
 	goto MauvilleCity_GameCorner_EventScript_CancelDollSelect
 	end
@@ -143,6 +169,21 @@ MauvilleCity_GameCorner_EventScript_TorchicDoll::
 MauvilleCity_GameCorner_EventScript_MudkipDoll::
 	setvar VAR_TEMP_1, 3
 	bufferdecorationname STR_VAR_1, DECOR_MUDKIP_DOLL
+	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
+	
+MauvilleCity_GameCorner_EventScript_RegirockDoll::
+	setvar VAR_TEMP_1, 1
+	bufferdecorationname STR_VAR_1, DECOR_REGIROCK_DOLL
+	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
+
+MauvilleCity_GameCorner_EventScript_RegiceDoll::
+	setvar VAR_TEMP_1, 2
+	bufferdecorationname STR_VAR_1, DECOR_REGICE_DOLL
+	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
+
+MauvilleCity_GameCorner_EventScript_RegisteelDoll::
+	setvar VAR_TEMP_1, 3
+	bufferdecorationname STR_VAR_1, DECOR_REGISTEEL_DOLL
 	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
 
 MauvilleCity_GameCorner_EventScript_ConfirmDollPrize::

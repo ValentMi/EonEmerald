@@ -17,6 +17,11 @@
       "map": "MAP_WATER_LABYRINTH",
       "offset": -44,
       "direction": "down"
+    },
+    {
+      "map": "MAP_BIRTH_ISLAND_EXTERIOR",
+      "offset": -8,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -29,6 +34,13 @@
       "elevation": 0,
       "dest_map": "MAP_LOST_CAVE_ENTRANCE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 40,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SLATEPORT_CITY_POKEMON_FAN_CLUB",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

@@ -75,15 +75,15 @@
       "x": 17,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_THREE_ISLE_PORT",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_LOST_CAVE_ENTRANCE",
+      "dest_warp_id": "2"
     },
     {
       "x": 38,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_THREE_ISLE_PORT",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_LOST_CAVE_ENTRANCE",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [

@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_BIRTH_ISLAND_EXTERIOR",
-      "offset": -17,
-      "direction": "up"
-    },
-    {
       "map": "MAP_FIVE_ISLE_MEADOW",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_WATER_LABYRINTH",
+      "offset": -53,
+      "direction": "up"
     }
   ],
   "object_events": [

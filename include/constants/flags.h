@@ -660,7 +660,7 @@
 #define FLAG_ACCESS_LEGENDARY_BEASTS					     0x265 // Unused Flag
 #define FLAG_HIDDEN_ITEM_MYSTIC_TICKET  0x266 // Unused Flag
 #define FLAG_HIDDEN_ITEM_OLDSEAMAP  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
+#define FLAG_RECEIVED_EEVEE_EGG  0x268 // Unused Flag
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
@@ -1570,9 +1570,9 @@
 #define FLAG_DAILY_SECRET_BASE                      (DAILY_FLAGS_START + 0x2)
 #define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_1	(DAILY_FLAGS_START + 0x3)
 #define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_2	(DAILY_FLAGS_START + 0x4)
-#define FLAG_UNUSED_0x925                           (DAILY_FLAGS_START + 0x5)  // Unused Flag
-#define FLAG_UNUSED_0x926                           (DAILY_FLAGS_START + 0x6)  // Unused Flag
-#define FLAG_UNUSED_0x927                           (DAILY_FLAGS_START + 0x7)  // Unused Flag
+#define FLAG_GOT_TM42_AT_MEMORIAL_PILLAR            (DAILY_FLAGS_START + 0x5)  // Unused Flag
+#define FLAG_RECEIVED_SELPHY_EGG                    (DAILY_FLAGS_START + 0x6)  // Unused Flag
+#define FLAG_NO_ROOM_FOR_TM42_AT_MEMORIAL_PILLAR    (DAILY_FLAGS_START + 0x7)  // Unused Flag
 #define FLAG_UNUSED_0x928                           (DAILY_FLAGS_START + 0x8)  // Unused Flag
 #define FLAG_UNUSED_0x929                           (DAILY_FLAGS_START + 0x9)  // Unused Flag
 #define FLAG_DAILY_PICKED_LOTO_TICKET               (DAILY_FLAGS_START + 0xA)
@@ -1594,18 +1594,18 @@
 #define FLAG_DEFEATED_RIVAL_SB                      (DAILY_FLAGS_START + 0x19) // Unused Flag
 #define FLAG_RECEIVED_DEWFORD_EGG                   (DAILY_FLAGS_START + 0x1A) // Unused Flag
 #define FLAG_HIDDEN_ITEM_NAVEL_ROCK_TOP_SACRED_ASH  (DAILY_FLAGS_START + 0x1B) // Unused Flag
-#define FLAG_UNUSED_0x93C                           (DAILY_FLAGS_START + 0x1C) // Unused Flag
-#define FLAG_UNUSED_0x93D                           (DAILY_FLAGS_START + 0x1D) // Unused Flag
-#define FLAG_UNUSED_0x93E                           (DAILY_FLAGS_START + 0x1E) // Unused Flag
-#define FLAG_UNUSED_0x93F                           (DAILY_FLAGS_START + 0x1F) // Unused Flag
-#define FLAG_UNUSED_0x940                           (DAILY_FLAGS_START + 0x20) // Unused Flag
-#define FLAG_UNUSED_0x941                           (DAILY_FLAGS_START + 0x21) // Unused Flag
-#define FLAG_UNUSED_0x942                           (DAILY_FLAGS_START + 0x22) // Unused Flag
-#define FLAG_UNUSED_0x943                           (DAILY_FLAGS_START + 0x23) // Unused Flag
-#define FLAG_UNUSED_0x944                           (DAILY_FLAGS_START + 0x24) // Unused Flag
-#define FLAG_UNUSED_0x945                           (DAILY_FLAGS_START + 0x25) // Unused Flag
-#define FLAG_UNUSED_0x946                           (DAILY_FLAGS_START + 0x26) // Unused Flag
-#define FLAG_UNUSED_0x947                           (DAILY_FLAGS_START + 0x27) // Unused Flag
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_3                           (DAILY_FLAGS_START + 0x1C) // Unused Flag
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_4                           (DAILY_FLAGS_START + 0x1D) // Unused Flag
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_5                           (DAILY_FLAGS_START + 0x1E) // Unused Flag
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_6                           (DAILY_FLAGS_START + 0x1F) // Unused Flag
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_7                           (DAILY_FLAGS_START + 0x20) // Unused Flag
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_8                           (DAILY_FLAGS_START + 0x21) // Unused Flag
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_9                           (DAILY_FLAGS_START + 0x22) // Unused Flag
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_10                           (DAILY_FLAGS_START + 0x23) // Unused Flag
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_11                           (DAILY_FLAGS_START + 0x24) // Unused Flag
+#define FLAG_HIDDEN_ITEM_RENEWABLE_1                           (DAILY_FLAGS_START + 0x25) // Unused Flag
+#define FLAG_HIDDEN_ITEM_RENEWABLE_2                           (DAILY_FLAGS_START + 0x26) // Unused Flag
+#define FLAG_HIDDEN_ITEM_RENEWABLE_3                           (DAILY_FLAGS_START + 0x27) // Unused Flag
 #define FLAG_UNUSED_0x948                           (DAILY_FLAGS_START + 0x28) // Unused Flag
 #define FLAG_UNUSED_0x949                           (DAILY_FLAGS_START + 0x29) // Unused Flag
 #define FLAG_UNUSED_0x94A                           (DAILY_FLAGS_START + 0x2A) // Unused Flag

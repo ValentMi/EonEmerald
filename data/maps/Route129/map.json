@@ -45,12 +45,12 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
-      "x": 7,
-      "y": 24,
+      "x": 10,
+      "y": 25,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
-      "movement_range_x": 3,
-      "movement_range_y": 3,
+      "movement_range_x": 2,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
       "script": "Route129_EventScript_Allison",
@@ -109,7 +109,23 @@
       "y": 25,
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3"
+      "flag": "FLAG_HIDDEN_ITEM_RENEWABLE_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 11,
+      "y": 26,
+      "elevation": 3,
+      "item": "ITEM_HEART_SCALE",
+      "flag": "FLAG_HIDDEN_ITEM_RENEWABLE_2"
+    },
+    {
+      "type": "hidden_item",
+      "x": 37,
+      "y": 18,
+      "elevation": 3,
+      "item": "ITEM_HEART_SCALE",
+      "flag": "FLAG_HIDDEN_ITEM_RENEWABLE_3"
     }
   ]
 }
