@@ -2663,8 +2663,9 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 				case ABILITY_LIQUID_OOZE:
 				case ABILITY_KEEN_EYE:
 				case ABILITY_INTIMIDATE:
+				case ABILITY_ROUGH_SKIN:
                     if (WEATHER_HAS_EFFECT && (gBattleWeather & B_WEATHER_RAIN)
-                     && gBattleMons[battler].maxHP > gBattleMons[battler].hp && (gBattleMons[battler].species == SPECIES_SMOOCHUM || gBattleMons[battler].species == SPECIES_JYNX || gBattleMons[battler].species == SPECIES_SQUIRTLE || gBattleMons[battler].species == SPECIES_WARTORTLE || gBattleMons[battler].species == SPECIES_BLASTOISE || gBattleMons[battler].species == SPECIES_TENTACOOL || gBattleMons[battler].species == SPECIES_TENTACRUEL || gBattleMons[battler].species == SPECIES_LOTAD || gBattleMons[battler].species == SPECIES_LUDICOLO || gBattleMons[battler].species == SPECIES_LOMBRE || gBattleMons[battler].species == SPECIES_WINGULL || gBattleMons[battler].species == SPECIES_PELIPPER || gBattleMons[battler].species == SPECIES_SURSKIT || gBattleMons[battler].species == SPECIES_MASQUERAIN))
+                     && gBattleMons[battler].maxHP > gBattleMons[battler].hp && (gBattleMons[battler].species == SPECIES_CACNEA || gBattleMons[battler].species == SPECIES_CACTURNE || gBattleMons[battler].species == SPECIES_SMOOCHUM || gBattleMons[battler].species == SPECIES_JYNX || gBattleMons[battler].species == SPECIES_SQUIRTLE || gBattleMons[battler].species == SPECIES_WARTORTLE || gBattleMons[battler].species == SPECIES_BLASTOISE || gBattleMons[battler].species == SPECIES_TENTACOOL || gBattleMons[battler].species == SPECIES_TENTACRUEL || gBattleMons[battler].species == SPECIES_LOTAD || gBattleMons[battler].species == SPECIES_LUDICOLO || gBattleMons[battler].species == SPECIES_LOMBRE || gBattleMons[battler].species == SPECIES_WINGULL || gBattleMons[battler].species == SPECIES_PELIPPER || gBattleMons[battler].species == SPECIES_SURSKIT || gBattleMons[battler].species == SPECIES_MASQUERAIN))
                     {
                         gLastUsedAbility = ABILITY_RAIN_DISH; // why
                         BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
@@ -2912,6 +2913,28 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 {
                 case ABILITY_VOLT_ABSORB:
                     if (moveType == TYPE_ELECTRIC)
+                    {
+                        if (gProtectStructs[gBattlerAttacker].notFirstStrike)
+                            gBattlescriptCurrInstr = BattleScript_MoveHPDrain;
+                        else
+                            gBattlescriptCurrInstr = BattleScript_MoveHPDrain_PPLoss;
+
+                        effect = 1;
+                    }
+                    break;
+                case ABILITY_EARLY_BIRD:
+                    if (moveType == TYPE_FLYING)
+                    {
+                        if (gProtectStructs[gBattlerAttacker].notFirstStrike)
+                            gBattlescriptCurrInstr = BattleScript_MoveHPDrain;
+                        else
+                            gBattlescriptCurrInstr = BattleScript_MoveHPDrain_PPLoss;
+
+                        effect = 1;
+                    }
+                    break;
+                case ABILITY_LIQUID_OOZE:
+                    if (moveType == TYPE_POISON)
                     {
                         if (gProtectStructs[gBattlerAttacker].notFirstStrike)
                             gBattlescriptCurrInstr = BattleScript_MoveHPDrain;

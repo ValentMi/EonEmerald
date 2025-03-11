@@ -4,6 +4,144 @@ NewMauville_Inside_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, NewMauville_Inside_OnLoad
 	.byte 0
 	
+SkyPillar_Top_EventScript_Entei::
+	lockall
+	waitse
+	playmoncry SPECIES_ENTEI, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_ENTEI, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SkyPillar_Top_EventScript_DefeatedEntei
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SkyPillar_Top_EventScript_RanFromEntei
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SkyPillar_Top_EventScript_RanFromEntei
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SkyPillar_Top_EventScript_DefeatedEntei
+	setflag FLAG_DEFEATED_ENTEI
+	releaseall
+	end
+
+SkyPillar_Top_EventScript_DefeatedEntei::
+	setflag FLAG_DEFEATED_ENTEI
+	goto SkyPillar_Top_EventScript_DefeatedEntei2
+	end
+
+SkyPillar_Top_EventScript_RanFromEntei::
+	setvar VAR_0x8004, SPECIES_ENTEI
+	goto SkyPillar_Top_EventScript_RanFromEntei2
+	end
+
+SkyPillar_Top_EventScript_DefeatedEntei2::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	releaseall
+	end
+
+SkyPillar_Top_EventScript_RanFromEntei2::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, VAR_0x8004
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
+	releaseall
+	end
+	
+SkyPillar_Top_EventScript_Raikou::
+	lockall
+	waitse
+	playmoncry SPECIES_RAIKOU, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_RAIKOU, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SkyPillar_Top_EventScript_DefeatedRaikou
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SkyPillar_Top_EventScript_RanFromRaikou
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SkyPillar_Top_EventScript_RanFromRaikou
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SkyPillar_Top_EventScript_DefeatedRaikou
+	setflag FLAG_DEFEATED_RAIKOU
+	releaseall
+	end
+
+SkyPillar_Top_EventScript_DefeatedRaikou::
+	setflag FLAG_DEFEATED_RAIKOU
+	goto SkyPillar_Top_EventScript_DefeatedRaikou2
+	end
+
+SkyPillar_Top_EventScript_RanFromRaikou::
+	setvar VAR_0x8004, SPECIES_RAIKOU
+	goto SkyPillar_Top_EventScript_RanFromRaikou2
+	end
+
+SkyPillar_Top_EventScript_DefeatedRaikou2::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	releaseall
+	end
+
+SkyPillar_Top_EventScript_RanFromRaikou2::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, VAR_0x8004
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
+	releaseall
+	end
+	
+SkyPillar_Top_EventScript_Suicune::
+	lockall
+	waitse
+	playmoncry SPECIES_SUICUNE, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_SUICUNE, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SkyPillar_Top_EventScript_DefeatedSuicune
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SkyPillar_Top_EventScript_RanFromSuicune
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SkyPillar_Top_EventScript_RanFromSuicune
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SkyPillar_Top_EventScript_DefeatedSuicune
+	setflag FLAG_DEFEATED_SUICUNE
+	releaseall
+	end
+
+SkyPillar_Top_EventScript_DefeatedSuicune::
+	setflag FLAG_DEFEATED_SUICUNE
+	goto SkyPillar_Top_EventScript_DefeatedSuicune2
+	end
+
+SkyPillar_Top_EventScript_RanFromSuicune::
+	setvar VAR_0x8004, SPECIES_SUICUNE
+	goto SkyPillar_Top_EventScript_RanFromSuicune2
+	end
+
+SkyPillar_Top_EventScript_DefeatedSuicune2::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	releaseall
+	end
+
+SkyPillar_Top_EventScript_RanFromSuicune2::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, VAR_0x8004
+	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
+	releaseall
+	end
+	
 SkyPillar_Top_EventScript_Zapdos::
 	lockall
 	waitse
@@ -19,7 +157,7 @@ SkyPillar_Top_EventScript_Zapdos::
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SkyPillar_Top_EventScript_DefeatedZapdos
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SkyPillar_Top_EventScript_RanFromZapdos
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SkyPillar_Top_EventScript_RanFromZapdos
-	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, TerraCave_End_EventScript_RemoveZapdos
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SkyPillar_Top_EventScript_DefeatedZapdos
 	setflag FLAG_DEFEATED_ZAPDOS
 	releaseall
 	end
@@ -65,38 +203,10 @@ SkyPillar_Top_EventScript_Articuno::
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SkyPillar_Top_EventScript_DefeatedArticuno
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SkyPillar_Top_EventScript_RanFromArticuno
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SkyPillar_Top_EventScript_RanFromArticuno
-	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, TerraCave_End_EventScript_RemoveArticuno
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SkyPillar_Top_EventScript_DefeatedArticuno
 	setflag FLAG_DEFEATED_ARTICUNO
 	releaseall
 	end
-
-TerraCave_End_EventScript_RemoveArticuno::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject VAR_LAST_TALKED
-	fadescreenswapbuffers FADE_FROM_BLACK
-	releaseall
-	return
-
-TerraCave_End_EventScript_RemoveZapdos::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject VAR_LAST_TALKED
-	fadescreenswapbuffers FADE_FROM_BLACK
-	releaseall
-	return
-
-TerraCave_End_EventScript_RemoveMoltres::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject VAR_LAST_TALKED
-	fadescreenswapbuffers FADE_FROM_BLACK
-	releaseall
-	return
-
-TerraCave_End_EventScript_RemoveMewtwo::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject VAR_LAST_TALKED
-	fadescreenswapbuffers FADE_FROM_BLACK
-	releaseall
-	return
 
 SkyPillar_Top_EventScript_DefeatedArticuno::
 	setflag FLAG_DEFEATED_ARTICUNO
@@ -139,7 +249,7 @@ SkyPillar_Top_EventScript_Moltres::
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SkyPillar_Top_EventScript_DefeatedMoltres
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SkyPillar_Top_EventScript_RanFromMoltres
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SkyPillar_Top_EventScript_RanFromMoltres
-	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, TerraCave_End_EventScript_RemoveMoltres
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SkyPillar_Top_EventScript_DefeatedMoltres
 	setflag FLAG_DEFEATED_MOLTRES
 	releaseall
 	end
@@ -185,7 +295,7 @@ SkyPillar_Top_EventScript_Mewtwo::
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SkyPillar_Top_EventScript_DefeatedMewtwo
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SkyPillar_Top_EventScript_RanFromMewtwo
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SkyPillar_Top_EventScript_RanFromMewtwo
-	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, TerraCave_End_EventScript_RemoveMewtwo
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SkyPillar_Top_EventScript_DefeatedMewtwo
 	setflag FLAG_DEFEATED_MEWTWO
 	releaseall
 	end

@@ -140,8 +140,10 @@
 #define METATILE_Contest_WallShadow          0x221
 
 // gTileset_Dewford
-#define METATILE_Dewford_Door              0x225
-#define METATILE_Dewford_Door_BattleTower  0x25D
+#define METATILE_Dewford_Dewford_Door_BattleTower  0x2B2
+#define METATILE_Dewford_Door                      0x225
+#define METATILE_Dewford_Door_BattleTower          0x349
+#define METATILE_Dewford_PokemonCenter_Mid         0x3B0
 
 // gTileset_EliteFour
 #define METATILE_EliteFour_EntryDoor_ClosedBottom    0x20E
@@ -192,8 +194,8 @@
 #define METATILE_Fortree_BridgeOverGrass_Raised            0x24E
 #define METATILE_Fortree_BridgeOverTrees_Lowered           0x257
 #define METATILE_Fortree_BridgeOverTrees_Raised            0x256
-#define METATILE_Fortree_LongGrass                         0x2FD
-#define METATILE_Fortree_LongGrass_Root                    0x208
+#define METATILE_Fortree_LongGrass                         0x2A8
+#define METATILE_Fortree_LongGrass_Root                    0x2AB
 #define METATILE_Fortree_SecretBase_LongGrass_BottomLeft   0x281
 #define METATILE_Fortree_SecretBase_LongGrass_BottomMid    0x282
 #define METATILE_Fortree_SecretBase_LongGrass_BottomRight  0x283
@@ -209,7 +211,7 @@
 #define METATILE_General_BlueCaveIndent        0x1B0
 #define METATILE_General_BlueCaveOpen          0x1B1
 #define METATILE_General_CalmWater             0x170
-#define METATILE_General_CaveEntrance_Bottom   0x0A7
+#define METATILE_General_CaveEntrance_Bottom   0x064
 #define METATILE_General_CaveEntrance_Top      0x09F
 #define METATILE_General_Door                  0x021
 #define METATILE_General_Door_Contest          0x1DB
@@ -227,7 +229,7 @@
 #define METATILE_General_MuddySlope_Frame3     0x0EB
 #define METATILE_General_RedCaveIndent         0x1A0
 #define METATILE_General_RedCaveOpen           0x1A1
-#define METATILE_General_ReflectiveWater       0x0A1
+#define METATILE_General_ReflectiveWater       0x0D1
 #define METATILE_General_RockWall_GrassBase    0x079
 #define METATILE_General_RockWall_RockBase     0x07C
 #define METATILE_General_RockWall_SandBase     0x091

@@ -123,10 +123,55 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_StrengthBoulder",
       "flag": "FLAG_TEMP_15"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 5,
+      "y": 34,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MeteorFalls_1F_1R_EventScript_ItemPPUP",
+      "flag": "FLAG_RUIN_VALLEY_PPUP"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 43,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AbandonedShip_HiddenFloorRooms_EventScript_ItemWaterStone",
+      "flag": "FLAG_ITEM_ROUTE_123_RARE_CANDY"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+      "x": 24,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RUIN_VALLEY_EventScript_OldMan",
+      "flag": "FLAG_ENABLE_SHIP_NAVEL_ROCK"
     }
   ],
   "warp_events": [
-
+    {
+      "x": 24,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_NAVEL_ROCK_FORK",
+      "dest_warp_id": "3"
+    }
   ],
   "coord_events": [
 

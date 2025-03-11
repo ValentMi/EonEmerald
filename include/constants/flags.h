@@ -602,8 +602,8 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_111_PROTEIN                   (FLAG_HIDDEN_ITEMS_START + 0x38)
 #define FLAG_HIDDEN_ITEM_ROUTE_111_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x39)
 #define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_POTION              (FLAG_HIDDEN_ITEMS_START + 0x3A)
-#define FLAG_HIDDEN_ITEM_UNUSED_1     						 (FLAG_HIDDEN_ITEMS_START + 0x3B)//abandoned
-#define FLAG_HIDDEN_ITEM_UNUSED							     (FLAG_HIDDEN_ITEMS_START + 0x3C)//abandoned
+#define FLAG_HIDDEN_ITEM_MT_EMBER_FLAME_ORB    				 (FLAG_HIDDEN_ITEMS_START + 0x3B)
+#define FLAG_HIDDEN_ITEM_MT_EMBER_NUGGET				     (FLAG_HIDDEN_ITEMS_START + 0x3C)
 #define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_POKE_BALL           (FLAG_HIDDEN_ITEMS_START + 0x3D)
 #define FLAG_HIDDEN_ITEM_ROUTE_104_POKE_BALL                 (FLAG_HIDDEN_ITEMS_START + 0x3E)
 #define FLAG_HIDDEN_ITEM_ROUTE_106_POKE_BALL                 (FLAG_HIDDEN_ITEMS_START + 0x3F)
@@ -661,8 +661,8 @@
 #define FLAG_HIDDEN_ITEM_MYSTIC_TICKET  0x266 // Unused Flag
 #define FLAG_HIDDEN_ITEM_OLDSEAMAP  0x267 // Unused Flag
 #define FLAG_RECEIVED_EEVEE_EGG  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
+#define FLAG_SEVAULT_CANYON_FULL_RESTORE  0x269 // Unused Flag
+#define FLAG_RUIN_VALLEY_PPUP  0x26A // Unused Flag
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
@@ -1083,7 +1083,7 @@
 #define FLAG_ITEM_ROUTE_120_NUGGET                                  0x406
 #define FLAG_ITEM_ROUTE_120_FULL_HEAL                               0x407
 #define FLAG_ITEM_ROUTE_123_CALCIUM                                 0x408
-#define FLAG_ITEM_ROUTE_123_RARE_CANDY                              0x409 // Unused Flag, leftover from R/S. In Emerald this is a hidden item and uses a different flag
+#define FLAG_ITEM_ROUTE_123_RARE_CANDY                              0x409 // leftover from R/S. In Emerald this is a hidden item and uses a different flag
 #define FLAG_ITEM_ROUTE_127_ZINC                                    0x40A
 #define FLAG_ITEM_ROUTE_127_CARBOS                                  0x40B
 #define FLAG_ITEM_ROUTE_132_RARE_CANDY                              0x40C
@@ -1228,9 +1228,9 @@
 #define FLAG_DEFEATED_ZAPDOS                                        0x496 // Unused Flag
 #define FLAG_DEFEATED_MOLTRES                                       0x497 // Unused Flag
 #define FLAG_DEFEATED_MEWTWO                                        0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
+#define FLAG_DEFEATED_ENTEI                                           0x499 // Unused Flag
+#define FLAG_DEFEATED_SUICUNE                                           0x49A // Unused Flag
+#define FLAG_DEFEATED_RAIKOU                                           0x49B // Unused Flag
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
@@ -1606,10 +1606,10 @@
 #define FLAG_HIDDEN_ITEM_RENEWABLE_1                           (DAILY_FLAGS_START + 0x25) // Unused Flag
 #define FLAG_HIDDEN_ITEM_RENEWABLE_2                           (DAILY_FLAGS_START + 0x26) // Unused Flag
 #define FLAG_HIDDEN_ITEM_RENEWABLE_3                           (DAILY_FLAGS_START + 0x27) // Unused Flag
-#define FLAG_UNUSED_0x948                           (DAILY_FLAGS_START + 0x28) // Unused Flag
-#define FLAG_UNUSED_0x949                           (DAILY_FLAGS_START + 0x29) // Unused Flag
-#define FLAG_UNUSED_0x94A                           (DAILY_FLAGS_START + 0x2A) // Unused Flag
-#define FLAG_UNUSED_0x94B                           (DAILY_FLAGS_START + 0x2B) // Unused Flag
+#define FLAG_HIDDEN_ITEM_RENEWABLE_4                           (DAILY_FLAGS_START + 0x28) // Unused Flag
+#define FLAG_HIDDEN_ITEM_RENEWABLE_5                           (DAILY_FLAGS_START + 0x29) // Unused Flag
+#define FLAG_HIDDEN_ITEM_RENEWABLE_6                           (DAILY_FLAGS_START + 0x2A) // Unused Flag
+#define FLAG_HIDDEN_ITEM_RENEWABLE_7                           (DAILY_FLAGS_START + 0x2B) // Unused Flag
 #define FLAG_UNUSED_0x94C                           (DAILY_FLAGS_START + 0x2C) // Unused Flag
 #define FLAG_UNUSED_0x94D                           (DAILY_FLAGS_START + 0x2D) // Unused Flag
 #define FLAG_UNUSED_0x94E                           (DAILY_FLAGS_START + 0x2E) // Unused Flag

@@ -2,7 +2,7 @@
   "id": "MAP_CERULEAN_CAVE_B1F",
   "name": "Cerulean_Cave_B1F",
   "layout": "LAYOUT_CERULEAN_CAVE_B1F",
-  "music": "MUS_RG_MT_MOON",
+  "music": "MUS_RG_POKE_MANSION",
   "region_map_section": "MAPSEC_CERULEAN_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

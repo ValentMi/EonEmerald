@@ -107,10 +107,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 18,
-      "y": 90,
+      "x": 4,
+      "y": 103,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -564,6 +564,20 @@
       "elevation": 0,
       "dest_map": "MAP_SEVEN_ISLAND",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 3,
+      "y": 106,
+      "elevation": 0,
+      "dest_map": "MAP_SEVAULT_CANYON",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 106,
+      "elevation": 0,
+      "dest_map": "MAP_SEVAULT_CANYON",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

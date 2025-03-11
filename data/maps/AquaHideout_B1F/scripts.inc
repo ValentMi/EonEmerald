@@ -6,7 +6,7 @@ AquaHideout_B1F_MapScripts::
 AquaHideout_B1F_OnResume:
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, AquaHideout_B1F_EventScript_TryRemoveElectrode
 	end
-
+	
 AquaHideout_B1F_EventScript_TryRemoveElectrode::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
@@ -18,6 +18,38 @@ AquaHideout_B1F_OnTransition:
 	call_if_unset FLAG_DEFEATED_ELECTRODE_2_AQUA_HIDEOUT, AquaHideout_B1F_EventScript_ShowElectrode2
 	end
 
+AquaHideout_EventScript_Reset_Trainers::
+	cleartrainerflag TRAINER_GRUNT_AQUA_HIDEOUT_1
+	cleartrainerflag TRAINER_GRUNT_AQUA_HIDEOUT_2
+	cleartrainerflag TRAINER_GRUNT_AQUA_HIDEOUT_3
+	cleartrainerflag TRAINER_GRUNT_AQUA_HIDEOUT_4
+	cleartrainerflag TRAINER_GRUNT_AQUA_HIDEOUT_5
+	cleartrainerflag TRAINER_GRUNT_AQUA_HIDEOUT_6
+	cleartrainerflag TRAINER_GRUNT_AQUA_HIDEOUT_7
+	cleartrainerflag TRAINER_GRUNT_AQUA_HIDEOUT_8
+	release
+	end
+
+SeafloorCavern_EventScript_Reset_Trainers::
+	cleartrainerflag TRAINER_GRUNT_SEAFLOOR_CAVERN_1
+	cleartrainerflag TRAINER_GRUNT_SEAFLOOR_CAVERN_2
+	cleartrainerflag TRAINER_GRUNT_SEAFLOOR_CAVERN_3
+	cleartrainerflag TRAINER_GRUNT_SEAFLOOR_CAVERN_4
+	cleartrainerflag TRAINER_GRUNT_SEAFLOOR_CAVERN_5
+	cleartrainerflag TRAINER_SHELLY_SEAFLOOR_CAVERN
+	release
+	end
+
+MagmaHideout_EventScript_Reset_Trainers::
+	cleartrainerflag TRAINER_GRUNT_MAGMA_HIDEOUT_1
+	cleartrainerflag TRAINER_GRUNT_MAGMA_HIDEOUT_2
+	cleartrainerflag TRAINER_GRUNT_MAGMA_HIDEOUT_10
+	cleartrainerflag TRAINER_GRUNT_MAGMA_HIDEOUT_12
+	cleartrainerflag TRAINER_GRUNT_MAGMA_HIDEOUT_13
+	cleartrainerflag TRAINER_TABITHA_MAGMA_HIDEOUT
+	release
+	end
+	
 AquaHideout_B1F_EventScript_ShowElectrode1::
 	clearflag FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_1
 	return
@@ -136,7 +168,7 @@ AquaHideout_B1F_Text_Grunt3PostBattle:
 
 AquaHideout_B1F_Text_Grunt5Intro:
 	.string "Yawn… Keeping watch over the\n"
-	.string "HIDEOUT bores me. I'll take you on.$"
+	.string "hideout bores me. I'll take you on.$"
 
 AquaHideout_B1F_Text_Grunt5Defeat:
 	.string "Yawn…\n"

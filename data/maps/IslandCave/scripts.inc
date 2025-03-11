@@ -103,6 +103,7 @@ IslandCave_EventScript_Regice::
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, IslandCave_EventScript_DefeatedRegice
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, IslandCave_EventScript_RanFromRegice
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, IslandCave_EventScript_RanFromRegice
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IslandCave_EventScript_DefeatedRegice
 	setflag FLAG_DEFEATED_REGICE
 	release
 	end

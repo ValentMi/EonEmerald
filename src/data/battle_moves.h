@@ -72,12 +72,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_MEGA_PUNCH] =
     {
-        .effect = EFFECT_ATTACK_UP_HIT,
-        .power = 80,
-        .type = TYPE_NORMAL,
+        .effect = EFFECT_ABSORB,
+        .power = 75,
+        .type = TYPE_FIGHTING,
         .accuracy = 100,
-        .pp = 20,
-        .secondaryEffectChance = 30,
+        .pp = 10,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
@@ -2929,16 +2929,16 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SPARK] =
     {
-        .effect = EFFECT_VOLT_SWITCH,
-        .power = 70,
+        .effect = EFFECT_PARALYZE_HIT,
+        .power = 80,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
-        .pp = 10,
-        .secondaryEffectChance = 0,
+        .pp = 15,
+        .secondaryEffectChance = 30,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
-		.category= MOVE_CATEGORY_SPECIAL,
+		.category= MOVE_CATEGORY_PHYSICAL,
     },
 
     [MOVE_FURY_CUTTER] =
@@ -3755,16 +3755,16 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CHARGE] =
     {
-        .effect = EFFECT_CHARGE,
-        .power = 0,
+        .effect = EFFECT_VOLT_SWITCH,
+        .power = 70,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_SNATCH_AFFECTED,
-		.category= MOVE_CATEGORY_STATUS,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+		.category= MOVE_CATEGORY_PHYSICAL,
     },
 
     [MOVE_TAUNT] =

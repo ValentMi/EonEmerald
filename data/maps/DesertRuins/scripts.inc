@@ -70,6 +70,7 @@ DesertRuins_EventScript_Regirock::
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, DesertRuins_EventScript_DefeatedRegirock
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, DesertRuins_EventScript_RanFromRegirock
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, DesertRuins_EventScript_RanFromRegirock
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DesertRuins_EventScript_DefeatedRegirock
 	setflag FLAG_DEFEATED_REGIROCK
 	release
 	end

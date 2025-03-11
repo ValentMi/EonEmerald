@@ -32,8 +32,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 9,
-      "y": 7,
+      "x": 8,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ICEFALL_CAVE_F2",
       "dest_warp_id": "1"

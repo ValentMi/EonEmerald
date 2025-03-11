@@ -64,7 +64,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_PRIMEAPE]    = { .size = MON_COORDS_SIZE(56, 56), .y_offset =  7 },
     [SPECIES_GROWLITHE]   = { .size = MON_COORDS_SIZE(48, 48), .y_offset = 11 },
     [SPECIES_ARCANINE]    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  2 },
-    [SPECIES_POLIWAG]     = { .size = MON_COORDS_SIZE(56, 32), .y_offset = 19 },
+    [SPECIES_POLIWAG]     = { .size = MON_COORDS_SIZE(56, 32), .y_offset = 15 },
     [SPECIES_POLIWHIRL]   = { .size = MON_COORDS_SIZE(56, 48), .y_offset = 10 },
     [SPECIES_POLIWRATH]   = { .size = MON_COORDS_SIZE(56, 48), .y_offset =  8 },
     [SPECIES_ABRA]        = { .size = MON_COORDS_SIZE(48, 48), .y_offset = 11 },

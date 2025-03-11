@@ -3,7 +3,7 @@
   "name": "MagmaHideout_2F_3R",
   "layout": "LAYOUT_MAGMA_HIDEOUT_2F_3R",
   "music": "MUS_RG_SEVII_DUNGEON",
-  "region_map_section": "MAPSEC_THREE_ISLE_PATH",
+  "region_map_section": "MAPSEC_ROUTE_23",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -24,8 +24,99 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SkyPillar_Top_EventScript_Moltres",
-      "flag": "FLAG_DEFEATED_MOLTRES"
+      "script": "SkyPillar_Top_EventScript_Entei",
+      "flag": "FLAG_DEFEATED_ENTEI"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 4,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "MagmaHideout_1F_EventScript_Grunt1",
+      "flag": "FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 11,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "MagmaHideout_1F_EventScript_Grunt2",
+      "flag": "FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 14,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "MagmaHideout_3F_2R_EventScript_Grunt10",
+      "flag": "FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 22,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "MagmaHideout_4F_EventScript_Grunt13",
+      "flag": "FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 25,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "MagmaHideout_4F_EventScript_Grunt12",
+      "flag": "FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 12,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "MagmaHideout_4F_EventScript_Tabitha",
+      "flag": "FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAXIE",
+      "x": 16,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MagmaHideout_4F_EventScript_Maxie",
+      "flag": "FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS"
     }
   ],
   "warp_events": [
@@ -37,18 +128,18 @@
       "dest_warp_id": "3"
     },
     {
-      "x": 16,
+      "x": 5,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_MAGMA_HIDEOUT_3F_3R",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SEVAULT_CANYON",
+      "dest_warp_id": "1"
     },
     {
       "x": 56,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_FIERY_PATH",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_SCORCHED_SLAB",
+      "dest_warp_id": "8"
     }
   ],
   "coord_events": [

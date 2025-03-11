@@ -3,9 +3,9 @@
   "name": "ScorchedSlab",
   "layout": "LAYOUT_SCORCHED_SLAB",
   "music": "MUS_PETALBURG_WOODS",
-  "region_map_section": "MAPSEC_SCORCHED_SLAB",
+  "region_map_section": "MAPSEC_ROUTE_23",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_FOG_DIAGONAL",
   "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": true,
   "allow_escaping": true,
@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ZIGZAGOON_2",
-      "x": 7,
-      "y": 5,
+      "x": 38,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -35,6 +35,62 @@
       "elevation": 1,
       "dest_map": "MAP_ROUTE120",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 9,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SCORCHED_SLAB",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 2,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SCORCHED_SLAB",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 14,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_SCORCHED_SLAB",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 38,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SCORCHED_SLAB",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 24,
+      "y": 2,
+      "elevation": 1,
+      "dest_map": "MAP_MAGMA_HIDEOUT_2F_3R",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 39,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_SCORCHED_SLAB",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 38,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_SCORCHED_SLAB",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 24,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_MAGMA_HIDEOUT_2F_3R",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

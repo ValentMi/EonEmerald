@@ -50,6 +50,13 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 10,
+      "y": 26,
+      "elevation": 0,
+      "item": "ITEM_FLAME_ORB",
+      "flag": "FLAG_HIDDEN_ITEM_MT_EMBER_FLAME_ORB"
+    }
   ]
 }

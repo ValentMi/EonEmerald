@@ -103,6 +103,29 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 17,
+      "y": 20,
+      "elevation": 0,
+      "item": "ITEM_IAPAPA_BERRY",
+      "flag": "FLAG_ITEM_OLD_MAGMA_HIDEOUT_B1F_MASTER_BALL"
+    },
+    {
+      "type": "hidden_item",
+      "x": 15,
+      "y": 76,
+      "elevation": 0,
+      "item": "ITEM_MAGO_BERRY",
+      "flag": "FLAG_ITEM_OLD_MAGMA_HIDEOUT_B2F_NEST_BALL"
+    },
+    {
+      "type": "hidden_item",
+      "x": 13,
+      "y": 65,
+      "elevation": 0,
+      "item": "ITEM_AGUAV_BERRY",
+      "flag": "FLAG_ITEM_OLD_MAGMA_HIDEOUT_B1F_MAX_ELIXIR"
+    }
   ]
 }

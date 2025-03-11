@@ -668,7 +668,27 @@ EverGrandeCity_HallOfFame_EventScript_ResetEliteFour::
 	setflag FLAG_LATIOS_OR_LATIAS_ROAMING
 	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	clearflag FLAG_DEFEATED_RAYQUAZA
-	
+	clearflag FLAG_DEFEATED_SUDOWOODO
+	clearflag FLAG_HIDE_BATTLE_FRONTIER_SUDOWOODO
+	clearflag FLAG_DEFEATED_ARTICUNO
+	clearflag FLAG_DEFEATED_ZAPDOS
+	clearflag FLAG_DEFEATED_MOLTRES
+	clearflag FLAG_DEFEATED_MEWTWO
+	clearflag FLAG_DEFEATED_SUICUNE
+	clearflag FLAG_DEFEATED_ENTEI
+	clearflag FLAG_DEFEATED_RAIKOU
+	clearflag FLAG_DEFEATED_REGIROCK
+	clearflag FLAG_DEFEATED_REGICE
+	clearflag FLAG_DEFEATED_REGISTEEL
+	clearflag FLAG_HIDE_REGIROCK
+	clearflag FLAG_HIDE_REGICE
+	clearflag FLAG_HIDE_REGISTEEL
+	clearflag FLAG_HIDE_MARINE_CAVE_KYOGRE
+	clearflag FLAG_HIDE_TERRA_CAVE_GROUDON
+	clearflag FLAG_DEFEATED_RAYQUAZA
+	clearflag FLAG_DEFEATED_KYOGRE
+	clearflag FLAG_DEFEATED_GROUDON
+
 	setvar VAR_ELITE_4_STATE, 0
 	return
 
@@ -997,7 +1017,7 @@ gText_Sudowoodo_Attacked::
 	.string "The weird tree attacked!$"
 
 gText_LegendaryFlewAway::
-	.string "The {STR_VAR_1} flew away!$"
+	.string "The {STR_VAR_1} fled!$"
 
 	.include "data/text/pc_transfer.inc"
 	.include "data/text/questionnaire.inc"
