@@ -8775,10 +8775,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_GRUNT_MAGMA_HIDEOUT_16] =
     {
-        .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
+        .trainerClass = TRAINER_CLASS_MAGMA_ADMIN,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MAGMA,
         .trainerPic = TRAINER_PIC_MAGMA_GRUNT_F,
-        .trainerName = _("GRUNT"),
+        .trainerName = _("COURTNEY"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -9243,7 +9243,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ROXANNE_2] =
     {
-        .trainerClass = TRAINER_CLASS_ELITE_FOUR,
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_BRUNO,
         .trainerName = _("BRUNO"),
@@ -9255,7 +9255,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ROXANNE_3] =
     {
-        .trainerClass = TRAINER_CLASS_ELITE_FOUR,
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_AGATHA,
         .trainerName = _("AGATHA"),
@@ -9267,7 +9267,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ROXANNE_4] =
     {
-        .trainerClass = TRAINER_CLASS_ELITE_FOUR,
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_LANCE,
         .trainerName = _("LANCE"),
@@ -10359,14 +10359,14 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_LORELEI] =
     {
-        .trainerClass = TRAINER_CLASS_ELITE_FOUR,
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_LORELEI,
         .trainerName = _("LORELEI"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
-        .doubleBattle = FALSE,
+        .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
-        .party = ITEM_CUSTOM_MOVES(sParty_Brock),
+        .party = ITEM_CUSTOM_MOVES(sParty_Lorelei),
     },
 };
 

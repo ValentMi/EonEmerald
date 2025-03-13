@@ -75,6 +75,10 @@ RustboroCity_DevonCorp_1F_EventScript_StaffGotRobbed::
 RustboroCity_DevonCorp_1F_EventScript_RocksMetalDisplay::
 	msgbox RustboroCity_DevonCorp_1F_Text_RocksMetalDisplay, MSGBOX_SIGN
 	end
+	
+RustboroCity_DevonCorp_1F_EventScript_PreciousRocksDisplay::
+	msgbox RustboroCity_DevonCorp_1F_Text_PreciousRocksDisplay, MSGBOX_SIGN
+	end
 
 RustboroCity_DevonCorp_1F_EventScript_ProductsDisplay::
 	msgbox RustboroCity_DevonCorp_1F_Text_ProductDisplay, MSGBOX_SIGN
@@ -132,6 +136,10 @@ RustboroCity_DevonCorp_1F_Text_RocksMetalDisplay:
 	.string "of raw materials, DEVON developed.\p"
 	.string "“DEVON is now a manufacturer of a wide\n"
 	.string "range of industrial products.”$"
+	
+RustboroCity_DevonCorp_1F_Text_PreciousRocksDisplay:
+	.string "Samples of rocks and gems are\n"
+	.string "displayed in the glass case.$"
 
 RustboroCity_DevonCorp_1F_Text_ProductDisplay:
 	.string "Prototypes and test products fill\n"

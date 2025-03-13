@@ -688,6 +688,9 @@ EverGrandeCity_HallOfFame_EventScript_ResetEliteFour::
 	clearflag FLAG_DEFEATED_RAYQUAZA
 	clearflag FLAG_DEFEATED_KYOGRE
 	clearflag FLAG_DEFEATED_GROUDON
+	clearflag FLAG_MYSTERY_GIFT_DONE
+	clearflag FLAG_MYSTERY_GIFT_14
+	clearflag FLAG_MYSTERY_GIFT_15
 
 	setvar VAR_ELITE_4_STATE, 0
 	return
@@ -1234,3 +1237,9 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SEVII_POKEMART/scripts.inc"
 
 	.include "data/maps/EMBER_SPA_INTERIOR/scripts.inc"
+
+	.include "data/maps/Indigo_Plateau/scripts.inc"
+
+	.include "data/maps/INDIGO_PLATEAU_POKEMON_CENTRE/scripts.inc"
+
+	.include "data/maps/INDIGO_PLATEAU_ROOMS/scripts.inc"

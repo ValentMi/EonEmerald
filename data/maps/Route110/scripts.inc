@@ -107,6 +107,10 @@ Route110_EventScript_CyclingRoadSign::
 Route110_EventScript_VandalizedSign::
 	msgbox Route110_Text_AquaWasHere, MSGBOX_SIGN
 	end
+	
+Route110_EventScript_MagmaLetter::
+	msgbox Route110_Text_MagmaLetter, MSGBOX_SIGN
+	end
 
 Route110_EventScript_Route103Sign::
 	msgbox Route110_Text_Route103Sign, MSGBOX_SIGN
@@ -926,6 +930,10 @@ Route110_Text_AquaWasHere:
 	.string "but then someone else painted over it.\p"
 	.string "“TEAM MAGMA rules!” is what it\n"
 	.string "says now.$"
+
+Route110_Text_MagmaLetter:
+	.string "“TEAM MAGMA rules!” is written\n"
+	.string "in bold on the card.$"
 
 Route110_Text_Route103Sign:
 	.string "ROUTE 110\n"

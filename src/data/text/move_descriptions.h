@@ -126,7 +126,7 @@ static const u8 sFuryAttackDescription[] = _(
     "with sharp horns, etc.");
 
 static const u8 sHornDrillDescription[] = _(
-    "A one-hit KO attack that\n"
+    "A reckless attack that\n"
     "uses a horn like a drill.");
 
 static const u8 sTackleDescription[] = _(
@@ -358,7 +358,7 @@ static const u8 sEarthquakeDescription[] = _(
     "no effect on flying foes.");
 
 static const u8 sFissureDescription[] = _(
-    "A one-hit KO move that\n"
+    "A reckless move that\n"
     "drops the foe in a fissure.");
 
 static const u8 sDigDescription[] = _(

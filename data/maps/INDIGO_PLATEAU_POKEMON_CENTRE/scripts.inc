@@ -1,0 +1,10 @@
+.set LOCALID_NURSE, 2
+.set LOCALID_MOVE_RELEARNER, 3
+
+INDIGO_PLATEAU_POKEMON_CENTRE_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, INDIGO_PLATEAU_PokemonLeague_1F_OnTransition
+	.byte 0
+	
+INDIGO_PLATEAU_PokemonLeague_1F_OnTransition:
+	setrespawn HEAL_LOCATION_INDIGO_PLATEAU
+	end

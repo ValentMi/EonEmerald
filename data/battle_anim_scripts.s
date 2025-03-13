@@ -2539,6 +2539,7 @@ Move_EARTHQUAKE:
 
 Move_FISSURE:
 	loadspritegfx ANIM_TAG_MUD_SAND
+	loadspritegfx ANIM_TAG_IMPACT
 	createvisualtask AnimTask_HorizontalShake, 3, (MAX_BATTLERS_COUNT + 1), 10, 50
 	createvisualtask AnimTask_HorizontalShake, 3, ANIM_TARGET, 10, 50
 	playsewithpan SE_M_EARTHQUAKE, SOUND_PAN_TARGET
@@ -2558,6 +2559,37 @@ Move_FISSURE:
 	createvisualtask AnimTask_PositionFissureBgOnBattler, 5, ANIM_TARGET, 5, -1
 	waitbgfadein
 	delay 40
+	
+	playsewithpan SE_M_SWIFT, SOUND_PAN_ATTACKER
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_ATTACKER, 4, 2, RGB_WHITE, 10, RGB_BLACK, 0
+	waitforvisualfinish
+	delay 10
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER, 8
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 18, 6, 2, 4
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 16, 16, RGB_WHITE
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 0, 20, 0, 0, 4
+	delay 3
+	waitforvisualfinish
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 4, -10, 0, ANIM_TARGET, 0
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 1, -32, 0, 0, 3
+	waitforvisualfinish
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 8, -256, ANIM_ATTACKER, 0
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 8, -256, ANIM_TARGET, 0
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_ATTACKER, 4, 0, 12, 1
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 2, 16, 0, RGB_WHITE
+	waitforvisualfinish
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 8, -256, ANIM_ATTACKER, 1
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 8, -256, ANIM_TARGET, 1
+	waitforvisualfinish
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 5
+	delay 3
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 7
+	waitforvisualfinish
+	
 	restorebg
 	waitbgfadeout
 	setarg 7, -1

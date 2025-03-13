@@ -779,8 +779,8 @@
     {
       "map_section": "MAPSEC_INDIGO_PLATEAU",
       "name": "INDIGO PLATEAU",
-      "x": 0,
-      "y": 0,
+      "x": 27,
+      "y": 3,
       "width": 1,
       "height": 1
     },
@@ -1355,8 +1355,8 @@
     {
       "map_section": "MAPSEC_SEVAULT_CANYON",
       "name": "SEVAULT CANYON",
-      "x": 0,
-      "y": 0,
+      "x": 27,
+      "y": 5,
       "width": 1,
       "height": 1
     },

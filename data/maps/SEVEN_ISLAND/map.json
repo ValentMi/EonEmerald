@@ -17,6 +17,11 @@
       "map": "MAP_CANYON_ENTRANCE",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_INDIGO_PLATEAU",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [

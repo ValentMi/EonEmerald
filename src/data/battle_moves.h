@@ -1263,10 +1263,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FISSURE] =
     {
-        .effect = EFFECT_OHKO,
-        .power = 1,
+        .effect = EFFECT_DOUBLE_EDGE,
+        .power = 120,
         .type = TYPE_GROUND,
-        .accuracy = 30,
+        .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,

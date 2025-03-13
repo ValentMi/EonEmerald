@@ -2379,27 +2379,27 @@
               {
                 "min_level": 20,
                 "max_level": 30,
-                "species": "SPECIES_CLAMPERL"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
                 "species": "SPECIES_CHINCHOU"
               },
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_CLAMPERL"
-              },
-              {
-                "min_level": 30,
-                "max_level": 35,
                 "species": "SPECIES_RELICANTH"
               },
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_RELICANTH"
+                "species": "SPECIES_GOREBYSS"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_HUNTAIL"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_HUNTAIL"
               }
             ]
           }
@@ -4606,7 +4606,7 @@
               {
                 "min_level": 26,
                 "max_level": 26,
-                "species": "SPECIES_SHUPPET"
+                "species": "SPECIES_CHIMECHO"
               },
               {
                 "min_level": 30,
@@ -15749,6 +15749,144 @@
                 "min_level": 26,
                 "max_level": 26,
                 "species": "SPECIES_RATTATA"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LOST_CAVE",
+          "base_label": "gLOST_CAVE0",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 48,
+                "max_level": 48,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 41,
+                "max_level": 41,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 48,
+                "max_level": 48,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 48,
+                "max_level": 48,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 41,
+                "max_level": 41,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 22,
+                "max_level": 22,
+                "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "min_level": 22,
+                "max_level": 22,
+                "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 22,
+                "max_level": 22,
+                "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 22,
+                "max_level": 22,
+                "species": "SPECIES_MISDREAVUS"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LOST_CAVE_ENTRANCE",
+          "base_label": "gLOST_CAVE_ENTRANCE0",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 48,
+                "max_level": 48,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 41,
+                "max_level": 41,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 48,
+                "max_level": 48,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 48,
+                "max_level": 48,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 41,
+                "max_level": 41,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 22,
+                "max_level": 22,
+                "species": "SPECIES_MURKROW"
+              },
+              {
+                "min_level": 22,
+                "max_level": 22,
+                "species": "SPECIES_MURKROW"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 22,
+                "max_level": 22,
+                "species": "SPECIES_MURKROW"
+              },
+              {
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_HAUNTER"
+              },
+              {
+                "min_level": 22,
+                "max_level": 22,
+                "species": "SPECIES_MURKROW"
               }
             ]
           }

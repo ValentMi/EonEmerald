@@ -71,6 +71,11 @@ Route120_EventScript_SetWeather::
 Route120_EventScript_SetCloudyWeather::
 	setweather WEATHER_SUNNY_CLOUDS
 	return
+	
+Route120_EventScript_SetShadyWeather::
+	setweather WEATHER_SHADE
+	release
+	return
 
 Route120_EventScript_SetSunnyWeather::
 	setweather WEATHER_SUNNY

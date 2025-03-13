@@ -14,6 +14,18 @@ PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles::
 	setmetatile 10, 2, METATILE_EliteFour_LeftSpotlightOff, TRUE
 	setmetatile 11, 2, METATILE_EliteFour_RightSpotlightOff, TRUE
 	setmetatile 12, 2, METATILE_EliteFour_LeftSpotlightOff, TRUE
+	setmetatile 6, 20, METATILE_EliteFour_OpenDoor_Frame, FALSE
+	setmetatile 6, 21, METATILE_EliteFour_OpenDoor_Opening, FALSE
+	setmetatile 0, 21, METATILE_EliteFour_RightSpotlightOff, TRUE
+	setmetatile 1, 21, METATILE_EliteFour_LeftSpotlightOff, TRUE
+	setmetatile 2, 21, METATILE_EliteFour_RightSpotlightOff, TRUE
+	setmetatile 3, 21, METATILE_EliteFour_LeftSpotlightOff, TRUE
+	setmetatile 4, 21, METATILE_EliteFour_RightSpotlightOff, TRUE
+	setmetatile 8, 21, METATILE_EliteFour_LeftSpotlightOff, TRUE
+	setmetatile 9, 21, METATILE_EliteFour_RightSpotlightOff, TRUE
+	setmetatile 10, 21, METATILE_EliteFour_LeftSpotlightOff, TRUE
+	setmetatile 11, 21, METATILE_EliteFour_RightSpotlightOff, TRUE
+	setmetatile 12, 21, METATILE_EliteFour_LeftSpotlightOff, TRUE
 	special DrawWholeMapView
 	return
 
@@ -27,6 +39,31 @@ PokemonLeague_EliteFour_EventScript_WalkInCloseDoor::
 	setmetatile 5, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
 	setmetatile 6, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
 	setmetatile 7, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 5, 31, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 6, 31, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 7, 31, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 5, 32, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 6, 32, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 7, 32, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	special DrawWholeMapView
+	return
+
+IndigoPlateau_EliteFour_EventScript_WalkInCloseDoor::
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp2
+	waitmovement 0
+	playse SE_TRUCK_DOOR
+	setmetatile 5, 12, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 6, 12, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 7, 12, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 5, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 6, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 7, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 5, 31, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 6, 31, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 7, 31, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 5, 32, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 6, 32, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 7, 32, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
 	special DrawWholeMapView
 	return
 
