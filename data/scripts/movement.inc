@@ -101,3 +101,17 @@ Common_Movement_WalkUp2::
 	walk_up
 	walk_up
 	step_end
+	
+Common_Movement_LadderUp::
+	face_up
+	walk_up
+	walk_up
+	step_end
+	
+Common_Movement_LadderDown::
+	face_up
+	lock_facing_direction
+	walk_down
+	walk_down
+	unlock_facing_direction
+	step_end

@@ -4796,8 +4796,11 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 	if (holdEffect == HOLD_EFFECT_CHOICE_SCARF)
         speedBattler1 *= 1.5;
 
-    if (gBattleMons[battler1].status1 & STATUS1_PARALYSIS)
+    if (gBattleMons[battler1].status1 & STATUS1_PARALYSIS && (gBattleMons[gActiveBattler].species != SPECIES_JOLTEON || gBattleMons[gActiveBattler].species != SPECIES_GRANBULL || gBattleMons[gActiveBattler].species != SPECIES_TEDDIURSA || gBattleMons[gActiveBattler].species != SPECIES_URSARING || gBattleMons[gActiveBattler].species != SPECIES_POOCHYENA || gBattleMons[gActiveBattler].species != SPECIES_MIGHTYENA || gBattleMons[gActiveBattler].species != SPECIES_ZIGZAGOON || gBattleMons[gActiveBattler].species != SPECIES_LINOONE || gBattleMons[gActiveBattler].species != SPECIES_SHROOMISH))
         speedBattler1 /= 4;
+	
+    if ((gBattleMons[battler1].status1 & STATUS1_PARALYSIS || gBattleMons[battler1].status1 & STATUS1_POISON || gBattleMons[battler1].status1 & STATUS1_TOXIC_POISON || gBattleMons[battler1].status1 & STATUS1_BURN) && (gBattleMons[gActiveBattler].species == SPECIES_JOLTEON || gBattleMons[gActiveBattler].species == SPECIES_GRANBULL || gBattleMons[gActiveBattler].species == SPECIES_TEDDIURSA || gBattleMons[gActiveBattler].species == SPECIES_URSARING || gBattleMons[gActiveBattler].species == SPECIES_POOCHYENA || gBattleMons[gActiveBattler].species == SPECIES_MIGHTYENA || gBattleMons[gActiveBattler].species == SPECIES_ZIGZAGOON || gBattleMons[gActiveBattler].species == SPECIES_LINOONE || gBattleMons[gActiveBattler].species == SPECIES_SHROOMISH))
+        speedBattler1 *= 1.5;
 
     if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
         speedBattler1 = UINT_MAX;
@@ -4846,8 +4849,11 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 	if (holdEffect == HOLD_EFFECT_CHOICE_SCARF)
         speedBattler2 *= 1.5;
 
-    if (gBattleMons[battler2].status1 & STATUS1_PARALYSIS)
+    if (gBattleMons[battler1].status1 & STATUS1_PARALYSIS && (gBattleMons[gActiveBattler].species != SPECIES_JOLTEON || gBattleMons[gActiveBattler].species != SPECIES_GRANBULL || gBattleMons[gActiveBattler].species != SPECIES_TEDDIURSA || gBattleMons[gActiveBattler].species != SPECIES_URSARING || gBattleMons[gActiveBattler].species != SPECIES_POOCHYENA || gBattleMons[gActiveBattler].species != SPECIES_MIGHTYENA || gBattleMons[gActiveBattler].species != SPECIES_ZIGZAGOON || gBattleMons[gActiveBattler].species != SPECIES_LINOONE || gBattleMons[gActiveBattler].species != SPECIES_SHROOMISH))
         speedBattler2 /= 4;
+	
+    if ((gBattleMons[battler1].status1 & STATUS1_PARALYSIS || gBattleMons[battler1].status1 & STATUS1_POISON || gBattleMons[battler1].status1 & STATUS1_TOXIC_POISON || gBattleMons[battler1].status1 & STATUS1_BURN) && (gBattleMons[gActiveBattler].species == SPECIES_JOLTEON || gBattleMons[gActiveBattler].species == SPECIES_GRANBULL || gBattleMons[gActiveBattler].species == SPECIES_TEDDIURSA || gBattleMons[gActiveBattler].species == SPECIES_URSARING || gBattleMons[gActiveBattler].species == SPECIES_POOCHYENA || gBattleMons[gActiveBattler].species == SPECIES_MIGHTYENA || gBattleMons[gActiveBattler].species == SPECIES_ZIGZAGOON || gBattleMons[gActiveBattler].species == SPECIES_LINOONE || gBattleMons[gActiveBattler].species == SPECIES_SHROOMISH))
+        speedBattler2 *= 1.5;
 
     if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
         speedBattler2 = UINT_MAX;

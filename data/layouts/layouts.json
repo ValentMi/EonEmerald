@@ -3154,7 +3154,7 @@
     {
       "id": "LAYOUT_AQUA_HIDEOUT_UNUSED_RUBY_MAP1",
       "name": "AquaHideout_UnusedRubyMap1_Layout",
-      "width": 28,
+      "width": 30,
       "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Pacifidlog",
@@ -4954,10 +4954,10 @@
     {
       "id": "LAYOUT_INDIGO_PLATEAU_ROOMS",
       "name": "INDIGO_PLATEAU_ROOMS_Layout",
-      "width": 12,
-      "height": 40,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_EliteFour",
+      "width": 29,
+      "height": 67,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
       "border_filepath": "data/layouts/INDIGO_PLATEAU_ROOMS/border.bin",
       "blockdata_filepath": "data/layouts/INDIGO_PLATEAU_ROOMS/map.bin"
     }

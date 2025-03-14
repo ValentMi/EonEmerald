@@ -3270,6 +3270,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     // Apply abilities / field sports
     if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
         gBattleMovePower /= 2;
+    if (defender->species == SPECIES_SUNFLORA && (type == TYPE_FIRE || type == TYPE_ICE || type == TYPE_WATER))
+        gBattleMovePower /= 2;
 	if (defender->ability == ABILITY_MAGMA_ARMOR && (type == TYPE_WATER || type == TYPE_ICE))
         gBattleMovePower /= 2;
     if (defender->ability == ABILITY_GALVANIZED)
@@ -3379,7 +3381,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
     if ((MOVE_POWDER_SNOW) && attacker->species == SPECIES_PILOSWINE)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
-	if ((type == TYPE_GHOST) && (attacker->species == SPECIES_BANETTE || attacker->species == SPECIES_SHEDINJA))
+	if ((type == TYPE_GHOST) && (attacker->species == SPECIES_DUSCLOPS || attacker->species == SPECIES_BANETTE || attacker->species == SPECIES_SHEDINJA))
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
     if ((MOVE_ICE_PUNCH || MOVE_FIRE_PUNCH || MOVE_THUNDER_PUNCH) && attacker->species == SPECIES_HITMONCHAN)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;

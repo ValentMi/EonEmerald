@@ -6,8 +6,8 @@ FallarborTown_MoveRelearnersHouse_MapScripts::
 FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner::
 	faceplayer
 	lockall
-	applymovement LOCALID_MOVE_RELEARNER, Common_Movement_FacePlayer
-	waitmovement 0
+	//applymovement LOCALID_MOVE_RELEARNER, Common_Movement_FacePlayer
+	//waitmovement 0
 	goto_if_set FLAG_TEMP_1, FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove
 	msgbox FallarborTown_MoveRelearnersHouse_Text_ImTheMoveTutor, MSGBOX_DEFAULT
 	setflag FLAG_TEMP_1

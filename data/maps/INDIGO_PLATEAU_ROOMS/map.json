@@ -2,17 +2,23 @@
   "id": "MAP_INDIGO_PLATEAU_ROOMS",
   "name": "INDIGO_PLATEAU_ROOMS",
   "layout": "LAYOUT_INDIGO_PLATEAU_ROOMS",
-  "music": "MUS_RG_VICTORY_ROAD",
-  "region_map_section": "MAPSEC_INDIGO_PLATEAU",
+  "music": "MUS_UNDERWATER",
+  "region_map_section": "MAPSEC_WATER_LABYRINTH",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_INDOOR",
-  "allow_cycling": true,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_UNDERWATER",
+  "allow_cycling": false,
   "allow_escaping": false,
-  "allow_running": true,
+  "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "map": "MAP_WATER_LABYRINTH_2",
+      "offset": 0,
+      "direction": "emerge"
+    }
+  ],
   "object_events": [
 
   ],
@@ -23,6 +29,29 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 5,
+      "y": 35,
+      "elevation": 0,
+      "item": "ITEM_BIG_PEARL",
+      "flag": "FLAG_HIDDEN_ITEM_RENEWABLE_9"
+    },
+    {
+      "type": "hidden_item",
+      "x": 7,
+      "y": 34,
+      "elevation": 0,
+      "item": "ITEM_DEEP_SEA_TOOTH",
+      "flag": "FLAG_HIDDEN_ITEM_RENEWABLE_8"
+    },
+    {
+      "type": "hidden_item",
+      "x": 6,
+      "y": 36,
+      "elevation": 0,
+      "item": "ITEM_DEEP_SEA_TOOTH",
+      "flag": "FLAG_HIDDEN_ITEM_RENEWABLE_10"
+    }
   ]
 }

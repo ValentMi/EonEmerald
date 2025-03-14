@@ -314,9 +314,9 @@ static const u8 sContextMenuItems_TmHmPocket[] = {
 };
 
 static const u8 sContextMenuItems_BerriesPocket[] = {
-    ACTION_CHECK_TAG,   ACTION_DUMMY,
-    ACTION_USE,         ACTION_GIVE,
-    ACTION_TOSS,        ACTION_CANCEL
+    ACTION_USE,   		ACTION_GIVE,
+    ACTION_TOSS,        ACTION_CANCEL,
+    ACTION_CHECK_TAG,   ACTION_DUMMY
 };
 
 static const u8 sContextMenuItems_BattleUse[] = {
@@ -1013,7 +1013,7 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
     }
 }
 
-static void PrintItemDescription(int itemIndex)
+static void PrintItemDescription(int itemIndex) //WIP
 {
     const u8 *str;
     if (itemIndex != LIST_CANCEL)
@@ -1028,7 +1028,7 @@ static void PrintItemDescription(int itemIndex)
         str = gStringVar4;
     }
     FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
-    BagMenu_Print(WIN_DESCRIPTION, FONT_NORMAL, str, 3, 1, 0, 0, 0, COLORID_NORMAL);
+    BagMenu_Print(WIN_DESCRIPTION, FONT_NARROW, str, 3, 1, 0, 0, 0, COLORID_NORMAL);
 }
 
 static void BagMenu_PrintCursor(u8 listTaskId, u8 colorIndex)

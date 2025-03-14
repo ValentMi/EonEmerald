@@ -10824,10 +10824,10 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne4[] = {
     .iv = 0,
     .lvl = 87,
 	.evs = {0, 0, 0, 252, 0, 252},
-    .species = SPECIES_FERALIGATR,
+    .species = SPECIES_SALAMENCE,
 	.heldItem = ITEM_LIFE_ORB,
 	.ability = 0,
-    .moves = {MOVE_CRUNCH, MOVE_DRAGON_DANCE, MOVE_DIVE, MOVE_WATERFALL}
+    .moves = {MOVE_CRUNCH, MOVE_DRAGON_DANCE, MOVE_FIRE_BLAST, MOVE_DRAGON_CLAW}
     },
     {
     .iv = 0,

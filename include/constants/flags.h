@@ -1610,9 +1610,9 @@
 #define FLAG_HIDDEN_ITEM_RENEWABLE_5                           (DAILY_FLAGS_START + 0x29) // Unused Flag
 #define FLAG_HIDDEN_ITEM_RENEWABLE_6                           (DAILY_FLAGS_START + 0x2A) // Unused Flag
 #define FLAG_HIDDEN_ITEM_RENEWABLE_7                           (DAILY_FLAGS_START + 0x2B) // Unused Flag
-#define FLAG_UNUSED_0x94C                           (DAILY_FLAGS_START + 0x2C) // Unused Flag
-#define FLAG_UNUSED_0x94D                           (DAILY_FLAGS_START + 0x2D) // Unused Flag
-#define FLAG_UNUSED_0x94E                           (DAILY_FLAGS_START + 0x2E) // Unused Flag
+#define FLAG_HIDDEN_ITEM_RENEWABLE_8                           (DAILY_FLAGS_START + 0x2C) // Unused Flag
+#define FLAG_HIDDEN_ITEM_RENEWABLE_9                           (DAILY_FLAGS_START + 0x2D) // Unused Flag
+#define FLAG_HIDDEN_ITEM_RENEWABLE_10                           (DAILY_FLAGS_START + 0x2E) // Unused Flag
 #define FLAG_UNUSED_0x94F                           (DAILY_FLAGS_START + 0x2F) // Unused Flag
 #define FLAG_UNUSED_0x950                           (DAILY_FLAGS_START + 0x30) // Unused Flag
 #define FLAG_UNUSED_0x951                           (DAILY_FLAGS_START + 0x31) // Unused Flag

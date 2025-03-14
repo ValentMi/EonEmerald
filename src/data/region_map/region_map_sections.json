@@ -1203,9 +1203,9 @@
     {
       "map_section": "MAPSEC_KINDLE_ROAD",
       "name": "KINDLE ROAD",
-      "x": 0,
+      "x": 18,
       "y": 0,
-      "width": 1,
+      "width": 2,
       "height": 1
     },
     {
@@ -1275,7 +1275,7 @@
     {
       "map_section": "MAPSEC_RESORT_GORGEOUS",
       "name": "RESORT GORGEOUS",
-      "x": 0,
+      "x": 25,
       "y": 0,
       "width": 1,
       "height": 1
@@ -1323,8 +1323,8 @@
     {
       "map_section": "MAPSEC_WATER_PATH",
       "name": "WATER PATH",
-      "x": 0,
-      "y": 0,
+      "x": 26,
+      "y": 4,
       "width": 1,
       "height": 1
     },
@@ -1451,8 +1451,8 @@
     {
       "map_section": "MAPSEC_LOST_CAVE",
       "name": "LOST CAVE",
-      "x": 25,
-      "y": 1,
+      "x": 26,
+      "y": 0,
       "width": 1,
       "height": 1
     },

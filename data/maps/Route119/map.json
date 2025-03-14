@@ -766,6 +766,42 @@
       "y": 13,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 90,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Movement_Ladder_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 90,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Movement_Ladder_Down"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 91,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Movement_Ladder_Up"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 91,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Movement_Ladder_Up"
     }
   ],
   "bg_events": [

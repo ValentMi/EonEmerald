@@ -3,6 +3,20 @@ FortreeCity_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, FortreeCity_OnResume
 	.byte 0
 
+Movement_Ladder_Up::
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_LadderUp
+	playse SE_BRIDGE_WALK
+	waitmovement 0
+	release
+	end
+	
+Movement_Ladder_Down::
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_LadderDown
+	playse SE_BRIDGE_WALK
+	waitmovement 0
+	release
+	end
+
 FortreeCity_OnTransition:
 	setflag FLAG_VISITED_FORTREE_CITY
 	end
