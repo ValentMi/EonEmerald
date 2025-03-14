@@ -85,10 +85,26 @@ const struct LightingColour gLightingColours[] =
         .colourNum = 4,
         .lightColour = RGB2(30, 30, 10),
     },
+	//Lava Glow
     {
         .paletteNum = 12,
-        .colourNum = 5,
-        .lightColour = RGB2(30, 30, 5),
+        .colourNum = 9,
+        .lightColour = RGB2(25, 6, 0),
+    },
+    {
+        .paletteNum = 12,
+        .colourNum = 10,
+        .lightColour = RGB2(20, 6, 0),
+    },
+    {
+        .paletteNum = 12,
+        .colourNum = 11,
+        .lightColour = RGB2(30, 3, 3),
+    },
+    {
+        .paletteNum = 12,
+        .colourNum = 12,
+        .lightColour = RGB2(30, 18, 0),
     },
 };
 
