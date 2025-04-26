@@ -132,6 +132,15 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "IndigoPlateau_ChampionsRoom_EventScript_EnterRoom"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EverGrandeCity_ChampionsRoom_EventScript_EnterRoom"
     }
   ],
   "bg_events": [

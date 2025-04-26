@@ -8,7 +8,7 @@
 EverGrandeCity_ChampionsRoom_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, EverGrandeCity_ChampionsRoom_OnTransition
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, EverGrandeCity_ChampionsRoom_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, EverGrandeCity_ChampionsRoom_OnFrame
+	//map_script MAP_SCRIPT_ON_FRAME_TABLE, EverGrandeCity_ChampionsRoom_OnFrame
 	.byte 0
 
 EverGrandeCity_ChampionsRoom_OnTransition:
@@ -384,8 +384,8 @@ IndigoPlateau_ChampionsRoom_EventScript_Defeated::
 	addobject LOCALID_RIVAL_2
 	call IndigoPlateau_ChampionsRoom_EventScript_RivalApproachPlayer
 	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, IndigoPlateau_ChampionsRoom_EventScript_MayAdvice
-	goto_if_eq VAR_RESULT, FEMALE, IndigoPlateau_ChampionsRoom_EventScript_BrendanAdvice
+	goto_if_eq VAR_RESULT, MALE, IndigoPlateau_ChampionsRoom_EventScript_BirchArrivesExitForHoF
+	goto_if_eq VAR_RESULT, FEMALE, IndigoPlateau_ChampionsRoom_EventScript_BirchArrivesExitForHoF
 	end
 
 IndigoPlateau_ChampionsRoom_EventScript_PlayMayMusic::
@@ -442,19 +442,14 @@ IndigoPlateau_ChampionsRoom_EventScript_BirchArrivesExitForHoF::
 	applymovement LOCALID_OAK, Common_Movement_WalkInPlaceFasterUp
 	applymovement LOCALID_RIVAL_2, IndigoPlateau_ChampionsRoom_Movement_RivalFollows
 	waitmovement 0
-	delay 20
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	delay 20
 	waitmovement 0
-	msgbox IndigoPlateau_ChampionsRoom_Text_WallaceWaitOutside, MSGBOX_DEFAULT
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, IndigoPlateau_ChampionsRoom_EventScript_MayCongratulations
-	call_if_eq VAR_RESULT, FEMALE, IndigoPlateau_ChampionsRoom_EventScript_BrendanCongratulations
-	closemessage
 	applymovement LOCALID_BLUE, IndigoPlateau_ChampionsRoom_Movement_WallaceExit
 	applymovement OBJ_EVENT_ID_PLAYER, IndigoPlateau_ChampionsRoom_Movement_PlayerExit
 	waitmovement 0
 	setflag FLAG_HIDE_PETALBURG_GYM_GREETER
-	warp MAP_EVER_GRANDE_CITY_HALL_OF_FAME, 7, 16
+	warp MAP_INDIGO_PLATEAU, 11, 6
 	waitstate
 	releaseall
 	end
@@ -532,6 +527,7 @@ IndigoPlateau_ChampionsRoom_Movement_WallaceExit:
 	step_end
 
 IndigoPlateau_ChampionsRoom_Movement_BirchArrives:
+	walk_up
 	walk_up
 	walk_up
 	walk_up
