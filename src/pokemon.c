@@ -3361,6 +3361,14 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 			gBattleMovePower = (150 * gBattleMovePower) / 100;
 		if ((MOVE_SLAM) && defenderHoldEffect != HOLD_EFFECT_NONE)
 			gBattleMovePower = (150 * gBattleMovePower) / 100;
+		if (type == TYPE_POISON && attacker->species == SPECIES_BEEDRILL)
+			gBattleMovePower = (150 * gBattleMovePower) / 100;
+		if (type == TYPE_BUG && attacker->species == SPECIES_BEEDRILL)
+			gBattleMovePower = (150 * gBattleMovePower) / 100;
+		if (type == TYPE_WATER && attacker->species == SPECIES_CRAWDAUNT)
+			gBattleMovePower = (150 * gBattleMovePower) / 100;
+		if (type == TYPE_DARK && attacker->species == SPECIES_CRAWDAUNT)
+			gBattleMovePower = (150 * gBattleMovePower) / 100;
 	
 //CONDITIONAL PSS
     if ((MOVE_BULLET_SEED) && attacker->species == SPECIES_BRELOOM)
