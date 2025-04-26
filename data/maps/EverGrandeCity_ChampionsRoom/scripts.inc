@@ -371,7 +371,6 @@ IndigoPlateau_ChampionsRoom_EventScript_Wallace::
 	end
 
 IndigoPlateau_ChampionsRoom_EventScript_Defeated::
-	playse SE_DOOR
 	setmetatile 6, 1, METATILE_EliteFour_OpenDoorChampion_Frame, FALSE
 	setmetatile 6, 2, METATILE_EliteFour_OpenDoorChampion_Opening, FALSE
 	special DrawWholeMapView
@@ -382,18 +381,17 @@ IndigoPlateau_ChampionsRoom_EventScript_Defeated::
 	call_if_eq VAR_RESULT, MALE, IndigoPlateau_ChampionsRoom_EventScript_PlayMayMusic
 	call_if_eq VAR_RESULT, FEMALE, IndigoPlateau_ChampionsRoom_EventScript_PlayBrendanMusic
 	addobject LOCALID_RIVAL_2
-	call IndigoPlateau_ChampionsRoom_EventScript_RivalApproachPlayer
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, IndigoPlateau_ChampionsRoom_EventScript_BirchArrivesExitForHoF
 	goto_if_eq VAR_RESULT, FEMALE, IndigoPlateau_ChampionsRoom_EventScript_BirchArrivesExitForHoF
 	end
 
 IndigoPlateau_ChampionsRoom_EventScript_PlayMayMusic::
-	playbgm MUS_ENCOUNTER_MAY, FALSE
+	playbgm MUS_RG_OAK, FALSE
 	return
 
 IndigoPlateau_ChampionsRoom_EventScript_PlayBrendanMusic::
-	playbgm MUS_ENCOUNTER_BRENDAN, FALSE
+	playbgm MUS_RG_OAK, FALSE
 	return
 
 IndigoPlateau_ChampionsRoom_EventScript_MayAdvice::
@@ -659,7 +657,7 @@ IndigoPlateau_ChampionsRoom_Text_BrendanCongratulations:
 
 PokemonLeague_ChampionsRoom_Text_Intro::
     .string "Blue: Hey!\p"
-    .string "I was looking forward to seeing\n"
+    .string "I was looking forward to meeting\n"
     .string "you, {PLAYER}.\p"
     .string "My opponent should be strong to keep\n"
     .string "me sharp.\p"
@@ -697,7 +695,7 @@ PokemonLeague_ChampionsRoom_Text_OakPlayer::
     .string "OAK: {PLAYER}!$"
 
 PokemonLeague_ChampionsRoom_Text_OakCongratulations::
-    .string "OAK: {PLAYER}!\p"
+    .string "OAK: Ah! So you're {PLAYER}!\p"
     .string "So, you've won!\n"
     .string "Sincerely, congratulations!\p"
     .string "You're the new POKéMON LEAGUE\n"

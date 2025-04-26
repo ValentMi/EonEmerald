@@ -1595,7 +1595,7 @@
     {
       "map_section": "MAPSEC_BIRTH_ISLAND",
       "name": "BIRTH ISLAND",
-      "x": 0,
+      "x": 24,
       "y": 0,
       "width": 1,
       "height": 1
@@ -1603,8 +1603,8 @@
     {
       "map_section": "MAPSEC_FARAWAY_ISLAND",
       "name": "FARAWAY ISLAND",
-      "x": 0,
-      "y": 0,
+      "x": 12,
+      "y": 14,
       "width": 1,
       "height": 1
     },
