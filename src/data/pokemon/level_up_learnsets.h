@@ -6464,7 +6464,7 @@ static const u16 sLaironLevelUpLearnset[] = {
 
 static const u16 sAggronLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_SUPERPOWER),
-    LEVEL_UP_MOVE(1, MOVE_CURSE),
+    LEVEL_UP_MOVE(1, MOVE_HORN_DRILL),
     LEVEL_UP_MOVE(1, MOVE_ENDEAVOR),
     LEVEL_UP_MOVE(1, MOVE_BODY_SLAM),
     LEVEL_UP_MOVE(1, MOVE_STOMP),
