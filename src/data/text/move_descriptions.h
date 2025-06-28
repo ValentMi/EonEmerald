@@ -738,8 +738,8 @@ static const u8 sScaryFaceDescription[] = _(
     "to sharply reduce SPEED.");
 
 static const u8 sFaintAttackDescription[] = _(
-    "Draws the foe close, then\n"
-    "strikes without fail.");
+    "Blasts dark energy that\n"
+    "hits without fail.");
 
 static const u8 sSweetKissDescription[] = _(
     "Demands a kiss with a cute\n"

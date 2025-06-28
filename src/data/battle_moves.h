@@ -2594,7 +2594,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FAINT_ATTACK] =
     {
         .effect = EFFECT_ALWAYS_HIT,
-        .power = 70,
+        .power = 80,
         .type = TYPE_DARK,
         .accuracy = 0,
         .pp = 20,
@@ -2602,7 +2602,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
-		.category= MOVE_CATEGORY_PHYSICAL,
+		.category= MOVE_CATEGORY_SPECIAL,
     },
 
     [MOVE_SWEET_KISS] =

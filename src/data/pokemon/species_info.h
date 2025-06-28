@@ -5018,12 +5018,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_SPINARAK] =
     {
-        .baseHP        = 40,
-        .baseAttack    = 70,
+        .baseHP        = 33,
+        .baseAttack    = 66,
         .baseDefense   = 40,
-        .baseSpeed     = 30,
-        .baseSpAttack  = 30,
-        .baseSpDefense = 40,
+        .baseSpeed     = 45,
+        .baseSpAttack  = 21,
+        .baseSpDefense = 25,
         .types = { TYPE_BUG, TYPE_POISON },
         .catchRate = 255,
         .expYield = 54,
@@ -5048,12 +5048,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_ARIADOS] =
     {
-        .baseHP        = 80,
-        .baseAttack    = 110,
-        .baseDefense   = 70,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 40,
-        .baseSpDefense = 70,
+        .baseHP        = 71,
+        .baseAttack    = 102,
+        .baseDefense   = 78,
+        .baseSpeed     = 92,
+        .baseSpAttack  = 52,
+        .baseSpDefense = 55,
         .types = { TYPE_BUG, TYPE_DARK },
         .catchRate = 90,
         .expYield = 134,

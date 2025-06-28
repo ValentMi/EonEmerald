@@ -15,8 +15,6 @@ Route103_OnLoad:
 	end
 
 Route103_EventScript_OpenAlteringCave::
-	setmetatile 45, 5, METATILE_General_CaveEntrance_Top, TRUE
-	setmetatile 45, 6, METATILE_General_CaveEntrance_Bottom, FALSE
 	return
 
 Route103_EventScript_Rival::
