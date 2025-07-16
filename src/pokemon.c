@@ -3446,6 +3446,11 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		{
 			damage /= 2;
 		}
+        // Ingrain reduces ground and water damage
+        if ((gStatuses3[gActiveBattler] & STATUS3_ROOTED) && (type == TYPE_GROUND || type == TYPE_WATER))
+		{
+			damage /= 4;
+		}
 
         // Apply Reflect
         if ((sideStatus & SIDE_STATUS_REFLECT) && gCritMultiplier == 1)

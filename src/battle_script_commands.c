@@ -4830,8 +4830,7 @@ static void Cmd_jumpifcantswitch(void)
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1] & ~SWITCH_IGNORE_ESCAPE_PREVENTION);
 
     if (!(gBattlescriptCurrInstr[1] & SWITCH_IGNORE_ESCAPE_PREVENTION)
-        && ((gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
-            || (gStatuses3[gActiveBattler] & STATUS3_ROOTED)))
+        && ((gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))))
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 2);
     }
@@ -7766,34 +7765,34 @@ static void Cmd_weatherdamage(void)
                 gBattleMoveDamage = 0;
             }
         }
-        if (gBattleWeather & B_WEATHER_HAIL)
-        {
-            if (!IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_ICE)
-				&& !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERGROUND)
-                && !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERWATER)
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_BATTLE_ARMOR
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_SHELL_ARMOR
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_SHIELD_DUST
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_THICK_FAT
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_FLAME_BODY
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_MAGMA_ARMOR
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_FORECAST
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_LIQUID_OOZE
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_ROCK_HEAD
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_ROCK_BODY
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_GALVANIZED
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_PERMAFROST
-				&& gBattleMons[gBattlerAttacker].ability != ABILITY_SLUSH_RUSH)
-            {
-                gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
-                if (gBattleMoveDamage == 0)
-                    gBattleMoveDamage = 1;
-            }
-            else
-            {
-                gBattleMoveDamage = 0;
-            }
-        }
+        // if (gBattleWeather & B_WEATHER_HAIL)
+        // {
+            // if (!IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_ICE)
+				// && !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERGROUND)
+                // && !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERWATER)
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_BATTLE_ARMOR
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_SHELL_ARMOR
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_SHIELD_DUST
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_THICK_FAT
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_FLAME_BODY
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_MAGMA_ARMOR
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_FORECAST
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_LIQUID_OOZE
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_ROCK_HEAD
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_ROCK_BODY
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_GALVANIZED
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_PERMAFROST
+				// && gBattleMons[gBattlerAttacker].ability != ABILITY_SLUSH_RUSH)
+            // {
+                // gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
+                // if (gBattleMoveDamage == 0)
+                    // gBattleMoveDamage = 1;
+            // }
+            // else
+            // {
+                // gBattleMoveDamage = 0;
+            // }
+        // }
     }
     else
     {

@@ -117,7 +117,7 @@ ThreeIsland_Port_Text_WereKantoRiderFederation::
     .string "to make exhaust noises myself!$"
 
 ThreeIsland_Port_Text_ForkOverMoney::
-    .string "Please, I'm not like!\n"
+    .string "Please, I'm not like\n"
     .string "those other bikers!$"
 
 ThreeIsland_Port_Text_EverythingTurnedOutForBest::

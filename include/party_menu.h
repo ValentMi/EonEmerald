@@ -90,5 +90,7 @@ void MoveDeleterForgetMove(void);
 void BufferMoveDeleterNicknameAndMove(void);
 void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
+extern void CB2_ReturnToPartyMenuFromSummaryScreen(void);
+extern void TeachMoveRelearnerMove(void);
 
 #endif // GUARD_PARTY_MENU_H
