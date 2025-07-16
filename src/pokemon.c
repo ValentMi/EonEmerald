@@ -3259,8 +3259,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         defense = (150 * defense) / 100;
 	if ((attackerHoldEffect == HOLD_EFFECT_POWER_HERB) && (MOVE_SKULL_BASH || MOVE_RAZOR_WIND || MOVE_DIG || MOVE_BOUNCE))
 		attack = (200 * attack) / 100;
-	if ((attackerHoldEffect == HOLD_EFFECT_POWER_HERB) && (MOVE_SOLAR_BEAM) && !(gBattleWeather & (B_WEATHER_SUN)))
-		spAttack = (200 * spAttack) / 100;
+	if ((attacker->species == SPECIES_SUNFLORA) && (gBattleWeather & (B_WEATHER_SUN)))
+		spAttack = (130 * spAttack) / 100;
 	if ((attackerHoldEffect == HOLD_EFFECT_POWER_HERB) && (MOVE_SKY_ATTACK) && !(gBattleWeather & (B_WEATHER_SUN)))
 		attack = (200 * attack) / 100;
 	if ((attackerHoldEffect == HOLD_EFFECT_POWER_HERB) && (attacker->species == SPECIES_MAWILE))
@@ -3333,7 +3333,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         gBattleMovePower = (125 * gBattleMovePower) / 100;
     if (type == TYPE_BUG && attacker->ability == ABILITY_SWARM && attacker->hp <= (attacker->maxHP / 3))
         gBattleMovePower = (125 * gBattleMovePower) / 100;
-    if (attackerHoldEffect == HOLD_EFFECT_LUCKY_PUNCH && (MOVE_COMET_PUNCH || MOVE_DIZZY_PUNCH || MOVE_MEGA_KICK || MOVE_BLAZE_KICK || MOVE_LOW_KICK || MOVE_HI_JUMP_KICK || MOVE_JUMP_KICK || MOVE_STOMP || MOVE_DOUBLE_KICK || MOVE_ROLLING_KICK || MOVE_TRIPLE_KICK || MOVE_MEGA_PUNCH || MOVE_DYNAMIC_PUNCH || MOVE_FIRE_PUNCH  || MOVE_FOCUS_PUNCH || MOVE_ICE_PUNCH || MOVE_THUNDER_PUNCH || MOVE_MACH_PUNCH || MOVE_METEOR_MASH || MOVE_FIRE_PUNCH || MOVE_SHADOW_PUNCH || MOVE_SKY_UPPERCUT))
+    if (attackerHoldEffect == HOLD_EFFECT_LUCKY_PUNCH && (MOVE_COMET_PUNCH || MOVE_THRASH || MOVE_BEAT_UP || MOVE_ROCK_SMASH || MOVE_BRICK_BREAK || MOVE_NEEDLE_ARM || MOVE_DIZZY_PUNCH || MOVE_MEGA_KICK || MOVE_BLAZE_KICK || MOVE_LOW_KICK || MOVE_HI_JUMP_KICK || MOVE_JUMP_KICK || MOVE_STOMP || MOVE_DOUBLE_KICK || MOVE_ROLLING_KICK || MOVE_TRIPLE_KICK || MOVE_MEGA_PUNCH || MOVE_DYNAMIC_PUNCH || MOVE_FIRE_PUNCH  || MOVE_FOCUS_PUNCH || MOVE_ICE_PUNCH || MOVE_THUNDER_PUNCH || MOVE_MACH_PUNCH || MOVE_METEOR_MASH || MOVE_FIRE_PUNCH || MOVE_SHADOW_PUNCH || MOVE_SKY_UPPERCUT))
         gBattleMovePower = (125 * gBattleMovePower) / 100;
 	//Weather
 		if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ROCK) && gBattleWeather & B_WEATHER_SANDSTORM)
@@ -3386,6 +3386,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     if ((MOVE_ICE_PUNCH) && attacker->species == SPECIES_SNEASEL)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
     if ((MOVE_LEAF_BLADE) && attacker->species == SPECIES_TROPIUS)
+		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
+    if ((MOVE_SOLAR_BEAM) && attacker->species == SPECIES_SOLROCK)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
     if ((MOVE_POWDER_SNOW) && attacker->species == SPECIES_PILOSWINE)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
@@ -3526,8 +3528,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 			}
 
 			// any weather except sun weakens solar beam
-			if ((gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_HAIL)) && gCurrentMove == MOVE_SOLAR_BEAM)
-				damage /= 1;
+			if ((gBattleWeather & (B_WEATHER_SUN)) && gCurrentMove == MOVE_SOLAR_BEAM)
+				damage = ((u32)damage * 13) / 10;
 
 			// sunny
 			if (gBattleWeather & B_WEATHER_SUN)

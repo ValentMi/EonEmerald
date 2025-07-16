@@ -928,9 +928,9 @@ static const u8 sLaxIncenseDesc[] = _(
     "foe's accuracy.");
 
 static const u8 sLuckyPunchDesc[] = _(
-    "A hold item that\n"
-    "raises LEDIAN's\n"
-    "ATTACK.");
+    "Boosts the power\n"
+    "of punching and\n"
+    "kicking. (25%)");
 
 static const u8 sMetalPowderDesc[] = _(
     "A hold item that\n"

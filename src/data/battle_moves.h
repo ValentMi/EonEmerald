@@ -1067,8 +1067,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SOLAR_BEAM] =
     {
-        .effect = EFFECT_SOLAR_BEAM,
-        .power = 120,
+        .effect = EFFECT_HIT,
+        .power = 95,
         .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 10,
@@ -4486,7 +4486,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_SLEEP,
         .power = 0,
         .type = TYPE_GRASS,
-        .accuracy = 65,
+        .accuracy = 75,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,

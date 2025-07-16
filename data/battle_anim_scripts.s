@@ -5395,11 +5395,6 @@ AuroraBeamCreateRings:
 
 Move_SOLAR_BEAM:
 	loadspritegfx ANIM_TAG_ORBS
-	choosetwoturnanim SolarBeamSetUp, SolarBeamUnleash
-SolarBeamEnd:
-	waitforvisualfinish
-	end
-SolarBeamSetUp:
 	monbg ANIM_ATK_PARTNER
 	setalpha 12, 8
 	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 1, 4, 0, 11, RGB(31, 31, 11)
@@ -5408,7 +5403,7 @@ SolarBeamSetUp:
 	waitforvisualfinish
 	clearmonbg ANIM_ATK_PARTNER
 	blendoff
-	goto SolarBeamEnd
+	goto SolarBeamUnleash
 SolarBeamAbsorbEffect:
 	createsprite gPowerAbsorptionOrbSpriteTemplate, ANIM_ATTACKER, 2, 40, 40, 16
 	delay 2
@@ -5481,6 +5476,9 @@ SolarBeamUnleash1:
 	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 6
 	delay 4
 	return
+SolarBeamEnd:
+	waitforvisualfinish
+	end
 
 Move_BLIZZARD:
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS

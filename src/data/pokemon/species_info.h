@@ -10168,7 +10168,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_DUSCLOPS] =
     {
-        .baseHP        = 45,
+        .baseHP        = 65,
         .baseAttack    = 105,
         .baseDefense   = 130,
         .baseSpeed     = 25,
