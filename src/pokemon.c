@@ -3307,16 +3307,14 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         spDefense = (200 * spDefense) / 100;
 	if (defender->ability == ABILITY_MULTISCALE && defender->hp >= (defender->maxHP / 1))
         defense = (200 * defense) / 100;
-    if (type == TYPE_ELECTRIC && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, 0, ABILITYEFFECT_MUD_SPORT, 0))
-        gBattleMovePower /= 8;
+//    if ((type == TYPE_GRASS || type == TYPE_FIRE || type == TYPE_WATER || type == TYPE_ELECTRIC) && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, 0, ABILITYEFFECT_MUD_SPORT, 0))
+//        gBattleMovePower /= 4;
     if (type == TYPE_GROUND && defenderHoldEffect == HOLD_EFFECT_AIR_BALLOON && defender->hp >= (defender->maxHP / 1))
         gBattleMovePower *= 0;
     if (type == TYPE_WATER && defenderHoldEffect == HOLD_EFFECT_ABSORB_BULB && defender->hp >= (defender->maxHP / 1))
         gBattleMovePower *= 0;
     if (type == TYPE_ELECTRIC && defenderHoldEffect == HOLD_EFFECT_CELL_BATTERY && defender->hp >= (defender->maxHP / 1))
         gBattleMovePower *= 0;
-    if (type == TYPE_FIRE && AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, 0, ABILITYEFFECT_WATER_SPORT, 0))
-        gBattleMovePower /= 8;
     if (type == TYPE_NORMAL && attacker->species == SPECIES_DELCATTY)
         gBattleMovePower = (130 * gBattleMovePower) / 100;
     if (type == TYPE_GRASS && attacker->ability == ABILITY_OVERGROW)
@@ -3334,6 +3332,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     if (type == TYPE_WATER && attacker->ability == ABILITY_TORRENT && attacker->hp <= (attacker->maxHP / 3))
         gBattleMovePower = (125 * gBattleMovePower) / 100;
     if (type == TYPE_BUG && attacker->ability == ABILITY_SWARM && attacker->hp <= (attacker->maxHP / 3))
+        gBattleMovePower = (125 * gBattleMovePower) / 100;
+    if (attackerHoldEffect == HOLD_EFFECT_LUCKY_PUNCH && (MOVE_COMET_PUNCH || MOVE_DIZZY_PUNCH || MOVE_MEGA_KICK || MOVE_BLAZE_KICK || MOVE_LOW_KICK || MOVE_HI_JUMP_KICK || MOVE_JUMP_KICK || MOVE_STOMP || MOVE_DOUBLE_KICK || MOVE_ROLLING_KICK || MOVE_TRIPLE_KICK || MOVE_MEGA_PUNCH || MOVE_DYNAMIC_PUNCH || MOVE_FIRE_PUNCH  || MOVE_FOCUS_PUNCH || MOVE_ICE_PUNCH || MOVE_THUNDER_PUNCH || MOVE_MACH_PUNCH || MOVE_METEOR_MASH || MOVE_FIRE_PUNCH || MOVE_SHADOW_PUNCH || MOVE_SKY_UPPERCUT))
         gBattleMovePower = (125 * gBattleMovePower) / 100;
 	//Weather
 		if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ROCK) && gBattleWeather & B_WEATHER_SANDSTORM)

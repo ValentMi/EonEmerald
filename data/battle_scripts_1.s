@@ -575,7 +575,7 @@ BattleScript_EffectAccuracyDown::
 	goto BattleScript_EffectStatDown
 
 BattleScript_EffectEvasionDown::
-	setstatchanger STAT_EVASION, 1, TRUE
+	setstatchanger STAT_EVASION, 3, TRUE
 BattleScript_EffectStatDown::
 	attackcanceler
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_FailedFromAtkString
@@ -643,7 +643,6 @@ BattleScript_EffectRoar::
 	jumpifstatus3 BS_TARGET, STATUS3_ROOTED, BattleScript_PrintMonIsRooted
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
 	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
-	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_ButItFailed
 	forcerandomswitch BattleScript_ButItFailed
 
 BattleScript_EffectMultiHit::
@@ -1403,16 +1402,58 @@ BattleScript_EffectFlail::
 
 BattleScript_EffectSpite::
 	attackcanceler
+	jumpifnotfirstturn BattleScript_FailedFromAtkString
+	setstatchanger STAT_SPEED, 2, TRUE
+	goto BattleScript2_EffectHit
+BattleScript2_EffectHit::
+	setmoveeffect MOVE_EFFECT_FLINCH | MOVE_EFFECT_CERTAIN
+BattleScript2_HitFromAtkCanceler::
+	attackcanceler
+BattleScript2_HitFromAccCheck::
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+BattleScript2_HitFromAtkString::
 	attackstring
 	ppreduce
-	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
-	tryspiteppreduce BattleScript_ButItFailed
+BattleScript2_HitFromCritCalc::
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+BattleScript2_HitFromAtkAnimation::
 	attackanimation
 	waitanimation
-	printstring STRINGID_PKMNREDUCEDPP
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
 	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_MoveEnd
-
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+BattleScript2_EffectStatDown::
+	attackcanceler
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_FailedFromAtkString
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript2_MoveEnd
+	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript2_StatDownDoAnim
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript2_MoveEnd
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript2_StatDownPrintString
+BattleScript2_StatDownDoAnim::
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+BattleScript2_StatDownPrintString::
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript2_MoveEnd::
+	moveendall
+	end
+	
 BattleScript_EffectHealBell::
 	attackcanceler
 	attackstring
@@ -1754,7 +1795,6 @@ BattleScript_EffectMagnitude::
 
 BattleScript_EffectBatonPass::
 	attackcanceler
-	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_ButItFailed
 	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_ButItFailed
 	attackstring
 	ppreduce
@@ -2002,7 +2042,6 @@ BattleScript_EffectTeleport::
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_ButItFailed
 	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -2334,7 +2373,7 @@ BattleScript_MementoTargetProtectEnd:
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectFacade::
-	jumpifstatus BS_ATTACKER, STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON, BattleScript_FacadeDoubleDmg
+	jumpifstatus BS_TARGET, STATUS1_POISON | STATUS1_BURN | STATUS1_SLEEP | STATUS1_FREEZE | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON, BattleScript_FacadeDoubleDmg
 	goto BattleScript_EffectHit
 
 BattleScript_FacadeDoubleDmg::
@@ -4718,7 +4757,6 @@ BattleScript_HoneClawsEnd::
 	
 BattleScript_EffectVoltSwitch::
 	attackcanceler
-	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_ButItFailed
 	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_ButItFailed
 	attackstring
 	ppreduce

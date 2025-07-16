@@ -10119,13 +10119,13 @@ static void Cmd_handleballthrow(void)
                     ballMultiplier = 10;
                 break;
             case ITEM_DIVE_BALL:
-                if (GetCurrentMapType() == MAP_TYPE_UNDERWATER)
+                if (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_WATER) || (GetCurrentMapType() == MAP_TYPE_UNDERWATER))
                     ballMultiplier = 35;
                 else
                     ballMultiplier = 10;
                 break;
             case ITEM_NEST_BALL:
-                if (gBattleMons[gBattlerTarget].level < 40)
+                if (gBattleMons[gBattlerTarget].level < 40 || IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_FLYING))
                 {
                     ballMultiplier = 40 - gBattleMons[gBattlerTarget].level;
                     if (ballMultiplier <= 9)
@@ -10149,7 +10149,7 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_LUXURY_BALL:
             case ITEM_PREMIER_BALL:
-                ballMultiplier = 10;
+                ballMultiplier = 20;
                 break;
             }
         }

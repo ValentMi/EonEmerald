@@ -3990,50 +3990,16 @@ Move_TEETER_DANCE:
 	end
 
 Move_MUD_SPORT:
-	loadspritegfx ANIM_TAG_MUD_SAND
-	createvisualtask AnimTask_Splash, 2, 0, 6
-	delay 24
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 0, -4, -16
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 0, 4, -12
-	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
-	delay 32
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 0, -3, -12
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 0, 5, -14
-	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
-	delay 32
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 0, -5, -18
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 0, 3, -14
-	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
-	delay 16
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 220, 60
-	waitplaysewithpan SE_M_BUBBLE2, 0, 15
-	delay 2
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 60, 100
-	waitplaysewithpan SE_M_BUBBLE2, 0, 25
-	delay 2
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 140, 55
-	waitplaysewithpan SE_M_BUBBLE2, 0, 14
-	delay 2
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 180, 50
-	waitplaysewithpan SE_M_BUBBLE2, 0, 10
-	delay 2
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 20, 90
-	waitplaysewithpan SE_M_BUBBLE2, 0, 22
-	delay 2
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 90, 90
-	waitplaysewithpan SE_M_BUBBLE2, 0, 22
-	delay 2
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 160, 60
-	waitplaysewithpan SE_M_BUBBLE2, 0, 15
-	delay 2
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 30, 90
-	waitplaysewithpan SE_M_BUBBLE2, 0, 22
-	delay 2
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 120, 60
-	waitplaysewithpan SE_M_BUBBLE2, 0, 15
-	delay 2
-	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 200, 40
-	waitplaysewithpan SE_M_BUBBLE2, 0, 10
+	loopsewithpan SE_SHINY, SOUND_PAN_ATTACKER, 28, 2
+	createvisualtask AnimTask_MetallicShine, 5, 0, 0, RGB_BLACK
+	waitforvisualfinish
+	loadspritegfx ANIM_TAG_SPARKLE_2
+	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	call GrantingStarsEffect
+	waitforvisualfinish
+	unloadspritegfx ANIM_TAG_SPARKLE_2
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	waitforvisualfinish
 	end
 
 Move_NEEDLE_ARM:
@@ -4437,16 +4403,44 @@ Move_VOLT_TACKLE:
 	end
 
 Move_WATER_SPORT:
-	loadspritegfx ANIM_TAG_GLOWY_BLUE_ORB
-	createvisualtask AnimTask_WaterSport, 5
+	loadspritegfx ANIM_TAG_ICE_CRYSTALS
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 4, 0, 0, ANIM_TARGET, 0
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	delay 1
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 1, RGB(13, 21, 31), 10, RGB_BLACK, 0
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 1, -24, 0, 0, 4
+	waitforvisualfinish
 	delay 8
-	playsewithpan SE_M_SURF, SOUND_PAN_ATTACKER
-	delay 44
-	playsewithpan SE_M_SURF, SOUND_PAN_ATTACKER
-	delay 44
-	playsewithpan SE_M_SURF, SOUND_PAN_ATTACKER
-	delay 44
-	panse SE_M_SURF, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	waitforvisualfinish
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 4
+	waitforvisualfinish
+	loopsewithpan SE_M_CRABHAMMER, SOUND_PAN_TARGET, 20, 3
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 4, 8, 1
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 10, 10, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 20, -20, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, -15, 15, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, -10, -20, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 16, -8, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 5, 8, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, -16, 0, 20, ANIM_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	loadspritegfx ANIM_TAG_POKEBALL
+	playsewithpan SE_M_BATON_PASS, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 2, 0, 11, RGB(31, 22, 30)
+	createsprite gBatonPassPokeballSpriteTemplate, ANIM_ATTACKER, 2
 	end
 
 Move_CALM_MIND:

@@ -325,7 +325,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_STOMP] =
     {
         .effect = EFFECT_FLINCH_MINIMIZE_HIT,
-        .power = 70,
+        .power = 75,
         .type = TYPE_NORMAL,
         .accuracy = 0,
         .pp = 20,
@@ -1685,7 +1685,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_EXPLOSION,
         .power = 200,
-        .type = TYPE_NORMAL,
+        .type = TYPE_FIRE,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,
@@ -2369,12 +2369,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SPIDER_WEB] =
     {
-        .effect = EFFECT_FAKE_OUT,
-        .power = 90,
+        .effect = EFFECT_SPITE,
+        .power = 80,
         .type = TYPE_BUG,
         .accuracy = 100,
         .pp = 10,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
@@ -2523,8 +2523,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SPITE] =
     {
-        .effect = EFFECT_SPITE,
-        .power = 0,
+        .effect = EFFECT_FACADE,
+        .power = 65,
         .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 10,
@@ -2532,7 +2532,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
-		.category= MOVE_CATEGORY_STATUS,
+		.category= MOVE_CATEGORY_SPECIAL,
     },
 
     [MOVE_POWDER_SNOW] =
@@ -2582,7 +2582,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_SPEED_DOWN_2,
         .power = 0,
         .type = TYPE_NORMAL,
-        .accuracy = 90,
+        .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -3060,7 +3060,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .type = TYPE_BUG,
         .accuracy = 100,
         .pp = 20,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
@@ -3536,7 +3536,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 10,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
@@ -4203,9 +4203,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_MUD_SPORT] =
     {
-        .effect = EFFECT_MUD_SPORT,
+        .effect = EFFECT_SPEED_UP_2,
         .power = 0,
-        .type = TYPE_GROUND,
+        .type = TYPE_ROCK,
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 0,
@@ -4486,7 +4486,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_SLEEP,
         .power = 0,
         .type = TYPE_GRASS,
-        .accuracy = 55,
+        .accuracy = 65,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -4847,16 +4847,16 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_WATER_SPORT] =
     {
-        .effect = EFFECT_WATER_SPORT,
-        .power = 0,
+        .effect = EFFECT_BATON_PASS,
+        .power = 60,
         .type = TYPE_WATER,
         .accuracy = 100,
-        .pp = 15,
+        .pp = 10,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
-        .priority = 1,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
         .flags = 0,
-		.category= MOVE_CATEGORY_STATUS,
+		.category= MOVE_CATEGORY_SPECIAL,
     },
 
     [MOVE_CALM_MIND] =
