@@ -2331,7 +2331,7 @@ const struct Item gItems[] =
     {
         .name = _("Amulet Coin"),
         .itemId = ITEM_AMULET_COIN,
-        .price = 100,
+        .price = 9800,
         .holdEffect = HOLD_EFFECT_DOUBLE_PRIZE,
         .holdEffectParam = 10,
         .description = sAmuletCoinDesc,
@@ -2882,7 +2882,7 @@ const struct Item gItems[] =
     {
         .name = _("Muscle Band"),
         .itemId = ITEM_MUSCLE_BAND,
-        .price = 100,
+        .price = 9800,
 		.holdEffect = HOLD_EFFECT_MUSCLE_BAND,
         .description = sMuscleBandDesc,
         .pocket = POCKET_ITEMS,
@@ -2894,7 +2894,7 @@ const struct Item gItems[] =
     {
         .name = _("Wise Glasses"),
         .itemId = ITEM_WISE_GLASSES,
-        .price = 100,
+        .price = 9800,
 		.holdEffect = HOLD_EFFECT_WISE_GLASSES,
         .description = sWiseGlassesDesc,
         .pocket = POCKET_ITEMS,
@@ -2906,7 +2906,7 @@ const struct Item gItems[] =
     {
         .name = _("Assault Vest"),
         .itemId = ITEM_ASSAULT_VEST,
-        .price = 100,
+        .price = 9800,
 		.holdEffect = HOLD_EFFECT_ASSAULT_VEST,
         .description = sAssaultVestDesc,
         .pocket = POCKET_ITEMS,
@@ -2918,7 +2918,7 @@ const struct Item gItems[] =
     {
         .name = _("Bulwark Vest"),
         .itemId = ITEM_COMBAT_VEST,
-        .price = 100,
+        .price = 9800,
 		.holdEffect = HOLD_EFFECT_COMBAT_VEST,
         .description = sCombatVestDesc,
         .pocket = POCKET_ITEMS,
@@ -3359,7 +3359,7 @@ const struct Item gItems[] =
 
     [ITEM_POKEBLOCK_CASE] =
     {
-        .name = _("{POKEBlock} Case"),
+        .name = _("{POKEBLOCK} Case"),
         .itemId = ITEM_POKEBLOCK_CASE,
         .price = 0,
         .description = sPokeblockCaseDesc,
