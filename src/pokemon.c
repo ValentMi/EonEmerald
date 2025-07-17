@@ -3369,8 +3369,6 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 			gBattleMovePower = (150 * gBattleMovePower) / 100;
 		if (type == TYPE_DARK && attacker->species == SPECIES_ARIADOS)
 			gBattleMovePower = (150 * gBattleMovePower) / 100;
-		if (type == TYPE_BUG && attacker->species == SPECIES_ARIADOS)
-			gBattleMovePower = (150 * gBattleMovePower) / 100;
 		if (type == TYPE_WATER && attacker->species == SPECIES_CRAWDAUNT)
 			gBattleMovePower = (150 * gBattleMovePower) / 100;
 		if (type == TYPE_DARK && attacker->species == SPECIES_CRAWDAUNT)

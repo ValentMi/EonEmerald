@@ -2282,6 +2282,20 @@ void SetMoveEffect(bool8 primary, u8 certain)
     bool32 statusChanged = FALSE;
     u8 affectsUser = 0; // 0x40 otherwise
     bool32 noSunCanFreeze = TRUE;
+    u8 holdEffect, param;
+
+    if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
+    {
+       holdEffect = gEnigmaBerries[gBattlerTarget].holdEffect;
+       param = gEnigmaBerries[gBattlerTarget].holdEffectParam;
+    }
+    else
+    {
+        holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerTarget].item);
+        param = ItemId_GetHoldEffectParam(gBattleMons[gBattlerTarget].item);
+    }
+
+    gPotentialItemEffectBattler = gBattlerTarget;
 
     if (gBattleCommunication[MOVE_EFFECT_BYTE] & MOVE_EFFECT_AFFECTS_USER)
     {
@@ -2296,7 +2310,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
         gBattleScripting.battler = gBattlerAttacker;
     }
 
-    if (gBattleMons[gEffectBattler].ability == ABILITY_SHIELD_DUST && !(gHitMarker & HITMARKER_STATUS_ABILITY_EFFECT)
+    if ((gBattleMons[gEffectBattler].ability == ABILITY_SHIELD_DUST || holdEffect == HOLD_EFFECT_REPEL) && !(gHitMarker & HITMARKER_STATUS_ABILITY_EFFECT)
         && !primary && gBattleCommunication[MOVE_EFFECT_BYTE] <= 9)
         INCREMENT_RESET_RETURN
 
@@ -2616,7 +2630,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 }
                 break;
             case MOVE_EFFECT_FLINCH:
-                if (gBattleMons[gEffectBattler].ability == ABILITY_INNER_FOCUS)
+                if (gBattleMons[gEffectBattler].ability == ABILITY_INNER_FOCUS || holdEffect == HOLD_EFFECT_REPEL)
                 {
                     if (primary == TRUE || certain == MOVE_EFFECT_CERTAIN)
                     {
@@ -7093,6 +7107,20 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
     bool8 certain = FALSE;
     bool8 notProtectAffected = FALSE;
     u32 index;
+    u8 holdEffect, param;
+
+    if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
+    {
+       holdEffect = gEnigmaBerries[gBattlerTarget].holdEffect;
+       param = gEnigmaBerries[gBattlerTarget].holdEffectParam;
+    }
+    else
+    {
+        holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerTarget].item);
+        param = ItemId_GetHoldEffectParam(gBattleMons[gBattlerTarget].item);
+    }
+
+    gPotentialItemEffectBattler = gBattlerTarget;
 
     if (flags & MOVE_EFFECT_AFFECTS_USER)
         gActiveBattler = gBattlerAttacker;
@@ -7144,7 +7172,7 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
 		  || gBattleMons[gActiveBattler].ability == ABILITY_PERMAFROST	
 		  || gBattleMons[gActiveBattler].ability == ABILITY_GALVANIZED
 		  || gBattleMons[gActiveBattler].ability == ABILITY_ROCK_BODY
-		  || gBattleMons[gActiveBattler].item == ITEM_SOOTHE_BELL)
+		  || holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
                  && !certain && gCurrentMove != MOVE_CURSE)
         {
             if (flags == STAT_CHANGE_ALLOW_PTR)
@@ -7191,7 +7219,7 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             }
             return STAT_CHANGE_DIDNT_WORK;
         }
-        else if (gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST && flags == 0)
+        else if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST && flags == 0) || holdEffect == HOLD_EFFECT_REPEL)
         {
             return STAT_CHANGE_DIDNT_WORK;
         }

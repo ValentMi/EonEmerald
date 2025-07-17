@@ -741,7 +741,7 @@ static const u8 sQuickClawDesc[] = _(
 static const u8 sSootheBellDesc[] = _(
     "A hold item that\n"
     "calms spirits and\n"
-    "fosters friendship.");
+    "negates stat drops.");
 
 static const u8 sMentalHerbDesc[] = _(
     "A hold item that\n"
@@ -770,8 +770,8 @@ static const u8 sAmuletCoinDesc[] = _(
 
 static const u8 sCleanseTagDesc[] = _(
     "A hold item that\n"
-    "helps repel wild\n"
-    "POKéMON.");
+    "negates a move's\n"
+    "extra effects.");
 
 static const u8 sSoulDewDesc[] = _(
     "Hold item: raises\n"

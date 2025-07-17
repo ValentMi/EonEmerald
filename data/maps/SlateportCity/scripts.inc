@@ -154,6 +154,10 @@ SlateportCity_Pokemart_EnergyGuru:
 	.2byte ITEM_ZINC
 	.2byte ITEM_CALCIUM
 	.2byte ITEM_HP_UP
+	.2byte ITEM_PP_UP
+	.2byte ITEM_FRESH_WATER
+	.2byte ITEM_LEMONADE
+	.2byte ITEM_MOOMOO_MILK
 	pokemartlistend
 
 SlateportCity_EventScript_EffortRibbonWoman::
@@ -562,16 +566,20 @@ SlateportCity_EventScript_PowerTMClerk::
 SlateportCity_Pokemart_PowerTMs:
 	.2byte ITEM_TM_HIDDEN_POWER
 	.2byte ITEM_TM_SECRET_POWER
-	.2byte ITEM_FRESH_WATER
-	.2byte ITEM_LEMONADE
-	.2byte ITEM_MOOMOO_MILK
 	.2byte ITEM_PREMIER_BALL
 	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_NEST_BALL
 	.2byte ITEM_BLUE_SCARF
 	.2byte ITEM_GREEN_SCARF
 	.2byte ITEM_PINK_SCARF
 	.2byte ITEM_RED_SCARF
 	.2byte ITEM_YELLOW_SCARF
+	.2byte ITEM_SOOTHE_BELL
+	.2byte ITEM_SEA_INCENSE
+	.2byte ITEM_LAX_INCENSE
+	.2byte ITEM_MUSCLE_BAND
+	.2byte ITEM_WISE_GLASSES
 	pokemartlistend
 
 @ Scene with Capt Sterns interview and Team Aqua announcing plans to steal Submarine

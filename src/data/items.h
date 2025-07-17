@@ -2258,7 +2258,7 @@ const struct Item gItems[] =
         .itemId = ITEM_QUICK_CLAW,
         .price = 100,
         .holdEffect = HOLD_EFFECT_QUICK_CLAW,
-        .holdEffectParam = 20,
+        .holdEffectParam = 30,
         .description = sQuickClawDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -2269,7 +2269,7 @@ const struct Item gItems[] =
     {
         .name = _("SOOTHE BELL"),
         .itemId = ITEM_SOOTHE_BELL,
-        .price = 100,
+        .price = 9800,
         .holdEffect = HOLD_EFFECT_FRIENDSHIP_UP,
         .description = sSootheBellDesc,
         .pocket = POCKET_ITEMS,
@@ -2342,9 +2342,9 @@ const struct Item gItems[] =
 
     [ITEM_CLEANSE_TAG] =
     {
-        .name = _("CLEANSE TAG"),
+        .name = _("COVERT CLOAK"),
         .itemId = ITEM_CLEANSE_TAG,
-        .price = 200,
+        .price = 9800,
         .holdEffect = HOLD_EFFECT_REPEL,
         .description = sCleanseTagDesc,
         .pocket = POCKET_ITEMS,
@@ -2726,7 +2726,7 @@ const struct Item gItems[] =
         .itemId = ITEM_SEA_INCENSE,
         .price = 9600,
         .holdEffect = HOLD_EFFECT_WATER_POWER,
-        .holdEffectParam = 5,
+        .holdEffectParam = 20,
         .description = sSeaIncenseDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -2739,7 +2739,7 @@ const struct Item gItems[] =
         .itemId = ITEM_LAX_INCENSE,
         .price = 9600,
         .holdEffect = HOLD_EFFECT_EVASION_UP,
-        .holdEffectParam = 5,
+        .holdEffectParam = 10,
         .description = sLaxIncenseDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -2916,7 +2916,7 @@ const struct Item gItems[] =
 
     [ITEM_COMBAT_VEST] =
     {
-        .name = _("COMBAT VEST"),
+        .name = _("BULWARK VEST"),
         .itemId = ITEM_COMBAT_VEST,
         .price = 100,
 		.holdEffect = HOLD_EFFECT_COMBAT_VEST,

@@ -174,17 +174,17 @@ MauvilleCity_GameCorner_EventScript_MudkipDoll::
 MauvilleCity_GameCorner_EventScript_RegirockDoll::
 	setvar VAR_TEMP_1, 1
 	bufferdecorationname STR_VAR_1, DECOR_REGIROCK_DOLL
-	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
+	goto MauvilleCity_GameCorner_EventScript_ConfirmSeviiDollPrize
 
 MauvilleCity_GameCorner_EventScript_RegiceDoll::
 	setvar VAR_TEMP_1, 2
 	bufferdecorationname STR_VAR_1, DECOR_REGICE_DOLL
-	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
+	goto MauvilleCity_GameCorner_EventScript_ConfirmSeviiDollPrize
 
 MauvilleCity_GameCorner_EventScript_RegisteelDoll::
 	setvar VAR_TEMP_1, 3
 	bufferdecorationname STR_VAR_1, DECOR_REGISTEEL_DOLL
-	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
+	goto MauvilleCity_GameCorner_EventScript_ConfirmSeviiDollPrize
 
 MauvilleCity_GameCorner_EventScript_ConfirmDollPrize::
 	msgbox MauvilleCity_GameCorner_Text_SoYourChoiceIsX, MSGBOX_YESNO
@@ -193,6 +193,15 @@ MauvilleCity_GameCorner_EventScript_ConfirmDollPrize::
 	case 1, MauvilleCity_GameCorner_EventScript_BuyTreeckoDoll
 	case 2, MauvilleCity_GameCorner_EventScript_BuyTorchicDoll
 	case 3, MauvilleCity_GameCorner_EventScript_BuyMudkipDoll
+	end
+	
+MauvilleCity_GameCorner_EventScript_ConfirmSeviiDollPrize::
+	msgbox MauvilleCity_GameCorner_Text_SoYourChoiceIsX, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_CancelDollSelect
+	switch VAR_TEMP_1
+	case 1, MauvilleCity_GameCorner_EventScript_BuyRegiceDoll
+	case 2, MauvilleCity_GameCorner_EventScript_BuyRegirockDoll
+	case 3, MauvilleCity_GameCorner_EventScript_BuyRegisteelDoll
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTreeckoDoll::
@@ -231,6 +240,48 @@ MauvilleCity_GameCorner_EventScript_BuyMudkipDoll::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll
 	removecoins DOLL_COINS
 	adddecoration DECOR_MUDKIP_DOLL
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	end
+	
+MauvilleCity_GameCorner_EventScript_BuyRegiceDoll::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, DOLL_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll
+	bufferdecorationname STR_VAR_2, DECOR_REGICE_DOLL
+	checkdecorspace DECOR_REGICE_DOLL
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll
+	removecoins DOLL_COINS
+	adddecoration DECOR_REGICE_DOLL
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyRegirockDoll::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, DOLL_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll
+	bufferdecorationname STR_VAR_2, DECOR_REGIROCK_DOLL
+	checkdecorspace DECOR_REGIROCK_DOLL
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll
+	removecoins DOLL_COINS
+	adddecoration DECOR_REGIROCK_DOLL
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyRegisteelDoll::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, DOLL_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll
+	bufferdecorationname STR_VAR_2, DECOR_REGISTEEL_DOLL
+	checkdecorspace DECOR_REGISTEEL_DOLL
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll
+	removecoins DOLL_COINS
+	adddecoration DECOR_REGISTEEL_DOLL
 	updatecoinsbox 1, 1
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
