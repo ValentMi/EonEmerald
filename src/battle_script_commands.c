@@ -1173,8 +1173,8 @@ static void Cmd_accuracycheck(void)
             calc = (calc * 10) / 100; // 1.1 Accuracy boost
         if (holdEffect == (HOLD_EFFECT_MACHO_BRACE))
             calc = (calc * 200) / 100; // 1.1 Accuracy boost
-        if (WEATHER_HAS_EFFECT && gBattleMons[gBattlerTarget].ability == ABILITY_SAND_VEIL && gBattleWeather & B_WEATHER_SANDSTORM)
-            calc = (calc * 80) / 100; // 1.2 sand veil loss
+        //if (WEATHER_HAS_EFFECT && gBattleMons[gBattlerTarget].ability == ABILITY_SAND_VEIL && gBattleWeather & B_WEATHER_SANDSTORM)
+            //calc = (calc * 80) / 100; // 1.2 sand veil loss
         if (gBattleMons[gBattlerAttacker].ability == ABILITY_HUSTLE && IS_MOVE_PHYSICAL(move))
             calc = (calc * 80) / 100; // 1.2 hustle loss
 		

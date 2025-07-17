@@ -1533,6 +1533,7 @@ Move_VINE_WHIP:
 	createsprite gVineWhipSpriteTemplate, ANIM_TARGET, 2, 0, 0
 	delay 6
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 6, 1
+	goto Move_CONSTRICT
 	end
 
 Move_DRILL_PECK:

@@ -3261,6 +3261,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		attack = (200 * attack) / 100;
 	if ((attacker->species == SPECIES_SUNFLORA) && (gBattleWeather & (B_WEATHER_SUN)))
 		spAttack = (130 * spAttack) / 100;
+	if ((attacker->ability == ABILITY_SAND_VEIL) && (gBattleWeather & (B_WEATHER_SANDSTORM)))
+		attack = (130 * spAttack) / 100;
 	if ((attackerHoldEffect == HOLD_EFFECT_POWER_HERB) && (MOVE_SKY_ATTACK) && !(gBattleWeather & (B_WEATHER_SUN)))
 		attack = (200 * attack) / 100;
 	if ((attackerHoldEffect == HOLD_EFFECT_POWER_HERB) && (attacker->species == SPECIES_MAWILE))
@@ -3383,13 +3385,13 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		gBattleMoves[move].category == MOVE_CATEGORY_SPECIAL;
     if ((MOVE_HYPER_VOICE) && attacker->species == SPECIES_WIGGLYTUFF)
 		gBattleMoves[move].category == MOVE_CATEGORY_SPECIAL;
-    if ((MOVE_AIR_CUTTER) && attacker->species == SPECIES_NOCTOWL || attacker->species == SPECIES_CHARIZARD || attacker->species == SPECIES_YANMA || attacker->species == SPECIES_ARTICUNO || attacker->species == SPECIES_ZAPDOS || attacker->species == SPECIES_MOLTRES)
+    if ((MOVE_AIR_CUTTER) && attacker->species == SPECIES_NOCTOWL || attacker->species == SPECIES_XATU || attacker->species == SPECIES_CHARIZARD || attacker->species == SPECIES_YANMA || attacker->species == SPECIES_ARTICUNO || attacker->species == SPECIES_ZAPDOS || attacker->species == SPECIES_MOLTRES)
 		gBattleMoves[move].category == MOVE_CATEGORY_SPECIAL;
     if ((MOVE_SLUDGE_BOMB) && attacker->species == SPECIES_VENOMOTH || attacker->species == SPECIES_ROSELIA || attacker->species == SPECIES_SEVIPER)
 		gBattleMoves[move].category == MOVE_CATEGORY_SPECIAL;
     if ((MOVE_ICE_PUNCH) && attacker->species == SPECIES_SNEASEL)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
-    if ((MOVE_LEAF_BLADE) && attacker->species == SPECIES_TROPIUS)
+    if ((MOVE_LEAF_BLADE) && attacker->species == SPECIES_TROPIUS || attacker->species == SPECIES_VICTREEBEL || attacker->species == SPECIES_SHIFTRY)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
     if ((MOVE_SOLAR_BEAM) && attacker->species == SPECIES_SOLROCK)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;

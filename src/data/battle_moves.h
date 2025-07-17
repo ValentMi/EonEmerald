@@ -1648,7 +1648,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
-        .priority = 0,
+        .priority = 4,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
 		.category= MOVE_CATEGORY_PHYSICAL,
     },
@@ -3629,15 +3629,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TORMENT] =
     {
-        .effect = EFFECT_TORMENT,
+        .effect = EFFECT_SPECIAL_ATTACK_UP_2,
         .power = 0,
         .type = TYPE_DARK,
         .accuracy = 100,
-        .pp = 15,
+        .pp = 20,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+        .flags = FLAG_SNATCH_AFFECTED,
 		.category= MOVE_CATEGORY_STATUS,
     },
 
@@ -4161,15 +4161,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FEATHER_DANCE] =
     {
-        .effect = EFFECT_ATTACK_DOWN_2,
+        .effect = EFFECT_RESTORE_HP,
         .power = 0,
         .type = TYPE_FLYING,
-        .accuracy = 100,
-        .pp = 15,
+        .accuracy = 0,
+        .pp = 5,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+        .flags = FLAG_SNATCH_AFFECTED,
 		.category= MOVE_CATEGORY_STATUS,
     },
 

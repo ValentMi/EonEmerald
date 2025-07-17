@@ -3668,12 +3668,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_MR_MIME] =
     {
-        .baseHP        = 40,
+        .baseHP        = 65,
         .baseAttack    = 45,
         .baseDefense   = 65,
         .baseSpeed     = 90,
         .baseSpAttack  = 100,
-        .baseSpDefense = 120,
+        .baseSpDefense = 140,
         .types = { TYPE_PSYCHIC, TYPE_PSYCHIC },
         .catchRate = 45,
         .expYield = 136,
@@ -4290,7 +4290,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },
-        .abilities = {ABILITY_ROCK_HEAD, ABILITY_PRESSURE},
+        .abilities = {ABILITY_SAND_VEIL, ABILITY_PRESSURE},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
@@ -6128,12 +6128,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_PINECO] =
     {
-        .baseHP        = 50,
+        .baseHP        = 44,
         .baseAttack    = 65,
-        .baseDefense   = 90,
-        .baseSpeed     = 15,
-        .baseSpAttack  = 35,
-        .baseSpDefense = 35,
+        .baseDefense   = 91,
+        .baseSpeed     = 10,
+        .baseSpAttack  = 14,
+        .baseSpDefense = 81,
         .types = { TYPE_BUG, TYPE_BUG },
         .catchRate = 190,
         .expYield = 60,
@@ -6158,12 +6158,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_FORRETRESS] =
     {
-        .baseHP        = 75,
-        .baseAttack    = 90,
-        .baseDefense   = 140,
+        .baseHP        = 74,
+        .baseAttack    = 94,
+        .baseDefense   = 131,
         .baseSpeed     = 40,
-        .baseSpAttack  = 60,
-        .baseSpDefense = 60,
+        .baseSpAttack  = 34,
+        .baseSpDefense = 116,
         .types = { TYPE_BUG, TYPE_STEEL },
         .catchRate = 75,
         .expYield = 118,
