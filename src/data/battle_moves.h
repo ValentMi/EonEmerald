@@ -507,12 +507,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TAKE_DOWN] =
     {
-        .effect = EFFECT_RECOIL,
-        .power = 90,
-        .type = TYPE_NORMAL,
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 80,
+        .type = TYPE_PSYCHIC,
         .accuracy = 100,
-        .pp = 20,
-        .secondaryEffectChance = 0,
+        .pp = 15,
+        .secondaryEffectChance = 30,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
@@ -2174,9 +2174,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_BONEMERANG] =
     {
         .effect = EFFECT_DOUBLE_HIT,
-        .power = 50,
+        .power = 60,
         .type = TYPE_GROUND,
-        .accuracy = 100,
+        .accuracy = 90,
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -2202,9 +2202,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ROCK_SLIDE] =
     {
         .effect = EFFECT_FLINCH_HIT,
-        .power = 75,
+        .power = 100,
         .type = TYPE_ROCK,
-        .accuracy = 90,
+        .accuracy = 85,
         .pp = 10,
         .secondaryEffectChance = 30,
         .target = MOVE_TARGET_BOTH,
@@ -2378,7 +2378,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
-		.category= MOVE_CATEGORY_STATUS,
+		.category= MOVE_CATEGORY_PHYSICAL,
     },
 
     [MOVE_MIND_READER] =
@@ -2789,13 +2789,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_LOCK_ON] =
     {
-        .effect = EFFECT_LOCK_ON,
+        .effect = EFFECT_CHARGE,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER_OR_SELECTED,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
 		.category= MOVE_CATEGORY_STATUS,
@@ -4469,16 +4469,16 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_METAL_SOUND] =
     {
-        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_2,
-        .power = 0,
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
+        .power = 80,
         .type = TYPE_STEEL,
         .accuracy = 100,
-        .pp = 40,
-        .secondaryEffectChance = 0,
+        .pp = 20,
+        .secondaryEffectChance = 50,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
-		.category= MOVE_CATEGORY_STATUS,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+		.category= MOVE_CATEGORY_SPECIAL,
     },
 
     [MOVE_GRASS_WHISTLE] =

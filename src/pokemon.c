@@ -3270,6 +3270,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     // Apply abilities / field sports
     if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
         gBattleMovePower /= 2;
+    if (defender->ability == ABILITY_DAMP && (type == TYPE_FIRE))
+        gBattleMovePower /= 2;
     if (defender->species == SPECIES_SUNFLORA && (type == TYPE_FIRE || type == TYPE_ICE || type == TYPE_WATER))
         gBattleMovePower /= 2;
 	if (defender->ability == ABILITY_MAGMA_ARMOR && (type == TYPE_WATER || type == TYPE_ICE))
@@ -3364,6 +3366,10 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		if (type == TYPE_POISON && attacker->species == SPECIES_BEEDRILL)
 			gBattleMovePower = (150 * gBattleMovePower) / 100;
 		if (type == TYPE_BUG && attacker->species == SPECIES_BEEDRILL)
+			gBattleMovePower = (150 * gBattleMovePower) / 100;
+		if (type == TYPE_DARK && attacker->species == SPECIES_ARIADOS)
+			gBattleMovePower = (150 * gBattleMovePower) / 100;
+		if (type == TYPE_BUG && attacker->species == SPECIES_ARIADOS)
 			gBattleMovePower = (150 * gBattleMovePower) / 100;
 		if (type == TYPE_WATER && attacker->species == SPECIES_CRAWDAUNT)
 			gBattleMovePower = (150 * gBattleMovePower) / 100;

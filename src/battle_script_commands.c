@@ -2418,6 +2418,10 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 break;
             if (gBattleMons[gEffectBattler].ability == ABILITY_WATER_VEIL)
                 break;
+			if (gBattleMons[gEffectBattler].ability == ABILITY_DAMP)
+                break;
+			if (gBattleMons[gEffectBattler].ability == ABILITY_PERMAFROST)
+                break;
             if (gBattleMons[gEffectBattler].status1)
                 break;
 
@@ -2471,6 +2475,8 @@ void SetMoveEffect(bool8 primary, u8 certain)
             if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ELECTRIC))
                 break;
             if (gBattleMons[gEffectBattler].ability == ABILITY_LIMBER)
+                break;
+            if (gBattleMons[gEffectBattler].ability == ABILITY_RUN_AWAY)
                 break;
             if (gBattleMons[gEffectBattler].status1)
                 break;

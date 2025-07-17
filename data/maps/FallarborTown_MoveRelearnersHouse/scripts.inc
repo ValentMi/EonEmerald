@@ -3,7 +3,36 @@
 FallarborTown_MoveRelearnersHouse_MapScripts::
 	.byte 0
 
+FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove::
+	lock
+	faceplayer
+	msgbox gText_SwitchAbility MSGBOX_DEFAULT
+	special ChoosePartyMon
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, EventScript_AbilitySwitch_Cancel
+	special SwitchMonAbility
+	msgbox gText_AbilitySwitched MSGBOX_DEFAULT
+	release
+	end
+
+	EventScript_AbilitySwitch_Cancel:
+	msgbox gText_ComeBackAnytime MSGBOX_DEFAULT
+	release
+	end
+
 FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner::
+	lock
+	faceplayer
+	msgbox gText_SwitchAbility MSGBOX_DEFAULT
+	special ChoosePartyMon
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, EventScript_AbilitySwitch_Cancel
+	special SwitchMonAbility
+	msgbox gText_AbilitySwitched MSGBOX_DEFAULT
+	release
+	end
+
+OLDMOVETUTOR::
 	faceplayer
 	lockall
 	//applymovement LOCALID_MOVE_RELEARNER, Common_Movement_FacePlayer
@@ -14,7 +43,7 @@ FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner::
 	goto FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove::
+FallarborTown_OLDMoveRelearnersHouse_EventScript_AskTeachMove::
 	faceplayer
 	checkitem ITEM_HEART_SCALE
 	goto_if_eq VAR_RESULT, FALSE, FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
@@ -98,4 +127,18 @@ FallarborTown_MoveRelearnersHouse_Text_ComeBackWithHeartScale:
 FallarborTown_MoveRelearnersHouse_Text_CantTeachEgg:
 	.string "Hunh? There isn't a single move that\n"
 	.string "I can teach an EGG.$"
+	
+gText_SwitchAbility:
+	.string "I'm the Ability Tutor.\p"
+	.string "I'll change an ability\n"
+	.string "for you, if possible.$"
 
+gText_SwitchAbility2:
+	.string "Have you come back to\n"
+	.string "change an ability?$"
+	
+gText_AbilitySwitched:
+	.string "Come back anytime!$"
+	
+gText_ComeBackAnytime:
+	.string "Come back anytime!$"
