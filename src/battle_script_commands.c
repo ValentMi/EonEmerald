@@ -56,6 +56,8 @@ extern const u8 *const gBattleScriptsForMoveEffects[];
 
 #define DEFENDER_IS_PROTECTED ((gProtectStructs[gBattlerTarget].protected) && (gBattleMoves[gCurrentMove].flags & FLAG_PROTECT_AFFECTED))
 
+#define IS_POWDER_MOVE (gBattleMoves[gCurrentMove].flags & FLAG_POWDER_MOVE)
+
 #define LEVEL_UP_BANNER_START 416
 #define LEVEL_UP_BANNER_END   512
 
@@ -766,8 +768,8 @@ static const u8 sFlailHpScaleToPowerTable[] =
 
 static const u16 sNaturePowerMoves[] =
 {
-    [BATTLE_TERRAIN_GRASS]      = MOVE_STUN_SPORE,
-    [BATTLE_TERRAIN_LONG_GRASS] = MOVE_RAZOR_LEAF,
+    [BATTLE_TERRAIN_GRASS]      = MOVE_SLEEP_POWDER,
+    [BATTLE_TERRAIN_LONG_GRASS] = MOVE_LEAF_BLADE,
     [BATTLE_TERRAIN_SAND]       = MOVE_EARTHQUAKE,
     [BATTLE_TERRAIN_UNDERWATER] = MOVE_HYDRO_PUMP,
     [BATTLE_TERRAIN_WATER]      = MOVE_SURF,
@@ -1006,6 +1008,14 @@ static void Cmd_attackcanceler(void)
         gLastLandedMoves[gBattlerTarget] = 0;
         gLastHitByType[gBattlerTarget] = 0;
         gBattleCommunication[MISS_TYPE] = B_MSG_PROTECTED;
+        gBattlescriptCurrInstr++;
+    }
+    else if (((gCurrentMove == MOVE_POISON_POWDER || gCurrentMove == MOVE_SLEEP_POWDER || gCurrentMove == MOVE_STUN_SPORE || gCurrentMove == MOVE_SPORE || gCurrentMove == MOVE_COTTON_SPORE) && IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_GRASS)))
+    {
+        gMoveResultFlags |= MOVE_RESULT_NO_EFFECT;
+        gLastLandedMoves[gBattlerTarget] = 0;
+        gLastHitByType[gBattlerTarget] = 0;
+        gBattleCommunication[MISS_TYPE] = B_MSG_SIDE_STATUS_FAILED;
         gBattlescriptCurrInstr++;
     }
     else

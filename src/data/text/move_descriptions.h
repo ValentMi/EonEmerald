@@ -674,8 +674,8 @@ static const u8 sThiefDescription[] = _(
     "steal the foe's held item.");
 
 static const u8 sSpiderWebDescription[] = _(
-    "Ensnares the foe to stop it\n"
-    "from fleeing or switching.");
+    "Ensnares the foe to flinch\n"
+    "and lower speed on turn 1.");
 
 static const u8 sMindReaderDescription[] = _(
     "Senses the foe's action to\n"
@@ -1302,7 +1302,7 @@ static const u8 sShadowPunchDescription[] = _(
     "is thrown from shadows.");
 
 static const u8 sExtrasensoryDescription[] = _(
-    "Attacks with a peculiar\n"
+    "Attacks with a physical\n"
     "power. May cause flinching.");
 
 static const u8 sSkyUppercutDescription[] = _(
