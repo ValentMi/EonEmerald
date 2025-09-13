@@ -762,8 +762,8 @@ static const u8 sFlailHpScaleToPowerTable[] =
     4, 150,
     9, 100,
     16, 80,
-    32, 40,
-    48, 20
+    32, 60,
+    48, 40
 };
 
 static const u16 sNaturePowerMoves[] =
@@ -783,11 +783,11 @@ static const u16 sNaturePowerMoves[] =
 // format: min. weight (hectograms), base power
 static const u16 sWeightToDamageTable[] =
 {
-    100, 20,
-    250, 40,
-    500, 60,
-    1000, 80,
-    2000, 100,
+    100, 40,
+    250, 60,
+    500, 80,
+    1000, 100,
+    2000, 120,
     0xFFFF, 0xFFFF
 };
 
