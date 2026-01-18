@@ -2657,15 +2657,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 switch (gLastUsedAbility)
                 {
                 case ABILITY_RAIN_DISH: //RAIN DISH / DRY SKIN EFFECT
-				case ABILITY_EFFECT_SPORE:
 				case ABILITY_TORRENT:
-				case ABILITY_CLEAR_BODY:
 				case ABILITY_LIQUID_OOZE:
-				case ABILITY_KEEN_EYE:
-				case ABILITY_INTIMIDATE:
-				case ABILITY_ROUGH_SKIN:
                     if (WEATHER_HAS_EFFECT && (gBattleWeather & B_WEATHER_RAIN)
-                     && gBattleMons[battler].maxHP > gBattleMons[battler].hp && (gBattleMons[battler].species == SPECIES_CACNEA || gBattleMons[battler].species == SPECIES_CACTURNE || gBattleMons[battler].species == SPECIES_SMOOCHUM || gBattleMons[battler].species == SPECIES_JYNX || gBattleMons[battler].species == SPECIES_SQUIRTLE || gBattleMons[battler].species == SPECIES_WARTORTLE || gBattleMons[battler].species == SPECIES_BLASTOISE || gBattleMons[battler].species == SPECIES_TENTACOOL || gBattleMons[battler].species == SPECIES_TENTACRUEL || gBattleMons[battler].species == SPECIES_LOTAD || gBattleMons[battler].species == SPECIES_LUDICOLO || gBattleMons[battler].species == SPECIES_LOMBRE || gBattleMons[battler].species == SPECIES_WINGULL || gBattleMons[battler].species == SPECIES_PELIPPER || gBattleMons[battler].species == SPECIES_SURSKIT || gBattleMons[battler].species == SPECIES_MASQUERAIN))
+                     && gBattleMons[battler].maxHP > gBattleMons[battler].hp)
                     {
                         gLastUsedAbility = ABILITY_RAIN_DISH; // why
                         BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
@@ -2675,7 +2670,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         gBattleMoveDamage *= -1;
                         effect++;
                     }//HYDRATION EFFECT: Jynx line, Ludicolo Line, Pelipper Line, Masquerain Line.
-					if ((gBattleMons[battler].status1 & STATUS1_ANY) && gBattleWeather & B_WEATHER_RAIN && (Random() % 1) == 0 && (gBattleMons[battler].species == SPECIES_SMOOCHUM || gBattleMons[battler].species == SPECIES_JYNX || gBattleMons[battler].species == SPECIES_LOTAD || gBattleMons[battler].species == SPECIES_LUDICOLO || gBattleMons[battler].species == SPECIES_LOMBRE || gBattleMons[battler].species == SPECIES_WINGULL || gBattleMons[battler].species == SPECIES_PELIPPER || gBattleMons[battler].species == SPECIES_SURSKIT || gBattleMons[battler].species == SPECIES_MASQUERAIN))
+					if ((gBattleMons[battler].status1 & STATUS1_ANY) && gBattleWeather & B_WEATHER_RAIN && (Random() % 1) == 0)
                     {
                         if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
                             StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
@@ -2700,10 +2695,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                     break;
                 case ABILITY_NATURAL_CURE:
-                    if ((gBattleMons[battler].species == SPECIES_SLOWBRO || gBattleMons[battler].species == SPECIES_SLOWKING || gBattleMons[battler].species == SPECIES_CORSOLA || gBattleMons[battler].species == SPECIES_TANGELA || gBattleMons[battler].species == SPECIES_HO_OH) && gBattleMons[battler].maxHP > gBattleMons[battler].hp)
+                    if (gBattleMons[battler].maxHP > gBattleMons[battler].hp)
                     {
                         BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
-                        gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                        gBattleMoveDamage = gBattleMons[battler].maxHP / 32;
                         if (gBattleMoveDamage == 0)
                             gBattleMoveDamage = 1;
                         gBattleMoveDamage *= -1;
@@ -2711,7 +2706,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
 					break;
                 case ABILITY_OVERGROW:
-                    if ((gBattleMons[battler].species == SPECIES_MEGANIUM) && gBattleMons[battler].maxHP > gBattleMons[battler].hp)
+                    if ((gBattleMons[battler].hp > gBattleMons[battler].maxHP /2) && gBattleMons[battler].maxHP > gBattleMons[battler].hp)
                     {
                         BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
                         gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
@@ -2765,11 +2760,8 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         effect++;
                     }
                     break;
-				case ABILITY_WATER_ABSORB: //Hydration Effect
-				case ABILITY_SHELL_ARMOR:
-				case ABILITY_SWIFT_SWIM:
-				case ABILITY_CUTE_CHARM:
-                    if ((gBattleMons[battler].status1 & STATUS1_ANY) && gBattleWeather & B_WEATHER_RAIN && (Random() % 1) == 0 && (gBattleMons[battler].species == SPECIES_SMOOCHUM || gBattleMons[battler].species == SPECIES_JYNX || gBattleMons[battler].species == SPECIES_VAPOREON || gBattleMons[battler].species == SPECIES_LAPRAS || gBattleMons[battler].species == SPECIES_BARBOACH || gBattleMons[battler].species == SPECIES_WHISCASH || gBattleMons[battler].species == SPECIES_GOREBYSS || gBattleMons[battler].species == SPECIES_HUNTAIL || gBattleMons[battler].species == SPECIES_LUVDISC))
+				case ABILITY_MINUS: //Hydration Effect
+                    if ((gBattleMons[battler].status1 & STATUS1_ANY) && gBattleWeather & B_WEATHER_SUN && (Random() % 1) == 0)
                     {
                         if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
                             StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
@@ -2814,7 +2806,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         gBattleMoveDamage *= -1;
                         effect++;
                     }
-                    if ((gBattleMons[battler].status1 & STATUS1_ANY) && gBattleWeather & B_WEATHER_RAIN && (gBattleMons[battler].species == SPECIES_DEWGONG || gBattleMons[battler].species == SPECIES_SEEL) && (Random() % 1) == 0)
+                    if ((gBattleMons[battler].status1 & STATUS1_ANY) && gBattleWeather & B_WEATHER_HAIL && (gBattleMons[battler].species == SPECIES_DEWGONG || gBattleMons[battler].species == SPECIES_SEEL) && (Random() % 1) == 0)
                     {
                         if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
                             StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
@@ -3182,6 +3174,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 break;
             case ABILITY_FLAME_BODY:
+			case ABILITY_BLAZE:
                 if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
                  && gBattleMons[gBattlerAttacker].hp != 0
                  && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
@@ -3322,6 +3315,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                     break;
                 case ABILITY_MAGMA_ARMOR:
+				case ABILITY_BLAZE:
                     if (gBattleMons[battler].status1 & STATUS1_FREEZE)
                     {
                         StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
