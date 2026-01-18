@@ -119,6 +119,7 @@ static void DoSwitchOutAnimation(void);
 static void PlayerDoMoveAnimation(void);
 static void Task_StartSendOutAnim(u8);
 static void EndDrawPartyStatusSummary(void);
+static void MoveSelectionDisplaySplitIcon(void);
 
 static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
 {
@@ -185,6 +186,10 @@ static const u8 sTargetIdentities[MAX_BATTLERS_COUNT] = {B_POSITION_PLAYER_LEFT,
 
 // unknown unused data
 static const u8 sUnused[] = {0x48, 0x48, 0x20, 0x5a, 0x50, 0x50, 0x50, 0x58};
+
+static const u16 sSplitIcons_Pal[] = INCBIN_U16("graphics/battle_interface/split_icons_battle.gbapal");
+static const u8 sSplitIcons_Gfx[] = INCBIN_U8("graphics/battle_interface/split_icons_battle.4bpp");
+
 
 void BattleControllerDummy(void)
 {
@@ -1524,6 +1529,7 @@ static void MoveSelectionDisplayMoveType(void)
     }
 	
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
+	MoveSelectionDisplaySplitIcon();
 }
 
 static void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
@@ -3164,4 +3170,126 @@ static void PlayerHandleEndLinkBattle(void)
 
 static void PlayerCmdEnd(void)
 {
+}
+
+static void MoveSelectionDisplaySplitIcon(void)
+{
+    struct ChooseMoveStruct *moveInfo;
+    u32 moveCategory;
+    u16 move;
+    u16 species;
+    u8 type;
+
+    moveInfo = (struct ChooseMoveStruct*)(&gBattleBufferA[gActiveBattler][MAX_BATTLERS_COUNT]);
+    move = moveInfo->moves[gMoveSelectionCursor[gActiveBattler]];
+    species = gBattleMons[gActiveBattler].species;
+    moveCategory = gBattleMoves[move].category;
+    type = gBattleMoves[move].type;
+
+    // Medicham, Hitmonchan, Electabuzz: Elemental Punches are Physical
+    if (move == MOVE_ICE_PUNCH || move == MOVE_FIRE_PUNCH || move == MOVE_THUNDER_PUNCH)
+    {
+        if (species == SPECIES_MEDICHAM || species == SPECIES_HITMONCHAN || species == SPECIES_ELECTABUZZ)
+            moveCategory = MOVE_CATEGORY_PHYSICAL;
+    }
+
+    // Breloom: Bullet Seed is Physical
+    if (move == MOVE_BULLET_SEED && species == SPECIES_BRELOOM)
+        moveCategory = MOVE_CATEGORY_PHYSICAL;
+
+    // Togetic & Clefable: Tri Attack is Special
+    if (move == MOVE_TRI_ATTACK && (species == SPECIES_TOGETIC || species == SPECIES_CLEFABLE))
+        moveCategory = MOVE_CATEGORY_SPECIAL;
+
+    // Delcatty: Uproar is Special
+    if (move == MOVE_UPROAR && species == SPECIES_DELCATTY)
+        moveCategory = MOVE_CATEGORY_SPECIAL;
+
+    // Wigglytuff: Hyper Voice is Special
+    if (move == MOVE_HYPER_VOICE && species == SPECIES_WIGGLYTUFF)
+        moveCategory = MOVE_CATEGORY_SPECIAL;
+
+    // Air Cutter Users: Special
+    if (move == MOVE_AIR_CUTTER)
+    {
+        switch (species)
+        {
+            case SPECIES_NOCTOWL: case SPECIES_XATU: case SPECIES_CHARIZARD:
+            case SPECIES_YANMA:   case SPECIES_ARTICUNO: case SPECIES_ZAPDOS:
+            case SPECIES_MOLTRES:
+                moveCategory = MOVE_CATEGORY_SPECIAL;
+                break;
+        }
+    }
+
+    // Sludge Bomb Users: Special
+    if (move == MOVE_SLUDGE_BOMB)
+    {
+        if (species == SPECIES_VENOMOTH || species == SPECIES_ROSELIA || species == SPECIES_SEVIPER)
+            moveCategory = MOVE_CATEGORY_SPECIAL;
+    }
+
+    // Sneasel: Ice Punch is Physical
+    if (move == MOVE_ICE_PUNCH && species == SPECIES_SNEASEL)
+        moveCategory = MOVE_CATEGORY_PHYSICAL;
+
+    // Leaf Blade Users: Physical
+    if (move == MOVE_LEAF_BLADE)
+    {
+        if (species == SPECIES_TROPIUS || species == SPECIES_VICTREEBEL || species == SPECIES_SHIFTRY)
+            moveCategory = MOVE_CATEGORY_PHYSICAL;
+    }
+
+    // Solrock: Solar Beam is Physical
+    if (move == MOVE_SOLAR_BEAM && species == SPECIES_SOLROCK)
+        moveCategory = MOVE_CATEGORY_PHYSICAL;
+
+    // Piloswine: Powder Snow is Physical
+    if (move == MOVE_POWDER_SNOW && species == SPECIES_PILOSWINE)
+        moveCategory = MOVE_CATEGORY_PHYSICAL;
+
+    // Ghost types: Physical for specific users
+    if (type == TYPE_GHOST)
+    {
+        switch (species)
+        {
+            case SPECIES_DUSCLOPS: case SPECIES_PRIMEAPE: case SPECIES_MUK:
+            case SPECIES_BANETTE:  case SPECIES_SHEDINJA:
+                moveCategory = MOVE_CATEGORY_PHYSICAL;
+                break;
+        }
+    }
+
+    // Silver Wind Users: Special
+    if (move == MOVE_SILVER_WIND)
+    {
+        switch (species)
+        {
+            case SPECIES_BUTTERFREE: case SPECIES_VENOMOTH: case SPECIES_BEAUTIFLY:
+            case SPECIES_DUSTOX:     case SPECIES_MASQUERAIN: case SPECIES_YANMA:
+                moveCategory = MOVE_CATEGORY_SPECIAL;
+                break;
+        }
+    }
+
+    // Dive Users: Physical
+    if (move == MOVE_DIVE)
+    {
+        switch (species)
+        {
+            case SPECIES_POLIWRATH: case SPECIES_CLOYSTER:  case SPECIES_SEAKING:
+            case SPECIES_KINGLER:   case SPECIES_KABUTOPS:  case SPECIES_GYARADOS:
+            case SPECIES_DRAGONITE: case SPECIES_FERALIGATR: case SPECIES_AZUMARILL:
+            case SPECIES_QUAGSIRE:  case SPECIES_QWILFISH:   case SPECIES_SWAMPERT:
+            case SPECIES_WAILORD:   case SPECIES_WALREIN:    case SPECIES_CRAWDAUNT:
+            case SPECIES_HUNTAIL:   case SPECIES_RELICANTH:
+                moveCategory = MOVE_CATEGORY_PHYSICAL;
+                break;
+        }
+    }
+
+    LoadPalette(sSplitIcons_Pal, 10 * 0x10, 0x20);
+    BlitBitmapToWindow(B_WIN_PSS_ICON, sSplitIcons_Gfx + 0x80 * moveCategory, 0, 0, 16, 16);
+    PutWindowTilemap(B_WIN_PSS_ICON);
+    CopyWindowToVram(B_WIN_PSS_ICON, 3);
 }

@@ -2224,6 +2224,7 @@ const union {
         .WATER_PULSE = TRUE,
         .TOXIC = TRUE,
         .HAIL = TRUE,
+		.TAUNT = TRUE,
         .HIDDEN_POWER = TRUE,
         .ICE_BEAM = TRUE,
         .BLIZZARD = TRUE,

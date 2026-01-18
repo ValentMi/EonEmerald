@@ -74,6 +74,7 @@ static bool8 ShouldGetStatBadgeBoost(u16 flagId, u8 battlerId);
 static u16 GiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
 static bool8 ShouldSkipFriendshipChange(void);
 static u8 CopyMonToPC(struct Pokemon *mon);
+extern const struct Evolution gEvolutionTable[][EVOS_PER_MON];
 
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
 EWRAM_DATA u8 gPlayerPartyCount = 0;
@@ -3272,6 +3273,10 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     // Apply abilities / field sports
     if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
         gBattleMovePower /= 2;
+    if (defender->ability == ABILITY_MINUS && (type == TYPE_FIRE))
+        gBattleMovePower /= 2;
+    if (defender->ability == ABILITY_COLOR_CHANGE)
+        gBattleMovePower /= 2;
     if (defender->ability == ABILITY_DAMP && (type == TYPE_FIRE))
         gBattleMovePower /= 2;
     if (defender->species == SPECIES_SUNFLORA && (type == TYPE_FIRE || type == TYPE_ICE || type == TYPE_WATER))
@@ -3374,6 +3379,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		if (type == TYPE_WATER && attacker->species == SPECIES_CRAWDAUNT)
 			gBattleMovePower = (150 * gBattleMovePower) / 100;
 		if (type == TYPE_DARK && attacker->species == SPECIES_CRAWDAUNT)
+			gBattleMovePower = (150 * gBattleMovePower) / 100;
+		if (type == TYPE_NORMAL && attacker->species == SPECIES_KECLEON)
 			gBattleMovePower = (150 * gBattleMovePower) / 100;
 	
 //CONDITIONAL PSS

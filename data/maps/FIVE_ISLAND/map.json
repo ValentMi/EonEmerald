@@ -50,12 +50,38 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FiveIsland_EventScript_BugCatcher",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KOGA",
+      "x": 18,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_TREE_DISGUISE",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Postgame_EventScript_Koga",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+      "x": 15,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Koga_EventScript_BlockedPath",
+      "flag": "FLAG_REMOVE_KOGA_BLOCK"
     }
   ],
   "warp_events": [
     {
-      "x": 12,
-      "y": 17,
+      "x": 15,
+      "y": 20,
       "elevation": 0,
       "dest_map": "MAP_BIRTH_ISLAND_HARBOR",
       "dest_warp_id": "0"

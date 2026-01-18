@@ -89,10 +89,13 @@ OneIsland_PokemonCenter_1F_EventScript_BattleGirlHoennLinked::
 	end
 	
 OneIsland_TreasureBeach_EventScript_Boy::
-	msgbox OneIsland_TreasureBeach_Text_GoodThingsWashUpOnBeach, MSGBOX_NPC
-	end
-	
-OneIsland_TreasureBeach_Text_GoodThingsWashUpOnBeach::
+    lock
+    faceplayer
+    msgbox OneIsland_TreasureBeach_Text_GoodThingsWashUpOnBeach, MSGBOX_DEFAULT
+    release
+    end
+
+OneIsland_TreasureBeach_Text_GoodThingsWashUpOnBeach:
     .string "Good things get washed up by the\n"
     .string "ocean current onto this beach.\p"
     .string "That's why I often come here for\n"

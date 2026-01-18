@@ -767,7 +767,7 @@ static const u8 sSpikesDescription[] = _(
 
 static const u8 sZapCannonDescription[] = _(
     "Powerful and sure to cause\n"
-    "paralysis, but inaccurate.");
+    "paralysis, but slow.");
 
 static const u8 sForesightDescription[] = _(
     "Negates the foe's efforts\n"

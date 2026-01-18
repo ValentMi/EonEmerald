@@ -263,7 +263,7 @@ Route126_EventScript_ItemGreenShard::
 	end
 
 Route127_EventScript_ItemZinc::
-	finditem ITEM_ZINC
+	finditem ITEM_LAX_INCENSE
 	end
 
 Route127_EventScript_ItemCarbos::

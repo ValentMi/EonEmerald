@@ -11,27 +11,44 @@ FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove::
 	waitstate
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, EventScript_AbilitySwitch_Cancel
 	special SwitchMonAbility
-	msgbox gText_AbilitySwitched MSGBOX_DEFAULT
+	msgbox gText_AbilitySwitched MSGBOX_NPC
 	release
 	end
 
 	EventScript_AbilitySwitch_Cancel:
-	msgbox gText_ComeBackAnytime MSGBOX_DEFAULT
+	msgbox gText_ComeBackAnytime MSGBOX_NPC
 	release
 	end
 
 FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner::
+	msgbox gText_SwitchAbility, MSGBOX_NPC
 	lock
 	faceplayer
-	msgbox gText_SwitchAbility MSGBOX_DEFAULT
+	checkitem ITEM_HEART_SCALE
+	goto_if_eq VAR_RESULT, FALSE, FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
+	msgbox FallarborTown_MoveRelearnersHouse_Text_ThatsAHeartScaleWantMeToTeachMove, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
+	
 	special ChoosePartyMon
 	waitstate
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, EventScript_AbilitySwitch_Cancel
-	special SwitchMonAbility
-	msgbox gText_AbilitySwitched MSGBOX_DEFAULT
+	
+	@ The special must be written to return TRUE or FALSE to VAR_RESULT
+	special SwitchMonAbility 
+	goto_if_eq VAR_RESULT, FALSE, FallarborTown_MoveRelearnersHouse_EventScript_NoSecondAbility
+	
+	@ Only take the item if VAR_RESULT was TRUE
+	removeitem ITEM_HEART_SCALE, 1
+	msgbox gText_AbilitySwitched, MSGBOX_DEFAULT
 	release
 	end
 
+FallarborTown_MoveRelearnersHouse_EventScript_NoSecondAbility::
+	msgbox gText_FallarborTown_MoveRelearnersHouse_Text_NoSecondAbility, MSGBOX_DEFAULT
+	release
+	end
+	
+	
 OLDMOVETUTOR::
 	faceplayer
 	lockall
@@ -90,23 +107,21 @@ FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale::
 	end
 
 FallarborTown_MoveRelearnersHouse_Text_ImTheMoveTutor:
-	.string "I'm the MOVE TUTOR.\p"
-	.string "I know all the moves that POKéMON\n"
-	.string "learn--every one of them--and I can\l"
-	.string "teach POKéMON those moves.\p"
-	.string "I can teach a move to a POKéMON\n"
-	.string "of yours if you'd like.\p"
-	.string "I'll do it for a HEART SCALE.\n"
+	.string "I'm the Ability Tutor.\p"
+	.string "I know all the abilities Pokémon\n"
+	.string "have--every one of them--and I can\l"
+	.string "teach Pokémon those abilities.\p"
+	.string "I'll do it for a Heart Scale.\n"
 	.string "I'm collecting those now.$"
 
 FallarborTown_MoveRelearnersHouse_Text_ThatsAHeartScaleWantMeToTeachMove:
 	.string "Oh! That's it! That's an honest to\n"
-	.string "goodness HEART SCALE!\p"
-	.string "Let me guess, you want me to teach\n"
-	.string "a move?$"
+	.string "goodness Heart Scale!\p"
+	.string "Let me guess, you want me to\n"
+	.string "change abilities?$"
 
 FallarborTown_MoveRelearnersHouse_Text_TutorWhichMon:
-	.string "Which POKéMON needs tutoring?$"
+	.string "Which Pokémon needs tutoring?$"
 
 FallarborTown_MoveRelearnersHouse_Text_TeachWhichMove:
 	.string "Which move should I teach?$"
@@ -114,15 +129,15 @@ FallarborTown_MoveRelearnersHouse_Text_TeachWhichMove:
 FallarborTown_MoveRelearnersHouse_Text_DontHaveMoveToTeachPokemon:
 	.string "Sorry…\p"
 	.string "It doesn't appear as if I have any move\n"
-	.string "I can teach that POKéMON.$"
+	.string "I can teach that Pokémon.$"
 
 FallarborTown_MoveRelearnersHouse_Text_HandedOverHeartScale:
 	.string "{PLAYER} handed over one HEART SCALE\n"
 	.string "in exchange.$"
 
 FallarborTown_MoveRelearnersHouse_Text_ComeBackWithHeartScale:
-	.string "If your POKéMON need to learn a move,\n"
-	.string "come back with a HEART SCALE.$"
+	.string "If a Pokémon needs to switch abilities,\n"
+	.string "come back with a Heart Scale.$"
 
 FallarborTown_MoveRelearnersHouse_Text_CantTeachEgg:
 	.string "Hunh? There isn't a single move that\n"
@@ -138,7 +153,13 @@ gText_SwitchAbility2:
 	.string "change an ability?$"
 	
 gText_AbilitySwitched:
+	.string "Your Pokémon's ability changed.\n"
 	.string "Come back anytime!$"
 	
 gText_ComeBackAnytime:
 	.string "Come back anytime!$"
+
+gText_FallarborTown_MoveRelearnersHouse_Text_NoSecondAbility:
+	.string "I'm sorry, but this Pokémon only\n"
+	.string "has one natural ability.\p"
+	.string "I can't switch it!$"
