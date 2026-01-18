@@ -65,6 +65,41 @@ SevenIsland_PokemonCenter_1F_EventScript_Beauty::
 	msgbox SevenIsland_PokemonCenter_1F_Text_CheckOutTrainerTower, MSGBOX_NPC
 	end
 	
+Sevii_EventScript_VisitedTwoIsland::
+	setflag FLAG_VISITED_TWO_ISLAND
+	setvar VAR_TEMP_1, 1
+	end
+	
+Sevii_EventScript_VisitedThreeIsland::
+	setflag FLAG_VISITED_THREE_ISLAND
+	setvar VAR_TEMP_1, 1
+	end
+	
+Sevii_EventScript_VisitedFourIsland::
+	setflag FLAG_VISITED_FOUR_ISLAND
+	setvar VAR_TEMP_1, 1
+	end
+	
+Sevii_EventScript_VisitedFiveIsland::
+	setflag FLAG_VISITED_FIVE_ISLAND
+	setvar VAR_TEMP_1, 1
+	end
+	
+Sevii_EventScript_VisitedSixIsland::
+	setflag FLAG_VISITED_SIX_ISLAND
+	setvar VAR_TEMP_1, 1
+	end
+	
+Sevii_EventScript_VisitedSevenIsland::
+	setflag FLAG_VISITED_SEVEN_ISLAND
+	setvar VAR_TEMP_1, 1
+	end
+	
+Sevii_EventScript_VisitedIndigo::
+	setflag FLAG_VISITED_INDIGO_PLATEAU
+	setvar VAR_TEMP_1, 1
+	end
+	
 SevenIsland_PokemonCenter_1F_Text_EventsDependingOnConnections::
     .string "On this island, different events\n"
     .string "occur depending on connections.\p"

@@ -1579,9 +1579,9 @@ static const u8 sTriPassDesc[] = _(
     "and THREE ISLAND.");
 
 static const u8 sRainbowPassDesc[] = _(
-    "For ferries serving\n"
-    "VERMILION and the\n"
-    "SEVII ISLANDS.");
+    "A ticket required\n"
+    "to board the ship\n"
+    "to BIRTH ISLAND.");
 
 static const u8 sTeaDesc[] = _(
     "A thirst-quenching\n"
@@ -1594,9 +1594,9 @@ static const u8 sMysticTicketDesc[] = _(
     "to NAVEL ROCK.");
 
 static const u8 sAuroraTicketDesc[] = _(
-    "A ticket required\n"
-    "to board the ship\n"
-    "to BIRTH ISLAND.");
+    "For ferries serving\n"
+    "Lilycove and the\n"
+    "SEVII ISLANDS.");
 
 static const u8 sPowderJarDesc[] = _(
     "Stores BERRY\n"

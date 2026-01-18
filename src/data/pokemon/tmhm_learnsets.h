@@ -2665,6 +2665,7 @@ const union {
         .DOUBLE_TEAM = TRUE,
         .SHOCK_WAVE = TRUE,
         .FLAMETHROWER = TRUE,
+		.SLUDGE_BOMB = TRUE,
         .SANDSTORM = TRUE,
         .FIRE_BLAST = TRUE,
         .ROCK_TOMB = TRUE,
