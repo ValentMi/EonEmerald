@@ -2,7 +2,7 @@
   "id": "MAP_BOND_BRIDGE",
   "name": "BOND_BRIDGE",
   "layout": "LAYOUT_BOND_BRIDGE",
-  "music": "MUS_RG_SEVII_ROUTE",
+  "music": "MUS_RG_ROUTE3",
   "region_map_section": "MAPSEC_BOND_BRIDGE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

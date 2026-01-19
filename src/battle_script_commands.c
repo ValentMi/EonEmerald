@@ -53,6 +53,10 @@
 #include "constants/trainers.h"
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
+extern void DoMonFrontSpriteAnimation(struct Sprite *sprite, u16 species, bool8 isShadow, u8 animNum);
+extern u8 LaunchAnimationTaskForBackSprite(struct Sprite *sprite, u8 backAnimId);
+extern void PlayCry_ByMode(u16 species, s8 pan, u8 mode);
+extern void LaunchAnimationTaskForFrontSprite(struct Sprite *sprite, u8 frontAnimId);
 
 #define DEFENDER_IS_PROTECTED ((gProtectStructs[gBattlerTarget].protected) && (gBattleMoves[gCurrentMove].flags & FLAG_PROTECT_AFFECTED))
 
@@ -3177,6 +3181,40 @@ static void Cmd_dofaintanimation(void)
     if (gBattleControllerExecFlags == 0)
     {
         gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
+
+        // --- START: VICTORY CRY AND ANIMATION ---
+        {
+            u8 winner = gBattlerAttacker; 
+            u8 spriteId = gBattlerSpriteIds[winner];
+            struct Sprite *s = &gSprites[spriteId];
+            u16 species;
+
+            if (GetBattlerSide(winner) != B_SIDE_PLAYER)
+                species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[winner]], MON_DATA_SPECIES);
+            else
+                species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[winner]], MON_DATA_SPECIES);
+
+            if (species != SPECIES_NONE && !s->invisible && gBattleMons[winner].hp != 0)
+            {
+                PlayCry_ByMode(species, 0, 0); 
+
+                s->data[0] = 0; // Clear task data to allow animation to run
+
+                if (GetBattlerSide(winner) == B_SIDE_OPPONENT)
+                {
+                    // Open mouth/Pose (Frame 1) and use Universal Front Shake (15)
+                    StartSpriteAnim(s, 1);
+                    LaunchAnimationTaskForFrontSprite(s, 15);
+                }
+                else
+                {
+                    // Back sprites stay on frame 0, use Universal Back Shake (8)
+                    LaunchAnimationTaskForBackSprite(s, 8);
+                }
+            }
+        }
+        // --- END: VICTORY CRY AND ANIMATION ---
+
         BtlController_EmitFaintAnimation(BUFFER_A);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr += 2;

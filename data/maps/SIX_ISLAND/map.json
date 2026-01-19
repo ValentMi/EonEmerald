@@ -2,7 +2,7 @@
   "id": "MAP_SIX_ISLAND",
   "name": "SIX_ISLAND",
   "layout": "LAYOUT_SIX_ISLAND",
-  "music": "MUS_RG_SEVII_67",
+  "music": "MUS_RG_FUCHSIA",
   "region_map_section": "MAPSEC_SIX_ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -76,7 +76,33 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Sevii_EventScript_VisitedSixIsland"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Sevii_EventScript_VisitedSixIsland"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Sevii_EventScript_VisitedSixIsland"
+    }
   ],
   "bg_events": [
     {

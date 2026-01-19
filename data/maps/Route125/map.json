@@ -5,7 +5,7 @@
   "music": "MUS_ROUTE120",
   "region_map_section": "MAPSEC_ROUTE_125",
   "requires_flash": false,
-  "weather": "WEATHER_RAIN_THUNDERSTORM",
+  "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_OCEAN_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -123,8 +123,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 43,
-      "y": 19,
+      "x": 44,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
       "movement_range_x": 2,
@@ -136,10 +136,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-      "x": 48,
-      "y": 19,
+      "x": 39,
+      "y": 6,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 2,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -149,8 +149,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 46,
-      "y": 17,
+      "x": 32,
+      "y": 21,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -161,16 +161,29 @@
       "flag": "FLAG_ITEM_ROUTE_125_BIG_PEARL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MISTY",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 76,
       "y": 6,
-      "elevation": 1,
+      "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 2,
-      "movement_range_y": 5,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "Postgame_EventScript_Misty",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Postgame_EventScript_Rival",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NURSE",
+      "x": 13,
+      "y": 21,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Sevii_Universal_Nurse_Script",
       "flag": "0"
     }
   ],
@@ -184,7 +197,34 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "weather",
+      "x": 62,
+      "y": 28,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SNOW"
+    },
+    {
+      "type": "weather",
+      "x": 57,
+      "y": 36,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SNOW"
+    },
+    {
+      "type": "weather",
+      "x": 58,
+      "y": 36,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 63,
+      "y": 28,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    }
   ],
   "bg_events": [
     {

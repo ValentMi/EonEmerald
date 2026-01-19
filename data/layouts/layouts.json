@@ -4455,7 +4455,7 @@
       "id": "LAYOUT_TWO_ISLAND",
       "name": "TWO_ISLAND_Layout",
       "width": 48,
-      "height": 20,
+      "height": 26,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/TWO_ISLAND/border.bin",

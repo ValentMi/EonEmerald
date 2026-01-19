@@ -1275,8 +1275,8 @@
 #define FLAG_UNUSED_0x4C5                                           0x4C5 // Unused Flag
 #define FLAG_UNUSED_0x4C6                                           0x4C6 // Unused Flag
 #define FLAG_UNUSED_0x4C7                                           0x4C7 // Unused Flag
-#define FLAG_UNUSED_0x4C8                                           0x4C8 // Unused Flag
-#define FLAG_UNUSED_0x4C9                                           0x4C9 // Unused Flag
+#define FLAG_DECLINED_RIVAL_POSTGAME                                           0x4C8 // Unused Flag
+#define FLAG_DEFEATED_RIVAL_POSTGAME                                           0x4C9 // Unused Flag
 #define FLAG_VISITED_INDIGO_PLATEAU                                           0x4CA // Unused Flag
 #define FLAG_VISITED_SEVEN_ISLAND                                           0x4CB // Unused Flag
 #define FLAG_VISITED_SIX_ISLAND                                           0x4CC // Unused Flag

@@ -27,6 +27,10 @@
 
 extern const u16 gMovesWithQuietBGM[];
 extern const u8 *const gBattleAnims_Moves[];
+extern void DoMonFrontSpriteAnimation(struct Sprite *sprite, u16 species, bool8 isShadow, u8 animNum);
+extern void LaunchAnimationTaskForFrontSprite(struct Sprite *sprite, u8 frontAnimId); // Add this!
+extern u8 LaunchAnimationTaskForBackSprite(struct Sprite *sprite, u8 backAnimId);
+extern void PlayCry_ByMode(u16 species, s8 pan, u8 mode);
 
 static void Cmd_loadspritegfx(void);
 static void Cmd_unloadspritegfx(void);
@@ -261,6 +265,46 @@ void LaunchBattleAnimation(const u8 *const animsTable[], u16 tableId, bool8 isMo
     gBattle_WIN0V = 0;
     gBattle_WIN1H = 0;
     gBattle_WIN1V = 0;
+
+// --- POKEMON ANIMATION START ---
+    if (isMoveAnim && !IsContest())
+    {
+        u16 move = gCurrentMove;
+        u32 target = gBattleMoves[move].target;
+
+        // Skip the animation only if the move targets the USER alone.
+        // This allows Selected, Random, Both, Foes/Ally, etc. to trigger the shake.
+        if (target == MOVE_TARGET_USER)
+        {
+            // Do nothing for self-targeted moves (Swords Dance, Recover, etc.)
+        }
+        else
+        {
+            u8 attacker = gBattlerAttacker;
+            u8 spriteId = gBattlerSpriteIds[attacker];
+            struct Sprite *s = &gSprites[spriteId];
+            u16 species = gAnimBattlerSpecies[attacker];
+
+            if (species != SPECIES_NONE && !s->invisible)
+            {
+                PlayCry_ByMode(species, 0, 0); 
+                s->data[0] = 0; 
+
+                if (GetBattlerSide(attacker) == B_SIDE_OPPONENT)
+                {
+                    // Second Frame + Shake
+                    StartSpriteAnim(s, 1);
+                    LaunchAnimationTaskForFrontSprite(s, 15);
+                }
+                else
+                {
+                    // Back Shake
+                    LaunchAnimationTaskForBackSprite(s, 8);
+                }
+            }
+        }
+    }
+    // --- POKEMON ANIMATION END ---
 }
 
 void DestroyAnimSprite(struct Sprite *sprite)

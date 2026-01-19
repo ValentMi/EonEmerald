@@ -334,8 +334,6 @@ Postgame_BlainePostBattle:
 	.string "Never let your passion for\n"
 	.string "Pokemon go cold!$"
 
-
-
 Postgame_EventScript_Giovanni::
 	lock
 	faceplayer
@@ -382,3 +380,140 @@ Postgame_GiovanniPostBattle:
 	.string "You have a gift, child.\p"
 	.string "Do not squander it as I once\n"
 	.string "did with my ambitions.$"
+	
+Postgame_EventScript_Rival::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_RIVAL_POSTGAME, Postgame_EventScript_Rival2_Defeated
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, Postgame_EventScript_May
+	goto_if_eq VAR_RESULT, FEMALE, Postgame_EventScript_Brendan
+	end
+
+Postgame_EventScript_May::
+	playbgm MUS_ENCOUNTER_MAY, TRUE
+	call_if_set FLAG_DECLINED_RIVAL_POSTGAME, Postgame_EventScript_MayAskAgain
+	call_if_unset FLAG_DECLINED_RIVAL_POSTGAME, Postgame_EventScript_MayAskFirst
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_DeclineRival
+	msgbox Postgame_Text_MayLetsGo, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, Postgame_EventScript_BattleMayTreecko
+	case 1, Postgame_EventScript_BattleMayTorchic
+	case 2, Postgame_EventScript_BattleMayMudkip
+	end
+
+Postgame_EventScript_Brendan::
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	call_if_set FLAG_DECLINED_RIVAL_POSTGAME, Postgame_EventScript_BrendanAskAgain
+	call_if_unset FLAG_DECLINED_RIVAL_POSTGAME, Postgame_EventScript_BrendanAskFirst
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_DeclineRival
+	msgbox Postgame_Text_BrendanLetsGo, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, Postgame_EventScript_BattleBrendanTreecko
+	case 1, Postgame_EventScript_BattleBrendanTorchic
+	case 2, Postgame_EventScript_BattleBrendanMudkip
+	end
+
+Postgame_EventScript_DeclineRival::
+	setflag FLAG_DECLINED_RIVAL_POSTGAME
+	msgbox Postgame_Text_RivalDeclined, MSGBOX_DEFAULT
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+
+Postgame_EventScript_Rival2_Defeated::
+	msgbox Postgame_Text_RivalPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_BattleMayTreecko::
+	trainerbattle_no_intro TRAINER_FLANNERY_3, Postgame_Text_MayDefeat
+	goto Postgame_EventScript_DefeatedRival
+	end
+	
+Postgame_EventScript_BattleMayTorchic::
+	trainerbattle_no_intro TRAINER_FLANNERY_4, Postgame_Text_MayDefeat
+	goto Postgame_EventScript_DefeatedRival
+	end
+	
+Postgame_EventScript_BattleMayMudkip::
+	trainerbattle_no_intro TRAINER_NORMAN_2, Postgame_Text_MayDefeat
+	goto Postgame_EventScript_DefeatedRival
+	end
+	
+Postgame_EventScript_BattleBrendanTreecko::
+	trainerbattle_no_intro TRAINER_NORMAN_3, Postgame_Text_MayDefeat
+	goto Postgame_EventScript_DefeatedRival
+	end
+	
+Postgame_EventScript_BattleBrendanTorchic::
+	trainerbattle_no_intro TRAINER_NORMAN_4, Postgame_Text_MayDefeat
+	goto Postgame_EventScript_DefeatedRival
+	end
+	
+Postgame_EventScript_BattleBrendanMudkip::
+	trainerbattle_no_intro TRAINER_WINONA_2, Postgame_Text_MayDefeat
+	goto Postgame_EventScript_DefeatedRival
+	end
+
+Postgame_EventScript_DefeatedRival::
+	setflag FLAG_DEFEATED_RIVAL_POSTGAME
+	msgbox Postgame_Text_RivalPostBattle, MSGBOX_DEFAULT
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+
+Postgame_EventScript_MayAskFirst:
+	msgbox Postgame_Text_MayIntro, MSGBOX_YESNO
+	return
+
+Postgame_EventScript_MayAskAgain:
+	msgbox Postgame_Text_MayReadyYet, MSGBOX_YESNO
+	return
+	
+Postgame_Text_MayIntro:
+	.string "May: Hi {PLAYER}!\n"
+	.string "I've been training really hard.\l"
+	.string "Would you like to have a battle?$"
+
+Postgame_Text_MayReadyYet:
+	.string "May: Are you ready for our\n"
+	.string "battle now?$"
+
+Postgame_Text_MayLetsGo:
+	.string "May: Great! I won't lose this time!$"
+
+Postgame_Text_MayDefeat:
+	.string "Wow! You're still as tough\n"
+	.string "as ever!$"
+
+Postgame_Text_BrendanIntro:
+	.string "Brendan: Hey {PLAYER}!\n"
+	.string "I've been looking for you.\l"
+	.string "How about a quick battle?$"
+
+Postgame_Text_BrendanReadyYet:
+	.string "Brendan: Hey, you ready to go?$"
+
+Postgame_Text_BrendanLetsGo:
+	.string "Brendan: All right!\n"
+	.string "Let's see how much you've grown!$"
+
+Postgame_Text_RivalDeclined:
+	.string "Oh, I see...\n"
+	.string "Well, I'll be here if you change\l"
+	.string "your mind.$"
+
+Postgame_Text_RivalPostBattle:
+	.string "That was an incredible match.\n"
+	.string "Thanks for the battle!$"
+
+Postgame_EventScript_BrendanAskFirst:
+	msgbox Postgame_Text_BrendanIntro, MSGBOX_YESNO
+	return
+
+Postgame_EventScript_BrendanAskAgain:
+	msgbox Postgame_Text_BrendanReadyYet, MSGBOX_YESNO
+	return

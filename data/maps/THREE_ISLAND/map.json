@@ -143,7 +143,33 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Sevii_EventScript_VisitedThreeIsland"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Sevii_EventScript_VisitedThreeIsland"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Sevii_EventScript_VisitedThreeIsland"
+    }
   ],
   "bg_events": [
     {

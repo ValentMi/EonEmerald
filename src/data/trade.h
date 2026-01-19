@@ -1002,14 +1002,14 @@ static const struct InGameTrade sIngameTrades[] =
     },
     [INGAME_TRADE_PLUSLE] =
     {
-        .nickname = _("Pluses"),
-        .species = SPECIES_PLUSLE,
+        .nickname = _("Runt"),
+        .species = SPECIES_SNORUNT,
         .ivs = {4, 4, 4, 5, 5, 4},
         .abilityNum = 0,
         .otId = 73996,
-        .conditions = {5, 5, 30, 5, 5},
+        .conditions = {30, 30, 30, 30, 30},
         .personality = 0x6F,
-        .heldItem = ITEM_WOOD_MAIL,
+        .heldItem = ITEM_NEVER_MELT_ICE,
         .mailNum = 0,
         .otName = _("Roman"),
         .otGender = MALE,
@@ -1030,7 +1030,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("Skylar"),
         .otGender = MALE,
         .sheen = 10,
-        .requestedSpecies = SPECIES_BAGON
+        .requestedSpecies = SPECIES_CORSOLA
     },
     [INGAME_TRADE_MEOWTH] =
     {

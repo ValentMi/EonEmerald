@@ -155,6 +155,102 @@ EventScript_CancelStrength::
 	releaseall
 	end
 
+Script_RandomWeather_Warm::
+    lockall
+    goto_if_ne VAR_TEMP_0, 0, Script_Weather_End
+    random 8
+    switch VAR_RESULT
+    case 0, Script_Weather_None
+    case 1, Script_Weather_Rain
+	case 2, Script_Weather_Thunder
+    case 3, Script_Weather_Sunny
+	case 4, Script_Weather_Sunny
+	case 5, Script_Weather_Sunny
+	case 6, Script_Weather_Sunny
+	case 7, Script_Weather_Sunny
+    goto Script_Weather_Update
+
+Script_RandomWeather_Desert::
+    lockall
+    goto_if_ne VAR_TEMP_0, 0, Script_Weather_End
+    random 3
+    switch VAR_RESULT
+    case 0, Script_Weather_Sandstorm
+	case 1, Script_Weather_Sandstorm
+    case 2, Script_Weather_Drought
+    goto Script_Weather_Update
+	
+Route111_EventScript_SandstormTriggerbroken::
+	fadenewbgm MUS_DESERT
+    lockall
+    goto_if_ne VAR_TEMP_0, 0, Script_Weather_End
+    random 3
+    switch VAR_RESULT
+    case 0, Script_Weather_Sandstorm
+	case 1, Script_Weather_Sandstorm
+    case 2, Script_Weather_Drought
+    goto Script_Weather_Update
+
+Script_RandomWeather_Cold::
+    lockall
+    goto_if_ne VAR_TEMP_0, 0, Script_Weather_End
+    random 6
+    switch VAR_RESULT
+    case 0, Script_Weather_Sunny
+    case 1, Script_Weather_Sunny
+	case 2, Script_Weather_Snow
+	case 3, Script_Weather_Heavy_Snow
+	case 4, Script_Weather_Heavy_Snow
+    case 5, Script_Weather_Heavy_Rain
+    goto Script_Weather_Update
+
+Script_Weather_Update:
+    doweather
+    setvar VAR_TEMP_0, 1
+Script_Weather_End:
+    releaseall
+    end
+
+Script_Weather_None:
+    setweather WEATHER_NONE
+    return
+
+Script_Weather_Rain:
+    setweather WEATHER_RAIN
+    return
+	
+Script_Weather_Heavy_Rain:
+    setweather WEATHER_DOWNPOUR
+    return
+	
+Script_Weather_Thunder:
+    setweather WEATHER_RAIN_THUNDERSTORM
+    return
+
+Script_Weather_Sunny:
+    setweather WEATHER_SUNNY
+    return
+
+Script_Weather_Sandstorm:
+    setweather WEATHER_SANDSTORM
+    return
+
+Script_Weather_Drought:
+    setweather WEATHER_DROUGHT
+    return
+
+Script_Weather_Snow:
+    setweather WEATHER_SNOW
+    return
+
+Script_Weather_Heavy_Snow:
+    setweather WEATHER_VOLCANIC_ASH
+    return
+
+Script_Weather_ThinFog:
+    setweather WEATHER_FOG_HORIZONTAL
+    return
+
 Text_WantToStrength:
 	.string "It's too heavy to move alone.\p"
 	.string "A POKéMON may be able to\n"

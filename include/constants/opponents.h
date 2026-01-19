@@ -784,14 +784,14 @@
 #define TRAINER_WATTSON_4                   780 //Tabitha Superboss
 #define TRAINER_WATTSON_5                   781
 #define TRAINER_FLANNERY_2                  782 //Courtney Superboss
-#define TRAINER_FLANNERY_3                  783
-#define TRAINER_FLANNERY_4                  784 
+#define TRAINER_FLANNERY_3                  783 //PGMay1
+#define TRAINER_FLANNERY_4                  784  //PGMay2
 #define TRAINER_FLANNERY_5                  785
-#define TRAINER_NORMAN_2                    786
-#define TRAINER_NORMAN_3                    787
-#define TRAINER_NORMAN_4                    788
+#define TRAINER_NORMAN_2                    786 //PGMay3
+#define TRAINER_NORMAN_3                    787 //PGBrendan1
+#define TRAINER_NORMAN_4                    788 //PGBrendan2
 #define TRAINER_NORMAN_5                    789
-#define TRAINER_WINONA_2                    790
+#define TRAINER_WINONA_2                    790 //PGBrendan3
 #define TRAINER_WINONA_3                    791
 #define TRAINER_WINONA_4                    792
 #define TRAINER_WINONA_5                    793

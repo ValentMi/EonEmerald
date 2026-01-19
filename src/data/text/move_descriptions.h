@@ -1226,12 +1226,12 @@ static const u8 sCrushClawDescription[] = _(
     "claws. May lower DEFENSE.");
 
 static const u8 sBlastBurnDescription[] = _(
-    "Powerful, but leaves the\n"
-    "user immobile the next turn.");
+    "Allows a full-power attack,\n"
+    "but sharply lowers SP. ATK.");
 
 static const u8 sHydroCannonDescription[] = _(
-    "Powerful, but leaves the\n"
-    "user immobile the next turn.");
+    "Allows a full-power attack,\n"
+    "but sharply lowers SP. ATK.");
 
 static const u8 sMeteorMashDescription[] = _(
     "Fires a meteor-like punch.\n"
@@ -1350,8 +1350,8 @@ static const u8 sDragonClawDescription[] = _(
     "claws. May cause a burn.");
 
 static const u8 sFrenzyPlantDescription[] = _(
-    "Powerful, but leaves the\n"
-    "user immobile the next turn.");
+    "Allows a full-power attack,\n"
+    "but sharply lowers SP. ATK.");
 
 static const u8 sBulkUpDescription[] = _(
     "Bulks up the body to boost\n"
