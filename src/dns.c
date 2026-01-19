@@ -413,23 +413,35 @@ void DnsTransferPlttBuffer(void *src, void *dest)
 /* Applies filter to palette colours, stores new palettes in EWRAM buffer.   *
  * It must be called from CB2 if the DNS wants to be used (similar to        *
  * TransferPlttBuffer)  in VBlank callbacks                                  */
-void DnsApplyFilters()
+void DnsApplyFilters(void)
 {
     u8 palNum, colNum;
     u16 colour, rgbFilter;
     struct DnsPalExceptions palExceptionFlags;
 
     rgbFilter = GetDNSFilter();
-
-    palExceptionFlags = gMain.inBattle ? gCombatPalExceptions : gOWPalExceptions;   //Init pal exception slots
+    palExceptionFlags = gMain.inBattle ? gCombatPalExceptions : gOWPalExceptions;
 
     for (palNum = 0; palNum < 32; palNum++)
-        if (palExceptionFlags.pal[palNum] && (palNum < 15 || !IsSpritePaletteTagDnsException(palNum - 16)))
-            for (colNum = 0; colNum < 16; colNum++) //Transfer filtered palette to buffer
+    {
+        // If we are in battle, we want to bypass the filter math but STILL copy the data
+        if (gMain.inBattle)
+        {
+            for (colNum = 0; colNum < 16; colNum++)
+                sDnsPaletteDmaBuffer[palNum * 16 + colNum] = gPlttBufferFaded[palNum * 16 + colNum];
+        }
+        // Otherwise, use the standard Overworld logic
+        else if (palExceptionFlags.pal[palNum] && (palNum < 15 || !IsSpritePaletteTagDnsException(palNum - 16)))
+        {
+            for (colNum = 0; colNum < 16; colNum++)
                 sDnsPaletteDmaBuffer[palNum * 16 + colNum] = DnsApplyProportionalFilterToColour(gPlttBufferFaded[palNum * 16 + colNum], rgbFilter);
+        }
         else
-            for (colNum = 0; colNum < 16; colNum++)  //Transfers palette to buffer without filtering
-                sDnsPaletteDmaBuffer[palNum * 16 + colNum] = gPlttBufferFaded[palNum * 16 + colNum];      
+        {
+            for (colNum = 0; colNum < 16; colNum++)
+                sDnsPaletteDmaBuffer[palNum * 16 + colNum] = gPlttBufferFaded[palNum * 16 + colNum];
+        }
+    }
 
     if (!IsMapDNSException() && IsLightActive() && !gMain.inBattle)
         DoDnsLightning();

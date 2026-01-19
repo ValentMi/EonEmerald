@@ -3314,6 +3314,42 @@ extern const u32 gBattleTerrainPalette_StadiumGlacia[];
 extern const u32 gBattleTerrainPalette_StadiumDrake[];
 extern const u32 gBattleTerrainPalette_StadiumWallace[];
 
+// Morning
+extern const u32 gBattleTerrainPalette_CaveMorning[];
+extern const u32 gBattleTerrainPalette_LongGrassMorning[];
+extern const u32 gBattleTerrainPalette_PlainMorning[];
+extern const u32 gBattleTerrainPalette_PondMorning[];
+extern const u32 gBattleTerrainPalette_RockMorning[];
+extern const u32 gBattleTerrainPalette_SandMorning[];
+extern const u32 gBattleTerrainPalette_SkyMorning[];
+extern const u32 gBattleTerrainPalette_TallGrassMorning[];
+extern const u32 gBattleTerrainPalette_UnderwaterMorning[];
+extern const u32 gBattleTerrainPalette_WaterMorning[];
+
+// Sunset
+extern const u32 gBattleTerrainPalette_CaveSunset[];
+extern const u32 gBattleTerrainPalette_LongGrassSunset[];
+extern const u32 gBattleTerrainPalette_PlainSunset[];
+extern const u32 gBattleTerrainPalette_PondSunset[];
+extern const u32 gBattleTerrainPalette_RockSunset[];
+extern const u32 gBattleTerrainPalette_SandSunset[];
+extern const u32 gBattleTerrainPalette_SkySunset[];
+extern const u32 gBattleTerrainPalette_TallGrassSunset[];
+extern const u32 gBattleTerrainPalette_UnderwaterSunset[];
+extern const u32 gBattleTerrainPalette_WaterSunset[];
+
+// Night
+extern const u32 gBattleTerrainPalette_CaveNight[];
+extern const u32 gBattleTerrainPalette_LongGrassNight[];
+extern const u32 gBattleTerrainPalette_PlainNight[];
+extern const u32 gBattleTerrainPalette_PondNight[];
+extern const u32 gBattleTerrainPalette_RockNight[];
+extern const u32 gBattleTerrainPalette_SandNight[];
+extern const u32 gBattleTerrainPalette_SkyNight[];
+extern const u32 gBattleTerrainPalette_TallGrassNight[];
+extern const u32 gBattleTerrainPalette_UnderwaterNight[];
+extern const u32 gBattleTerrainPalette_WaterNight[];
+
 // Pokédex
 extern const u32 gPokedexInterface_Gfx[];
 extern const u16 gPokedexBgHoenn_Pal[];
