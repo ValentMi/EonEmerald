@@ -29,6 +29,8 @@
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/trainer_types.h"
+#include "metatile_behavior.h"
+#include "constants/metatile_behaviors.h"
 
 #define NUM_FORCED_MOVEMENTS 18
 #define NUM_ACRO_BIKE_COLLISIONS 5
@@ -109,6 +111,8 @@ static bool8 PushBoulder_End(struct Task *, struct ObjectEvent *, struct ObjectE
 static void DoPlayerMatJump(void);
 static void DoPlayerAvatarSecretBaseMatJump(u8);
 static u8 PlayerAvatar_DoSecretBaseMatJump(struct Task *, struct ObjectEvent *);
+static void TryHidePlayerReflection(void); // Add this line here
+static void TryHidePlayerReflection(void);
 
 static void DoPlayerMatSpin(void);
 static void PlayerAvatar_DoSecretBaseMatSpin(u8);
@@ -326,6 +330,34 @@ static u8 ObjectEventCB2_NoMovement2(void)
     return 0;
 }
 
+// Actual Code Starts Here
+static void TryHidePlayerReflection(void)
+{
+    struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    
+    if (playerObjEvent->hasReflection)
+    {
+        s16 x, y;
+        u8 mb;
+        x = playerObjEvent->currentCoords.x;
+        y = playerObjEvent->currentCoords.y;
+        
+        // Check the tile south of the player where the reflection sits
+        MoveCoords(DIR_SOUTH, &x, &y);
+        mb = MapGridGetMetatileBehaviorAt(x, y);
+
+        // Directly check the MB constants from your header file
+        if (mb == MB_POND_WATER || mb == MB_PUDDLE || mb == MB_ICE)
+        {
+            playerObjEvent->hideReflection = FALSE; // Show reflection
+        }
+        else 
+        {
+            playerObjEvent->hideReflection = TRUE;  // Hide reflection
+        }
+    }
+}
+
 void PlayerStep(u8 direction, u16 newKeys, u16 heldKeys)
 {
     struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
@@ -333,6 +365,7 @@ void PlayerStep(u8 direction, u16 newKeys, u16 heldKeys)
     HideShowWarpArrow(playerObjEvent);
     if (gPlayerAvatar.preventStep == FALSE)
     {
+        TryHidePlayerReflection();
         Bike_TryAcroBikeHistoryUpdate(newKeys, heldKeys);
         if (TryInterruptObjectEventSpecialAnim(playerObjEvent, direction) == 0)
         {
@@ -343,6 +376,7 @@ void PlayerStep(u8 direction, u16 newKeys, u16 heldKeys)
                 MovePlayerAvatarUsingKeypadInput(direction, newKeys, heldKeys);
                 PlayerAllowForcedMovementIfMovingSameDirection();
             }
+            TryHidePlayerReflection();
         }
     }
 }

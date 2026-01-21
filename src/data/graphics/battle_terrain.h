@@ -86,3 +86,37 @@ const u32 gBattleTerrainAnimTilemap_Building[] = INCBIN_U32("graphics/battle_ter
 
 const u32 gBattleTerrainAnimTiles_Rayquaza[] = INCBIN_U32("graphics/battle_terrain/sky/anim_tiles.4bpp.lz");
 const u32 gBattleTerrainAnimTilemap_Rayquaza[] = INCBIN_U32("graphics/battle_terrain/sky/anim_map.bin.lz");
+
+// Morning Palettes
+const u32 gBattleTerrainPalette_CaveMorning[]        = INCBIN_U32("graphics/battle_terrain/cave/morning.gbapal.lz");
+const u32 gBattleTerrainPalette_LongGrassMorning[]   = INCBIN_U32("graphics/battle_terrain/long_grass/morning.gbapal.lz");
+const u32 gBattleTerrainPalette_PlainMorning[]       = INCBIN_U32("graphics/battle_terrain/plain/morning.gbapal.lz");
+const u32 gBattleTerrainPalette_PondMorning[]        = INCBIN_U32("graphics/battle_terrain/pond_water/morning.gbapal.lz");
+const u32 gBattleTerrainPalette_RockMorning[]        = INCBIN_U32("graphics/battle_terrain/rock/morning.gbapal.lz");
+const u32 gBattleTerrainPalette_SandMorning[]        = INCBIN_U32("graphics/battle_terrain/sand/morning.gbapal.lz");
+const u32 gBattleTerrainPalette_SkyMorning[]         = INCBIN_U32("graphics/battle_terrain/sky/morning.gbapal.lz");
+const u32 gBattleTerrainPalette_TallGrassMorning[]   = INCBIN_U32("graphics/battle_terrain/tall_grass/morning.gbapal.lz");
+const u32 gBattleTerrainPalette_UnderwaterMorning[]  = INCBIN_U32("graphics/battle_terrain/underwater/morning.gbapal.lz");
+const u32 gBattleTerrainPalette_WaterMorning[]       = INCBIN_U32("graphics/battle_terrain/water/morning.gbapal.lz");
+// Sunset Palettes
+const u32 gBattleTerrainPalette_CaveSunset[]         = INCBIN_U32("graphics/battle_terrain/cave/sunset.gbapal.lz");
+const u32 gBattleTerrainPalette_LongGrassSunset[]    = INCBIN_U32("graphics/battle_terrain/long_grass/sunset.gbapal.lz");
+const u32 gBattleTerrainPalette_PlainSunset[]        = INCBIN_U32("graphics/battle_terrain/plain/sunset.gbapal.lz");
+const u32 gBattleTerrainPalette_PondSunset[]         = INCBIN_U32("graphics/battle_terrain/pond_water/sunset.gbapal.lz");
+const u32 gBattleTerrainPalette_RockSunset[]         = INCBIN_U32("graphics/battle_terrain/rock/sunset.gbapal.lz");
+const u32 gBattleTerrainPalette_SandSunset[]         = INCBIN_U32("graphics/battle_terrain/sand/sunset.gbapal.lz");
+const u32 gBattleTerrainPalette_SkySunset[]          = INCBIN_U32("graphics/battle_terrain/sky/sunset.gbapal.lz");
+const u32 gBattleTerrainPalette_TallGrassSunset[]    = INCBIN_U32("graphics/battle_terrain/tall_grass/sunset.gbapal.lz");
+const u32 gBattleTerrainPalette_UnderwaterSunset[]   = INCBIN_U32("graphics/battle_terrain/underwater/sunset.gbapal.lz");
+const u32 gBattleTerrainPalette_WaterSunset[]        = INCBIN_U32("graphics/battle_terrain/water/sunset.gbapal.lz");
+// Night Palettes
+const u32 gBattleTerrainPalette_CaveNight[]          = INCBIN_U32("graphics/battle_terrain/cave/night.gbapal.lz");
+const u32 gBattleTerrainPalette_LongGrassNight[]     = INCBIN_U32("graphics/battle_terrain/long_grass/night.gbapal.lz");
+const u32 gBattleTerrainPalette_PlainNight[]         = INCBIN_U32("graphics/battle_terrain/plain/night.gbapal.lz");
+const u32 gBattleTerrainPalette_PondNight[]          = INCBIN_U32("graphics/battle_terrain/pond_water/night.gbapal.lz");
+const u32 gBattleTerrainPalette_RockNight[]          = INCBIN_U32("graphics/battle_terrain/rock/night.gbapal.lz");
+const u32 gBattleTerrainPalette_SandNight[]          = INCBIN_U32("graphics/battle_terrain/sand/night.gbapal.lz");
+const u32 gBattleTerrainPalette_SkyNight[]           = INCBIN_U32("graphics/battle_terrain/sky/night.gbapal.lz");
+const u32 gBattleTerrainPalette_TallGrassNight[]     = INCBIN_U32("graphics/battle_terrain/tall_grass/night.gbapal.lz");
+const u32 gBattleTerrainPalette_UnderwaterNight[]    = INCBIN_U32("graphics/battle_terrain/underwater/night.gbapal.lz");
+const u32 gBattleTerrainPalette_WaterNight[]         = INCBIN_U32("graphics/battle_terrain/water/night.gbapal.lz");

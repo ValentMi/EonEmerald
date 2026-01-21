@@ -13,6 +13,8 @@
 #include "task.h"
 #include "trig.h"
 #include "gpu_regs.h"
+#include "metatile_behavior.h"
+#include "constants/metatile_behaviors.h"
 
 EWRAM_DATA static u8 sCurrentAbnormalWeather = 0;
 EWRAM_DATA static u16 sUnusedWeatherRelated = 0;
@@ -219,10 +221,37 @@ static void DestroyCloudSprites(void)
 
 static void UpdateCloudSprite(struct Sprite *sprite)
 {
-    // Move 1 pixel left every 2 frames.
+    s16 x, y;
+    s16 cameraX, cameraY;
+    u8 mb;
+
+    // 1. Handle Movement
     sprite->data[0] = (sprite->data[0] + 1) & 1;
     if (sprite->data[0])
         sprite->x--;
+
+    // 2. Get Camera Focus and Calculate World Coordinates
+    // This retrieves the map X/Y that the camera is centered on.
+    GetCameraFocusCoords(&cameraX, &cameraY);
+
+    // sprites are 64x64. We find the tile under the center.
+    // We adjust the camera focus (center of screen) by the sprite's 
+    // relative screen position (offset from screen center).
+    x = cameraX + (sprite->x / 16) - 7; 
+    y = cameraY + (sprite->y / 16) - 5;
+
+    // 3. Get the Metatile Behavior at this spot
+    mb = MapGridGetMetatileBehaviorAt(x, y);
+
+    // 4. Only show the sprite if it's over Pond Water or Puddles
+    if (mb == MB_POND_WATER || mb == MB_PUDDLE)
+    {
+        sprite->invisible = FALSE;
+    }
+    else
+    {
+        sprite->invisible = TRUE;
+    }
 }
 
 //------------------------------------------------------------------------------

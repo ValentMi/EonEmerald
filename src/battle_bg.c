@@ -39,42 +39,6 @@ struct BattleBackground
 // .rodata
 static const u16 sUnrefArray[] = {0x0300, 0x0000}; //OamData?
 
-// Morning Palettes
-static const u16 sBattleTerrainPalette_CaveMorning[]      = INCBIN_U16("graphics/battle_terrain/cave/morning.gbapal");
-static const u16 sBattleTerrainPalette_LongGrassMorning[] = INCBIN_U16("graphics/battle_terrain/long_grass/morning.gbapal");
-static const u16 sBattleTerrainPalette_PlainMorning[]     = INCBIN_U16("graphics/battle_terrain/plain/morning.gbapal");
-static const u16 sBattleTerrainPalette_PondMorning[]      = INCBIN_U16("graphics/battle_terrain/pond_water/morning.gbapal");
-static const u16 sBattleTerrainPalette_RockMorning[]      = INCBIN_U16("graphics/battle_terrain/rock/morning.gbapal");
-static const u16 sBattleTerrainPalette_SandMorning[]      = INCBIN_U16("graphics/battle_terrain/sand/morning.gbapal");
-static const u16 sBattleTerrainPalette_SkyMorning[]       = INCBIN_U16("graphics/battle_terrain/sky/morning.gbapal");
-static const u16 sBattleTerrainPalette_TallGrassMorning[] = INCBIN_U16("graphics/battle_terrain/tall_grass/morning.gbapal");
-static const u16 sBattleTerrainPalette_UnderwaterMorning[]= INCBIN_U16("graphics/battle_terrain/underwater/morning.gbapal");
-static const u16 sBattleTerrainPalette_WaterMorning[]     = INCBIN_U16("graphics/battle_terrain/water/morning.gbapal");
-
-// Sunset Palettes
-static const u16 sBattleTerrainPalette_CaveSunset[]       = INCBIN_U16("graphics/battle_terrain/cave/sunset.gbapal");
-static const u16 sBattleTerrainPalette_LongGrassSunset[]  = INCBIN_U16("graphics/battle_terrain/long_grass/sunset.gbapal");
-static const u16 sBattleTerrainPalette_PlainSunset[]      = INCBIN_U16("graphics/battle_terrain/plain/sunset.gbapal");
-static const u16 sBattleTerrainPalette_PondSunset[]       = INCBIN_U16("graphics/battle_terrain/pond_water/sunset.gbapal");
-static const u16 sBattleTerrainPalette_RockSunset[]       = INCBIN_U16("graphics/battle_terrain/rock/sunset.gbapal");
-static const u16 sBattleTerrainPalette_SandSunset[]       = INCBIN_U16("graphics/battle_terrain/sand/sunset.gbapal");
-static const u16 sBattleTerrainPalette_SkySunset[]        = INCBIN_U16("graphics/battle_terrain/sky/sunset.gbapal");
-static const u16 sBattleTerrainPalette_TallGrassSunset[]  = INCBIN_U16("graphics/battle_terrain/tall_grass/sunset.gbapal");
-static const u16 sBattleTerrainPalette_UnderwaterSunset[] = INCBIN_U16("graphics/battle_terrain/underwater/sunset.gbapal");
-static const u16 sBattleTerrainPalette_WaterSunset[]      = INCBIN_U16("graphics/battle_terrain/water/sunset.gbapal");
-
-// Night Palettes
-static const u16 sBattleTerrainPalette_CaveNight[]        = INCBIN_U16("graphics/battle_terrain/cave/night.gbapal");
-static const u16 sBattleTerrainPalette_LongGrassNight[]   = INCBIN_U16("graphics/battle_terrain/long_grass/night.gbapal");
-static const u16 sBattleTerrainPalette_PlainNight[]       = INCBIN_U16("graphics/battle_terrain/plain/night.gbapal");
-static const u16 sBattleTerrainPalette_PondNight[]        = INCBIN_U16("graphics/battle_terrain/pond_water/night.gbapal");
-static const u16 sBattleTerrainPalette_RockNight[]        = INCBIN_U16("graphics/battle_terrain/rock/night.gbapal");
-static const u16 sBattleTerrainPalette_SandNight[]        = INCBIN_U16("graphics/battle_terrain/sand/night.gbapal");
-static const u16 sBattleTerrainPalette_SkyNight[]         = INCBIN_U16("graphics/battle_terrain/sky/night.gbapal");
-static const u16 sBattleTerrainPalette_TallGrassNight[]   = INCBIN_U16("graphics/battle_terrain/tall_grass/night.gbapal");
-static const u16 sBattleTerrainPalette_UnderwaterNight[]  = INCBIN_U16("graphics/battle_terrain/underwater/night.gbapal");
-static const u16 sBattleTerrainPalette_WaterNight[]       = INCBIN_U16("graphics/battle_terrain/water/night.gbapal");
-
 static const struct OamData sVsLetter_V_OamData =
 {
     .y = 0,
@@ -803,62 +767,86 @@ void LoadBattleMenuWindowGfx(void)
     }
 }
 
-static const u16 *GetTimeBasedBattlePalette(u8 terrain)
+static const u32 *GetTimeBasedBattlePalette(u8 terrain)
 {
-    u8 time = GetDnsTimeLapse(gLocalTime.hours); 
+    u8 timelapse = GetDnsTimeLapse(gLocalTime.hours);
+    u8 time = 0; // Default to Day
 
-    if (time == 0) // Day
-        return sBattleTerrainTable[terrain].palette;
+    // Mapping based on the enum order: 
+    // 0: Midnight, 1: Dawn, 2: Day, 3: Sunset, 4: Nightfall, 5: Night
+    switch (timelapse)
+    {
+        case 1: // TIME_DAWN
+            time = 2; // Morning
+            break;
+        case 2: // TIME_DAY
+            time = 0; // Day
+            break;
+        case 3: // TIME_SUNSET
+            time = 3; // Sunset
+            break;
+        case 4: // TIME_NIGHTFALL
+        case 5: // TIME_NIGHT
+        case 0: // TIME_MIDNIGHT
+            time = 1; // Night
+            break;
+        default:
+            time = 0;
+            break;
+    }
+
+    if (time == 0)
+        return (const u32 *)sBattleTerrainTable[terrain].palette;
 
     switch (terrain)
     {
-        case BATTLE_TERRAIN_GRASS: // Tall Grass
-            if (time == 1) return sBattleTerrainPalette_TallGrassNight;
-            if (time == 2) return sBattleTerrainPalette_TallGrassMorning;
-            if (time == 3) return sBattleTerrainPalette_TallGrassSunset;
+        case BATTLE_TERRAIN_GRASS:
+            if (time == 1) return gBattleTerrainPalette_TallGrassNight;
+            if (time == 2) return gBattleTerrainPalette_TallGrassMorning;
+            if (time == 3) return gBattleTerrainPalette_TallGrassSunset;
             break;
         case BATTLE_TERRAIN_LONG_GRASS:
-            if (time == 1) return sBattleTerrainPalette_LongGrassNight;
-            if (time == 2) return sBattleTerrainPalette_LongGrassMorning;
-            if (time == 3) return sBattleTerrainPalette_LongGrassSunset;
+            if (time == 1) return gBattleTerrainPalette_LongGrassNight;
+            if (time == 2) return gBattleTerrainPalette_LongGrassMorning;
+            if (time == 3) return gBattleTerrainPalette_LongGrassSunset;
             break;
         case BATTLE_TERRAIN_SAND:
-            if (time == 1) return sBattleTerrainPalette_SandNight;
-            if (time == 2) return sBattleTerrainPalette_SandMorning;
-            if (time == 3) return sBattleTerrainPalette_SandSunset;
+            if (time == 1) return gBattleTerrainPalette_SandNight;
+            if (time == 2) return gBattleTerrainPalette_SandMorning;
+            if (time == 3) return gBattleTerrainPalette_SandSunset;
             break;
         case BATTLE_TERRAIN_WATER:
-            if (time == 1) return sBattleTerrainPalette_WaterNight;
-            if (time == 2) return sBattleTerrainPalette_WaterMorning;
-            if (time == 3) return sBattleTerrainPalette_WaterSunset;
+            if (time == 1) return gBattleTerrainPalette_WaterNight;
+            if (time == 2) return gBattleTerrainPalette_WaterMorning;
+            if (time == 3) return gBattleTerrainPalette_WaterSunset;
             break;
         case BATTLE_TERRAIN_POND:
-            if (time == 1) return sBattleTerrainPalette_PondNight;
-            if (time == 2) return sBattleTerrainPalette_PondMorning;
-            if (time == 3) return sBattleTerrainPalette_PondSunset;
+            if (time == 1) return gBattleTerrainPalette_PondNight;
+            if (time == 2) return gBattleTerrainPalette_PondMorning;
+            if (time == 3) return gBattleTerrainPalette_PondSunset;
             break;
         case BATTLE_TERRAIN_PLAIN:
-            if (time == 1) return sBattleTerrainPalette_PlainNight;
-            if (time == 2) return sBattleTerrainPalette_PlainMorning;
-            if (time == 3) return sBattleTerrainPalette_PlainSunset;
+            if (time == 1) return gBattleTerrainPalette_PlainNight;
+            if (time == 2) return gBattleTerrainPalette_PlainMorning;
+            if (time == 3) return gBattleTerrainPalette_PlainSunset;
             break;
         case BATTLE_TERRAIN_CAVE:
-            if (time == 1) return sBattleTerrainPalette_CaveNight;
-            if (time == 2) return sBattleTerrainPalette_CaveMorning;
-            if (time == 3) return sBattleTerrainPalette_CaveSunset;
+            if (time == 1) return gBattleTerrainPalette_CaveNight;
+            if (time == 2) return gBattleTerrainPalette_CaveMorning;
+            if (time == 3) return gBattleTerrainPalette_CaveSunset;
             break;
-        case BATTLE_TERRAIN_MOUNTAIN: // Using Rock folder
-            if (time == 1) return sBattleTerrainPalette_RockNight;
-            if (time == 2) return sBattleTerrainPalette_RockMorning;
-            if (time == 3) return sBattleTerrainPalette_RockSunset;
+        case BATTLE_TERRAIN_MOUNTAIN:
+            if (time == 1) return gBattleTerrainPalette_RockNight;
+            if (time == 2) return gBattleTerrainPalette_RockMorning;
+            if (time == 3) return gBattleTerrainPalette_RockSunset;
             break;
         case BATTLE_TERRAIN_UNDERWATER:
-            if (time == 1) return sBattleTerrainPalette_UnderwaterNight;
-            if (time == 2) return sBattleTerrainPalette_UnderwaterMorning;
-            if (time == 3) return sBattleTerrainPalette_UnderwaterSunset;
+            if (time == 1) return gBattleTerrainPalette_UnderwaterNight;
+            if (time == 2) return gBattleTerrainPalette_UnderwaterMorning;
+            if (time == 3) return gBattleTerrainPalette_UnderwaterSunset;
             break;
     }
-    return sBattleTerrainTable[terrain].palette;
+    return (const u32 *)sBattleTerrainTable[terrain].palette;
 }
 
 void DrawMainBattleBackground(void)

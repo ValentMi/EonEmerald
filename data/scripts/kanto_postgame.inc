@@ -517,3 +517,37 @@ Postgame_EventScript_BrendanAskFirst:
 Postgame_EventScript_BrendanAskAgain:
 	msgbox Postgame_Text_BrendanReadyYet, MSGBOX_YESNO
 	return
+	
+Postgame_EventScript_Block_Cabin::
+	msgbox gText_Postgame_EventScript_Block_Cabin, MSGBOX_NPC
+	release
+	end
+	
+gText_Postgame_EventScript_Block_Cabin:
+	.string "This cabin is reserved.\n"
+	.string "Please leave.$"
+	
+Tidal_Shady_Salesman::
+	lock
+	faceplayer
+	message gText_Tidal_Shady_Salesman
+	waitmessage
+	pokemart Tidal_Shady_Salesman_Stock
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Tidal_Shady_Salesman_Stock:
+	.2byte ITEM_RARE_CANDY
+	.2byte ITEM_HEART_SCALE
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_PREMIER_BALL
+	.2byte ITEM_MAX_REVIVE
+	.2byte ITEM_NUGGET
+	.2byte ITEM_OLD_SEA_MAP
+	pokemartlistend
+	
+gText_Tidal_Shady_Salesman:
+	.string "I'm selling rare goods! Where did\n"
+	.string "I get them? Don't worry about it!$"

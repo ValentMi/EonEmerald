@@ -17,6 +17,7 @@
 #include "sprite.h"
 #include "task.h"
 #include "constants/battle_anim.h"
+#include "constants/moves.h"
 
 /*
     This file handles the commands for the macros defined in
@@ -267,16 +268,15 @@ void LaunchBattleAnimation(const u8 *const animsTable[], u16 tableId, bool8 isMo
     gBattle_WIN1V = 0;
 
 // --- POKEMON ANIMATION START ---
-    if (isMoveAnim && !IsContest())
+    if (isMoveAnim)//&& !IsContest())
     {
         u16 move = gCurrentMove;
         u32 target = gBattleMoves[move].target;
 
-        // Skip the animation only if the move targets the USER alone.
-        // This allows Selected, Random, Both, Foes/Ally, etc. to trigger the shake.
-        if (target == MOVE_TARGET_USER)
+        // Skip animation for user-only targets or specific excluded moves
+        if (target == MOVE_TARGET_USER || move == MOVE_CURSE || move == MOVE_HOWL)
         {
-            // Do nothing for self-targeted moves (Swords Dance, Recover, etc.)
+            // Do nothing
         }
         else
         {
@@ -292,19 +292,17 @@ void LaunchBattleAnimation(const u8 *const animsTable[], u16 tableId, bool8 isMo
 
                 if (GetBattlerSide(attacker) == B_SIDE_OPPONENT)
                 {
-                    // Second Frame + Shake
                     StartSpriteAnim(s, 1);
-                    LaunchAnimationTaskForFrontSprite(s, 15);
+                    //LaunchAnimationTaskForFrontSprite(s, 0);
                 }
                 else
                 {
-                    // Back Shake
                     LaunchAnimationTaskForBackSprite(s, 8);
                 }
             }
         }
     }
-    // --- POKEMON ANIMATION END ---
+// --- POKEMON ANIMATION END ---
 }
 
 void DestroyAnimSprite(struct Sprite *sprite)

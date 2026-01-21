@@ -428,6 +428,10 @@ IndigoPlateau_ChampionsRoom_EventScript_BirchArrivesExitForHoF::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	msgbox PokemonLeague_ChampionsRoom_Text_OakCongratulations, MSGBOX_DEFAULT
+	playfanfare SE_SUCCESS
+	msgbox Text_ReceivedChampionPrize, MSGBOX_DEFAULT
+	addmoney 50000
+	waitfanfare
 	applymovement LOCALID_BLUE, Common_Movement_WalkInPlaceFasterUp
 	delay 20
 	applymovement LOCALID_BLUE, Common_Movement_WalkInPlaceFasterDown
@@ -722,3 +726,6 @@ PokemonLeague_ChampionsRoom_Text_OakPlayerComeWithMe::
     .string "POKéMON is marvelous.\p"
     .string "{PLAYER}!\n"
     .string "Come with me!$"
+
+Text_ReceivedChampionPrize::
+    .string "{PLAYER} received $50,000!$"

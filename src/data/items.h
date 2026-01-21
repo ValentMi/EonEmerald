@@ -806,7 +806,7 @@ const struct Item gItems[] =
     {
         .name = _("HP Up"),
         .itemId = ITEM_HP_UP,
-        .price = 100,
+        .price = 5000,
         .description = sHPUpDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -817,7 +817,7 @@ const struct Item gItems[] =
     {
         .name = _("Protein"),
         .itemId = ITEM_PROTEIN,
-        .price = 100,
+        .price = 5000,
         .description = sProteinDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -828,7 +828,7 @@ const struct Item gItems[] =
     {
         .name = _("Iron"),
         .itemId = ITEM_IRON,
-        .price = 100,
+        .price = 5000,
         .description = sIronDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -839,7 +839,7 @@ const struct Item gItems[] =
     {
         .name = _("Carbos"),
         .itemId = ITEM_CARBOS,
-        .price = 100,
+        .price = 5000,
         .description = sCarbosDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -850,7 +850,7 @@ const struct Item gItems[] =
     {
         .name = _("Calcium"),
         .itemId = ITEM_CALCIUM,
-        .price = 100,
+        .price = 5000,
         .description = sCalciumDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -861,7 +861,7 @@ const struct Item gItems[] =
     {
         .name = _("Rare Candy"),
         .itemId = ITEM_RARE_CANDY,
-        .price = 100,
+        .price = 10000,
         .description = sRareCandyDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -872,7 +872,7 @@ const struct Item gItems[] =
     {
         .name = _("PP Up"),
         .itemId = ITEM_PP_UP,
-        .price = 1200,
+        .price = 5000,
         .description = sPPUpDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -883,7 +883,7 @@ const struct Item gItems[] =
     {
         .name = _("Zinc"),
         .itemId = ITEM_ZINC,
-        .price = 100,
+        .price = 5000,
         .description = sZincDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -1363,7 +1363,7 @@ const struct Item gItems[] =
     {
         .name = _("Heart Scale"),
         .itemId = ITEM_HEART_SCALE,
-        .price = 100,
+        .price = 10000,
 		.holdEffect = HOLD_EFFECT_HEART_SCALE,
         .description = sHeartScaleDesc,
         .pocket = POCKET_ITEMS,
@@ -4538,7 +4538,7 @@ const struct Item gItems[] =
 
     [ITEM_MYSTIC_TICKET] =
     {
-        .name = _("Rainbow Pass"),
+        .name = _("Mystic Ticket"),
         .itemId = ITEM_MYSTIC_TICKET,
         .price = 0,
         .description = sMysticTicketDesc,
@@ -4551,7 +4551,7 @@ const struct Item gItems[] =
 
     [ITEM_AURORA_TICKET] =
     {
-        .name = _("AuroraTicket"),
+        .name = _("Rainbow Pass"),
         .itemId = ITEM_AURORA_TICKET,
         .price = 0,
         .description = sAuroraTicketDesc,

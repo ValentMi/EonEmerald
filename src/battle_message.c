@@ -1163,7 +1163,7 @@ const u16 gBallEscapeStringIds[] =
 const u16 gWeatherStartsStringIds[] =
 {
     [WEATHER_NONE]               = STRINGID_ITISRAINING,
-    [WEATHER_SUNNY_CLOUDS]       = STRINGID_ITISRAINING,
+    [WEATHER_SUNNY_CLOUDS]       = STRINGID_SUNLIGHTSTRONG,
     [WEATHER_SUNNY]              = STRINGID_ITISRAINING,
     [WEATHER_RAIN]               = STRINGID_ITISRAINING,
     [WEATHER_SNOW]               = STRINGID_STARTEDHAIL,
