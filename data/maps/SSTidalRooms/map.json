@@ -115,7 +115,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Postgame_EventScript_Brock",
+      "script": "Postgame_EventScript_SSTidal_Brock",
       "flag": "0"
     },
     {
@@ -128,7 +128,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Postgame_EventScript_Misty",
+      "script": "Postgame_EventScript_SSTidal_Misty",
       "flag": "0"
     },
     {
@@ -141,7 +141,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Postgame_EventScript_Surge",
+      "script": "Postgame_EventScript_SSTidal_LtSurge",
       "flag": "0"
     },
     {
@@ -154,7 +154,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Postgame_EventScript_Erika",
+      "script": "Postgame_EventScript_SSTidal_Erika",
       "flag": "0"
     },
     {
@@ -167,7 +167,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Postgame_EventScript_Koga",
+      "script": "Postgame_EventScript_SSTidal_Koga",
       "flag": "0"
     },
     {
@@ -180,7 +180,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Postgame_EventScript_Sabrina",
+      "script": "Postgame_EventScript_SSTidal_Sabrina",
       "flag": "0"
     },
     {
@@ -193,7 +193,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Postgame_EventScript_Blaine",
+      "script": "Postgame_EventScript_SSTidal_Blaine",
       "flag": "0"
     },
     {
@@ -206,7 +206,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "DewfordTown_Gym_EventScript_BrawlyRematch",
+      "script": "Postgame_EventScript_SSTidal_Brawly",
       "flag": "0"
     },
     {
@@ -219,7 +219,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MauvilleCity_Gym_EventScript_WattsonRematch",
+      "script": "Postgame_EventScript_SSTidal_Wattson",
       "flag": "0"
     },
     {
@@ -232,7 +232,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LavaridgeTown_Gym_1F_EventScript_FlanneryRematch",
+      "script": "Postgame_EventScript_SSTidal_Flannery",
       "flag": "0"
     },
     {
@@ -245,7 +245,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PetalburgCity_Gym_EventScript_NormanRematch",
+      "script": "Postgame_EventScript_SSTidal_Norman",
       "flag": "0"
     },
     {
@@ -258,7 +258,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MossdeepCity_Gym_EventScript_TateAndLizaRematch",
+      "script": "Postgame_EventScript_SSTidal_TateAndLiza",
       "flag": "0"
     },
     {
@@ -271,7 +271,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FortreeCity_Gym_EventScript_WinonaRematch",
+      "script": "Postgame_EventScript_SSTidal_Winona",
       "flag": "0"
     },
     {
@@ -284,7 +284,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RustboroCity_Gym_EventScript_RoxanneRematch",
+      "script": "Postgame_EventScript_SSTidal_Roxanne",
       "flag": "0"
     },
     {
@@ -297,7 +297,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MossdeepCity_Gym_EventScript_TateAndLizaRematch",
+      "script": "Postgame_EventScript_SSTidal_TateAndLiza",
       "flag": "0"
     },
     {
@@ -310,7 +310,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SootopolisCity_Gym_1F_EventScript_JuanRematch",
+      "script": "Postgame_EventScript_SSTidal_Juan",
       "flag": "0"
     }
   ],

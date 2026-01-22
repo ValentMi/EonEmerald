@@ -242,7 +242,7 @@ static const struct WindowTemplate sStandardBattleWindowTemplates[] =
         .tilemapTop = 55,
         .width = 2,
         .height = 2,
-        .paletteNum = 5,
+        .paletteNum = 10,
         .baseBlock = 0x0294,
     },
     [B_WIN_PP_REMAINING] = {
@@ -463,7 +463,7 @@ static const struct WindowTemplate sBattleArenaWindowTemplates[] =
         .tilemapTop = 55,
         .width = 2,
         .height = 2,
-        .paletteNum = 5,
+        .paletteNum = 10,
         .baseBlock = 0x0294,
     },
     [B_WIN_PP_REMAINING] = {

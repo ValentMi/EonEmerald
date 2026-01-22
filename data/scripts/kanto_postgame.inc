@@ -384,6 +384,7 @@ Postgame_GiovanniPostBattle:
 Postgame_EventScript_Rival::
 	lock
 	faceplayer
+	waitmovement 0
 	goto_if_set FLAG_DEFEATED_RIVAL_POSTGAME, Postgame_EventScript_Rival2_Defeated
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, Postgame_EventScript_May
@@ -551,3 +552,852 @@ Tidal_Shady_Salesman_Stock:
 gText_Tidal_Shady_Salesman:
 	.string "I'm selling rare goods! Where did\n"
 	.string "I get them? Don't worry about it!$"
+	
+Postgame_EventScript_Maxie::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_MAXIE_SB, Postgame_EventScript_Maxie_Defeated
+	msgbox Postgame_Text_MaxieAsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_MaxieDeclined
+	trainerbattle_no_intro TRAINER_BRAWLY_4, Postgame_Text_MaxieDefeated
+	setflag FLAG_DEFEATED_MAXIE_SB
+	msgbox Postgame_Text_MaxiePostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Maxie_Defeated::
+	msgbox Postgame_Text_MaxiePostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_MaxieDeclined::
+	msgbox Postgame_Text_MaxieDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Tabitha::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_TABITHA_SB, Postgame_EventScript_Tabitha_Defeated
+	msgbox Postgame_Text_TabithaAsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_TabithaDeclined
+	trainerbattle_no_intro TRAINER_WATTSON_4, Postgame_Text_TabithaDefeated
+	setflag FLAG_DEFEATED_TABITHA_SB
+	msgbox Postgame_Text_TabithaPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Tabitha_Defeated::
+	msgbox Postgame_Text_TabithaPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_TabithaDeclined::
+	msgbox Postgame_Text_TabithaDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Courtney::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_COURTNEY_SB, Postgame_EventScript_Courtney_Defeated
+	msgbox Postgame_Text_CourtneyAsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_CourtneyDeclined
+	trainerbattle_no_intro TRAINER_FLANNERY_2, Postgame_Text_CourtneyDefeated
+	setflag FLAG_DEFEATED_COURTNEY_SB
+	msgbox Postgame_Text_CourtneyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Courtney_Defeated::
+	msgbox Postgame_Text_CourtneyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_CourtneyDeclined::
+	msgbox Postgame_Text_CourtneyDeclined, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_Archie::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_ARCHIE_SB, Postgame_EventScript_Archie_Defeated
+	msgbox Postgame_Text_ArchieAsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_ArchieDeclined
+	trainerbattle_no_intro TRAINER_BRAWLY_3, Postgame_Text_ArchieDefeated
+	setflag FLAG_DEFEATED_ARCHIE_SB
+	msgbox Postgame_Text_ArchiePostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Archie_Defeated::
+	msgbox Postgame_Text_ArchiePostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_ArchieDeclined::
+	msgbox Postgame_Text_ArchieDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Matt::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_MATT_SB, Postgame_EventScript_Matt_Defeated
+	msgbox Postgame_Text_MattAsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_MattDeclined
+	trainerbattle_no_intro TRAINER_WATTSON_3, Postgame_Text_MattDefeated
+	setflag FLAG_DEFEATED_MATT_SB
+	msgbox Postgame_Text_MattPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Matt_Defeated::
+	msgbox Postgame_Text_MattPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_MattDeclined::
+	msgbox Postgame_Text_MattDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Shelly::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_SHELLY_SB, Postgame_EventScript_Shelly_Defeated
+	msgbox Postgame_Text_ShellyAsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_ShellyDeclined
+	trainerbattle_no_intro TRAINER_WATTSON_2, Postgame_Text_ShellyDefeated
+	setflag FLAG_DEFEATED_SHELLY_SB
+	msgbox Postgame_Text_ShellyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Shelly_Defeated::
+	msgbox Postgame_Text_ShellyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_ShellyDeclined::
+	msgbox Postgame_Text_ShellyDeclined, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_Text_MaxieAsktoBattle:
+	.string "The land... it still calls to me.\n"
+	.string "Will you test my resolve in battle?$"
+
+Postgame_Text_MaxieDefeated:
+	.string "Fine work.\n"
+	.string "Your flame burns bright.$"
+
+Postgame_Text_MaxiePostBattle:
+	.string "I will continue to study this world.\n"
+	.string "Come back for a rematch sometime.$"
+
+Postgame_Text_MaxieDeclined:
+	.string "Hmph. Very well.$"
+
+Postgame_Text_TabithaAsktoBattle:
+	.string "Hehehe! You again?\n"
+	.string "Ready for a scorching battle?$"
+
+Postgame_Text_TabithaDefeated:
+	.string "Urgh... too hot to handle!$"
+
+Postgame_Text_TabithaPostBattle:
+	.string "I'll be ready next time!$"
+
+Postgame_Text_TabithaDeclined:
+	.string "Tch. Don't waste my time.$"
+
+Postgame_Text_CourtneyAsktoBattle:
+	.string "Analyzing target... Battle?\n"
+	.string "Yes/No?$"
+
+Postgame_Text_CourtneyDefeated:
+	.string "Analysis complete.\n"
+	.string "You are strong.$"
+
+Postgame_Text_CourtneyPostBattle:
+	.string "Staying here.\n"
+	.string "To observe.$"
+
+Postgame_Text_CourtneyDeclined:
+	.string "Target declined.$"
+
+Postgame_Text_ArchieAsktoBattle:
+	.string "The sea is vast, and so is my power!\n"
+	.string "Care to dive into a battle?$"
+
+Postgame_Text_ArchieDefeated:
+	.string "Gah! I've been washed away!$"
+
+Postgame_Text_ArchiePostBattle:
+	.string "Keep that spirit! The ocean needs\n"
+	.string "people like you.$"
+
+Postgame_Text_ArchieDeclined:
+	.string "Suit yourself, land-lubber.$"
+
+Postgame_Text_MattAsktoBattle:
+	.string "Hey! You look tough!\n"
+	.string "Let's see what you've got!$"
+
+Postgame_Text_MattDefeated:
+	.string "Whoa! You've got some muscle!$"
+
+Postgame_Text_MattPostBattle:
+	.string "That was a blast!\n"
+	.string "Come back soon!$"
+
+Postgame_Text_MattDeclined:
+	.string "Maybe later then.$"
+
+Postgame_Text_ShellyAsktoBattle:
+	.string "I've learned much since we last met.\n"
+	.string "Shall we test my new tactics?$"
+
+Postgame_Text_ShellyDefeated:
+	.string "Drowned out already...$"
+
+Postgame_Text_ShellyPostBattle:
+	.string "You have a deep bond with your\n"
+	.string "POKéMON. It's impressive.$"
+
+Postgame_Text_ShellyDeclined:
+	.string "I'll be here if you change your mind.$"
+	
+@ --- SHARED DECLINED SCRIPT ---
+@ This fixes the "undefined reference" errors in your compiler output
+Postgame_EventScript_HoennLeader_Declined::
+	msgbox Postgame_Text_HoennLeaderDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+@ --- HOENN GYM LEADERS ---
+
+@ --- ROXANNE ---
+Postgame_EventScript_SSTidal_Roxanne::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_ROXANNE_POSTGAME, Postgame_EventScript_Roxanne_Defeated
+	msgbox Postgame_Text_Roxanne_RematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Roxanne_Declined
+	trainerbattle_no_intro TRAINER_ROXANNE_5, Postgame_Text_Roxanne_RematchDefeat
+	setflag FLAG_ROXANNE_POSTGAME
+	msgbox Postgame_Text_Roxanne_RematchPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Roxanne_Defeated::
+	msgbox Postgame_Text_Roxanne_RematchPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_ROXANNE_POSTGAME
+	release
+	end
+
+Postgame_EventScript_Roxanne_Declined::
+	msgbox Postgame_Text_Roxanne_Declined, MSGBOX_DEFAULT
+	release
+	end
+
+@ --- BRAWLY ---
+Postgame_EventScript_SSTidal_Brawly::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_BRAWLY_POSTGAME, Postgame_EventScript_Brawly_Defeated
+	msgbox Postgame_Text_Brawly_RematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Brawly_Declined
+	trainerbattle_no_intro TRAINER_BRAWLY_5, Postgame_Text_Brawly_RematchDefeat
+	setflag FLAG_BRAWLY_POSTGAME
+	msgbox Postgame_Text_Brawly_RematchPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Brawly_Defeated::
+	msgbox Postgame_Text_Brawly_RematchPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_BRAWLY_POSTGAME
+	release
+	end
+
+Postgame_EventScript_Brawly_Declined::
+	msgbox Postgame_Text_Brawly_Declined, MSGBOX_DEFAULT
+	release
+	end
+
+@ --- WATTSON ---
+Postgame_EventScript_SSTidal_Wattson::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_WATTSON_POSTGAME, Postgame_EventScript_Wattson_Defeated
+	msgbox Postgame_Text_Wattson_RematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Wattson_Declined
+	trainerbattle_no_intro TRAINER_WATTSON_5, Postgame_Text_Wattson_RematchDefeat
+	setflag FLAG_WATTSON_POSTGAME
+	msgbox Postgame_Text_Wattson_RematchPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Wattson_Defeated::
+	msgbox Postgame_Text_Wattson_RematchPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_WATTSON_POSTGAME
+	release
+	end
+
+Postgame_EventScript_Wattson_Declined::
+	msgbox Postgame_Text_Wattson_Declined, MSGBOX_DEFAULT
+	release
+	end
+
+@ --- FLANNERY ---
+Postgame_EventScript_SSTidal_Flannery::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_FLANNERY_POSTGAME, Postgame_EventScript_Flannery_Defeated
+	msgbox Postgame_Text_Flannery_RematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Flannery_Declined
+	trainerbattle_no_intro TRAINER_FLANNERY_5, Postgame_Text_Flannery_RematchDefeat
+	setflag FLAG_FLANNERY_POSTGAME
+	msgbox Postgame_Text_Flannery_RematchPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Flannery_Defeated::
+	msgbox Postgame_Text_Flannery_RematchPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_FLANNERY_POSTGAME
+	release
+	end
+
+Postgame_EventScript_Flannery_Declined::
+	msgbox Postgame_Text_Flannery_Declined, MSGBOX_DEFAULT
+	release
+	end
+
+@ --- NORMAN ---
+Postgame_EventScript_SSTidal_Norman::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_NORMAN_POSTGAME, Postgame_EventScript_Norman_Defeated
+	msgbox Postgame_Text_Norman_RematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Norman_Declined
+	trainerbattle_no_intro TRAINER_NORMAN_5, Postgame_Text_Norman_RematchDefeat
+	setflag FLAG_NORMAN_POSTGAME
+	msgbox Postgame_Text_Norman_RematchPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Norman_Defeated::
+	msgbox Postgame_Text_Norman_RematchPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_NORMAN_POSTGAME
+	release
+	end
+
+Postgame_EventScript_Norman_Declined::
+	msgbox Postgame_Text_Norman_Declined, MSGBOX_DEFAULT
+	release
+	end
+
+@ --- WINONA ---
+Postgame_EventScript_SSTidal_Winona::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_WINONA_POSTGAME, Postgame_EventScript_Winona_Defeated
+	msgbox Postgame_Text_Winona_RematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Winona_Declined
+	trainerbattle_no_intro TRAINER_WINONA_5, Postgame_Text_Winona_RematchDefeat
+	setflag FLAG_WINONA_POSTGAME
+	msgbox Postgame_Text_Winona_RematchPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Winona_Defeated::
+	msgbox Postgame_Text_Winona_RematchPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_WINONA_POSTGAME
+	release
+	end
+
+Postgame_EventScript_Winona_Declined::
+	msgbox Postgame_Text_Winona_Declined, MSGBOX_DEFAULT
+	release
+	end
+
+@ --- TATE & LIZA ---
+Postgame_EventScript_SSTidal_TateAndLiza::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_TATELIZA_POSTGAME, Postgame_EventScript_TateLiza_Defeated
+	msgbox Postgame_Text_TateLiza_RematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_TateLiza_Declined
+	trainerbattle_no_intro TRAINER_TATE_AND_LIZA_5, Postgame_Text_TateLiza_RematchDefeat
+	setflag FLAG_TATELIZA_POSTGAME
+	msgbox Postgame_Text_TateLiza_RematchPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_TateLiza_Defeated::
+	msgbox Postgame_Text_TateLiza_RematchPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_TATELIZA_POSTGAME
+	release
+	end
+
+Postgame_EventScript_TateLiza_Declined::
+	msgbox Postgame_Text_TateLiza_Declined, MSGBOX_DEFAULT
+	release
+	end
+
+@ --- JUAN ---
+Postgame_EventScript_SSTidal_Juan::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_JUAN_POSTGAME, Postgame_EventScript_Juan_Defeated
+	msgbox Postgame_Text_Juan_RematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Juan_Declined
+	trainerbattle_no_intro TRAINER_JUAN_5, Postgame_Text_Juan_RematchDefeat
+	setflag FLAG_JUAN_POSTGAME
+	msgbox Postgame_Text_Juan_RematchPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Juan_Defeated::
+	msgbox Postgame_Text_Juan_RematchPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_JUAN_POSTGAME
+	release
+	end
+
+Postgame_EventScript_Juan_Declined::
+	msgbox Postgame_Text_Juan_Declined, MSGBOX_DEFAULT
+	release
+	end
+
+@ --- KANTO GYM LEADERS ---
+
+Postgame_EventScript_SSTidal_Brock::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_BROCK, Postgame_EventScript_Brock_TidalDefeatedScript
+	msgbox Postgame_Text_Brock_TidalRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Brock_TidalDeclined
+	trainerbattle_no_intro TRAINER_BROCK, Postgame_Text_Brock_TidalDefeated
+	setflag FLAG_DEFEATED_BROCK
+	msgbox Postgame_Text_Brock_TidalPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Brock_TidalDefeatedScript::
+	msgbox Postgame_Text_Brock_TidalPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_BROCK
+	release
+	end
+
+Postgame_EventScript_Brock_TidalDeclined::
+	msgbox Postgame_Text_Brock_TidalDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_SSTidal_Misty::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_MISTY, Postgame_EventScript_Misty_TidalDefeatedScript
+	msgbox Postgame_Text_Misty_TidalRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Misty_TidalDeclined
+	trainerbattle_no_intro TRAINER_MISTY, Postgame_Text_Misty_TidalDefeated
+	setflag FLAG_DEFEATED_MISTY
+	msgbox Postgame_Text_Misty_TidalPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Misty_TidalDefeatedScript::
+	msgbox Postgame_Text_Misty_TidalPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_MISTY
+	release
+	end
+
+Postgame_EventScript_Misty_TidalDeclined::
+	msgbox Postgame_Text_Misty_TidalDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_SSTidal_LtSurge::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_SURGE, Postgame_EventScript_LtSurge_TidalDefeatedScript
+	msgbox Postgame_Text_LtSurge_TidalRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_LtSurge_TidalDeclined
+	trainerbattle_no_intro TRAINER_SURGE, Postgame_Text_LtSurge_TidalDefeated
+	setflag FLAG_DEFEATED_SURGE
+	msgbox Postgame_Text_LtSurge_TidalPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_LtSurge_TidalDefeatedScript::
+	msgbox Postgame_Text_LtSurge_TidalPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_SURGE
+	release
+	end
+
+Postgame_EventScript_LtSurge_TidalDeclined::
+	msgbox Postgame_Text_LtSurge_TidalDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_SSTidal_Erika::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_ERIKA, Postgame_EventScript_Erika_TidalDefeatedScript
+	msgbox Postgame_Text_Erika_TidalRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Erika_TidalDeclined
+	trainerbattle_no_intro TRAINER_ERIKA, Postgame_Text_Erika_TidalDefeated
+	setflag FLAG_DEFEATED_ERIKA
+	msgbox Postgame_Text_Erika_TidalPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Erika_TidalDefeatedScript::
+	msgbox Postgame_Text_Erika_TidalPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_ERIKA
+	release
+	end
+
+Postgame_EventScript_Erika_TidalDeclined::
+	msgbox Postgame_Text_Erika_TidalDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_SSTidal_Koga::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_KOGA, Postgame_EventScript_Koga_TidalDefeatedScript
+	msgbox Postgame_Text_Koga_TidalRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Koga_TidalDeclined
+	trainerbattle_no_intro TRAINER_KOGA, Postgame_Text_Koga_TidalDefeated
+	setflag FLAG_DEFEATED_KOGA
+	msgbox Postgame_Text_Koga_TidalPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Koga_TidalDefeatedScript::
+	msgbox Postgame_Text_Koga_TidalPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_KOGA
+	release
+	end
+
+Postgame_EventScript_Koga_TidalDeclined::
+	msgbox Postgame_Text_Koga_TidalDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_SSTidal_Sabrina::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_SABRINA, Postgame_EventScript_Sabrina_TidalDefeatedScript
+	msgbox Postgame_Text_Sabrina_TidalRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Sabrina_TidalDeclined
+	trainerbattle_no_intro TRAINER_SABRINA, Postgame_Text_Sabrina_TidalDefeated
+	setflag FLAG_DEFEATED_SABRINA
+	msgbox Postgame_Text_Sabrina_TidalPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Sabrina_TidalDefeatedScript::
+	msgbox Postgame_Text_Sabrina_TidalPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_SABRINA
+	release
+	end
+
+Postgame_EventScript_Sabrina_TidalDeclined::
+	msgbox Postgame_Text_Sabrina_TidalDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_SSTidal_Blaine::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_BLAINE, Postgame_EventScript_Blaine_TidalDefeatedScript
+	msgbox Postgame_Text_Blaine_TidalRematchIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Blaine_TidalDeclined
+	trainerbattle_no_intro TRAINER_BLAINE, Postgame_Text_Blaine_TidalDefeated
+	setflag FLAG_DEFEATED_BLAINE
+	msgbox Postgame_Text_Blaine_TidalPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Blaine_TidalDefeatedScript::
+	msgbox Postgame_Text_Blaine_TidalPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_BLAINE
+	release
+	end
+
+Postgame_EventScript_Blaine_TidalDeclined::
+	msgbox Postgame_Text_Blaine_TidalDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_Text_Brock_TidalRematchIntro:
+	.string "My POKéMON have grown tougher\n"
+	.string "since our last bout.\l"
+	.string "How about a rematch?$"
+
+Postgame_Text_Brock_TidalDefeated:
+	.string "I tried hard, but you\n"
+	.string "were too strong.$"
+
+Postgame_Text_Brock_TidalPostBattle:
+	.string "Enjoy the cruise.\n"
+	.string "A true trainer never stops training.$"
+
+Postgame_Text_Brock_TidalDeclined:
+	.string "I see. Even a mountain needs\n"
+	.string "to rest sometimes.$"
+
+Postgame_Text_Misty_TidalRematchIntro:
+	.string "Ready to get soaked again?\n"
+	.string "Let's have a rematch!$"
+
+Postgame_Text_Misty_TidalDefeated:
+	.string "I guess I was the one\n"
+	.string "who got soaked...$"
+
+Postgame_Text_Misty_TidalPostBattle:
+	.string "You're world-class, CHAMPION.\n"
+	.string "Kanto could learn a lot from you.$"
+
+Postgame_Text_Misty_TidalDeclined:
+	.string "No? And here I thought we\n"
+	.string "were making a splash!$"
+
+Postgame_Text_LtSurge_TidalRematchIntro:
+	.string "You're back for more sparks?\n"
+	.string "I'll shock you into submission!$"
+
+Postgame_Text_LtSurge_TidalDefeated:
+	.string "Argh! You short-circuited\n"
+	.string "my strategy!$"
+
+Postgame_Text_LtSurge_TidalPostBattle:
+	.string "Ten-hut! You're a soldier\n"
+	.string "among trainers!$"
+
+Postgame_Text_LtSurge_TidalDeclined:
+	.string "Humph. Come back when you're\n"
+	.string "ready for a jolt!$"
+	
+Postgame_Text_Erika_TidalRematchIntro:
+	.string "The sea breeze is lovely, but I\n"
+	.string "miss the scent of my greenhouse.\l"
+	.string "Shall we have a rematch?$"
+
+Postgame_Text_Erika_TidalDefeated:
+	.string "Oh my...\n"
+	.string "You are as formidable as ever.$"
+
+Postgame_Text_Erika_TidalPostBattle:
+	.string "I shall continue to enjoy the\n"
+	.string "view. It is quite tranquil.$"
+
+Postgame_Text_Erika_TidalDeclined:
+	.string "I understand. This ship is\n"
+	.string "perfect for a nap.$"
+
+Postgame_Text_Koga_TidalRematchIntro:
+	.string "Fwahahaha! A ninja can strike\n"
+	.string "even in the middle of the sea!\l"
+	.string "Are you prepared for a rematch?$"
+
+Postgame_Text_Koga_TidalDefeated:
+	.string "You have seen through\n"
+	.string "my techniques once more!$"
+
+Postgame_Text_Koga_TidalPostBattle:
+	.string "You have mastered the art\n"
+	.string "of battle. I am impressed.$"
+
+Postgame_Text_Koga_TidalDeclined:
+	.string "Humph. A ninja must always\n"
+	.string "be patient.$"
+
+Postgame_Text_Sabrina_TidalRematchIntro:
+	.string "I foresaw your arrival on\n"
+	.string "this ship. You want a rematch?\l"
+	.string "I already know the answer.$"
+
+Postgame_Text_Sabrina_TidalDefeated:
+	.string "My psychic powers were not\n"
+	.string "enough to stop you.$"
+
+Postgame_Text_Sabrina_TidalPostBattle:
+	.string "The future is not set in stone,\n"
+	.string "but your strength is a constant.$"
+
+Postgame_Text_Sabrina_TidalDeclined:
+	.string "I saw that coming as well.$"
+
+Postgame_Text_Blaine_TidalRematchIntro:
+	.string "Hah! I'm an old man, but I'm still\n"
+	.string "burning with passion!\l"
+	.string "Let's have a fiery rematch!$"
+
+Postgame_Text_Blaine_TidalDefeated:
+	.string "I've been burned out!$"
+
+Postgame_Text_Blaine_TidalPostBattle:
+	.string "You'd better have Burn Heal ready\n"
+	.string "the next time we meet!$"
+
+Postgame_Text_Blaine_TidalDeclined:
+	.string "You've dampened my spirits!$"
+
+@ --- ROXANNE TEXT ---
+Postgame_Text_Roxanne_RematchIntro:
+	.string "I'm so glad to see you again.\n"
+	.string "Shall we have a rematch?$"
+
+Postgame_Text_Roxanne_RematchDefeat:
+	.string "I've lost again...$"
+
+Postgame_Text_Roxanne_RematchPostBattle:
+	.string "I will keep training to\n"
+	.string "become even stronger!$"
+
+@ --- BRAWLY TEXT ---
+Postgame_Text_Brawly_RematchIntro:
+	.string "A big wave is coming!\n"
+	.string "Ready for a rematch?$"
+
+Postgame_Text_Brawly_RematchDefeat:
+	.string "Whoa! You're a total wipeout!$"
+
+Postgame_Text_Brawly_RematchPostBattle:
+	.string "You truly are a master\n"
+	.string "of your own style.$"
+
+@ --- WATTSON TEXT ---
+Postgame_Text_Wattson_RematchIntro:
+	.string "Wahahaha! I'm fully charged!\n"
+	.string "Let's have a rematch!$"
+
+Postgame_Text_Wattson_RematchDefeat:
+	.string "I'm short-circuited!$"
+
+Postgame_Text_Wattson_RematchPostBattle:
+	.string "Your power is electric!\n"
+	.string "Keep it up!$"
+
+@ --- FLANNERY TEXT ---
+Postgame_Text_Flannery_RematchIntro:
+	.string "I'm burning with passion!\n"
+	.string "Ready for a rematch?$"
+
+Postgame_Text_Flannery_RematchDefeat:
+	.string "I'm all burned out...$"
+
+Postgame_Text_Flannery_RematchPostBattle:
+	.string "My passion won't fade!\n"
+	.string "I'll be even hotter next time!$"
+
+@ --- NORMAN TEXT ---
+Postgame_Text_Norman_RematchIntro:
+	.string "I must show you my growth.\n"
+	.string "Let's battle!$"
+
+Postgame_Text_Norman_RematchDefeat:
+	.string "You truly have surpassed me.$"
+
+Postgame_Text_Norman_RematchPostBattle:
+	.string "My dream? I believe it\n"
+	.string "has already come true.$"
+
+@ --- WINONA TEXT ---
+Postgame_Text_Winona_RematchIntro:
+	.string "My bird POKéMON and I have\n"
+	.string "taken flight! Rematch?$"
+
+Postgame_Text_Winona_RematchDefeat:
+	.string "We've been grounded...$"
+
+Postgame_Text_Winona_RematchPostBattle:
+	.string "The sky is the limit for a\n"
+	.string "trainer like you.$"
+
+@ --- TATE & LIZA TEXT ---
+Postgame_Text_TateLiza_RematchIntro:
+	.string "TATE: Our minds are one!\n"
+	.string "LIZA: Are you ready for us?$"
+
+Postgame_Text_TateLiza_RematchDefeat:
+	.string "TATE: We were out of sync...\n"
+	.string "LIZA: You were too strong...$"
+
+Postgame_Text_TateLiza_RematchPostBattle:
+	.string "TATE: We will meditate.\n"
+	.string "LIZA: To become even stronger!$"
+
+@ --- JUAN TEXT ---
+Postgame_Text_Juan_RematchIntro:
+	.string "The elegance of water awaits!\n"
+	.string "Shall we dance once more?$"
+
+Postgame_Text_Juan_RematchDefeat:
+	.string "What a magnificent performance!$"
+
+Postgame_Text_Juan_RematchPostBattle:
+	.string "Your strength is as deep\n"
+	.string "as the ocean floor.$"
+
+@ --- SHARED TEXT ---
+Postgame_Text_HoennLeaderDeclined:
+	.string "I see. Perhaps another time then.$"
+
+Postgame_Text_Roxanne_Declined:
+	.string "I see. Even a student needs time\n"
+	.string "off from their studies.$"
+
+Postgame_Text_Brawly_Declined:
+	.string "No worries. I'll just keep\n"
+	.string "riding the waves until you're ready.$"
+
+Postgame_Text_Wattson_Declined:
+	.string "Wahahaha! No spark today?\n"
+	.string "Come back when you're recharged!$"
+
+Postgame_Text_Flannery_Declined:
+	.string "Hmph... I was all fired up,\n"
+	.string "but I suppose I can wait.$"
+
+Postgame_Text_Norman_Declined:
+	.string "A true trainer knows when it's\n"
+	.string "time to rest. I'll be here.$"
+
+Postgame_Text_Winona_Declined:
+	.string "The wind isn't quite right?\n"
+	.string "We shall wait for another breeze.$"
+
+Postgame_Text_TateLiza_Declined:
+	.string "TATE: You aren't ready?\n"
+	.string "LIZA: We will wait for you!$"
+
+Postgame_Text_Juan_Declined:
+	.string "Adieu! We shall postpone\n"
+	.string "our grand performance.$"

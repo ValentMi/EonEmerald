@@ -4620,7 +4620,7 @@ const struct Item gItems[] =
     {
         .name = _("Old Sea Map"),
         .itemId = ITEM_OLD_SEA_MAP,
-        .price = 0,
+        .price = 65000,
         .description = sOldSeaMapDesc,
         .importance = 1,
         .registrability = TRUE,
