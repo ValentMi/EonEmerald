@@ -2272,6 +2272,42 @@ static void Task_PokeStorageMain(u8 taskId)
     switch (sStorage->state)
     {
     case MSTATE_HANDLE_INPUT:
+		if (JOY_NEW(L_BUTTON))
+			{
+				PlaySE(SE_SELECT);
+				sStorage->newCurrBoxId = StorageGetCurrentBox() - 1;
+				if (sStorage->newCurrBoxId < 0)
+					sStorage->newCurrBoxId = TOTAL_BOXES_COUNT - 1;
+				if (sStorage->boxOption != OPTION_MOVE_ITEMS)
+				{
+					SetUpScrollToBox(sStorage->newCurrBoxId);
+					sStorage->state = MSTATE_SCROLL_BOX;
+				}
+				else
+				{
+					TryHideItemAtCursor();
+					sStorage->state = MSTATE_SCROLL_BOX_ITEM;
+				}
+			}
+			else if (JOY_NEW(R_BUTTON))
+			{
+				PlaySE(SE_SELECT);
+				sStorage->newCurrBoxId = StorageGetCurrentBox() + 1;
+				if (sStorage->newCurrBoxId >= TOTAL_BOXES_COUNT)
+					sStorage->newCurrBoxId = 0;
+				if (sStorage->boxOption != OPTION_MOVE_ITEMS)
+				{
+					SetUpScrollToBox(sStorage->newCurrBoxId);
+					sStorage->state = MSTATE_SCROLL_BOX;
+				}
+				else
+				{
+					TryHideItemAtCursor();
+					sStorage->state = MSTATE_SCROLL_BOX_ITEM;
+				}
+			}
+        else
+    {
         switch (HandleInput())
         {
         case INPUT_MOVE_CURSOR:
@@ -2532,7 +2568,8 @@ static void Task_PokeStorageMain(u8 taskId)
         if (!IsItemIconAnimActive())
             sStorage->state = MSTATE_HANDLE_INPUT;
         break;
-    }
+		}
+	}
 }
 
 static void Task_ShowPartyPokemon(u8 taskId)

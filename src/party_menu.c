@@ -1279,6 +1279,9 @@ void Task_HandleChooseMonInput(u8 taskId)
         case B_BUTTON: // Selected Cancel / pressed B
             HandleChooseMonCancel(taskId, slotPtr);
             break;
+		case SELECT_BUTTON: // Quick Swap
+            DestroyTask(taskId);
+            break;
         case START_BUTTON:
             if (sPartyMenuInternal->chooseHalf)
             {
@@ -1461,6 +1464,22 @@ static void Task_HandleCancelChooseMonYesNoInput(u8 taskId)
     }
 }
 
+static bool8 IsInvalidPartyMenuActionType(u8 partyMenuType)
+{
+    return (partyMenuType == PARTY_ACTION_SEND_OUT
+         || partyMenuType == PARTY_ACTION_CANT_SWITCH
+         || partyMenuType == PARTY_ACTION_USE_ITEM
+         || partyMenuType == PARTY_ACTION_ABILITY_PREVENTS
+         || partyMenuType == PARTY_ACTION_GIVE_ITEM
+         || partyMenuType == PARTY_ACTION_GIVE_PC_ITEM
+         || partyMenuType == PARTY_ACTION_GIVE_MAILBOX_MAIL
+         || partyMenuType == PARTY_ACTION_SOFTBOILED
+         || partyMenuType == PARTY_ACTION_CHOOSE_AND_CLOSE
+         || partyMenuType == PARTY_ACTION_MOVE_TUTOR
+         || partyMenuType == PARTY_ACTION_MINIGAME
+         || partyMenuType == PARTY_ACTION_REUSABLE_ITEM);
+}
+
 static u16 PartyMenuButtonHandler(s8 *slotPtr)
 {
     s8 movementDir;
@@ -1497,6 +1516,20 @@ static u16 PartyMenuButtonHandler(s8 *slotPtr)
 
     if (JOY_NEW(START_BUTTON))
         return START_BUTTON;
+	
+	if (JOY_NEW(SELECT_BUTTON) && CalculatePlayerPartyCount() >= 2 && !IsInvalidPartyMenuActionType(gPartyMenu.action))
+    {
+        if (gPartyMenu.menuType != PARTY_MENU_TYPE_FIELD)
+            return 0;
+        if (*slotPtr == PARTY_SIZE + 1)
+            return 0;
+        if (gPartyMenu.action != PARTY_ACTION_SWITCH)
+        {
+            CreateTask(CursorCb_Switch, 1);
+            return SELECT_BUTTON;
+        }
+        return A_BUTTON; // Select is allowed to act as the A Button while CursorCb_Switch is active.
+    }
 
     if (movementDir)
     {
@@ -4491,7 +4524,11 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
         PlaySE(SE_SELECT);
         DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
         ScheduleBgCopyTilemapToVram(2);
-        gTasks[taskId].func = task;
+        if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD)
+            gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+        else
+            gTasks[taskId].func = task;
+        return;
     }
     else
     {
@@ -4523,7 +4560,10 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
             GetMedicineItemEffectMessage(item);
             DisplayPartyMenuMessage(gStringVar4, TRUE);
             ScheduleBgCopyTilemapToVram(2);
-            gTasks[taskId].func = task;
+            if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(item, 1))
+                gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+            else
+                gTasks[taskId].func = task;
         }
     }
 }
@@ -4535,7 +4575,10 @@ static void Task_DisplayHPRestoredMessage(u8 taskId)
     DisplayPartyMenuMessage(gStringVar4, FALSE);
     ScheduleBgCopyTilemapToVram(2);
     HandleBattleLowHpMusicChange();
-    gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+    if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    else
+        gTasks[taskId].func = Task_ClosePartyMenuAfterText;
 }
 
 static void Task_ClosePartyMenuAfterText(u8 taskId)
@@ -4922,7 +4965,10 @@ static void CB2_ShowSummaryScreenToForgetMove(void)
 
 static void CB2_ReturnToPartyMenuWhileLearningMove(void)
 {
-    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, TRUE, PARTY_MSG_NONE, Task_ReturnToPartyMenuWhileLearningMove, gPartyMenu.exitCallback);
+    if (gSpecialVar_ItemId == ITEM_RARE_CANDY && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+        InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_NONE, Task_ReturnToPartyMenuWhileLearningMove, gPartyMenu.exitCallback);
+    else
+        InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, TRUE, PARTY_MSG_NONE, Task_ReturnToPartyMenuWhileLearningMove, gPartyMenu.exitCallback);
 }
 
 static void Task_ReturnToPartyMenuWhileLearningMove(u8 taskId)
@@ -5164,6 +5210,12 @@ static void Task_TryLearningNextMove(u8 taskId)
     }
 }
 
+static void CB2_ReturnToPartyMenuUsingRareCandy(void)
+{
+    gItemUseCB = ItemUseCB_RareCandy;
+    SetMainCallback2(CB2_ShowPartyMenuForItemUse);
+}
+
 static void PartyMenuTryEvolution(u8 taskId)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
@@ -5172,13 +5224,19 @@ static void PartyMenuTryEvolution(u8 taskId)
     if (targetSpecies != SPECIES_NONE)
     {
         FreePartyPointers();
-        gCB2_AfterEvolution = gPartyMenu.exitCallback;
+        if (gSpecialVar_ItemId == ITEM_RARE_CANDY && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+            gCB2_AfterEvolution = CB2_ReturnToPartyMenuUsingRareCandy;
+        else
+            gCB2_AfterEvolution = gPartyMenu.exitCallback;
         BeginEvolutionScene(mon, targetSpecies, TRUE, gPartyMenu.slotId);
         DestroyTask(taskId);
     }
     else
     {
-        gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+        if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+            gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+        else
+            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
     }
 }
 

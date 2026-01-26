@@ -1,4 +1,7 @@
-	
+.set LOCALID_GOLD, 1
+.set LOCALID_LEAF, 3
+.set LOCALID_KRIS, 1
+
 Postgame_EventScript_Brock::
 	lock
 	faceplayer
@@ -6,7 +9,9 @@ Postgame_EventScript_Brock::
 	goto_if_set FLAG_DEFEATED_BROCK, Postgame_EventScript_Brock_Defeated
 	msgbox Postgame_Brock_AsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_BrockDeclined
-	trainerbattle_no_intro TRAINER_BROCK, Postgame_BrockDefeated
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
+	trainerbattle_no_intro TRAINER_BROCK, Postgame_BrockDefeated //fix all of these
 	setflag FLAG_DEFEATED_BROCK
 	setflag FLAG_REMOVE_MINER
 	msgbox Postgame_BrockPostBattle, MSGBOX_DEFAULT
@@ -34,17 +39,22 @@ Postgame_Brock_AsktoBattle:
 	
 Postgame_BrockDeclinedText:
 	.string "I see. Safe travels then.$"
+	
+Postgame_Ready:
+	.string "Ready? Because here I come!$"
 
 Postgame_BrockDefeated:
 	.string "I tried hard, but you\n"
 	.string "were too strong.$"
-
+	
 Postgame_BrockPostBattle:
 	.string "I'm in the region for a while.\p"
 	.string "Come back some time for\n"
 	.string "a rematch!$"
 
-
+Postgame_Text_NotEnoughMons:
+	.string "You don't have enough\n"
+	.string "Pokemon to battle.$"
 	
 Postgame_EventScript_Misty::
 	lock
@@ -53,6 +63,8 @@ Postgame_EventScript_Misty::
 	goto_if_set FLAG_DEFEATED_MISTY, Postgame_EventScript_Misty_Defeated
 	msgbox Postgame_Misty_AsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_MistyDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_MISTY, Postgame_MistyDefeated
 	setflag FLAG_DEFEATED_MISTY
 	setflag FLAG_REMOVE_MISTY_BLOCK
@@ -100,6 +112,8 @@ Postgame_EventScript_Surge::
 	goto_if_set FLAG_DEFEATED_SURGE, Postgame_EventScript_Surge_Defeated
 	msgbox Postgame_Surge_AsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_SurgeDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_SURGE, Postgame_SurgeDefeated
 	setflag FLAG_DEFEATED_SURGE
 	setflag FLAG_REMOVE_SURGE_BLOCK
@@ -128,7 +142,7 @@ Postgame_Surge_AsktoBattle:
 	.string "by my lightning-fast team?$"
 	
 Postgame_SurgeDeclinedText:
-	.string "Hah! Too chicken to handle\n"
+	.string "Hah! Too scared to handle\n"
 	.string "a real surge of power?$"
 
 Postgame_SurgeDefeated:
@@ -149,6 +163,8 @@ Postgame_EventScript_Erika::
 	goto_if_set FLAG_DEFEATED_ERIKA, Postgame_EventScript_Erika_Defeated
 	msgbox Postgame_Erika_AsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_ErikaDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_ERIKA, Postgame_ErikaDefeated
 	setflag FLAG_DEFEATED_ERIKA
 	setflag FLAG_REMOVE_ERIKA_BLOCK
@@ -198,6 +214,8 @@ Postgame_EventScript_Koga::
 	goto_if_set FLAG_DEFEATED_KOGA, Postgame_EventScript_Koga_Defeated
 	msgbox Postgame_Koga_AsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_KogaDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_KOGA, Postgame_KogaDefeated
 	setflag FLAG_DEFEATED_KOGA
 	setflag FLAG_REMOVE_KOGA_BLOCK
@@ -247,6 +265,8 @@ Postgame_EventScript_Sabrina::
 	goto_if_set FLAG_DEFEATED_SABRINA, Postgame_EventScript_Sabrina_Defeated
 	msgbox Postgame_Sabrina_AsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_SabrinaDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_SABRINA, Postgame_SabrinaDefeated
 	setflag FLAG_DEFEATED_SABRINA
 	setflag FLAG_REMOVE_SABRINA_BLOCK
@@ -294,6 +314,8 @@ Postgame_EventScript_Blaine::
 	goto_if_set FLAG_DEFEATED_BLAINE, Postgame_EventScript_Blaine_Defeated
 	msgbox Postgame_Blaine_AsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_BlaineDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_BLAINE, Postgame_BlaineDefeated
 	setflag FLAG_DEFEATED_BLAINE
 	setflag FLAG_REMOVE_BLAINE_BLOCK
@@ -341,6 +363,8 @@ Postgame_EventScript_Giovanni::
 	goto_if_set FLAG_DEFEATED_GIOVANNI, Postgame_EventScript_Giovanni_Defeated
 	msgbox Postgame_Giovanni_AsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_GiovanniDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_GIOVANNI, Postgame_GiovanniDefeated
 	setflag FLAG_DEFEATED_GIOVANNI
 	setflag FLAG_REMOVE_GIOVANNI_BLOCK
@@ -396,6 +420,8 @@ Postgame_EventScript_May::
 	call_if_set FLAG_DECLINED_RIVAL_POSTGAME, Postgame_EventScript_MayAskAgain
 	call_if_unset FLAG_DECLINED_RIVAL_POSTGAME, Postgame_EventScript_MayAskFirst
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_DeclineRival
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFightRival
 	msgbox Postgame_Text_MayLetsGo, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, Postgame_EventScript_BattleMayTreecko
@@ -408,6 +434,8 @@ Postgame_EventScript_Brendan::
 	call_if_set FLAG_DECLINED_RIVAL_POSTGAME, Postgame_EventScript_BrendanAskAgain
 	call_if_unset FLAG_DECLINED_RIVAL_POSTGAME, Postgame_EventScript_BrendanAskFirst
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_DeclineRival
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFightRival
 	msgbox Postgame_Text_BrendanLetsGo, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, Postgame_EventScript_BattleBrendanTreecko
@@ -425,6 +453,23 @@ Postgame_EventScript_DeclineRival::
 
 Postgame_EventScript_Rival2_Defeated::
 	msgbox Postgame_Text_RivalPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_NotFairFightRival::
+	msgbox Postgame_Text_NotFairFight, MSGBOX_DEFAULT
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+	
+Postgame_EventScript_NotFairFight::
+	msgbox Postgame_Text_NotFairFight, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_NotFairFightSilent::
+	msgbox Postgame_Text_NotFairFightSilent, MSGBOX_DEFAULT
 	release
 	end
 
@@ -473,6 +518,14 @@ Postgame_EventScript_MayAskFirst:
 Postgame_EventScript_MayAskAgain:
 	msgbox Postgame_Text_MayReadyYet, MSGBOX_YESNO
 	return
+	
+Postgame_Text_NotFairFight:
+	.string "Oh, I won't battle you until\n"
+	.string "you have enough Pokémon.$"
+
+Postgame_Text_NotFairFightSilent:
+	.string "It looks like they are hesitant\n"
+	.string "to battle while you right now.$"
 	
 Postgame_Text_MayIntro:
 	.string "May: Hi {PLAYER}!\n"
@@ -528,6 +581,30 @@ gText_Postgame_EventScript_Block_Cabin:
 	.string "This cabin is reserved.\n"
 	.string "Please leave.$"
 	
+Ember_Fossil_Salesman::
+	lock
+	faceplayer
+	message gText_Ember_Fossil_Salesman
+	waitmessage
+	pokemart Ember_Fossil_Salesman_Stock
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Ember_Fossil_Salesman_Stock:
+	.2byte ITEM_HELIX_FOSSIL
+	.2byte ITEM_DOME_FOSSIL
+	.2byte ITEM_OLD_AMBER
+	.2byte ITEM_ROOT_FOSSIL
+	.2byte ITEM_CLAW_FOSSIL
+	pokemartlistend
+	
+gText_Ember_Fossil_Salesman:
+	.string "I'm selling rare fossils\p"
+	.string "I found them when mining deep within\n"
+	.string "Mt. Moon and the desert underpass!$"
+	
 Tidal_Shady_Salesman::
 	lock
 	faceplayer
@@ -546,6 +623,10 @@ Tidal_Shady_Salesman_Stock:
 	.2byte ITEM_PREMIER_BALL
 	.2byte ITEM_MAX_REVIVE
 	.2byte ITEM_NUGGET
+	.2byte ITEM_AMULET_COIN
+	.2byte ITEM_CLEANSE_TAG
+	.2byte ITEM_MYSTIC_TICKET
+	.2byte ITEM_EON_TICKET
 	.2byte ITEM_OLD_SEA_MAP
 	pokemartlistend
 	
@@ -560,6 +641,8 @@ Postgame_EventScript_Maxie::
 	goto_if_set FLAG_DEFEATED_MAXIE_SB, Postgame_EventScript_Maxie_Defeated
 	msgbox Postgame_Text_MaxieAsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_MaxieDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_BRAWLY_4, Postgame_Text_MaxieDefeated
 	setflag FLAG_DEFEATED_MAXIE_SB
 	msgbox Postgame_Text_MaxiePostBattle, MSGBOX_DEFAULT
@@ -583,6 +666,8 @@ Postgame_EventScript_Tabitha::
 	goto_if_set FLAG_DEFEATED_TABITHA_SB, Postgame_EventScript_Tabitha_Defeated
 	msgbox Postgame_Text_TabithaAsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_TabithaDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_WATTSON_4, Postgame_Text_TabithaDefeated
 	setflag FLAG_DEFEATED_TABITHA_SB
 	msgbox Postgame_Text_TabithaPostBattle, MSGBOX_DEFAULT
@@ -606,6 +691,8 @@ Postgame_EventScript_Courtney::
 	goto_if_set FLAG_DEFEATED_COURTNEY_SB, Postgame_EventScript_Courtney_Defeated
 	msgbox Postgame_Text_CourtneyAsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_CourtneyDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_FLANNERY_2, Postgame_Text_CourtneyDefeated
 	setflag FLAG_DEFEATED_COURTNEY_SB
 	msgbox Postgame_Text_CourtneyPostBattle, MSGBOX_DEFAULT
@@ -629,6 +716,8 @@ Postgame_EventScript_Archie::
 	goto_if_set FLAG_DEFEATED_ARCHIE_SB, Postgame_EventScript_Archie_Defeated
 	msgbox Postgame_Text_ArchieAsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_ArchieDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_BRAWLY_3, Postgame_Text_ArchieDefeated
 	setflag FLAG_DEFEATED_ARCHIE_SB
 	msgbox Postgame_Text_ArchiePostBattle, MSGBOX_DEFAULT
@@ -652,6 +741,8 @@ Postgame_EventScript_Matt::
 	goto_if_set FLAG_DEFEATED_MATT_SB, Postgame_EventScript_Matt_Defeated
 	msgbox Postgame_Text_MattAsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_MattDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_WATTSON_3, Postgame_Text_MattDefeated
 	setflag FLAG_DEFEATED_MATT_SB
 	msgbox Postgame_Text_MattPostBattle, MSGBOX_DEFAULT
@@ -675,6 +766,8 @@ Postgame_EventScript_Shelly::
 	goto_if_set FLAG_DEFEATED_SHELLY_SB, Postgame_EventScript_Shelly_Defeated
 	msgbox Postgame_Text_ShellyAsktoBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_ShellyDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_WATTSON_2, Postgame_Text_ShellyDefeated
 	setflag FLAG_DEFEATED_SHELLY_SB
 	msgbox Postgame_Text_ShellyPostBattle, MSGBOX_DEFAULT
@@ -700,6 +793,10 @@ Postgame_Text_MaxieDefeated:
 	.string "Your flame burns bright.$"
 
 Postgame_Text_MaxiePostBattle:
+	.string "I promise to learn from my mistakes\n"
+	.string "and protect the land we call home…\p"
+	.string "My vision was clouded before, but\n"
+	.string "you helped me to realize the truth.\p"
 	.string "I will continue to study this world.\n"
 	.string "Come back for a rematch sometime.$"
 
@@ -793,6 +890,8 @@ Postgame_EventScript_SSTidal_Roxanne::
 	goto_if_set FLAG_ROXANNE_POSTGAME, Postgame_EventScript_Roxanne_Defeated
 	msgbox Postgame_Text_Roxanne_RematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Roxanne_Declined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_ROXANNE_5, Postgame_Text_Roxanne_RematchDefeat
 	setflag FLAG_ROXANNE_POSTGAME
 	msgbox Postgame_Text_Roxanne_RematchPostBattle, MSGBOX_DEFAULT
@@ -818,6 +917,8 @@ Postgame_EventScript_SSTidal_Brawly::
 	goto_if_set FLAG_BRAWLY_POSTGAME, Postgame_EventScript_Brawly_Defeated
 	msgbox Postgame_Text_Brawly_RematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Brawly_Declined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_BRAWLY_5, Postgame_Text_Brawly_RematchDefeat
 	setflag FLAG_BRAWLY_POSTGAME
 	msgbox Postgame_Text_Brawly_RematchPostBattle, MSGBOX_DEFAULT
@@ -843,6 +944,8 @@ Postgame_EventScript_SSTidal_Wattson::
 	goto_if_set FLAG_WATTSON_POSTGAME, Postgame_EventScript_Wattson_Defeated
 	msgbox Postgame_Text_Wattson_RematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Wattson_Declined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_WATTSON_5, Postgame_Text_Wattson_RematchDefeat
 	setflag FLAG_WATTSON_POSTGAME
 	msgbox Postgame_Text_Wattson_RematchPostBattle, MSGBOX_DEFAULT
@@ -868,6 +971,8 @@ Postgame_EventScript_SSTidal_Flannery::
 	goto_if_set FLAG_FLANNERY_POSTGAME, Postgame_EventScript_Flannery_Defeated
 	msgbox Postgame_Text_Flannery_RematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Flannery_Declined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_FLANNERY_5, Postgame_Text_Flannery_RematchDefeat
 	setflag FLAG_FLANNERY_POSTGAME
 	msgbox Postgame_Text_Flannery_RematchPostBattle, MSGBOX_DEFAULT
@@ -893,6 +998,8 @@ Postgame_EventScript_SSTidal_Norman::
 	goto_if_set FLAG_NORMAN_POSTGAME, Postgame_EventScript_Norman_Defeated
 	msgbox Postgame_Text_Norman_RematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Norman_Declined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_NORMAN_5, Postgame_Text_Norman_RematchDefeat
 	setflag FLAG_NORMAN_POSTGAME
 	msgbox Postgame_Text_Norman_RematchPostBattle, MSGBOX_DEFAULT
@@ -918,6 +1025,8 @@ Postgame_EventScript_SSTidal_Winona::
 	goto_if_set FLAG_WINONA_POSTGAME, Postgame_EventScript_Winona_Defeated
 	msgbox Postgame_Text_Winona_RematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Winona_Declined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_WINONA_5, Postgame_Text_Winona_RematchDefeat
 	setflag FLAG_WINONA_POSTGAME
 	msgbox Postgame_Text_Winona_RematchPostBattle, MSGBOX_DEFAULT
@@ -943,6 +1052,8 @@ Postgame_EventScript_SSTidal_TateAndLiza::
 	goto_if_set FLAG_TATELIZA_POSTGAME, Postgame_EventScript_TateLiza_Defeated
 	msgbox Postgame_Text_TateLiza_RematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_TateLiza_Declined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_TATE_AND_LIZA_5, Postgame_Text_TateLiza_RematchDefeat
 	setflag FLAG_TATELIZA_POSTGAME
 	msgbox Postgame_Text_TateLiza_RematchPostBattle, MSGBOX_DEFAULT
@@ -968,6 +1079,8 @@ Postgame_EventScript_SSTidal_Juan::
 	goto_if_set FLAG_JUAN_POSTGAME, Postgame_EventScript_Juan_Defeated
 	msgbox Postgame_Text_Juan_RematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Juan_Declined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_JUAN_5, Postgame_Text_Juan_RematchDefeat
 	setflag FLAG_JUAN_POSTGAME
 	msgbox Postgame_Text_Juan_RematchPostBattle, MSGBOX_DEFAULT
@@ -994,6 +1107,8 @@ Postgame_EventScript_SSTidal_Brock::
 	goto_if_set FLAG_DEFEATED_BROCK, Postgame_EventScript_Brock_TidalDefeatedScript
 	msgbox Postgame_Text_Brock_TidalRematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Brock_TidalDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_BROCK, Postgame_Text_Brock_TidalDefeated
 	setflag FLAG_DEFEATED_BROCK
 	msgbox Postgame_Text_Brock_TidalPostBattle, MSGBOX_DEFAULT
@@ -1018,6 +1133,8 @@ Postgame_EventScript_SSTidal_Misty::
 	goto_if_set FLAG_DEFEATED_MISTY, Postgame_EventScript_Misty_TidalDefeatedScript
 	msgbox Postgame_Text_Misty_TidalRematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Misty_TidalDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_MISTY, Postgame_Text_Misty_TidalDefeated
 	setflag FLAG_DEFEATED_MISTY
 	msgbox Postgame_Text_Misty_TidalPostBattle, MSGBOX_DEFAULT
@@ -1042,6 +1159,8 @@ Postgame_EventScript_SSTidal_LtSurge::
 	goto_if_set FLAG_DEFEATED_SURGE, Postgame_EventScript_LtSurge_TidalDefeatedScript
 	msgbox Postgame_Text_LtSurge_TidalRematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_LtSurge_TidalDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_SURGE, Postgame_Text_LtSurge_TidalDefeated
 	setflag FLAG_DEFEATED_SURGE
 	msgbox Postgame_Text_LtSurge_TidalPostBattle, MSGBOX_DEFAULT
@@ -1066,6 +1185,8 @@ Postgame_EventScript_SSTidal_Erika::
 	goto_if_set FLAG_DEFEATED_ERIKA, Postgame_EventScript_Erika_TidalDefeatedScript
 	msgbox Postgame_Text_Erika_TidalRematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Erika_TidalDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_ERIKA, Postgame_Text_Erika_TidalDefeated
 	setflag FLAG_DEFEATED_ERIKA
 	msgbox Postgame_Text_Erika_TidalPostBattle, MSGBOX_DEFAULT
@@ -1090,6 +1211,8 @@ Postgame_EventScript_SSTidal_Koga::
 	goto_if_set FLAG_DEFEATED_KOGA, Postgame_EventScript_Koga_TidalDefeatedScript
 	msgbox Postgame_Text_Koga_TidalRematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Koga_TidalDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_KOGA, Postgame_Text_Koga_TidalDefeated
 	setflag FLAG_DEFEATED_KOGA
 	msgbox Postgame_Text_Koga_TidalPostBattle, MSGBOX_DEFAULT
@@ -1114,6 +1237,8 @@ Postgame_EventScript_SSTidal_Sabrina::
 	goto_if_set FLAG_DEFEATED_SABRINA, Postgame_EventScript_Sabrina_TidalDefeatedScript
 	msgbox Postgame_Text_Sabrina_TidalRematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Sabrina_TidalDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_SABRINA, Postgame_Text_Sabrina_TidalDefeated
 	setflag FLAG_DEFEATED_SABRINA
 	msgbox Postgame_Text_Sabrina_TidalPostBattle, MSGBOX_DEFAULT
@@ -1138,6 +1263,8 @@ Postgame_EventScript_SSTidal_Blaine::
 	goto_if_set FLAG_DEFEATED_BLAINE, Postgame_EventScript_Blaine_TidalDefeatedScript
 	msgbox Postgame_Text_Blaine_TidalRematchIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_Blaine_TidalDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_BLAINE, Postgame_Text_Blaine_TidalDefeated
 	setflag FLAG_DEFEATED_BLAINE
 	msgbox Postgame_Text_Blaine_TidalPostBattle, MSGBOX_DEFAULT
@@ -1401,3 +1528,609 @@ Postgame_Text_TateLiza_Declined:
 Postgame_Text_Juan_Declined:
 	.string "Adieu! We shall postpone\n"
 	.string "our grand performance.$"
+	
+Postgame_EventScript_GoldBattle::
+	lock
+	goto_if_set FLAG_DEFEATED_RIVAL_SB, Postgame_EventScript_GoldPostBattle
+	msgbox Postgame_Text_GoldQuestion, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_GoldDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFightSilent
+	faceplayer
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_GOLD, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Postgame_Text_GoldIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_BRENDAN_PLACEHOLDER, Postgame_Text_GoldIntro
+	setflag FLAG_DEFEATED_RIVAL_SB
+	msgbox Postgame_Text_GoldIntro, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_GoldDeclined::
+	msgbox Postgame_Text_GoldIntro, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_GoldPostBattle::
+	msgbox Postgame_Text_GoldIntro, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_Text_GoldQuestion:
+	.string "Battle them?$"
+
+Postgame_Text_GoldIntro:
+	.string "…$"
+	
+Postgame_EventScript_KrisBattle::
+	lock
+	goto_if_set FLAG_KRIS_POSTGAME, Postgame_EventScript_GoldPostBattle
+	msgbox Postgame_Text_GoldQuestion, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_GoldDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFightSilent
+	faceplayer
+	waitmovement 0
+	playse SE_PIN
+    applymovement LOCALID_KRIS, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Postgame_Text_GoldIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_MAY_PLACEHOLDER, Postgame_Text_GoldIntro
+	setflag FLAG_KRIS_POSTGAME
+	msgbox Postgame_Text_GoldIntro, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_DoubleBattleCheckTrigger::
+	lockall
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotEnoughToProceed
+	releaseall
+	end
+
+Postgame_EventScript_NotEnoughToProceed::
+	msgbox Postgame_Text_NeedTwoViableProceed, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Postgame_Movement_WalkBackTwoSteps
+	waitmovement 0
+	releaseall
+	end
+
+Postgame_Movement_WalkBackTwoSteps:
+	walk_down
+	step_end
+
+Postgame_Text_NeedTwoViableProceed:
+	.string "You need two Pokémon capable of\n"
+	.string "battle to proceed.$"
+	
+Postgame_EventScript_Red::
+	lock
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_RED, Postgame_EventScript_Red_Defeated
+	msgbox Postgame_Text_GoldQuestion, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_GoldDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFightSilent
+	faceplayer
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_GOLD, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Postgame_Text_GoldIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_RED, Postgame_Text_GoldIntro
+	setflag FLAG_DEFEATED_RED
+	goto_if_set FLAG_RECEIVED_AURORA_TICKET, Postgame_EventScript_Red_End   
+    giveitem ITEM_AURORA_TICKET
+    goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+    setflag FLAG_RECEIVED_AURORA_TICKET
+	msgbox Postgame_Text_GoldIntro, MSGBOX_DEFAULT
+	release
+	end
+
+Postgame_EventScript_Red_End::
+    setflag FLAG_DEFEATED_RED
+    msgbox Postgame_Text_GoldIntro, MSGBOX_DEFAULT
+    release
+    end
+	
+Postgame_EventScript_Red_Defeated::
+	faceplayer
+	waitmovement 0
+	msgbox Postgame_Text_GoldIntro, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_Leaf::
+	lock
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_LEAF, Postgame_EventScript_Leaf_Defeated
+	msgbox Postgame_Text_GoldQuestion, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_GoldDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFightSilent
+	faceplayer
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_LEAF, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Postgame_Text_GoldIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_LEAF, Postgame_Text_GoldIntro
+	msgbox Postgame_Text_GoldIntro, MSGBOX_DEFAULT
+	setflag FLAG_DEFEATED_LEAF
+	release
+	end
+	
+Postgame_EventScript_Leaf_Defeated::
+	faceplayer
+	waitmovement 0
+	msgbox Postgame_LeafPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_LeafIntro:
+	.string "...$"
+
+Postgame_LeafDefeated:
+	.string "...$"
+
+Postgame_LeafPostBattle:
+	.string "...$"
+	
+Postgame_EventScript_Michael::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_MICHAEL, Postgame_EventScript_Michael_Defeated
+	msgbox Postgame_Michael_AsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_MichaelDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
+	trainerbattle_no_intro TRAINER_DUSTY_2, Postgame_MichaelDefeated
+	setflag FLAG_DEFEATED_MICHAEL
+	msgbox Postgame_MichaelPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_Michael_Defeated::
+	msgbox Postgame_MichaelPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_MICHAEL
+	release
+	end
+	
+Postgame_EventScript_MichaelDeclined::
+	msgbox Postgame_MichaelDeclinedText, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_Michael_AsktoBattle:
+	.string "Oh! You found me.\p"
+	.string "I'm Michael, the designer of\n"
+	.string "Eon Emerald.\p"
+	.string "I hope you have enjoyed your\n"
+	.string "adventure so far.\p"
+	.string "Would you like to test your skill\n"
+	.string "against me?$"
+	
+Postgame_MichaelDeclinedText:
+	.string "No problem. I'll just keep\n"
+	.string "tending to my plants.$"
+
+Postgame_MichaelDefeated:
+	.string "Incredible. You're such a\n"
+	.string "talented trainer.$"
+	
+Postgame_MichaelPostBattle:
+	.string "Seeing a trainer like you succeed\n"
+	.string "makes all the hard work worth it.\p"
+	.string "Keep exploring every corner!$"
+	
+Postgame_EventScript_DJ::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_DJ, Postgame_EventScript_DJ_Defeated
+	msgbox Postgame_DJ_AsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_DJDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
+	trainerbattle_no_intro TRAINER_DUSTY_3, Postgame_DJDefeated
+	setflag FLAG_DEFEATED_DJ
+	msgbox Postgame_DJPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_DJ_Defeated::
+	msgbox Postgame_DJPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_DJ
+	release
+	end
+	
+Postgame_EventScript_DJDeclined::
+	msgbox Postgame_DJDeclinedText, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_DJ_AsktoBattle:
+	.string "Ugh, look who it is.\p"
+	.string "I'm DJ, and in case you haven't\n"
+	.string "noticed, I'm kind of a big deal.\p"
+	.string "My Pokémon are elite, unlike\n"
+	.string "whatever you've got there.\p"
+	.string "Ready to lose to a real pro?$"
+	
+Postgame_DJDeclinedText:
+	.string "Yeah, run away. I'd be\n"
+	.string "scared of me too.$"
+
+Postgame_DJDefeated:
+	.string "Whatever. My finger slipped\n"
+	.string "on the Poké Ball. Total fluke.$"
+	
+Postgame_DJPostBattle:
+	.string "I'm going to go find some\n"
+	.string "actual competition.\p"
+	.string "Don't get used to winning.$"
+	
+Postgame_EventScript_JL::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_JL, Postgame_EventScript_JL_Defeated
+	msgbox Postgame_JL_AsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_JLDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
+	trainerbattle_no_intro TRAINER_DUSTY_4, Postgame_JLDefeated
+	setflag FLAG_DEFEATED_JL
+	msgbox Postgame_JLPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_JL_Defeated::
+	msgbox Postgame_JLPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_JLDeclined::
+	msgbox Postgame_JLDeclinedText, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_JL_AsktoBattle:
+	.string "Hrrn... ninety-nine... one hundred!\p"
+	.string "The name's JL.\p"
+	.string "If you aren't training hard,\n"
+	.string "you're just wasting time.\p"
+	.string "Care to feel the burn?$"
+	
+Postgame_JLDeclinedText:
+	.string "No gains for the weak.\n"
+	.string "Hit the gym, kid.$"
+
+Postgame_JLDefeated:
+	.string "Your form was flawless!\n"
+	.string "That was a heavy set!$"
+	
+Postgame_JLPostBattle:
+	.string "Power comes from discipline.\p"
+	.string "Come back when you're ready\n"
+	.string "for another spar!$"
+	
+Postgame_EventScript_Jessica::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_JESSICA, Postgame_EventScript_Jessica_Defeated
+	msgbox Postgame_Jessica_AsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_JessicaDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
+	trainerbattle_no_intro TRAINER_DUSTY_5, Postgame_JessicaDefeated
+	setflag FLAG_DEFEATED_JESSICA
+	msgbox Postgame_JessicaPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_Jessica_Defeated::
+	msgbox Postgame_JessicaPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_JESSICA
+	release
+	end
+	
+Postgame_EventScript_JessicaDeclined::
+	msgbox Postgame_JessicaDeclinedText, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_Jessica_AsktoBattle:
+	.string "La la laaa!\p"
+	.string "Oh, hello! I'm Jessica. I'm\n"
+	.string "working on my next big hit.\p"
+	.string "The rhythm of a battle is the\n"
+	.string "best inspiration I can find!\p"
+	.string "Shall we start the performance?$"
+	
+Postgame_JessicaDeclinedText:
+	.string "Aww, and the stage was\n"
+	.string "already set...$"
+
+Postgame_JessicaDefeated:
+	.string "What a beautiful melody\n"
+	.string "your team plays!$"
+	
+Postgame_JessicaPostBattle:
+	.string "I think I have enough notes\n"
+	.string "for a chart-topping single now.\p"
+	.string "See you on the radio!$"
+	
+Postgame_EventScript_Rachel::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_RACHEL, Postgame_EventScript_Rachel_Defeated
+	msgbox Postgame_Rachel_AsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_RachelDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
+	trainerbattle_no_intro TRAINER_CORY_2, Postgame_RachelDefeated
+	setflag FLAG_DEFEATED_RACHEL
+	msgbox Postgame_RachelPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_Rachel_Defeated::
+	msgbox Postgame_RachelPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_RACHEL
+	release
+	end
+	
+Postgame_EventScript_RachelDeclined::
+	msgbox Postgame_RachelDeclinedText, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_Rachel_AsktoBattle:
+	.string "Hello. I'm Rachel.\n"
+	.string "I just love Pokémon with round,\n"
+	.string "cheerful shapes.\p"
+	.string "There's such potential in every\n"
+	.string "single Egg I hatch.\p"
+	.string "Would you like to see how\n"
+	.string "strong my hatchlings are?$"
+	
+Postgame_RachelDeclinedText:
+	.string "Oh, I understand. They need\n"
+	.string "their rest anyway.$"
+
+Postgame_RachelDefeated:
+	.string "Oh my! You certainly\n"
+	.string "cracked my defense.$"
+	
+Postgame_RachelPostBattle:
+	.string "Raising Pokémon from an egg\n"
+	.string "requires so much patience.\p"
+	.string "But the bond is unbreakable!$"
+	
+Postgame_EventScript_Lauren::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_LAUREN, Postgame_EventScript_Lauren_Defeated
+	msgbox Postgame_Lauren_AsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_LaurenDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
+	trainerbattle_no_intro TRAINER_CORY_4, Postgame_LaurenDefeated
+	setflag FLAG_DEFEATED_LAUREN
+	msgbox Postgame_LaurenPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_Lauren_Defeated::
+	msgbox Postgame_LaurenPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_LAUREN
+	release
+	end
+	
+Postgame_EventScript_LaurenDeclined::
+	msgbox Postgame_LaurenDeclinedText, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_Lauren_AsktoBattle:
+	.string "Stop right there! I'm Lauren.\p"
+	.string "I believe Pokémon should be\n"
+	.string "as sharp and fast as a blade.\p"
+	.string "My team is built for high-\n"
+	.string "caliber, offensive strikes.\p"
+	.string "Are you ready to be targeted?$"
+	
+Postgame_LaurenDeclinedText:
+	.string "Tch. Locked and loaded\n"
+	.string "with nowhere to go.$"
+
+Postgame_LaurenDefeated:
+	.string "Target eliminated... wait,\n"
+	.string "it was me who got hit?!$"
+	
+Postgame_LaurenPostBattle:
+	.string "A true master knows how to\n"
+	.string "maintain their equipment.\p"
+	.string "I'll go sharpen my strategy.$"
+	
+Postgame_EventScript_Olivia::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_OLIVIA, Postgame_EventScript_Olivia_Defeated
+	msgbox Postgame_Olivia_AsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_OliviaDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
+	trainerbattle_no_intro TRAINER_CORY_3, Postgame_OliviaDefeated
+	setflag FLAG_DEFEATED_OLIVIA
+	msgbox Postgame_OliviaPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_Olivia_Defeated::
+	msgbox Postgame_OliviaPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_OLIVIA
+	release
+	end
+	
+Postgame_EventScript_OliviaDeclined::
+	msgbox Postgame_OliviaDeclinedText, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_Olivia_AsktoBattle:
+	.string "Is it getting hot in here,\n"
+	.string "or is it just me? I'm Olivia.\p"
+	.string "Fire is the purest form of\n"
+	.string "energy. It's so beautiful!\p"
+	.string "Want to see my passion\n"
+	.string "ignite in a battle?$"
+	
+Postgame_OliviaDeclinedText:
+	.string "Fine. Don't blame me when\n"
+	.string "you're left out in the cold.$"
+
+Postgame_OliviaDefeated:
+	.string "Wow! You really put\n"
+	.string "my fire out.$"
+	
+Postgame_OliviaPostBattle:
+	.string "Even if I lose, the embers\n"
+	.string "of our battle still glow.\p"
+	.string "Come back for another spark!$"
+	
+Postgame_EventScript_Francis::
+	lock
+	faceplayer
+	waitmovement 0
+	goto_if_set FLAG_DEFEATED_FRANCIS, Postgame_EventScript_Francis_Defeated
+	msgbox Postgame_Francis_AsktoBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_FrancisDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
+	trainerbattle_no_intro TRAINER_CORY_5, Postgame_FrancisDefeated
+	setflag FLAG_DEFEATED_FRANCIS
+	msgbox Postgame_FrancisPostBattle, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_EventScript_Francis_Defeated::
+	msgbox Postgame_FrancisPostBattle, MSGBOX_DEFAULT
+	clearflag FLAG_DEFEATED_FRANCIS
+	release
+	end
+	
+Postgame_EventScript_FrancisDeclined::
+	msgbox Postgame_FrancisDeclinedText, MSGBOX_DEFAULT
+	release
+	end
+	
+Postgame_Francis_AsktoBattle:
+	.string "...What do you want? I'm Francis.\p"
+	.string "I've seen things you wouldn't\n"
+	.string "believe. I don't trust easily.\p"
+	.string "If you're looking for a fight,\n"
+	.string "you've found the wrong person...\p"
+	.string "...Or maybe the right one?$"
+	
+Postgame_FrancisDeclinedText:
+	.string "Smart move. Some secrets\n"
+	.string "are better left buried.$"
+
+Postgame_FrancisDefeated:
+	.string "I've lost more than just\n"
+	.string "battles in my time. Ah ha ha.$"
+	
+Postgame_FrancisPostBattle:
+	.string "You have a light in your eyes\n"
+	.string "that I haven't seen in years.\p"
+	.string "Keep it. Don't let it go out.$"
+	
+Postgame_Secret_Chef::
+	lock
+	faceplayer
+	message gText_Postgame_Secret_Chef
+	waitmessage
+	pokemart Secret_Chef_Stock
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Secret_Chef_Stock:
+	.2byte ITEM_FRESH_WATER
+	.2byte ITEM_SODA_POP
+	.2byte ITEM_LEMONADE
+	.2byte ITEM_MOOMOO_MILK
+	.2byte ITEM_LAVA_COOKIE
+	pokemartlistend
+	
+gText_Postgame_Secret_Chef:
+	.string "What can I get you?$"
+	
+TwoIsland_EventScript_OutsideClerk::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart TwoIsland_Pokemart_OutsideStock
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+TwoIsland_Pokemart_OutsideStock:
+	.2byte ITEM_TM_FRUSTRATION
+	.2byte ITEM_TM_RETURN
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_BLUE_SCARF
+	.2byte ITEM_GREEN_SCARF
+	.2byte ITEM_PINK_SCARF
+	.2byte ITEM_RED_SCARF
+	.2byte ITEM_YELLOW_SCARF
+	.2byte ITEM_BRIGHT_POWDER
+	.2byte ITEM_MUSCLE_BAND
+	.2byte ITEM_WISE_GLASSES
+	.2byte ITEM_DEEP_SEA_SCALE
+	.2byte ITEM_DEEP_SEA_TOOTH
+	.2byte ITEM_RED_SHARD
+	.2byte ITEM_BLUE_SHARD
+	.2byte ITEM_GREEN_SHARD
+	.2byte ITEM_YELLOW_SHARD
+	pokemartlistend
+	
+Two_Island_HerbShop_EventScript_Clerk::
+	lock
+	faceplayer
+	message LavaridgeTown_HerbShop_Text_WelcomeToHerbShop
+	waitmessage
+	pokemart Two_Island_HerbShop_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Two_Island_HerbShop_Pokemart:
+	.2byte ITEM_ENERGY_POWDER
+	.2byte ITEM_ENERGY_ROOT
+	.2byte ITEM_HEAL_POWDER
+	.2byte ITEM_REVIVAL_HERB
+	.2byte ITEM_WHITE_HERB
+	.2byte ITEM_MENTAL_HERB
+	.2byte ITEM_MIRACLE_SEED
+	.2byte ITEM_CHARCOAL
+	.2byte ITEM_SILVER_POWDER
+	.2byte ITEM_LUM_BERRY
+	.2byte ITEM_SITRUS_BERRY
+	pokemartlistend

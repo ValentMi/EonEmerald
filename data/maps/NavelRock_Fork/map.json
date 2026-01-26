@@ -44,6 +44,13 @@
       "elevation": 0,
       "dest_map": "MAP_RUIN_VALLEY",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 64,
+      "elevation": 3,
+      "dest_map": "MAP_NAVEL_ROCK_EXTERIOR",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

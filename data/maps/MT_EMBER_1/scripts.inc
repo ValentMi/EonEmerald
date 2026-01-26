@@ -62,9 +62,11 @@ Blaine_EventScript_BlockedPath::
 	end
 
 Blaine_Text_WaitDontComeInHere:
-	.string "Blaine is deciphering the ruins\n"
+	.string "I am deciphering the ruins\n"
 	.string "to find clues about Ancient Pokémon.\p"
-	.string "The site is closed to visitors.$"
+	.string "I cannot leave until I get direct\n"
+	.string "orders from Blaine.\p"
+	.string "Please leave me to my research.$"
 	
 Giovanni_EventScript_BlockedPath::
 	msgbox Giovanni_Text_WaitDontComeInHere, MSGBOX_NPC

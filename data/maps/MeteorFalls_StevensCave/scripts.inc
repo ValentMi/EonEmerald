@@ -1,7 +1,12 @@
 .set LOCALID_STEVEN, 1
 
 MeteorFalls_StevensCave_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, MeteorFalls_ClearStevenFlag
 	.byte 0
+
+MeteorFalls_ClearStevenFlag:
+    clearflag FLAG_DEFEATED_METEOR_FALLS_STEVEN
+    end
 
 MeteorFalls_StevensCave_EventScript_Steven::
 	lock
@@ -14,7 +19,10 @@ MeteorFalls_StevensCave_EventScript_Steven::
 	waitmovement 0
 	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer
 	waitmovement 0
-	msgbox MeteorFalls_StevensCave_Text_ShouldKnowHowGoodIAmExpectWorst, MSGBOX_DEFAULT
+	msgbox MeteorFalls_StevensCave_Text_ShouldKnowHowGoodIAmExpectWorst, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Postgame_EventScript_BrockDeclined
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotFairFight
 	trainerbattle_no_intro TRAINER_STEVEN, MeteorFalls_StevensCave_Text_StevenDefeat
 	msgbox MeteorFalls_StevensCave_Text_MyPredictionCameTrue, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_METEOR_FALLS_STEVEN
@@ -35,11 +43,12 @@ MeteorFalls_StevensCave_Text_ShouldKnowHowGoodIAmExpectWorst:
 	.string "just a rock maniac?\p"
 	.string "No, that can't be right.\p"
 	.string "We battled alongside each other at\n"
-	.string "the SOOTOPOLIS SPACE CENTER.\p"
+	.string "the Sootopolis Space Center.\p"
 	.string "You should have a very good idea\n"
 	.string "about how good I am.\p"
 	.string "Okay, {PLAYER}{KUN}, if you're going to mount\n"
-	.string "a serious challenge, expect the worst!$"
+	.string "a serious challenge, expect the worst!\p"
+	.string "Are you ready?$"
 
 MeteorFalls_StevensCave_Text_StevenDefeat:
 	.string "You…\n"
@@ -47,10 +56,10 @@ MeteorFalls_StevensCave_Text_StevenDefeat:
 
 MeteorFalls_StevensCave_Text_MyPredictionCameTrue:
 	.string "STEVEN: Come to think of it, ever since\n"
-	.string "our paths first crossed in GRANITE\l"
-	.string "CAVE in DEWFORD, I had this feeling.\p"
+	.string "our paths first crossed in Granite\l"
+	.string "Cave in Dewford, I had this feeling.\p"
 	.string "I thought that you would eventually\n"
-	.string "become the CHAMPION.\p"
+	.string "become the Champion.\p"
 	.string "My predictions usually come true.\p"
 	.string "And where will you go from here?\p"
 	.string "… … … … … …\n"

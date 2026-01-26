@@ -1153,13 +1153,75 @@ void Overworld_PlaySpecialMapMusic(void)
     if (music != MUS_ABNORMAL_WEATHER && music != MUS_NONE)
     {
         if (gSaveBlock1Ptr->savedMusic)
+        {
             music = gSaveBlock1Ptr->savedMusic;
+        }
         else if (GetCurrentMapType() == MAP_TYPE_UNDERWATER)
+        {
             music = MUS_UNDERWATER;
+        }
         else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+        {
             music = MUS_SURF;
-//        else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && gMapHeader.regionMapSectionId == gMapHeader.regionMapSectionId == MAPSEC_CERULEAN_CAVE || gMapHeader.mapLayoutId == LAYOUT_LOST_CAVE || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_TOWER || gMapHeader.regionMapSectionId == MAPSEC_SEAFOAM_ISLANDS || gMapHeader.mapLayoutId == LAYOUT_WATER_PATH || gMapHeader.regionMapSectionId == MAPSEC_TANOBY_RUINS || gMapHeader.regionMapSectionId == MAPSEC_MEMORIAL_PILLAR || gMapHeader.mapLayoutId == LAYOUT_LOST_CAVE_ENTRANCE || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_MANSION || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_14 || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_8 || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 || gMapHeader.regionMapSectionId == MAPSEC_MONEAN_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_LIPTOO_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_WEEPTH_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_DILFORD_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_SCUFIB_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_RIXY_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_VIAPOIS_CHAMBER || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F4 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F3 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F2 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F1 || gMapHeader.mapLayoutId == LAYOUT_KINDLE_ROAD || gMapHeader.mapLayoutId == LAYOUT_TREASURE_BEACH || gMapHeader.mapLayoutId == LAYOUT_CAPE_BRINK || gMapHeader.mapLayoutId == LAYOUT_BOND_BRIDGE || gMapHeader.mapLayoutId == LAYOUT_THREE_ISLE_PORT || gMapHeader.mapLayoutId == LAYOUT_RESORT_GORGEOUS || gMapHeader.mapLayoutId == LAYOUT_WATER_LABYRINTH || gMapHeader.mapLayoutId == LAYOUT_FIVE_ISLE_MEADOW || gMapHeader.mapLayoutId == LAYOUT_RUIN_VALLEY || gMapHeader.mapLayoutId == MAPSEC_SEVAULT_CANYON || gMapHeader.mapLayoutId == LAYOUT_CANYON_ENTRANCE || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_BOTTOM || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_TOP || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_LADDER_ROOM1 || gMapHeader.mapLayoutId == LAYOUT_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM || gMapHeader.regionMapSectionId == MAPSEC_MT_EMBER || gMapHeader.regionMapSectionId == MAPSEC_POWER_PLANT || gMapHeader.regionMapSectionId == MAPSEC_PATTERN_BUSH || gMapHeader.regionMapSectionId == MAPSEC_CERULEAN_CAVE || gMapHeader.regionMapSectionId == MAPSEC_KANTO_SAFARI_ZONE)//SURFMUSIC
-//            music = MUS_RG_SURF;
+        }
+    }
+
+    // OVERRIDE: Check for Kanto maps specifically if we are currently surfing
+    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+    {
+    if (gMapHeader.regionMapSectionId == MAPSEC_CERULEAN_CAVE 
+     || gMapHeader.mapLayoutId == LAYOUT_LOST_CAVE 
+     || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_TOWER 
+     || gMapHeader.regionMapSectionId == MAPSEC_SEAFOAM_ISLANDS 
+     || gMapHeader.mapLayoutId == LAYOUT_WATER_PATH 
+     || gMapHeader.regionMapSectionId == MAPSEC_TANOBY_RUINS 
+     || gMapHeader.regionMapSectionId == MAPSEC_MEMORIAL_PILLAR 
+     || gMapHeader.mapLayoutId == LAYOUT_LOST_CAVE_ENTRANCE 
+     || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_MANSION 
+     || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_14 
+     || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_8 
+     || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 
+     || gMapHeader.regionMapSectionId == MAPSEC_MONEAN_CHAMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_LIPTOO_CHAMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_WEEPTH_CHAMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_DILFORD_CHAMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_SCUFIB_CHAMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_RIXY_CHAMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_VIAPOIS_CHAMBER 
+     || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F4 
+     || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F3 
+     || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F2 
+     || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F1 
+     || gMapHeader.mapLayoutId == LAYOUT_KINDLE_ROAD 
+	 || gMapHeader.mapLayoutId == LAYOUT_ONE_ISLAND 
+	 || gMapHeader.mapLayoutId == LAYOUT_TWO_ISLAND
+	 || gMapHeader.mapLayoutId == LAYOUT_THREE_ISLAND
+	 || gMapHeader.mapLayoutId == LAYOUT_FOUR_ISLAND
+	 || gMapHeader.mapLayoutId == LAYOUT_FIVE_ISLAND
+	 || gMapHeader.mapLayoutId == LAYOUT_SIX_ISLAND
+	 || gMapHeader.mapLayoutId == LAYOUT_SEVEN_ISLAND
+	 || gMapHeader.mapLayoutId == LAYOUT_BERRY_FOREST
+     || gMapHeader.mapLayoutId == LAYOUT_TREASURE_BEACH 
+     || gMapHeader.mapLayoutId == LAYOUT_CAPE_BRINK 
+     || gMapHeader.mapLayoutId == LAYOUT_BOND_BRIDGE 
+     || gMapHeader.mapLayoutId == LAYOUT_THREE_ISLE_PORT 
+     || gMapHeader.mapLayoutId == LAYOUT_RESORT_GORGEOUS 
+     || gMapHeader.mapLayoutId == LAYOUT_WATER_LABYRINTH 
+     || gMapHeader.mapLayoutId == LAYOUT_FIVE_ISLE_MEADOW 
+     || gMapHeader.mapLayoutId == LAYOUT_RUIN_VALLEY 
+     || gMapHeader.mapLayoutId == LAYOUT_CANYON_ENTRANCE 
+	 || gMapHeader.mapLayoutId == LAYOUT_SEVAULT_CANYON
+	 || gMapHeader.regionMapSectionId == MAPSEC_TANOBY_RUINS
+     || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_BOTTOM 
+     || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_TOP 
+     || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_LADDER_ROOM1 
+     || gMapHeader.mapLayoutId == LAYOUT_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM 
+     || gMapHeader.regionMapSectionId == MAPSEC_MT_EMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_POWER_PLANT
+     || gMapHeader.regionMapSectionId == MAPSEC_KANTO_SAFARI_ZONE)
+        {
+            music = MUS_RG_SURF;
+        }
     }
 
     if (music != GetCurrentMapMusic())
@@ -1182,13 +1244,75 @@ static void TransitionMapMusic(void)
     {
         u16 newMusic = GetWarpDestinationMusic();
         u16 currentMusic = GetCurrentMapMusic();
+
         if (newMusic != MUS_ABNORMAL_WEATHER && newMusic != MUS_NONE)
         {
-            if (currentMusic == MUS_UNDERWATER || currentMusic == MUS_SURF)
+            // If we are already playing the correct surfing theme, don't restart it
+            if (currentMusic == MUS_UNDERWATER || currentMusic == MUS_SURF || currentMusic == MUS_RG_SURF)
                 return;
+
             if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
-                newMusic = MUS_SURF;
+            {
+			if (gMapHeader.regionMapSectionId == MAPSEC_CERULEAN_CAVE 
+			 || gMapHeader.mapLayoutId == LAYOUT_LOST_CAVE 
+			 || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_TOWER 
+			 || gMapHeader.regionMapSectionId == MAPSEC_SEAFOAM_ISLANDS 
+			 || gMapHeader.mapLayoutId == LAYOUT_WATER_PATH 
+			 || gMapHeader.regionMapSectionId == MAPSEC_TANOBY_RUINS 
+			 || gMapHeader.regionMapSectionId == MAPSEC_MEMORIAL_PILLAR 
+			 || gMapHeader.mapLayoutId == LAYOUT_LOST_CAVE_ENTRANCE 
+			 || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_MANSION 
+			 || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_14 
+			 || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_8 
+			 || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 
+			 || gMapHeader.regionMapSectionId == MAPSEC_MONEAN_CHAMBER 
+			 || gMapHeader.regionMapSectionId == MAPSEC_LIPTOO_CHAMBER 
+			 || gMapHeader.regionMapSectionId == MAPSEC_WEEPTH_CHAMBER 
+			 || gMapHeader.regionMapSectionId == MAPSEC_DILFORD_CHAMBER 
+			 || gMapHeader.regionMapSectionId == MAPSEC_SCUFIB_CHAMBER 
+			 || gMapHeader.regionMapSectionId == MAPSEC_RIXY_CHAMBER 
+			 || gMapHeader.regionMapSectionId == MAPSEC_VIAPOIS_CHAMBER 
+			 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F4 
+			 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F3 
+			 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F2 
+			 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F1 
+			 || gMapHeader.mapLayoutId == LAYOUT_KINDLE_ROAD 
+			 || gMapHeader.mapLayoutId == LAYOUT_ONE_ISLAND 
+			 || gMapHeader.mapLayoutId == LAYOUT_TWO_ISLAND
+			 || gMapHeader.mapLayoutId == LAYOUT_THREE_ISLAND
+			 || gMapHeader.mapLayoutId == LAYOUT_FOUR_ISLAND
+			 || gMapHeader.mapLayoutId == LAYOUT_FIVE_ISLAND
+			 || gMapHeader.mapLayoutId == LAYOUT_SIX_ISLAND
+			 || gMapHeader.mapLayoutId == LAYOUT_SEVEN_ISLAND
+			 || gMapHeader.mapLayoutId == LAYOUT_BERRY_FOREST
+			 || gMapHeader.mapLayoutId == LAYOUT_TREASURE_BEACH 
+			 || gMapHeader.mapLayoutId == LAYOUT_CAPE_BRINK 
+			 || gMapHeader.mapLayoutId == LAYOUT_BOND_BRIDGE 
+			 || gMapHeader.mapLayoutId == LAYOUT_THREE_ISLE_PORT 
+			 || gMapHeader.mapLayoutId == LAYOUT_RESORT_GORGEOUS 
+			 || gMapHeader.mapLayoutId == LAYOUT_WATER_LABYRINTH 
+			 || gMapHeader.mapLayoutId == LAYOUT_FIVE_ISLE_MEADOW 
+			 || gMapHeader.mapLayoutId == LAYOUT_RUIN_VALLEY 
+			 || gMapHeader.mapLayoutId == LAYOUT_CANYON_ENTRANCE 
+			 || gMapHeader.mapLayoutId == LAYOUT_SEVAULT_CANYON
+			 || gMapHeader.regionMapSectionId == MAPSEC_TANOBY_RUINS
+			 || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_BOTTOM 
+			 || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_TOP 
+			 || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_LADDER_ROOM1 
+			 || gMapHeader.mapLayoutId == LAYOUT_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM 
+			 || gMapHeader.regionMapSectionId == MAPSEC_MT_EMBER 
+			 || gMapHeader.regionMapSectionId == MAPSEC_POWER_PLANT
+			 || gMapHeader.regionMapSectionId == MAPSEC_KANTO_SAFARI_ZONE)
+                {
+                    newMusic = MUS_RG_SURF;
+                }
+                else
+                {
+                    newMusic = MUS_SURF;
+                }
+            }
         }
+
         if (newMusic != currentMusic)
         {
             if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))

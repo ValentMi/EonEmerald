@@ -17,7 +17,34 @@ BattleFrontier_BattlePalaceBattleRoom_MapScripts::
 BattleFrontier_BattlePalaceBattleRoom_OnTransition:
 	frontier_settrainers
 	call BattleFrontier_BattlePalaceBattleRoom_EventScript_SetPlayerGfx
-	end
+    random 4  @ Generates a number between 0 and 3
+    copyvar VAR_TEMP_1, VAR_RESULT
+    switch VAR_TEMP_1
+    case 0, BattleFrontier_BattlePalaceBattleRoom_EventScript_SetRain
+    case 1, BattleFrontier_BattlePalaceBattleRoom_EventScript_SetSnow
+    case 2, BattleFrontier_BattlePalaceBattleRoom_EventScript_SetSandstorm
+    case 3, BattleFrontier_BattlePalaceBattleRoom_EventScript_SetDrought
+    end
+
+BattleFrontier_BattlePalaceBattleRoom_EventScript_SetRain:
+    setweather WEATHER_RAIN
+    doweather
+    end
+
+BattleFrontier_BattlePalaceBattleRoom_EventScript_SetSnow:
+    setweather WEATHER_SNOW
+    doweather
+    end
+
+BattleFrontier_BattlePalaceBattleRoom_EventScript_SetSandstorm:
+    setweather WEATHER_SANDSTORM
+    doweather
+    end
+
+BattleFrontier_BattlePalaceBattleRoom_EventScript_SetDrought:
+    setweather WEATHER_DROUGHT
+    doweather
+    end
 
 BattleFrontier_BattlePalaceBattleRoom_EventScript_SetPlayerGfx::
 	checkplayergender

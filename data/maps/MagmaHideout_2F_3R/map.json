@@ -102,7 +102,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "MagmaHideout_4F_EventScript_Tabitha",
+      "script": "Postgame_EventScript_Tabitha",
       "flag": "0"
     },
     {
@@ -115,7 +115,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ClubMagma_EventScript_Maxie",
+      "script": "Postgame_EventScript_Maxie",
       "flag": "0"
     },
     {
@@ -128,7 +128,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "MagmaHideout_3F_1R_EventScript_Grunt16",
+      "script": "Postgame_EventScript_Courtney",
       "flag": "0"
     },
     {

@@ -1258,15 +1258,15 @@
 #define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
 #define FLAG_UNUSED_0x4B5                                           0x4B5 // Unused Flag
 #define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag
-#define FLAG_UNUSED_0x4B7                                           0x4B7 // Unused Flag
-#define FLAG_UNUSED_0x4B8                                           0x4B8 // Unused Flag
-#define FLAG_UNUSED_0x4B9                                           0x4B9 // Unused Flag
-#define FLAG_UNUSED_0x4BA                                           0x4BA // Unused Flag
-#define FLAG_UNUSED_0x4BB                                           0x4BB // Unused Flag
-#define FLAG_UNUSED_0x4BC                                           0x4BC // Unused Flag
-#define FLAG_UNUSED_0x4BD                                           0x4BD // Unused Flag
-#define FLAG_UNUSED_0x4BE                                           0x4BE // Unused Flag
-#define FLAG_UNUSED_0x4BF                                           0x4BF // Unused Flag
+#define FLAG_DEFEATED_MICHAEL                                           0x4B7 // Unused Flag
+#define FLAG_DEFEATED_DJ                                           0x4B8 // Unused Flag
+#define FLAG_DEFEATED_JL                                           0x4B9 // Unused Flag
+#define FLAG_DEFEATED_JESSICA                                           0x4BA // Unused Flag
+#define FLAG_DEFEATED_RACHEL                                           0x4BB // Unused Flag
+#define FLAG_DEFEATED_OLIVIA                                           0x4BC // Unused Flag
+#define FLAG_DEFEATED_LAUREN                                           0x4BD // Unused Flag
+#define FLAG_DEFEATED_FRANCIS                                           0x4BE // Unused Flag
+#define FLAG_KRIS_POSTGAME                                           0x4BF // Unused Flag
 #define FLAG_JUAN_POSTGAME                                           0x4C0 // Unused Flag
 #define FLAG_TATELIZA_POSTGAME                                           0x4C1 // Unused Flag
 #define FLAG_WINONA_POSTGAME                                           0x4C2 // Unused Flag
@@ -1586,7 +1586,6 @@
 #define FLAG_DAILY_SOOTOPOLIS_RECEIVED_BERRY        (DAILY_FLAGS_START + 0x12)
 #define FLAG_UNUSED_0x933                           (DAILY_FLAGS_START + 0x13) // Unused Flag
 #define FLAG_DAILY_APPRENTICE_LEAVES                (DAILY_FLAGS_START + 0x14)
-
 #define FLAG_DEFEATED_LEAF                          (DAILY_FLAGS_START + 0x15) // Unused Flag
 #define FLAG_DEFEATED_RED                          	(DAILY_FLAGS_START + 0x16) // Unused Flag
 #define FLAG_DEFEATED_BLUE                			(DAILY_FLAGS_START + 0x17) // Unused Flag

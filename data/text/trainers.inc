@@ -727,15 +727,14 @@ Route108_Text_JeromePostBattle:
 
 Route108_Text_MatthewIntro:
 	.string "Ahoy, there! Are you going out to\n"
-	.string "the ABANDONED SHIP, too?$"
+	.string "the Battle Pyramid, too?$"
 
 Route108_Text_MatthewDefeated:
-	.string "I'm sinking!\n"
-	.string "Glub… Glub…$"
+	.string "Great training!$"
 
 Route108_Text_MatthewPostBattle:
-	.string "Some people even go inside that\n"
-	.string "ABANDONED SHIP.$"
+	.string "Best of luck in the\n"
+	.string "Battle Frontier!$"
 
 Route108_Text_TaraIntro:
 	.string "My liar of a boyfriend told me that\n"

@@ -30,6 +30,13 @@ EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries::
 	clearflag FLAG_DEFEATED_DEOXYS
 	clearflag FLAG_DEFEATED_LUGIA
 	clearflag FLAG_DEFEATED_HO_OH
+	clearflag FLAG_DEFEATED_LEAF
+	clearflag FLAG_DEFEATED_RED                          
+	clearflag FLAG_DEFEATED_BLUE                			
+	clearflag FLAG_DEFEATED_METEOR_FALLS_STEVEN 	
+	clearflag FLAG_DEFEATED_RIVAL_SB                   
+	clearflag FLAG_RECEIVED_DEWFORD_EGG           
+	clearflag FLAG_HIDDEN_ITEM_NAVEL_ROCK_TOP_SACRED_ASH
 	return
 
 EverGrandeCity_HallOfFame_EventScript_SetDesertUnderpassCommentReady::

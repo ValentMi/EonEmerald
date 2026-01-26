@@ -1,6 +1,6 @@
 MoveTutor_Text_ThisMoveCanOnlyBeLearnedOnce:
-	.string "This move can be taught anytime you\n"
-	.string "want a POKéMON to learn this move.$"
+	.string "This move can be taught for\n"
+	.string "¥10,000. Is that okay?$"
 
 MoveTutor_Text_SwaggerTeach:
 	.string "Heh! My POKéMON totally rules!\n"

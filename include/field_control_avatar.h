@@ -20,6 +20,7 @@ struct FieldInput
 	bool8 input_field_1_6:1;  // Used to detect registered item tapping select
     bool8 input_field_1_7:1;  // Used to detect registered item holding select
     u8 dpadDirection;
+	bool8 pressedRButton:1;
 };
 
 void FieldClearPlayerInput(struct FieldInput *pStruct);

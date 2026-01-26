@@ -1277,12 +1277,12 @@ const u8 gText_PkmnStoppedEvolving[] = _("Huh? {STR_VAR_1}\nstopped evolving!\p"
 const u8 gText_EllipsisQuestionMark[] = _("……?\p");
 const u8 gText_WhatWillPkmnDo[] = _("What will\n{B_ACTIVE_NAME_WITH_PREFIX} do?");
 const u8 gText_WhatWillPkmnDo2[] = _("What will\n{B_PLAYER_NAME} do?");
-const u8 gText_WhatWillWallyDo[] = _("What will\nWALLY do?");
+const u8 gText_WhatWillWallyDo[] = _("What will\nWally do?");
 const u8 gText_LinkStandby[] = _("{PAUSE 16}Link standby…");
-const u8 gText_BattleMenu[] = _("FIGHT{CLEAR_TO 56}BAG\nPOKéMON{CLEAR_TO 56}RUN");
-const u8 gText_SafariZoneMenu[] = _("BALL{CLEAR_TO 56}{POKEBLOCK}\nGO NEAR{CLEAR_TO 56}RUN");
+const u8 gText_BattleMenu[] = _("Fight{CLEAR_TO 56}Bag\nPokémon{CLEAR_TO 56}Run");
+const u8 gText_SafariZoneMenu[] = _("Ball{CLEAR_TO 56}{POKEBLOCK}\nGo Near{CLEAR_TO 56}Run");
 const u8 gText_MoveInterfacePP[] = _("PP ");
-const u8 gText_MoveInterfaceType[] = _("TYPE/");
+const u8 gText_MoveInterfaceType[] = _("Type/");
 const u8 gText_MoveInterfacePpType[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW DYNAMIC_COLOR4 DYNAMIC_COLOR5 DYNAMIC_COLOR6}PP\nTYPE/");
 const u8 gText_MoveInterfaceDynamicColors[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW DYNAMIC_COLOR4 DYNAMIC_COLOR5 DYNAMIC_COLOR6}");
 const u8 gText_WhichMoveToForget4[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW DYNAMIC_COLOR4 DYNAMIC_COLOR5 DYNAMIC_COLOR6}Which move should\nbe forgotten?");
@@ -1294,10 +1294,10 @@ const u8 gText_BattleSwitchWhich4[] = _("{ESCAPE 4}");
 const u8 gText_BattleSwitchWhich5[] = _("-");
 
 static const u8 sText_HP[] = _("HP");
-static const u8 sText_Attack[] = _("ATTACK");
-static const u8 sText_Defense[] = _("DEFENSE");
-static const u8 sText_SpAtk[] = _("SP. ATK");
-static const u8 sText_SpDef[] = _("SP. DEF");
+static const u8 sText_Attack[] = _("Attack");
+static const u8 sText_Defense[] = _("Defense");
+static const u8 sText_SpAtk[] = _("Sp. Atk");
+static const u8 sText_SpDef[] = _("Sp. Def");
 
 // Unused
 static const u8 * const sStatNamesTable2[] =
@@ -1306,7 +1306,7 @@ static const u8 * const sStatNamesTable2[] =
     sText_SpDef, sText_Defense, sText_Speed
 };
 
-const u8 gText_SafariBalls[] = _("{HIGHLIGHT DARK_GRAY}SAFARI BALLS");
+const u8 gText_SafariBalls[] = _("{HIGHLIGHT DARK_GRAY}Safari Balls");
 const u8 gText_SafariBallLeft[] = _("{HIGHLIGHT DARK_GRAY}Left: $" "{HIGHLIGHT DARK_GRAY}");
 const u8 gText_Sleep[] = _("sleep");
 const u8 gText_Poison[] = _("poison");
@@ -1322,8 +1322,8 @@ const u8 gText_LineBreak[] = _("\l");
 const u8 gText_NewLine[] = _("\n");
 const u8 gText_Are[] = _("are");
 const u8 gText_Are2[] = _("are");
-const u8 gText_BadEgg[] = _("Bad EGG");
-const u8 gText_BattleWallyName[] = _("WALLY");
+const u8 gText_BadEgg[] = _("Bad Egg");
+const u8 gText_BattleWallyName[] = _("Wally");
 const u8 gText_Win[] = _("{HIGHLIGHT TRANSPARENT}Win");
 const u8 gText_Loss[] = _("{HIGHLIGHT TRANSPARENT}Loss");
 const u8 gText_Draw[] = _("{HIGHLIGHT TRANSPARENT}Draw");
@@ -1334,28 +1334,28 @@ static const u8 sText_ApostropheS[] = _("'s");
 // This is large enough that the text for TYPE_ELECTRIC will exceed TEXT_BUFF_ARRAY_COUNT.
 static const u8 sATypeMove_Table[NUMBER_OF_MON_TYPES][17] =
 {
-    [TYPE_NORMAL]   = _("a NORMAL move"),
-    [TYPE_FIGHTING] = _("a FIGHTING move"),
-    [TYPE_FLYING]   = _("a FLYING move"),
-    [TYPE_POISON]   = _("a POISON move"),
-    [TYPE_GROUND]   = _("a GROUND move"),
-    [TYPE_ROCK]     = _("a ROCK move"),
-    [TYPE_BUG]      = _("a BUG move"),
-    [TYPE_GHOST]    = _("a GHOST move"),
-    [TYPE_STEEL]    = _("a STEEL move"),
+    [TYPE_NORMAL]   = _("a Normal move"),
+    [TYPE_FIGHTING] = _("a Fighting move"),
+    [TYPE_FLYING]   = _("a Flying move"),
+    [TYPE_POISON]   = _("a Poison move"),
+    [TYPE_GROUND]   = _("a Ground move"),
+    [TYPE_ROCK]     = _("a Rock move"),
+    [TYPE_BUG]      = _("a Bug move"),
+    [TYPE_GHOST]    = _("a Ghost move"),
+    [TYPE_STEEL]    = _("a Steel move"),
     [TYPE_MYSTERY]  = _("a ??? move"),
-    [TYPE_FIRE]     = _("a FIRE move"),
-    [TYPE_WATER]    = _("a WATER move"),
-    [TYPE_GRASS]    = _("a GRASS move"),
-    [TYPE_ELECTRIC] = _("an ELECTRIC move"),
-    [TYPE_PSYCHIC]  = _("a PSYCHIC move"),
-    [TYPE_ICE]      = _("an ICE move"),
-    [TYPE_DRAGON]   = _("a DRAGON move"),
-	[TYPE_DARK]     = _("a DARK move"),
-	[TYPE_FAIRY]    = _("a FAIRY move")
+    [TYPE_FIRE]     = _("a Fire move"),
+    [TYPE_WATER]    = _("a Water move"),
+    [TYPE_GRASS]    = _("a Grass move"),
+    [TYPE_ELECTRIC] = _("an Electric move"),
+    [TYPE_PSYCHIC]  = _("a Psychic move"),
+    [TYPE_ICE]      = _("an Ice move"),
+    [TYPE_DRAGON]   = _("a Dragon move"),
+	[TYPE_DARK]     = _("a Dark move"),
+	[TYPE_FAIRY]    = _("a Fairy move")
 };
 
-const u8 gText_BattleTourney[] = _("BATTLE TOURNEY");
+const u8 gText_BattleTourney[] = _("Battle Tourney");
 static const u8 sText_Round1[] = _("Round 1");
 static const u8 sText_Round2[] = _("Round 2");
 static const u8 sText_Semifinal[] = _("Semifinal");
@@ -1371,9 +1371,9 @@ const u8 *const gRoundsStringTable[DOME_ROUNDS_COUNT] =
 
 const u8 gText_TheGreatNewHope[] = _("The great new hope!\p");
 const u8 gText_WillChampionshipDreamComeTrue[] = _("Will the championship dream come true?!\p");
-const u8 gText_AFormerChampion[] = _("A former CHAMPION!\p");
-const u8 gText_ThePreviousChampion[] = _("The previous CHAMPION!\p");
-const u8 gText_TheUnbeatenChampion[] = _("The unbeaten CHAMPION!\p");
+const u8 gText_AFormerChampion[] = _("A former Champion!\p");
+const u8 gText_ThePreviousChampion[] = _("The previous Champion!\p");
+const u8 gText_TheUnbeatenChampion[] = _("The unbeaten Champion!\p");
 const u8 gText_PlayerMon1Name[] = _("{B_PLAYER_MON1_NAME}");
 const u8 gText_Vs[] = _("VS");
 const u8 gText_OpponentMon1Name[] = _("{B_OPPONENT_MON1_NAME}");
@@ -1401,18 +1401,18 @@ const u16 gBattlePalaceFlavorTextTable[] =
     [B_MSG_EAGER_FOR_MORE] = STRINGID_PKMNEAGERFORMORE,
 };
 
-static const u8 sText_RefIfNothingIsDecided[] = _("REFEREE: If nothing is decided in\n3 turns, we will go to judging!");
-static const u8 sText_RefThatsIt[] = _("REFEREE: That's it! We will now go to\njudging to determine the winner!");
-static const u8 sText_RefJudgeMind[] = _("REFEREE: Judging category 1, Mind!\nThe POKéMON showing the most guts!\p");
-static const u8 sText_RefJudgeSkill[] = _("REFEREE: Judging category 2, Skill!\nThe POKéMON using moves the best!\p");
-static const u8 sText_RefJudgeBody[] = _("REFEREE: Judging category 3, Body!\nThe POKéMON with the most vitality!\p");
-static const u8 sText_RefPlayerWon[] = _("REFEREE: Judgment: {B_BUFF1} to {B_BUFF2}!\nThe winner is {B_PLAYER_NAME}'s {B_PLAYER_MON1_NAME}!\p");
-static const u8 sText_RefOpponentWon[] = _("REFEREE: Judgment: {B_BUFF1} to {B_BUFF2}!\nThe winner is {B_TRAINER1_NAME}'s {B_OPPONENT_MON1_NAME}!\p");
-static const u8 sText_RefDraw[] = _("REFEREE: Judgment: 3 to 3!\nWe have a draw!\p");
+static const u8 sText_RefIfNothingIsDecided[] = _("Referee: If nothing is decided in\n3 turns, we will go to judging!");
+static const u8 sText_RefThatsIt[] = _("Referee: That's it! We will now go to\njudging to determine the winner!");
+static const u8 sText_RefJudgeMind[] = _("Referee: Judging category 1, Mind!\nThe Pokémon showing the most guts!\p");
+static const u8 sText_RefJudgeSkill[] = _("Referee: Judging category 2, Skill!\nThe Pokémon using moves the best!\p");
+static const u8 sText_RefJudgeBody[] = _("Referee: Judging category 3, Body!\nThe Pokémon with the most vitality!\p");
+static const u8 sText_RefPlayerWon[] = _("Referee: Judgment: {B_BUFF1} to {B_BUFF2}!\nThe winner is {B_PLAYER_NAME}'s {B_PLAYER_MON1_NAME}!\p");
+static const u8 sText_RefOpponentWon[] = _("Referee: Judgment: {B_BUFF1} to {B_BUFF2}!\nThe winner is {B_TRAINER1_NAME}'s {B_OPPONENT_MON1_NAME}!\p");
+static const u8 sText_RefDraw[] = _("Referee: Judgment: 3 to 3!\nWe have a draw!\p");
 static const u8 sText_DefeatedOpponentByReferee[] = _("{B_PLAYER_MON1_NAME} defeated the opponent\n{B_OPPONENT_MON1_NAME} in a REFEREE's decision!");
 static const u8 sText_LostToOpponentByReferee[] = _("{B_PLAYER_MON1_NAME} lost to the opponent\n{B_OPPONENT_MON1_NAME} in a REFEREE's decision!");
 static const u8 sText_TiedOpponentByReferee[] = _("{B_PLAYER_MON1_NAME} tied the opponent\n{B_OPPONENT_MON1_NAME} in a REFEREE's decision!");
-static const u8 sText_RefCommenceBattle[] = _("REFEREE: {B_PLAYER_MON1_NAME} VS {B_OPPONENT_MON1_NAME}!\nCommence battling!");
+static const u8 sText_RefCommenceBattle[] = _("Referee: {B_PLAYER_MON1_NAME} VS {B_OPPONENT_MON1_NAME}!\nCommence battling!");
 
 const u8 * const gRefereeStringsTable[] =
 {

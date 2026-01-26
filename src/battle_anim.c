@@ -268,7 +268,7 @@ void LaunchBattleAnimation(const u8 *const animsTable[], u16 tableId, bool8 isMo
     gBattle_WIN1V = 0;
 
 // --- POKEMON ANIMATION START ---
-    if (isMoveAnim)//&& !IsContest())
+    if ((isMoveAnim) && !IsContest())
     {
         u16 move = gCurrentMove;
         u32 target = gBattleMoves[move].target;
@@ -295,14 +295,28 @@ void LaunchBattleAnimation(const u8 *const animsTable[], u16 tableId, bool8 isMo
                     StartSpriteAnim(s, 1);
                     //LaunchAnimationTaskForFrontSprite(s, 0);
                 }
-                else
+                else if (move != MOVE_WATER_SPOUT || move != MOVE_ERUPTION || move != MOVE_SOLAR_BEAM || move != MOVE_SKY_ATTACK || move != MOVE_DIG || move != MOVE_FLY || move != MOVE_BOUNCE || move != MOVE_SKULL_BASH)
                 {
                     LaunchAnimationTaskForBackSprite(s, 8);
                 }
             }
         }
     }
-// --- POKEMON ANIMATION END ---
+if ((isMoveAnim) && IsContest())
+    {
+        u16 move = gCurrentMove;
+        u32 target = gBattleMoves[move].target;
+            u8 attacker = gBattlerAttacker;
+            u8 spriteId = gBattlerSpriteIds[attacker];
+            struct Sprite *s = &gSprites[spriteId];
+            u16 species = gAnimBattlerSpecies[attacker];
+
+            if (species != SPECIES_NONE && !s->invisible)
+            {
+                PlayCry_ByMode(species, 0, 0); 
+                s->data[0] = 0; 
+            }
+    }
 }
 
 void DestroyAnimSprite(struct Sprite *sprite)

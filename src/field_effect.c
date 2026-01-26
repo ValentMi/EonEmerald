@@ -31,6 +31,8 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/layouts.h"
+#include "constants/region_map_sections.h"
 
 #define subsprite_table(ptr) {.subsprites = ptr, .subspriteCount = (sizeof ptr) / (sizeof(struct Subsprite))}
 
@@ -2984,8 +2986,65 @@ u8 FldEff_UseSurf(void)
     u8 taskId = CreateTask(Task_SurfFieldEffect, 0xff);
     gTasks[taskId].tMonId = gFieldEffectArguments[0];
     Overworld_ClearSavedMusic();
-    Overworld_ChangeMusicTo(MUS_SURF);
-    return FALSE;
+
+    // Check for Kanto-style maps
+    if (gMapHeader.regionMapSectionId == MAPSEC_CERULEAN_CAVE 
+     || gMapHeader.mapLayoutId == LAYOUT_LOST_CAVE 
+     || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_TOWER 
+     || gMapHeader.regionMapSectionId == MAPSEC_SEAFOAM_ISLANDS 
+     || gMapHeader.mapLayoutId == LAYOUT_WATER_PATH 
+     || gMapHeader.regionMapSectionId == MAPSEC_TANOBY_RUINS 
+     || gMapHeader.regionMapSectionId == MAPSEC_MEMORIAL_PILLAR 
+     || gMapHeader.mapLayoutId == LAYOUT_LOST_CAVE_ENTRANCE 
+     || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_MANSION 
+     || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_14 
+     || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_8 
+     || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 
+     || gMapHeader.regionMapSectionId == MAPSEC_MONEAN_CHAMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_LIPTOO_CHAMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_WEEPTH_CHAMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_DILFORD_CHAMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_SCUFIB_CHAMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_RIXY_CHAMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_VIAPOIS_CHAMBER 
+     || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F4 
+     || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F3 
+     || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F2 
+     || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F1 
+     || gMapHeader.mapLayoutId == LAYOUT_KINDLE_ROAD 
+	 || gMapHeader.mapLayoutId == LAYOUT_ONE_ISLAND 
+	 || gMapHeader.mapLayoutId == LAYOUT_TWO_ISLAND
+	 || gMapHeader.mapLayoutId == LAYOUT_THREE_ISLAND
+	 || gMapHeader.mapLayoutId == LAYOUT_FOUR_ISLAND
+	 || gMapHeader.mapLayoutId == LAYOUT_FIVE_ISLAND
+	 || gMapHeader.mapLayoutId == LAYOUT_SIX_ISLAND
+	 || gMapHeader.mapLayoutId == LAYOUT_SEVEN_ISLAND
+	 || gMapHeader.mapLayoutId == LAYOUT_BERRY_FOREST
+     || gMapHeader.mapLayoutId == LAYOUT_TREASURE_BEACH 
+     || gMapHeader.mapLayoutId == LAYOUT_CAPE_BRINK 
+     || gMapHeader.mapLayoutId == LAYOUT_BOND_BRIDGE 
+     || gMapHeader.mapLayoutId == LAYOUT_THREE_ISLE_PORT 
+     || gMapHeader.mapLayoutId == LAYOUT_RESORT_GORGEOUS 
+     || gMapHeader.mapLayoutId == LAYOUT_WATER_LABYRINTH 
+     || gMapHeader.mapLayoutId == LAYOUT_FIVE_ISLE_MEADOW 
+     || gMapHeader.mapLayoutId == LAYOUT_RUIN_VALLEY 
+     || gMapHeader.mapLayoutId == LAYOUT_CANYON_ENTRANCE 
+	 || gMapHeader.mapLayoutId == LAYOUT_SEVAULT_CANYON
+	 || gMapHeader.regionMapSectionId == MAPSEC_TANOBY_RUINS
+     || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_BOTTOM 
+     || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_TOP 
+     || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_LADDER_ROOM1 
+     || gMapHeader.mapLayoutId == LAYOUT_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM 
+     || gMapHeader.regionMapSectionId == MAPSEC_MT_EMBER 
+     || gMapHeader.regionMapSectionId == MAPSEC_POWER_PLANT
+     || gMapHeader.regionMapSectionId == MAPSEC_KANTO_SAFARI_ZONE)
+    {
+        Overworld_ChangeMusicTo(MUS_RG_SURF);
+    }
+    else
+    {
+        Overworld_ChangeMusicTo(MUS_SURF);
+    }
 }
 
 static void (*const sSurfFieldEffectFuncs[])(struct Task *) = {

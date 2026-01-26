@@ -561,25 +561,17 @@ SlateportCity_EventScript_PowerTMClerk::
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
-
+	
 	.align 2
 SlateportCity_Pokemart_PowerTMs:
 	.2byte ITEM_TM_HIDDEN_POWER
 	.2byte ITEM_TM_SECRET_POWER
-	.2byte ITEM_PREMIER_BALL
-	.2byte ITEM_LUXURY_BALL
 	.2byte ITEM_NET_BALL
 	.2byte ITEM_NEST_BALL
-	.2byte ITEM_BLUE_SCARF
-	.2byte ITEM_GREEN_SCARF
-	.2byte ITEM_PINK_SCARF
-	.2byte ITEM_RED_SCARF
-	.2byte ITEM_YELLOW_SCARF
 	.2byte ITEM_SOOTHE_BELL
 	.2byte ITEM_SEA_INCENSE
 	.2byte ITEM_LAX_INCENSE
-	.2byte ITEM_MUSCLE_BAND
-	.2byte ITEM_WISE_GLASSES
+	.2byte ITEM_MACHO_BRACE
 	pokemartlistend
 
 @ Scene with Capt Sterns interview and Team Aqua announcing plans to steal Submarine

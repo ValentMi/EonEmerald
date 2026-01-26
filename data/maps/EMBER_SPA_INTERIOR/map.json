@@ -2,7 +2,7 @@
   "id": "MAP_EMBER_SPA_INTERIOR",
   "name": "EMBER_SPA_INTERIOR",
   "layout": "LAYOUT_EMBER_SPA_INTERIOR",
-  "music": "MUS_RG_PEWTER",
+  "music": "MUS_RG_CINNABAR",
   "region_map_section": "MAPSEC_EMBER_SPA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -77,6 +77,19 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "OneIsland_KindleRoad_EmberSpa_EventScript_BaldingMan2",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
+      "x": 5,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Ember_Fossil_Salesman",
       "flag": "0"
     }
   ],

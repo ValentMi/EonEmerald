@@ -639,7 +639,7 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
                 5);
         }
 
-        if ((ItemId_GetPocket(itemId) == POCKET_TM_HM || ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS) && (CheckBagHasItem(itemId, 1) || CheckPCHasItem(itemId, 1)))
+        if ((ItemId_GetPocket(itemId) == POCKET_TM_HM || ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS || ItemId_GetPocket(itemId) == POCKET_BERRIES) && (CheckBagHasItem(itemId, 1) || CheckPCHasItem(itemId, 1)))
             StringCopy(gStringVar4, gText_SoldOut2);
         else
             StringExpandPlaceholders(gStringVar4, gText_PokedollarVar1);
@@ -992,13 +992,13 @@ static void Task_BuyMenu(u8 taskId)
             else
                 sShopData->totalCost = gDecorations[itemId].price;
 
-             if ((ItemId_GetPocket(itemId) == POCKET_TM_HM || ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS) && (CheckBagHasItem(itemId, 1) || CheckPCHasItem(itemId, 1)))
+             if ((ItemId_GetPocket(itemId) == POCKET_TM_HM || ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS || ItemId_GetPocket(itemId) == POCKET_BERRIES) && (CheckBagHasItem(itemId, 1) || CheckPCHasItem(itemId, 1)))
                 BuyMenuDisplayMessage(taskId, gText_SoldOut, BuyMenuReturnToItemList);
             else if (!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData->totalCost))
             {
                 BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
              }
-             else if ((ItemId_GetPocket(itemId) == POCKET_TM_HM || ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS) && CheckBagHasItem(itemId, 1))
+             else if ((ItemId_GetPocket(itemId) == POCKET_TM_HM || ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS || ItemId_GetPocket(itemId) == POCKET_BERRIES) && CheckBagHasItem(itemId, 1))
              {
                  BuyMenuDisplayMessage(taskId, gText_YouAlreadyHaveThis, BuyMenuReturnToItemList);
              }

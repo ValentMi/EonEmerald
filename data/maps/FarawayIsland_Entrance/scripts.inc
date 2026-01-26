@@ -42,34 +42,6 @@ FarawayIsland_Entrance_EventScript_AsYouLike::
 	release
 	end
 
-Postgame_EventScript_Leaf::
-	lock
-	faceplayer
-	waitmovement 0
-	goto_if_set FLAG_DEFEATED_LEAF, Postgame_EventScript_Leaf_Defeated
-	msgbox Postgame_LeafIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_LEAF, Postgame_LeafDefeated
-	msgbox Postgame_LeafPostBattle, MSGBOX_DEFAULT
-	setflag FLAG_DEFEATED_LEAF
-	release
-	end
-	
-Postgame_EventScript_Leaf_Defeated::
-	faceplayer
-	waitmovement 0
-	msgbox Postgame_LeafPostBattle, MSGBOX_DEFAULT
-	release
-	end
-	
-Postgame_LeafIntro:
-	.string "...$"
-
-Postgame_LeafDefeated:
-	.string "...$"
-
-Postgame_LeafPostBattle:
-	.string "...$"
-
 FarawayIsland_Entrance_EventScript_Sign::
 	msgbox FarawayIsland_Entrance_Text_Sign, MSGBOX_SIGN
 	end

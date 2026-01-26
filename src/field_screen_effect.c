@@ -107,7 +107,9 @@ void WarpFadeOutScreen(void)
         FadeScreen(FADE_TO_BLACK, 0);
         break;
     case 1:
-        FadeScreen(FADE_TO_WHITE, 0);
+        // Changed from FADE_TO_WHITE to FADE_TO_BLACK
+        FadeScreen(FADE_TO_BLACK, 0); 
+        break;
     }
 }
 

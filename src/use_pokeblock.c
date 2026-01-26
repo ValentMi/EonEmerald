@@ -1058,12 +1058,12 @@ static void CalculatePokeblockEffectiveness(struct Pokeblock *pokeblock, struct 
 
 static bool8 IsSheenMaxed(void)
 {
-    if (GetBoxOrPartyMonData(sMenu->party[sMenu->info.curSelection].boxId,
-                             sMenu->party[sMenu->info.curSelection].monId,
-                             MON_DATA_SHEEN,
-                             NULL) == MAX_SHEEN)
-        return TRUE;
-    else
+//    if (GetBoxOrPartyMonData(sMenu->party[sMenu->info.curSelection].boxId,
+//                             sMenu->party[sMenu->info.curSelection].monId,
+//                             MON_DATA_SHEEN,
+//                             NULL) == MAX_SHEEN)
+//        return TRUE;
+//    else
         return FALSE;
 }
 

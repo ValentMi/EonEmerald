@@ -645,7 +645,7 @@ bool8 ScrCmd_fadescreenspeed(struct ScriptContext *ctx)
     u8 mode = ScriptReadByte(ctx);
     u8 speed = ScriptReadByte(ctx);
 
-    FadeScreen(mode, speed);
+	FadeScreen(mode, speed);
     SetupNativeScript(ctx, IsPaletteNotActive);
     return TRUE;
 }

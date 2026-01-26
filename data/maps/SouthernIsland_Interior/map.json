@@ -72,7 +72,7 @@
     {
       "type": "hidden_item",
       "x": 18,
-      "y": 7,
+      "y": 6,
       "elevation": 0,
       "item": "ITEM_MYSTIC_TICKET",
       "flag": "FLAG_ENABLE_SHIP_NAVEL_ROCK"

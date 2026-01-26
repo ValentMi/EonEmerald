@@ -701,19 +701,23 @@ static bool8 CreateRainSprite(void)
 
     spriteIndex = gWeatherPtr->rainSpriteCount;
     spriteId = CreateSpriteAtEnd(&sRainSpriteTemplate,
-      sRainSpriteCoords[spriteIndex].x, sRainSpriteCoords[spriteIndex].y, 78);
+                                 sRainSpriteCoords[spriteIndex].x, 
+                                 sRainSpriteCoords[spriteIndex].y, 78);
 
     if (spriteId != MAX_SPRITES)
     {
-        gSprites[spriteId].tActive = FALSE;
-        gSprites[spriteId].tRandom = spriteIndex * 145;
-        while (gSprites[spriteId].tRandom >= 600)
-            gSprites[spriteId].tRandom -= 600;
+        struct Sprite *sprite = &gSprites[spriteId]; // Use pointer to avoid repeated array indexing
 
-        StartRainSpriteFall(&gSprites[spriteId]);
-        InitRainSpriteMovement(&gSprites[spriteId], spriteIndex * 9);
-        gSprites[spriteId].invisible = TRUE;
-        gWeatherPtr->sprites.s1.rainSprites[spriteIndex] = &gSprites[spriteId];
+        sprite->tActive = FALSE;
+        
+        // OPTIMIZATION: Replaced the while loop with a modulo operator
+        // This is significantly faster on the GBA CPU
+        sprite->tRandom = (spriteIndex * 145) % 600;
+
+        StartRainSpriteFall(sprite);
+        InitRainSpriteMovement(sprite, spriteIndex * 9);
+        sprite->invisible = TRUE;
+        gWeatherPtr->sprites.s1.rainSprites[spriteIndex] = sprite;
     }
     else
     {
@@ -725,12 +729,14 @@ static bool8 CreateRainSprite(void)
         u16 i;
         for (i = 0; i < MAX_RAIN_SPRITES; i++)
         {
-            if (gWeatherPtr->sprites.s1.rainSprites[i])
+            struct Sprite *rainSprite = gWeatherPtr->sprites.s1.rainSprites[i];
+            if (rainSprite)
             {
-                if (!gWeatherPtr->sprites.s1.rainSprites[i]->tWaiting)
-                    gWeatherPtr->sprites.s1.rainSprites[i]->callback = UpdateRainSprite;
+                // Optimization: Assign callback directly
+                if (!rainSprite->tWaiting)
+                    rainSprite->callback = UpdateRainSprite;
                 else
-                    gWeatherPtr->sprites.s1.rainSprites[i]->callback = WaitRainSprite;
+                    rainSprite->callback = WaitRainSprite;
             }
         }
 

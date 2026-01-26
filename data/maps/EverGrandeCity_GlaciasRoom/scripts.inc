@@ -39,6 +39,7 @@ EverGrandeCity_GlaciasRoom_EventScript_CloseDoor::
 EverGrandeCity_GlaciasRoom_EventScript_Glacia::
 	lock
 	faceplayer
+	special HealPlayerParty
 	goto_if_set FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 	msgbox EverGrandeCity_GlaciasRoom_Text_IntroSpeech, MSGBOX_DEFAULT
@@ -49,10 +50,10 @@ EverGrandeCity_GlaciasRoom_EventScript_Glacia::
 IndigoPlateau_GlaciasRoom_EventScript_Lorelei::
 	lock
 	faceplayer
+	special HealPlayerParty
 	goto_if_set FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_Lorelei_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
-	msgbox EverGrandeCity_Lorelei_Text_IntroSpeech, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_LORELEI, EverGrandeCity_Lorelei_Text_Defeat
+	trainerbattle_double TRAINER_LORELEI, EverGrandeCity_Lorelei_Text_IntroSpeech, EverGrandeCity_Lorelei_Text_Defeat, Postgame_Text_NotEnoughMons
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	setflag FLAG_DEFEATED_ELITE_4_GLACIA
 	msgbox EverGrandeCity_Lorelei_Text_PostBattleSpeech, MSGBOX_DEFAULT
@@ -62,10 +63,10 @@ IndigoPlateau_GlaciasRoom_EventScript_Lorelei::
 IndigoPlateau_GlaciasRoom_EventScript_Bruno::
 	lock
 	faceplayer
+	special HealPlayerParty
 	goto_if_set FLAG_DEFEATED_ELITE_4_SIDNEY, EverGrandeCity_Bruno_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
-	msgbox EverGrandeCity_Bruno_Text_IntroSpeech, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_ROXANNE_2, EverGrandeCity_Bruno_Text_Defeat
+	trainerbattle_double TRAINER_ROXANNE_2, EverGrandeCity_Bruno_Text_IntroSpeech, EverGrandeCity_Bruno_Text_Defeat, Postgame_Text_NotEnoughMons
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	setflag FLAG_DEFEATED_ELITE_4_SIDNEY
 	msgbox EverGrandeCity_Bruno_Text_PostBattleSpeech, MSGBOX_DEFAULT
@@ -75,10 +76,10 @@ IndigoPlateau_GlaciasRoom_EventScript_Bruno::
 IndigoPlateau_GlaciasRoom_EventScript_Agatha::
 	lock
 	faceplayer
+	special HealPlayerParty
 	goto_if_set FLAG_DEFEATED_ELITE_4_PHOEBE, EverGrandeCity_Agatha_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
-	msgbox EverGrandeCity_Agatha_Text_IntroSpeech, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_ROXANNE_3, EverGrandeCity_Agatha_Text_Defeat
+	trainerbattle_double TRAINER_ROXANNE_3, EverGrandeCity_Agatha_Text_IntroSpeech, EverGrandeCity_Agatha_Text_Defeat, Postgame_Text_NotEnoughMons
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	setflag FLAG_DEFEATED_ELITE_4_PHOEBE
 	msgbox EverGrandeCity_Agatha_Text_PostBattleSpeech, MSGBOX_DEFAULT
@@ -88,10 +89,10 @@ IndigoPlateau_GlaciasRoom_EventScript_Agatha::
 IndigoPlateau_GlaciasRoom_EventScript_Lance::
 	lock
 	faceplayer
+	special HealPlayerParty
 	goto_if_set FLAG_DEFEATED_ELITE_4_DRAKE, EverGrandeCity_Lance_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
-	msgbox EverGrandeCity_Lance_Text_IntroSpeech, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_ROXANNE_4, EverGrandeCity_Lance_Text_Defeat
+	trainerbattle_double TRAINER_ROXANNE_4, EverGrandeCity_Lance_Text_IntroSpeech, EverGrandeCity_Lance_Text_Defeat, Postgame_Text_NotEnoughMons
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	setflag FLAG_DEFEATED_ELITE_4_DRAKE
 	msgbox EverGrandeCity_Lance_Text_PostBattleSpeech, MSGBOX_DEFAULT

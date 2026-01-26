@@ -645,6 +645,8 @@ EverGrandeCity_HallOfFame_EventScript_ResetEliteFour::
 	clearflag FLAG_DEFEATED_AGATHA
 	clearflag FLAG_DEFEATED_LANCE
 	clearflag FLAG_DEFEATED_RIVAL_SB
+	clearflag FLAG_DEFEATED_RIVAL_POSTGAME
+	clearflag FLAG_KRIS_POSTGAME
 	clearflag FLAG_DEFEATED_LEAF
 	clearflag FLAG_DEFEATED_RED
 	clearflag FLAG_DEFEATED_BLUE

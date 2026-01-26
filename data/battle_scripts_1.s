@@ -115,7 +115,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectConversion2            @ EFFECT_CONVERSION_2
 	.4byte BattleScript_EffectLockOn                 @ EFFECT_LOCK_ON
 	.4byte BattleScript_EffectSketch                 @ EFFECT_SKETCH
-	.4byte BattleScript_EffectHit                    @ EFFECT_UNUSED_60
+	.4byte BattleScript_EffectSpecialDefenseDownHit2 @ EFFECT_UNUSED_60
 	.4byte BattleScript_EffectSleepTalk              @ EFFECT_SLEEP_TALK
 	.4byte BattleScript_EffectDestinyBond            @ EFFECT_DESTINY_BOND
 	.4byte BattleScript_EffectFlail                  @ EFFECT_FLAIL
@@ -1113,6 +1113,10 @@ BattleScript_EffectSpecialAttackDownHit::
 
 BattleScript_EffectSpecialDefenseDownHit::
 	setmoveeffect MOVE_EFFECT_SP_DEF_MINUS_1
+	goto BattleScript_EffectHit
+	
+BattleScript_EffectSpecialDefenseDownHit2::
+	setstatchanger STAT_SPDEF, 2, TRUE
 	goto BattleScript_EffectHit
 
 BattleScript_EffectAccuracyDownHit::
@@ -2280,7 +2284,7 @@ BattleScript_EffectFlatter::
 	jumpifconfusedandstatmaxed STAT_SPATK, BattleScript_ButItFailed
 	attackanimation
 	waitanimation
-	setstatchanger STAT_SPATK, 1, FALSE
+	setstatchanger STAT_SPATK, 2, FALSE
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_FlatterTryConfuse
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_FlatterTryConfuse
 	setgraphicalstatchangevalues

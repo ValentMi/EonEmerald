@@ -5,10 +5,21 @@ Route108_EventScript_Jerome::
 	trainerbattle_single TRAINER_JEROME, Route108_Text_JeromeIntro, Route108_Text_JeromeDefeated
 	msgbox Route108_Text_JeromePostBattle, MSGBOX_AUTOCLOSE
 	end
-
+	
 Route108_EventScript_Matthew::
-	trainerbattle_single TRAINER_MATTHEW, Route108_Text_MatthewIntro, Route108_Text_MatthewDefeated
+	lock
+	faceplayer
+	msgbox Route108_Text_Blissey_Trainer_Intro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route108_EventScript_Matthew_Declined
+	trainerbattle_no_intro TRAINER_MATTHEW, Route108_Text_MatthewPostBattle
+	cleartrainerflag TRAINER_MATTHEW
 	msgbox Route108_Text_MatthewPostBattle, MSGBOX_AUTOCLOSE
+	release
+	end
+	
+Route108_EventScript_Matthew_Declined::
+	msgbox Route108_gText_Matthew_Declined, MSGBOX_AUTOCLOSE
+	release
 	end
 
 Route108_EventScript_Tara::
@@ -46,4 +57,12 @@ Route108_EventScript_CoryRematch::
 	trainerbattle_rematch TRAINER_CORY_1, Route108_Text_CoryRematchIntro, Route108_Text_CoryRematchDefeated
 	msgbox Route108_Text_CoryRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+Route108_Text_Blissey_Trainer_Intro:
+	.string "I can help you train for the\n"
+	.string "Battle Frontier, if you'd like?$"
+	
+Route108_gText_Matthew_Declined:
+	.string "Oh, I see... Good luck in the\n"
+	.string "Battle Frontier then!$"
 

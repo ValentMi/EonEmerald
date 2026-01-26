@@ -621,19 +621,11 @@ LittlerootTown_ProfessorBirchsLab_EventScript_RivalHaveYouGoneToBattleFrontier::
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_MayHaveYouGoneToBattleFrontier::
-	goto_if_set FLAG_DEFEATED_RIVAL_SB, Postgame_EventScript_Rival_Defeated
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LilycoveCity_EventScript_DeclineMayBattle
-	trainerbattle_no_intro TRAINER_MAY_PLACEHOLDER, Postgame_SPRIVALBeaten
-	setflag FLAG_DEFEATED_RIVAL_SB
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier, MSGBOX_NPC
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_BrendanHaveYouGoneToBattleFrontier::
-	goto_if_set FLAG_DEFEATED_RIVAL_SB, Postgame_EventScript_Rival_Defeated
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LilycoveCity_EventScript_DeclineBrendanBattle
-	trainerbattle_no_intro TRAINER_MAY_PLACEHOLDER, Postgame_SPRIVALBeaten
-	setflag FLAG_DEFEATED_RIVAL_SB
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier, MSGBOX_NPC
 	return
 	
 Postgame_EventScript_Rival_Defeated::
@@ -1001,9 +993,7 @@ LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier:
 	.string "I know how great of a trainer\n"
 	.string "you have become.\p"
 	.string "I'm sure you will collect\n"
-	.string "all the symbols easily…\p"
-	.string "Hey, do you want to see how\n"
-	.string "strong I have gotten?$"
+	.string "all the symbols easily…$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier:
 	.string "BRENDAN: Hey, {PLAYER}!\n"
@@ -1012,9 +1002,7 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier:
 	.string "I know how great of a trainer\n"
 	.string "you have become.\p"
 	.string "I'm sure you will collect\n"
-	.string "all the symbols easily…\p"
-	.string "Hey, do you want to see how\n"
-	.string "strong I have gotten?$"
+	.string "all the symbols easily…$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "… … … … … …\n"

@@ -87,6 +87,7 @@ void FieldClearPlayerInput(struct FieldInput *input)
 	input->input_field_1_6 = FALSE;
     input->input_field_1_7 = FALSE;
     input->dpadDirection = 0;
+	input->pressedRButton = FALSE;
 }
 
 void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
@@ -124,6 +125,8 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
             input->heldDirection = TRUE;
             input->heldDirection2 = TRUE;
         }
+        if (newKeys & R_BUTTON)
+            input->pressedRButton = TRUE;
     }
 
     if (forcedMove == FALSE)
@@ -203,6 +206,25 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     
     if (input->input_field_1_7 && UseRegisteredKeyItemOnField(TRUE) == TRUE)
         return TRUE;
+	
+	if (input->pressedRButton && TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
+    {
+		ObjectEventClearHeldMovementIfActive(&gObjectEvents[gPlayerAvatar.objectEventId]);
+		if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
+        {
+            gPlayerAvatar.flags -= PLAYER_AVATAR_FLAG_MACH_BIKE;
+            gPlayerAvatar.flags += PLAYER_AVATAR_FLAG_ACRO_BIKE;
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE);
+            PlaySE(SE_BIKE_HOP);
+        }
+        else
+        {
+            gPlayerAvatar.flags -= PLAYER_AVATAR_FLAG_ACRO_BIKE;
+            gPlayerAvatar.flags += PLAYER_AVATAR_FLAG_MACH_BIKE;
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_MACH_BIKE);
+            PlaySE(SE_BIKE_BELL);
+        }
+    }
 
     return FALSE;
 }
@@ -683,6 +705,16 @@ void RestartWildEncounterImmunitySteps(void)
 
 static bool8 CheckStandardWildEncounter(u16 metatileBehavior)
 {
+    // 1. Check if the Cleanse Tag flag is active
+    if (FlagGet(FLAG_CLEANSE_TAG) == TRUE)
+    {
+        // CRITICAL: We MUST update this variable even if we skip the encounter.
+        // If we don't, the game loses track of your movement, causing bugs/crashes.
+        sPrevMetatileBehavior = metatileBehavior;
+        return FALSE;
+    }
+
+    // 2. Vanilla Logic (Runs only if flag is OFF)
     if (sWildEncounterImmunitySteps < 4)
     {
         sWildEncounterImmunitySteps++;

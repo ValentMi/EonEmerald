@@ -4014,8 +4014,8 @@
     {
       "id": "LAYOUT_FARAWAY_ISLAND_ENTRANCE",
       "name": "FarawayIsland_Entrance_Layout",
-      "width": 34,
-      "height": 46,
+      "width": 36,
+      "height": 51,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/FarawayIsland_Entrance/border.bin",
@@ -4204,7 +4204,7 @@
     {
       "id": "LAYOUT_NAVEL_ROCK_EXTERIOR",
       "name": "NavelRock_Exterior_Layout",
-      "width": 21,
+      "width": 22,
       "height": 24,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",

@@ -107,9 +107,12 @@ void TransferPlttBuffer(void)
     {
         void *src = gPlttBufferFaded;
         void *dest = (void *)PLTT;
-        DmaCopy16(3, src, dest, PLTT_SIZE);
-		DnsTransferPlttBuffer(src, dest);  //Does 16b Dma Transfer
+        
+        // REMOVE the DmaCopy16(3, src, dest, PLTT_SIZE); line here.
+        
+        DnsTransferPlttBuffer(src, dest);  // This already handles the DMA transfer
         sPlttBufferTransferPending = FALSE;
+        
         if (gPaletteFade.mode == HARDWARE_FADE && gPaletteFade.active)
             UpdateBlendRegisters();
     }

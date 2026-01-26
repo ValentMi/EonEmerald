@@ -9373,7 +9373,20 @@ static void Cmd_setcharge(void)
 static void Cmd_callterrainattack(void)
 {
     gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
-    gCurrentMove = sNaturePowerMoves[gBattleTerrain];
+
+    // Check weather first to supersede terrain
+    if (gBattleWeather & B_WEATHER_RAIN)
+        gCurrentMove = MOVE_SURF; // Or MOVE_HYDRO_PUMP
+    else if (gBattleWeather & B_WEATHER_SANDSTORM)
+        gCurrentMove = MOVE_EARTHQUAKE;
+    else if (gBattleWeather & B_WEATHER_SUN)
+        gCurrentMove = MOVE_HEAT_WAVE;
+    else if (gBattleWeather & B_WEATHER_HAIL)
+        gCurrentMove = MOVE_BLIZZARD; // Or BLIZZARD
+    else
+        // If no weather, use the terrain array as a fallback
+        gCurrentMove = sNaturePowerMoves[gBattleTerrain];
+
     gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
     BattleScriptPush(gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect]);
     gBattlescriptCurrInstr++;

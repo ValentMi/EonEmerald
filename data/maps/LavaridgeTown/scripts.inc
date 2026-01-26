@@ -252,11 +252,18 @@ LavaridgeTown_EventScript_EggWoman::
 LavaridgeTown_EventScript_ReceivedEgg::
 	msgbox LavaridgeTown_Text_HaveEggWillYouTakeKanto, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_ReceivedJohtoEgg
+	showmoneybox 0, 0
+	msgbox LavaridgeTown_Text_ItWillCost, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_DeclineEgg
+	checkmoney 10000
+	goto_if_eq VAR_RESULT, FALSE, LavaridgeTown_EventScript_NotEnoughMoney
+	removemoney 10000 
+	updatemoneybox 0
 	getpartysize
 	goto_if_eq VAR_RESULT, PARTY_SIZE, LavaridgeTown_EventScript_NoRoomForEgg
 	msgbox LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_LAVARIDGE_EGG
 	playfanfare MUS_OBTAIN_ITEM
+	hidemoneybox
 	message LavaridgeTown_Text_ReceivedTheEgg
 	waitfanfare
 	random 67
@@ -334,11 +341,18 @@ LavaridgeTown_EventScript_ReceivedEgg::
 LavaridgeTown_EventScript_ReceivedJohtoEgg::
 	msgbox LavaridgeTown_Text_HaveEggWillYouTakeJohto, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_ReceivedHoennEgg
+	showmoneybox 0, 0
+	msgbox LavaridgeTown_Text_ItWillCost, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_DeclineEgg
+	checkmoney 10000
+	goto_if_eq VAR_RESULT, FALSE, LavaridgeTown_EventScript_NotEnoughMoney
+	removemoney 10000 
+	updatemoneybox 0
 	getpartysize
 	goto_if_eq VAR_RESULT, PARTY_SIZE, LavaridgeTown_EventScript_NoRoomForEgg
 	msgbox LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_LAVARIDGE_EGG
 	playfanfare MUS_OBTAIN_ITEM
+	hidemoneybox
 	message LavaridgeTown_Text_ReceivedTheEgg
 	waitfanfare
 	random 48
@@ -397,11 +411,18 @@ LavaridgeTown_EventScript_ReceivedJohtoEgg::
 LavaridgeTown_EventScript_ReceivedHoennEgg::
 	msgbox LavaridgeTown_Text_HaveEggWillYouTakeHoenn, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_DeclineEgg
+	showmoneybox 0, 0
+	msgbox LavaridgeTown_Text_ItWillCost, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_DeclineEgg
+	checkmoney 10000
+	goto_if_eq VAR_RESULT, FALSE, LavaridgeTown_EventScript_NotEnoughMoney
+	removemoney 10000 
+	updatemoneybox 0
 	getpartysize
 	goto_if_eq VAR_RESULT, PARTY_SIZE, LavaridgeTown_EventScript_NoRoomForEgg
 	msgbox LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_LAVARIDGE_EGG
 	playfanfare MUS_OBTAIN_ITEM
+	hidemoneybox
 	message LavaridgeTown_Text_ReceivedTheEgg
 	waitfanfare
 	random 64
@@ -470,14 +491,24 @@ LavaridgeTown_EventScript_ReceivedHoennEgg::
 	case 61, Script_RandomEgg177
 	case 62, Script_RandomEgg178
 	case 63, Script_RandomEgg179
+	release
+	end
 
 LavaridgeTown_EventScript_NoRoomForEgg::
 	msgbox LavaridgeTown_Text_NoRoomForThisEgg, MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+	
+LavaridgeTown_EventScript_NotEnoughMoney::
+	msgbox LavaridgeTown_Text_NotEnoughMoney, MSGBOX_DEFAULT
+	hidemoneybox
 	release
 	end
 
 LavaridgeTown_EventScript_DeclineEgg::
 	msgbox LavaridgeTown_Text_AsYouWishThen, MSGBOX_DEFAULT
+	hidemoneybox
 	release
 	end
 
@@ -492,6 +523,10 @@ LavaridgeTown_EventScript_GymSign::
 LavaridgeTown_EventScript_HerbShopSign::
 	msgbox LavaridgeTown_Text_HerbShopSign, MSGBOX_SIGN
 	end
+	
+LavaridgeTown_Text_ItWillCost:
+	.string "It will cost you ¥10,000.\n"
+	.string "Is that alright?$"
 
 LavaridgeTown_Text_MayNiceBadgesTakeThis:
 	.string "MAY: {PLAYER}{KUN}! Long time no see!\p"
@@ -527,36 +562,36 @@ LavaridgeTown_Text_BrendanExplainGoGogglesChallengeDad:
 	.string "BRENDAN: Keep those with you if you're\n"
 	.string "planning on going into that desert near\l"
 	.string "ROUTE 111.\p"
-	.string "There should be some POKéMON that\n"
+	.string "There should be some Pokémon that\n"
 	.string "are exclusively desert-dwellers.\l"
 	.string "You might look around for those.\p"
 	.string "As for me…\n"
-	.string "I'm considering challenging NORMAN,\l"
+	.string "I'm considering challenging Norman,\l"
 	.string "the GYM LEADER of PETALBURG.\p"
 	.string "Unlike you, {PLAYER}, your dad looks like\n"
 	.string "he really is tough.\p"
 	.string "See you around!$"
 
 LavaridgeTown_Text_HaveEggWillYouTakeIt:
-	.string "I have here an EGG.\p"
+	.string "I have here an egg.\p"
 	.string "I'd hoped to hatch it by covering it in\n"
 	.string "hot sand by the hot springs.\l"
 	.string "But that doesn't seem to be enough…\p"
 	.string "I've heard it would be best if it were\n"
-	.string "kept together with POKéMON and\l"
+	.string "kept together with Pokémon and\l"
 	.string "carried about.\p"
-	.string "You are a TRAINER, yes?\n"
-	.string "And your POKéMON radiate vitality.\p"
+	.string "You are a trainer, yes?\n"
+	.string "And your Pokémon radiate vitality.\p"
 	.string "So, what say you?\n"
-	.string "Will you take this EGG to hatch?$"
+	.string "Will you take this egg to hatch?$"
 	
 LavaridgeTown_Text_HaveEggWillYouTakeKanto:
-	.string "I have here an EGG from Kanto.\p"
+	.string "I have an egg from the Kanto region.\p"
 	.string "I'd hoped to hatch it by covering it in\n"
 	.string "hot sand by the hot springs.\l"
 	.string "But that doesn't seem to be enough…\p"
 	.string "So, what say you?\n"
-	.string "Will you take this EGG to hatch?$"
+	.string "Will you take this egg to hatch?$"
 
 LavaridgeTown_Text_HaveEggWillYouTakeJohto:
 	.string "What about an egg from Johto?$"
@@ -566,23 +601,27 @@ LavaridgeTown_Text_HaveEggWillYouTakeHoenn:
 
 LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg:
 	.string "Good! I hope you'll walk plenty with\n"
-	.string "this here EGG!$"
+	.string "this here egg!$"
 
 LavaridgeTown_Text_ReceivedTheEgg:
-	.string "{PLAYER} received the EGG.$"
+	.string "{PLAYER} received the Egg.$"
 
 LavaridgeTown_Text_NoRoomForThisEgg:
-	.string "Oh? You've too many POKéMON.\n"
-	.string "There's no room for this EGG…$"
+	.string "Oh? You've too many Pokémon.\n"
+	.string "There's no room for this Egg…$"
+	
+LavaridgeTown_Text_NotEnoughMoney:
+	.string "Oh? You don't have enough.\n"
+	.string "money…$"
 
 LavaridgeTown_Text_AsYouWishThen:
 	.string "As you wish, then…\p"
 	.string "If you have a change of heart about\n"
-	.string "hatching this EGG, I will be here.$"
+	.string "hatching this Egg, I will be here.$"
 
 LavaridgeTown_Text_EverySoOftenEggFoundAtDayCare:
-	.string "Every so often, an EGG will be found at\n"
-	.string "the POKéMON DAY CARE.\p"
+	.string "Every so often, an Egg will be found at\n"
+	.string "the Pokémon Day Care.\p"
 	.string "Or at least that's how the rumor goes.$"
 
 LavaridgeTown_Text_HotSpringsNeverRunDry:

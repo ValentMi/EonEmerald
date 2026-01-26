@@ -3386,7 +3386,7 @@ const struct Item gItems[] =
     {
         .name = _("Eon Ticket"),
         .itemId = ITEM_EON_TICKET,
-        .price = 0,
+        .price = 65000,
         .description = sEonTicketDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
@@ -3519,7 +3519,7 @@ const struct Item gItems[] =
     {
         .name = _("Root Fossil"),
         .itemId = ITEM_ROOT_FOSSIL,
-        .price = 0,
+        .price = 10000,
         .description = sRootFossilDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
@@ -3531,7 +3531,7 @@ const struct Item gItems[] =
     {
         .name = _("Claw Fossil"),
         .itemId = ITEM_CLAW_FOSSIL,
-        .price = 0,
+        .price = 10000,
         .description = sClawFossilDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
@@ -4338,7 +4338,7 @@ const struct Item gItems[] =
     {
         .name = _("Old Amber"),
         .itemId = ITEM_OLD_AMBER,
-        .price = 0,
+        .price = 10000,
         .description = sOldAmberDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
@@ -4374,7 +4374,7 @@ const struct Item gItems[] =
     {
         .name = _("Helix Fossil"),
         .itemId = ITEM_HELIX_FOSSIL,
-        .price = 0,
+        .price = 10000,
         .description = sHelixFossilDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
@@ -4386,7 +4386,7 @@ const struct Item gItems[] =
     {
         .name = _("Dome Fossil"),
         .itemId = ITEM_DOME_FOSSIL,
-        .price = 0,
+        .price = 10000,
         .description = sDomeFossilDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
@@ -4540,7 +4540,7 @@ const struct Item gItems[] =
     {
         .name = _("Mystic Ticket"),
         .itemId = ITEM_MYSTIC_TICKET,
-        .price = 0,
+        .price = 65000,
         .description = sMysticTicketDesc,
         .importance = 1,
         .registrability = TRUE,

@@ -17,6 +17,22 @@ Sevii_Universal_Nurse_Script::
     release
     end
 	
+Sevii_Universal_Faraway_Nurse_Script::
+    lock
+    faceplayer
+    msgbox gText_IllTakeYourPkmnFTN, MSGBOX_DEFAULT
+    closemessage
+    fadescreen FADE_TO_BLACK
+    playfanfare MUS_HEAL
+    special HealPlayerParty
+    waitfanfare
+    fadescreen FADE_FROM_BLACK
+    msgbox gText_RestoredPkmnToFullHealth, MSGBOX_DEFAULT
+    waitmessage
+    msgbox gText_WeHopeToSeeYouAgainTN, MSGBOX_DEFAULT
+    release
+    end
+	
 FourIsland_PokemonCenter_1F_EventScript_Man::
 	msgbox FourIsland_PokemonCenter_1F_Text_RareIceMonsInCave, MSGBOX_NPC
 	end
@@ -203,6 +219,13 @@ FourIsland_PokemonCenter_1F_Text_NewPokemonJournalHasntArrived::
 gText_IllTakeYourPkmnTN::
     .string "Are your Pokémon in need of healing?\p"
     .string "Okay, I'll Take your Pokémon\n"
+    .string "for a few seconds.$"
+	
+gText_IllTakeYourPkmnFTN::
+    .string "Oh, dear... Where am I?\p"
+    .string "Well, even as a travelling nurse\n"
+    .string "I have a duty to uphold.\p"
+    .string "Okay, I'll take your Pokémon\n"
     .string "for a few seconds.$"
 	
 gText_WeHopeToSeeYouAgainTN::

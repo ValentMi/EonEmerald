@@ -6665,6 +6665,21 @@ u16 GetBattleBGM(void)
             return MUS_RG_VS_GYM_LEADER;
 		case TRAINER_CLASS_PKMN_TRAINER_2:
             return MUS_RG_VS_CHAMPION;
+		case TRAINER_CLASS_PKMN_TRAINER_3:
+			{
+				static const u16 sImportantThemes[] = {
+					MUS_VS_GYM_LEADER,
+					MUS_VS_ELITE_FOUR,
+					MUS_VS_CHAMPION,
+					MUS_VS_RIVAL,
+					MUS_RG_VS_CHAMPION,
+					MUS_RG_VS_GYM_LEADER,
+					MUS_VS_FRONTIER_BRAIN,
+					MUS_VS_KYOGRE_GROUDON,
+					MUS_VS_REGI
+				};
+				return sImportantThemes[Random() % ARRAY_COUNT(sImportantThemes)];
+			}
         case TRAINER_CLASS_SALON_MAIDEN:
         case TRAINER_CLASS_DOME_ACE:
         case TRAINER_CLASS_PALACE_MAVEN:
@@ -6684,7 +6699,7 @@ u16 GetBattleBGM(void)
     }
     else
     {
-			if (gMapHeader.regionMapSectionId == MAPSEC_CERULEAN_CAVE || gMapHeader.mapLayoutId == LAYOUT_LOST_CAVE || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_TOWER || gMapHeader.regionMapSectionId == MAPSEC_SEAFOAM_ISLANDS || gMapHeader.mapLayoutId == LAYOUT_WATER_PATH || gMapHeader.regionMapSectionId == MAPSEC_TANOBY_RUINS || gMapHeader.regionMapSectionId == MAPSEC_MEMORIAL_PILLAR || gMapHeader.mapLayoutId == LAYOUT_LOST_CAVE_ENTRANCE || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_MANSION || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_14 || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_8 || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 || gMapHeader.regionMapSectionId == MAPSEC_MONEAN_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_LIPTOO_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_WEEPTH_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_DILFORD_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_SCUFIB_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_RIXY_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_VIAPOIS_CHAMBER || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F4 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F3 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F2 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F1 || gMapHeader.mapLayoutId == LAYOUT_KINDLE_ROAD || gMapHeader.mapLayoutId == LAYOUT_TREASURE_BEACH || gMapHeader.mapLayoutId == LAYOUT_CAPE_BRINK || gMapHeader.mapLayoutId == LAYOUT_BOND_BRIDGE || gMapHeader.mapLayoutId == LAYOUT_THREE_ISLE_PORT || gMapHeader.mapLayoutId == LAYOUT_RESORT_GORGEOUS || gMapHeader.mapLayoutId == LAYOUT_WATER_LABYRINTH || gMapHeader.mapLayoutId == LAYOUT_FIVE_ISLE_MEADOW || gMapHeader.mapLayoutId == LAYOUT_RUIN_VALLEY || gMapHeader.mapLayoutId == MAPSEC_SEVAULT_CANYON || gMapHeader.mapLayoutId == LAYOUT_CANYON_ENTRANCE || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_BOTTOM || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_TOP || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_LADDER_ROOM1 || gMapHeader.mapLayoutId == LAYOUT_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM || gMapHeader.regionMapSectionId == MAPSEC_MT_EMBER || gMapHeader.regionMapSectionId == MAPSEC_POWER_PLANT || gMapHeader.regionMapSectionId == MAPSEC_PATTERN_BUSH || gMapHeader.regionMapSectionId == MAPSEC_CERULEAN_CAVE || gMapHeader.regionMapSectionId == MAPSEC_KANTO_SAFARI_ZONE)
+			if (gMapHeader.regionMapSectionId == MAPSEC_CERULEAN_CAVE || gMapHeader.regionMapSectionId == MAPSEC_BERRY_FOREST || gMapHeader.mapLayoutId == LAYOUT_LOST_CAVE || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_TOWER || gMapHeader.regionMapSectionId == MAPSEC_SEAFOAM_ISLANDS || gMapHeader.mapLayoutId == LAYOUT_WATER_PATH || gMapHeader.regionMapSectionId == MAPSEC_TANOBY_RUINS || gMapHeader.regionMapSectionId == MAPSEC_MEMORIAL_PILLAR || gMapHeader.mapLayoutId == LAYOUT_LOST_CAVE_ENTRANCE || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_MANSION || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_14 || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_8 || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 || gMapHeader.regionMapSectionId == MAPSEC_MONEAN_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_LIPTOO_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_WEEPTH_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_DILFORD_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_SCUFIB_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_RIXY_CHAMBER || gMapHeader.regionMapSectionId == MAPSEC_VIAPOIS_CHAMBER || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F4 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F3 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F2 || gMapHeader.mapLayoutId == LAYOUT_ICEFALL_CAVE_F1 || gMapHeader.mapLayoutId == LAYOUT_KINDLE_ROAD || gMapHeader.mapLayoutId == LAYOUT_TREASURE_BEACH || gMapHeader.mapLayoutId == LAYOUT_CAPE_BRINK || gMapHeader.mapLayoutId == LAYOUT_BOND_BRIDGE || gMapHeader.mapLayoutId == LAYOUT_THREE_ISLE_PORT || gMapHeader.mapLayoutId == LAYOUT_RESORT_GORGEOUS || gMapHeader.mapLayoutId == LAYOUT_WATER_LABYRINTH || gMapHeader.mapLayoutId == LAYOUT_FIVE_ISLE_MEADOW || gMapHeader.mapLayoutId == LAYOUT_RUIN_VALLEY || gMapHeader.mapLayoutId == MAPSEC_SEVAULT_CANYON || gMapHeader.mapLayoutId == LAYOUT_CANYON_ENTRANCE || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_BOTTOM || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_TOP || gMapHeader.mapLayoutId == LAYOUT_NAVEL_ROCK_LADDER_ROOM1 || gMapHeader.mapLayoutId == LAYOUT_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM || gMapHeader.regionMapSectionId == MAPSEC_MT_EMBER || gMapHeader.regionMapSectionId == MAPSEC_POWER_PLANT || gMapHeader.regionMapSectionId == MAPSEC_PATTERN_BUSH || gMapHeader.regionMapSectionId == MAPSEC_CERULEAN_CAVE || gMapHeader.regionMapSectionId == MAPSEC_KANTO_SAFARI_ZONE)
 				 return MUS_RG_VS_WILD;
 			   else
 				   return MUS_VS_WILD;
