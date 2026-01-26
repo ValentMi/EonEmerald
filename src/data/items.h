@@ -639,7 +639,7 @@ const struct Item gItems[] =
     {
         .name = _("Red Shard"),
         .itemId = ITEM_RED_SHARD,
-        .price = 200,
+        .price = 9800,
         .description = sRedShardDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -650,7 +650,7 @@ const struct Item gItems[] =
     {
         .name = _("Blue Shard"),
         .itemId = ITEM_BLUE_SHARD,
-        .price = 200,
+        .price = 9800,
         .description = sBlueShardDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -661,7 +661,7 @@ const struct Item gItems[] =
     {
         .name = _("Yellow Shard"),
         .itemId = ITEM_YELLOW_SHARD,
-        .price = 200,
+        .price = 9800,
         .description = sYellowShardDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -672,7 +672,7 @@ const struct Item gItems[] =
     {
         .name = _("Green Shard"),
         .itemId = ITEM_GREEN_SHARD,
-        .price = 200,
+        .price = 9800,
         .description = sGreenShardDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -2207,7 +2207,7 @@ const struct Item gItems[] =
     {
         .name = _("BrightPowder"),
         .itemId = ITEM_BRIGHT_POWDER,
-        .price = 10,
+        .price = 9800,
         .holdEffect = HOLD_EFFECT_EVASION_UP,
         .holdEffectParam = 10,
         .description = sBrightPowderDesc,
@@ -2220,7 +2220,7 @@ const struct Item gItems[] =
     {
         .name = _("White Herb"),
         .itemId = ITEM_WHITE_HERB,
-        .price = 100,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_RESTORE_STATS,
         .description = sWhiteHerbDesc,
         .pocket = POCKET_ITEMS,
@@ -2281,7 +2281,7 @@ const struct Item gItems[] =
     {
         .name = _("Power Herb"),
         .itemId = ITEM_MENTAL_HERB,
-        .price = 100,
+        .price = 3000,
         .holdEffect = HOLD_EFFECT_POWER_HERB,
         .description = sMentalHerbDesc,
         .pocket = POCKET_ITEMS,
@@ -2318,7 +2318,7 @@ const struct Item gItems[] =
     {
         .name = _("SilverPowder"),
         .itemId = ITEM_SILVER_POWDER,
-        .price = 100,
+        .price = 4000,
         .holdEffect = HOLD_EFFECT_BUG_POWER,
         .holdEffectParam = 10,
         .description = sSilverPowderDesc,
@@ -2368,7 +2368,7 @@ const struct Item gItems[] =
     {
         .name = _("DeepSeaTooth"),
         .itemId = ITEM_DEEP_SEA_TOOTH,
-        .price = 200,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_DEEP_SEA_TOOTH,
         .description = sDeepSeaToothDesc,
         .pocket = POCKET_ITEMS,
@@ -2380,7 +2380,7 @@ const struct Item gItems[] =
     {
         .name = _("DeepSeaScale"),
         .itemId = ITEM_DEEP_SEA_SCALE,
-        .price = 200,
+        .price = 2000,
         .holdEffect = HOLD_EFFECT_DEEP_SEA_SCALE,
         .description = sDeepSeaScaleDesc,
         .pocket = POCKET_ITEMS,
@@ -2530,7 +2530,7 @@ const struct Item gItems[] =
     {
         .name = _("Miracle Seed"),
         .itemId = ITEM_MIRACLE_SEED,
-        .price = 100,
+        .price = 4000,
         .holdEffect = HOLD_EFFECT_GRASS_POWER,
         .holdEffectParam = 20,
         .description = sMiracleSeedDesc,
@@ -2660,7 +2660,7 @@ const struct Item gItems[] =
     {
         .name = _("Charcoal"),
         .itemId = ITEM_CHARCOAL,
-        .price = 9800,
+        .price = 4000,
         .holdEffect = HOLD_EFFECT_FIRE_POWER,
         .holdEffectParam = 20,
         .description = sCharcoalDesc,
@@ -3123,7 +3123,7 @@ const struct Item gItems[] =
     {
         .name = _("Red Scarf"),
         .itemId = ITEM_RED_SCARF,
-        .price = 100,
+        .price = 2000,
         .description = sRedScarfDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -3134,7 +3134,7 @@ const struct Item gItems[] =
     {
         .name = _("Blue Scarf"),
         .itemId = ITEM_BLUE_SCARF,
-        .price = 100,
+        .price = 2000,
         .description = sBlueScarfDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -3145,7 +3145,7 @@ const struct Item gItems[] =
     {
         .name = _("Pink Scarf"),
         .itemId = ITEM_PINK_SCARF,
-        .price = 100,
+        .price = 2000,
         .description = sPinkScarfDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -3156,7 +3156,7 @@ const struct Item gItems[] =
     {
         .name = _("Green Scarf"),
         .itemId = ITEM_GREEN_SCARF,
-        .price = 100,
+        .price = 2000,
         .description = sGreenScarfDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -3167,7 +3167,7 @@ const struct Item gItems[] =
     {
         .name = _("Yellow Scarf"),
         .itemId = ITEM_YELLOW_SCARF,
-        .price = 100,
+        .price = 2000,
         .description = sYellowScarfDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,

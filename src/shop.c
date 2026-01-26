@@ -1007,7 +1007,7 @@ static void Task_BuyMenu(u8 taskId)
                 if (sMartInfo.martType == MART_TYPE_NORMAL)
                 {
                     CopyItemName(itemId, gStringVar1);
-                    if (ItemId_GetPocket(itemId) == POCKET_TM_HM)
+                    if (ItemId_GetPocket(itemId) == POCKET_TM_HM || ItemId_GetPocket(itemId) == POCKET_KEY_ITEMS || ItemId_GetPocket(itemId) == POCKET_BERRIES)
                     {
                         ConvertIntToDecimalStringN(gStringVar2, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
                         StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1ThatllBeVar2);
