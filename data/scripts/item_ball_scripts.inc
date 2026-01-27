@@ -39,7 +39,7 @@ Route108_EventScript_ItemStarPiece::
 	end
 
 Route109_EventScript_ItemPPUp::
-	finditem ITEM_PP_UP
+	finditem ITEM_PP_MAX
 	end
 
 Route109_EventScript_ItemPotion::

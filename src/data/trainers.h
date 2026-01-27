@@ -10166,7 +10166,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_BRENDAN_PLACEHOLDER] =
     {
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_2,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_4,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_RS_BRENDAN,
         .trainerName = _("Gold"),
@@ -10178,7 +10178,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MAY_PLACEHOLDER] =
     {
-        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_2,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_4,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_RS_MAY,
         .trainerName = _("Kris"),

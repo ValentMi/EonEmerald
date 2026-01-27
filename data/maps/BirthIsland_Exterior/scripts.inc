@@ -117,4 +117,7 @@ BirthIsland_Exterior_Movement_DeoxysApproach:
 	walk_slow_down
 	walk_slow_down
 	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
 	step_end

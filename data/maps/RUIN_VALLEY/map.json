@@ -2,7 +2,7 @@
   "id": "MAP_RUIN_VALLEY",
   "name": "RUIN_VALLEY",
   "layout": "LAYOUT_RUIN_VALLEY",
-  "music": "MUS_RG_SEVII_ROUTE",
+  "music": "MUS_RG_ROUTE3",
   "region_map_section": "MAPSEC_RUIN_VALLEY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

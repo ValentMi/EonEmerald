@@ -36,7 +36,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_DEOXYS",
       "x": 15,
-      "y": 3,
+      "y": 0,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,

@@ -2,7 +2,7 @@
   "id": "MAP_PURITY_FOREST_LAKE",
   "name": "Purity_Forest_Lake",
   "layout": "LAYOUT_PURITY_FOREST_LAKE",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_RG_VICTORY_GYM_LEADER",
   "region_map_section": "MAPSEC_ROUTE_14",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
