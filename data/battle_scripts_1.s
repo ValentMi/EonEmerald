@@ -1116,7 +1116,7 @@ BattleScript_EffectSpecialDefenseDownHit::
 	goto BattleScript_EffectHit
 	
 BattleScript_EffectSpecialDefenseDownHit2::
-	setstatchanger STAT_SPDEF, 2, TRUE
+	setmoveeffect MOVE_EFFECT_SP_DEF_MINUS_2
 	goto BattleScript_EffectHit
 
 BattleScript_EffectAccuracyDownHit::
