@@ -154,10 +154,6 @@ SlateportCity_Pokemart_EnergyGuru:
 	.2byte ITEM_ZINC
 	.2byte ITEM_CALCIUM
 	.2byte ITEM_HP_UP
-	.2byte ITEM_PP_UP
-	.2byte ITEM_FRESH_WATER
-	.2byte ITEM_LEMONADE
-	.2byte ITEM_MOOMOO_MILK
 	pokemartlistend
 
 SlateportCity_EventScript_EffortRibbonWoman::

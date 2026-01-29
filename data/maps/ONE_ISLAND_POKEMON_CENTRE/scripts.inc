@@ -45,30 +45,6 @@ FourIsland_PokemonCenter_1F_EventScript_Gentleman::
 	msgbox FourIsland_PokemonCenter_1F_Text_NewPokemonJournalHasntArrived, MSGBOX_NPC
 	end
 	
-TwoIsland_EventScript_BodySlamTutor::
-	lock
-	faceplayer
-	msgbox Text_BodySlamTeach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_BodySlamDeclined
-	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
-	goto_if_eq VAR_RESULT, NO, EventScript_BodySlamDeclined
-	msgbox Text_BodySlamWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_BODY_SLAM
-	call MoveTutor_EventScript_OpenPartyMenu
-	goto_if_eq VAR_RESULT, FALSE, EventScript_BodySlamDeclined
-	goto EventScript_BodySlamTaught
-	end
-
-EventScript_BodySlamDeclined::
-	msgbox Text_BodySlamDeclined
-	release
-	end
-
-EventScript_BodySlamTaught::
-	msgbox Text_BodySlamTaught
-	release
-	end
-	
 FiveIsland_PokemonCenter_1F_EventScript_Chef::
 	msgbox FiveIsland_PokemonCenter_1F_Text_OnMyWayToPrepareMeal, MSGBOX_NPC
 	end
@@ -175,27 +151,6 @@ FiveIsland_PokemonCenter_1F_Text_YoureOnQuestToCatchEveryMon::
     .string "single kind of POKéMON?\p"
     .string "…How incredible. Please tell me if\n"
     .string "you catch a strong one!$"
-	
-Text_BodySlamTeach::
-    .string "Ready?\n"
-    .string "Boing!\p"
-    .string "We're having a BODY SLAM match\n"
-    .string "to see who wimps out first.\p"
-    .string "If you were to join us, you'd be\n"
-    .string "squashed like a bug, though…\p"
-    .string "How about I teach BODY SLAM to\n"
-    .string "a POKéMON of yours instead?$"
-
-Text_BodySlamDeclined::
-    .string "Come again!\n"
-    .string "Boing!$"
-
-Text_BodySlamWhichMon::
-    .string "Which POKéMON wants to learn how\n"
-    .string "to BODY SLAM?$"
-
-Text_BodySlamTaught::
-    .string "Boioing!$"
 
 FourIsland_PokemonCenter_1F_Text_RareIceMonsInCave::
     .string "There's a rare kind of ICE POKéMON\n"

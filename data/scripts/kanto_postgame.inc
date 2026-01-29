@@ -618,6 +618,7 @@ Tidal_Shady_Salesman::
 	.align 2
 Tidal_Shady_Salesman_Stock:
 	.2byte ITEM_RARE_CANDY
+	.2byte ITEM_PP_UP
 	.2byte ITEM_HEART_SCALE
 	.2byte ITEM_LUXURY_BALL
 	.2byte ITEM_PREMIER_BALL

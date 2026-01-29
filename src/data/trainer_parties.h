@@ -616,9 +616,9 @@ static const struct TrainerMonItemCustomMoves sParty_Dusty4[] = {
 //Jessica
 static const struct TrainerMonItemCustomMoves sParty_Dusty5[] = {
     {.iv = 255, .lvl = 100, .species = SPECIES_ALTARIA, .heldItem = ITEM_LIFE_ORB, .ability = 0, .moves = {MOVE_DRAGON_BREATH, MOVE_FIRE_BLAST, MOVE_SAFEGUARD, MOVE_REFLECT}},
-    {.iv = 255, .lvl = 100, .species = SPECIES_MILOTIC, .heldItem = ITEM_LEFTOVERS, .ability = 0, .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_RECOVER, MOVE_ICY_WIND}},
+    {.iv = 255, .lvl = 100, .species = SPECIES_CHARIZARD, .heldItem = ITEM_CHOICE_SCARF, .ability = 0, .moves = {MOVE_FIRE_BLAST, MOVE_AIR_CUTTER, MOVE_SOLAR_BEAM, MOVE_DRAGON_BREATH}},
     {.iv = 255, .lvl = 100, .species = SPECIES_BELLOSSOM, .heldItem = ITEM_FOCUS_BAND, .ability = 0, .moves = {MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_SLEEP_POWDER, MOVE_HELPING_HAND}},
-    {.iv = 255, .lvl = 100, .species = SPECIES_WIGGLYTUFF, .heldItem = ITEM_LUM_BERRY, .ability = 0, .moves = {MOVE_FOLLOW_ME, MOVE_THUNDER_WAVE, MOVE_HELPING_HAND, MOVE_PROTECT}},
+    {.iv = 255, .lvl = 100, .species = SPECIES_WIGGLYTUFF, .heldItem = ITEM_LUM_BERRY, .ability = 0, .moves = {MOVE_FOLLOW_ME, MOVE_SING, MOVE_HELPING_HAND, MOVE_PROTECT}},
     {.iv = 255, .lvl = 100, .species = SPECIES_LAPRAS, .heldItem = ITEM_LEFTOVERS, .ability = 0, .moves = {MOVE_ICY_WIND, MOVE_SURF, MOVE_THUNDERBOLT, MOVE_PROTECT}},
     {.iv = 255, .lvl = 100, .species = SPECIES_PRIMEAPE, .heldItem = ITEM_CHOICE_BAND, .ability = 1, .moves = {MOVE_CROSS_CHOP, MOVE_ROCK_SLIDE, MOVE_MACH_PUNCH, MOVE_SHADOW_PUNCH}}
 

@@ -1,5 +1,6 @@
 MoveTutor_EventScript_NotEnoughMoney::
 	msgbox Text_YouDontHaveEnoughMoney, MSGBOX_DEFAULT
+	hidemoneybox
 	release
 	end
 
@@ -470,6 +471,7 @@ MoveTutor_EventScript_GSCMoveTutorDeclinedMoney::
 
 MoveTutor_EventScript_GSCMoveTutorDeclined::
 	msgbox MoveTutor_Text_GSCMoveTutorDeclined, MSGBOX_DEFAULT
+	hidemoneybox
 	release
 	end
 
@@ -504,3 +506,126 @@ MoveTutor_Text_THUNDER_PUNCH_Teach::
 	
 Text_YouDontHaveEnoughMoney:
     .string "You don't have enough money...$"
+	
+TwoIsland_EventScript_BodySlamTutor::
+	lock
+	faceplayer
+	waitmovement 0
+	showmoneybox 0, 0
+	msgbox Text_BodySlamTeach, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_BodySlamDeclined
+	checkmoney 10000
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_NotEnoughMoney
+	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
+	goto_if_eq VAR_RESULT, NO, EventScript_BodySlamDeclined
+	msgbox Text_BodySlamWhichMon
+	setvar VAR_0x8005, TUTOR_MOVE_BODY_SLAM
+	call MoveTutor_EventScript_OpenPartyMenu
+	goto_if_eq VAR_RESULT, FALSE, EventScript_BodySlamDeclined
+	removemoney 10000
+	updatemoneybox
+	goto EventScript_BodySlamTaught
+	end
+
+EventScript_BodySlamDeclined::
+	msgbox Text_BodySlamDeclined
+	hidemoneybox
+	release
+	end
+
+EventScript_BodySlamTaught::
+	msgbox Text_BodySlamTaught
+	hidemoneybox
+	release
+	end
+	
+Text_BodySlamTeach::
+    .string "Ready?\n"
+    .string "Boing!\p"
+    .string "We're having a BODY SLAM match\n"
+    .string "to see who wimps out first.\p"
+    .string "If you were to join us, you'd be\n"
+    .string "squashed like a bug, though…\p"
+    .string "How about I teach BODY SLAM to\n"
+    .string "a POKéMON of yours instead?$"
+
+Text_BodySlamDeclined::
+    .string "Come again!\n"
+    .string "Boing!$"
+
+Text_BodySlamWhichMon::
+    .string "Which POKéMON wants to learn how\n"
+    .string "to BODY SLAM?$"
+
+Text_BodySlamTaught::
+    .string "Boioing!$"
+	
+SevenIsland_EventScript_SwordsDanceTutor::
+	lock
+	faceplayer
+	waitmovement 0
+	showmoneybox 0, 0
+	msgbox Text_SwordsDanceTeach, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_SwordsDanceDeclined
+	checkmoney 10000
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_NotEnoughMoney
+	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
+	goto_if_eq VAR_RESULT, NO, EventScript_SwordsDanceDeclined
+	msgbox Text_SwordsDanceWhichMon
+	setvar VAR_0x8005, TUTOR_MOVE_SWORDS_DANCE
+	call MoveTutor_EventScript_OpenPartyMenu
+	goto_if_eq VAR_RESULT, FALSE, EventScript_SwordsDanceDeclined
+	removemoney 10000
+	updatemoneybox
+	goto EventScript_SwordsDanceTaught
+	end
+
+EventScript_SwordsDanceDeclined::
+	msgbox Text_SwordsDanceDeclined
+	hidemoneybox
+	release
+	end
+
+EventScript_SwordsDanceTaught::
+	msgbox Text_SwordsDanceTaught
+	hidemoneybox
+	release
+	end
+
+Text_SwordsDanceTeach::
+    .string "Not many people come out here.\p"
+    .string "If I train here, I'm convinced that\n"
+    .string "I'll get stronger and stronger.\p"
+    .string "Yep, stronger and stronger…\p"
+    .string "How would you like to learn a move\n"
+    .string "like that? It's SWORDS DANCE.$"
+
+Text_SwordsDanceDeclined::
+    .string "Well, that's fine, too.$"
+
+Text_SwordsDanceWhichMon::
+    .string "All right, pick which POKéMON\n"
+    .string "I should teach it to.$"
+
+Text_SwordsDanceReteach::
+    .string "I'm still trying to get stronger\n"
+    .string "and stronger…\p"
+    .string "I've heard that vitamins strengthen\n"
+    .string "POKéMON, but they're so expensive!\p"
+    .string "So, I started charging ¥5000 to\n"
+    .string "teach other POKéMON SWORDS DANCE.$"
+
+Text_SwordsDanceReteach2::
+    .string "Would you like me to teach your\n"
+    .string "POKéMON the move SWORDS DANCE?$"
+
+Text_SwordsDanceNotEnoughMoney::
+    .string "You don't have ¥5000?\p"
+    .string "I'm sorry, but I need the money\n"
+    .string "to make my POKéMON strong.\p"
+    .string "I'll teach SWORDS DANCE to you\n"
+    .string "when you come back with enough.$"
+
+Text_SwordsDanceTaught::
+    .string "If only we could keep getting\n"
+    .string "stronger and stronger, eh?$"

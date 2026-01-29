@@ -451,6 +451,27 @@
       "y": 15,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_FOG_HORIZONTAL"
+    },
+    {
+      "type": "weather",
+      "x": 64,
+      "y": 16,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_FOG_HORIZONTAL"
+    },
+    {
+      "type": "weather",
+      "x": 63,
+      "y": 15,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_FOG_HORIZONTAL"
+    },
+    {
+      "type": "weather",
+      "x": 65,
+      "y": 15,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_FOG_HORIZONTAL"
     }
   ],
   "bg_events": [

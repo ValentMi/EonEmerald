@@ -17,69 +17,6 @@ SevenIsland_EventScript_OldWoman::
 SevenIsland_EventScript_Scientist::
 	msgbox SevenIsland_Text_IslandVirtuallyUntouched, MSGBOX_NPC
 	end
-	
-SevenIsland_EventScript_SwordsDanceTutor::
-	lock
-	faceplayer
-	msgbox Text_SwordsDanceTeach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_SwordsDanceDeclined
-	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
-	goto_if_eq VAR_RESULT, NO, EventScript_SwordsDanceDeclined
-	msgbox Text_SwordsDanceWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_SWORDS_DANCE
-	call MoveTutor_EventScript_OpenPartyMenu
-	goto_if_eq VAR_RESULT, FALSE, EventScript_SwordsDanceDeclined
-	goto EventScript_SwordsDanceTaught
-	end
-
-EventScript_SwordsDanceDeclined::
-	msgbox Text_SwordsDanceDeclined
-	release
-	end
-
-EventScript_SwordsDanceTaught::
-	msgbox Text_SwordsDanceTaught
-	release
-	end
-
-	
-Text_SwordsDanceTeach::
-    .string "Not many people come out here.\p"
-    .string "If I train here, I'm convinced that\n"
-    .string "I'll get stronger and stronger.\p"
-    .string "Yep, stronger and stronger…\p"
-    .string "How would you like to learn a move\n"
-    .string "like that? It's SWORDS DANCE.$"
-
-Text_SwordsDanceDeclined::
-    .string "Well, that's fine, too.$"
-
-Text_SwordsDanceWhichMon::
-    .string "All right, pick which POKéMON\n"
-    .string "I should teach it to.$"
-
-Text_SwordsDanceReteach::
-    .string "I'm still trying to get stronger\n"
-    .string "and stronger…\p"
-    .string "I've heard that vitamins strengthen\n"
-    .string "POKéMON, but they're so expensive!\p"
-    .string "So, I started charging ¥5000 to\n"
-    .string "teach other POKéMON SWORDS DANCE.$"
-
-Text_SwordsDanceReteach2::
-    .string "Would you like me to teach your\n"
-    .string "POKéMON the move SWORDS DANCE?$"
-
-Text_SwordsDanceNotEnoughMoney::
-    .string "You don't have ¥5000?\p"
-    .string "I'm sorry, but I need the money\n"
-    .string "to make my POKéMON strong.\p"
-    .string "I'll teach SWORDS DANCE to you\n"
-    .string "when you come back with enough.$"
-
-Text_SwordsDanceTaught::
-    .string "If only we could keep getting\n"
-    .string "stronger and stronger, eh?$"
 
 SevenIsland_Text_IslandSign::
     .string "SEVEN ISLAND\n"
