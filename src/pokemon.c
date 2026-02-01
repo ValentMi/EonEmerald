@@ -3404,7 +3404,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
     if ((MOVE_POWDER_SNOW) && attacker->species == SPECIES_PILOSWINE)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
-	if ((type == TYPE_GHOST) && (attacker->species == SPECIES_DUSCLOPS || attacker->species == SPECIES_PRIMEAPE || attacker->species == SPECIES_MUK || attacker->species == SPECIES_BANETTE || attacker->species == SPECIES_SHEDINJA))
+	if ((type == TYPE_GHOST) && (attacker->species == SPECIES_DUSCLOPS || attacker->species == SPECIES_PRIMEAPE || attacker->species == SPECIES_MUK || attacker->species == SPECIES_BANETTE || attacker->species == SPECIES_MAWILE || attacker->species == SPECIES_SHEDINJA))
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
     if ((MOVE_ICE_PUNCH || MOVE_FIRE_PUNCH || MOVE_THUNDER_PUNCH) && attacker->species == SPECIES_HITMONCHAN)
 		gBattleMoves[move].category == MOVE_CATEGORY_PHYSICAL;
@@ -6798,12 +6798,12 @@ const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u
 
 bool32 IsHMMove2(u16 move)
 {
-    int i = 0;
-    while (sHMMoves[i] != HM_MOVES_END)
-    {
-        if (sHMMoves[i++] == move)
-            return TRUE;
-    }
+    // int i = 0;
+    // while (sHMMoves[i] != HM_MOVES_END)
+    // {
+        // if (sHMMoves[i++] == move)
+            // return TRUE;
+    // }
     return FALSE;
 }
 

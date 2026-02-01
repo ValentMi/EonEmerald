@@ -1980,71 +1980,79 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u8 fixedIV;
     s32 i, j;
     u8 monsCount;
-	
-		u16 dynamicLevel = 0; 
-		u8 LevelSpread[] = {0, 0};	// This is used to hold the level's of the player's strongest[1] and weakest[0] Pokemon
-		u16 PartyLevelAdjust; // This will be used when assigning the level of the opponent's Pokemon
-			
-			// Change stuff like this to get the levels you want
-			static const u8 minDynamicLevel = 3;
-			static const u8 maxDynamicLevel = 100;
+    
+    u16 dynamicLevel = 0; 
+    u8 LevelSpread[] = {0, 0}; // This is used to hold the level's of the player's strongest[1] and weakest[0] Pokemon
+    u16 PartyLevelAdjust; // This will be used when assigning the level of the opponent's Pokemon
+        
+    // Change stuff like this to get the levels you want
+    static const u8 minDynamicLevel = 3;
+    static const u8 maxDynamicLevel = 100;
 
-			// Calculates Average of your party's levels
-			for(i = 0; i < PARTY_SIZE; i++)
-			{
-				if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
-				{
-					if(i != 0)
-				dynamicLevel /= i;
-					break;
-				}
-				dynamicLevel += GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+    // Calculates Average of your party's levels
+    for(i = 0; i < PARTY_SIZE; i++)
+    {
+        u8 monLevel;
+        if(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
+        {
+            if(i != 0)
+                dynamicLevel /= i;
+            break;
+        }
+        
+        monLevel = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+        dynamicLevel += monLevel;
 
-			}
-			if(i == PARTY_SIZE)
-				dynamicLevel /= i;
-		/* The following is used to account for a player having one or two very weak Pokemon
-			   along with some very strong Pokemon. It weights the averaged level more towards the
-			   player's strongest Pokemon
-			*/
-			
-			PartyLevelAdjust = LevelSpread[1] - LevelSpread[0];
-			
-			if(LevelSpread[1] - dynamicLevel < 40)
-			{
-				PartyLevelAdjust *= 3;
-				PartyLevelAdjust /= 10;
-			}
-			else if(LevelSpread[1] - dynamicLevel < 50)
-			{
-				PartyLevelAdjust *= 2;
-				PartyLevelAdjust /= 5;
-			}
-			else if(LevelSpread[1] - dynamicLevel < 60)
-			{
-				PartyLevelAdjust /= 2;
-			}
-			else if(LevelSpread[1] - dynamicLevel < 70)
-			{
-				PartyLevelAdjust *= 3;
-				PartyLevelAdjust /= 5;
-			}
-			else if(LevelSpread[1] - dynamicLevel < 80)
-			{
-				PartyLevelAdjust *= 7;
-				PartyLevelAdjust /= 10;
-			}
-			else if(LevelSpread[1] - dynamicLevel < 90)
-			{
-				PartyLevelAdjust *= 4;
-				PartyLevelAdjust /= 5;
-			}
-			//Handling values to be always be in the range,
-			// ( minDynamiclevel-levelDifference , maxDynamiclevel+levelDifference )
-			if(dynamicLevel < minDynamicLevel) dynamicLevel = minDynamicLevel;
-			else if(dynamicLevel > maxDynamicLevel) dynamicLevel = maxDynamicLevel;
-	
-	
+        // Populate LevelSpread so the math below doesn't underflow
+        if (i == 0 || monLevel < LevelSpread[0])
+            LevelSpread[0] = monLevel;
+        if (i == 0 || monLevel > LevelSpread[1])
+            LevelSpread[1] = monLevel;
+    }
+    
+    if(i == PARTY_SIZE)
+        dynamicLevel /= i;
+
+    /* The following is used to account for a player having one or two very weak Pokemon
+       along with some very strong Pokemon. It weights the averaged level more towards the
+       player's strongest Pokemon
+    */
+    
+    PartyLevelAdjust = LevelSpread[1] - LevelSpread[0];
+    
+    if(LevelSpread[1] - dynamicLevel < 40)
+    {
+        PartyLevelAdjust *= 3;
+        PartyLevelAdjust /= 10;
+    }
+    else if(LevelSpread[1] - dynamicLevel < 50)
+    {
+        PartyLevelAdjust *= 2;
+        PartyLevelAdjust /= 5;
+    }
+    else if(LevelSpread[1] - dynamicLevel < 60)
+    {
+        PartyLevelAdjust /= 2;
+    }
+    else if(LevelSpread[1] - dynamicLevel < 70)
+    {
+        PartyLevelAdjust *= 3;
+        PartyLevelAdjust /= 5;
+    }
+    else if(LevelSpread[1] - dynamicLevel < 80)
+    {
+        PartyLevelAdjust *= 7;
+        PartyLevelAdjust /= 10;
+    }
+    else if(LevelSpread[1] - dynamicLevel < 90)
+    {
+        PartyLevelAdjust *= 4;
+        PartyLevelAdjust /= 5;
+    }
+
+    //Handling values to be always be in the range,
+    if(dynamicLevel < minDynamicLevel) dynamicLevel = minDynamicLevel;
+    else if(dynamicLevel > maxDynamicLevel) dynamicLevel = maxDynamicLevel;
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
@@ -2070,31 +2078,30 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
         for (i = 0; i < monsCount; i++)
         {
-			int rand_diff = Random() % 5;
-			switch(rand_diff)
-			{
-				case 0:
-					rand_diff = 0;
-					break;
-				case 1:
-					rand_diff = 0;
-					break;
-				case 2:
-					rand_diff = 2;
-					break;
-				case 3:
-					rand_diff = 4;
-					break;
-				case 4:
-					rand_diff = 6;
-			}
+            int rand_diff = Random() % 5;
+            switch(rand_diff)
+            {
+                case 0:
+                case 1:
+                    rand_diff = 0;
+                    break;
+                case 2:
+                    rand_diff = 2;
+                    break;
+                case 3:
+                    rand_diff = 4;
+                    break;
+                case 4:
+                    rand_diff = 6;
+                    break;
+            }
 
             if (gTrainers[trainerNum].doubleBattle == TRUE)
                 personalityValue = 0x80;
             else if (gTrainers[trainerNum].encounterMusic_gender & F_TRAINER_FEMALE)
-                personalityValue = 0x78; // Use personality more likely to result in a female Pokémon
+                personalityValue = 0x78; 
             else
-                personalityValue = 0x88; // Use personality more likely to result in a male Pokémon
+                personalityValue = 0x88; 
 
             for (j = 0; gTrainers[trainerNum].trainerName[j] != EOS; j++)
                 nameHash += gTrainers[trainerNum].trainerName[j];
@@ -2111,12 +2118,12 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
                 
-				if (partyData[i].lvl >= dynamicLevel)
-					CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-				else
-					CreateMon(&party[i], partyData[i].species, dynamicLevel, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                if (partyData[i].lvl >= dynamicLevel)
+                    CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                else
+                    CreateMon(&party[i], partyData[i].species, dynamicLevel, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
                 
-				break;
+                break;
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET:
             {
@@ -2127,11 +2134,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
-				
-				if (partyData[i].lvl >= dynamicLevel)
-					CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-				else
-					CreateMon(&party[i], partyData[i].species, dynamicLevel, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                
+                if (partyData[i].lvl >= dynamicLevel)
+                    CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                else
+                    CreateMon(&party[i], partyData[i].species, dynamicLevel, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 for (j = 0; j < MAX_MON_MOVES; j++)
                 {
@@ -2150,15 +2157,15 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
                 
-				if (partyData[i].lvl >= dynamicLevel)
-					CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-				else
-					CreateMon(&party[i], partyData[i].species, dynamicLevel, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                if (partyData[i].lvl >= dynamicLevel)
+                    CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                else
+                    CreateMon(&party[i], partyData[i].species, dynamicLevel, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
                 break;
             }
-			case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
+            case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
             {
                 const struct TrainerMonItemCustomMoves *partyData = gTrainers[trainerNum].party.ItemCustomMoves;
 
@@ -2167,20 +2174,20 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv * 31 / 255;
-				
-				if (partyData[i].lvl >= dynamicLevel)
+                
+                if (partyData[i].lvl >= dynamicLevel)
                     CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-				else
+                else
                     CreateMon(&party[i], partyData[i].species, dynamicLevel, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
-				SetMonData(&party[i], MON_DATA_ABILITY_NUM, &partyData[i].ability);
+                SetMonData(&party[i], MON_DATA_ABILITY_NUM, &partyData[i].ability);
                 for (j = 0; j < MAX_MON_MOVES; j++)
                 {
                     SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
                     SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
                 }
-				for (j = 0; j < NUM_STATS; j++)
+                for (j = 0; j < NUM_STATS; j++)
                 {
                     SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].evs[j]);
                 }
@@ -2188,7 +2195,12 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 break;
             }
             }
-			dynamicLevel -= rand_diff + PartyLevelAdjust;
+            
+            // Safety check: ensure dynamicLevel doesn't wrap around to 255 if subtraction is too large
+            if (dynamicLevel > (rand_diff + PartyLevelAdjust))
+                dynamicLevel -= (rand_diff + PartyLevelAdjust);
+            else
+                dynamicLevel = minDynamicLevel;
         }
         gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
     }

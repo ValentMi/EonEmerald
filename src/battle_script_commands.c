@@ -1205,7 +1205,7 @@ static void Cmd_accuracycheck(void)
         if ((gBattleMons[gBattlerAttacker].species == SPECIES_ALTARIA) && gBattleMoves[move].effect == EFFECT_SLEEP)
             calc = (calc * 150) / 100; // // No Guard Enemy Accuracy for team
         if ((gBattleMons[gBattlerAttacker].species == SPECIES_ARTICUNO) && gBattleMoves[move].effect == EFFECT_FREEZE_HIT)
-            calc = (calc * 130) / 100; // // No Guard Enemy Accuracy for team
+            calc = (calc * 150) / 100; // // No Guard Enemy Accuracy for team
         if (gBattleMons[gBattlerAttacker].species == SPECIES_FURRET || gBattleMons[gBattlerAttacker].species == SPECIES_DELIBIRD || gBattleMons[gBattlerAttacker].species == SPECIES_ARIADOS)
             calc = (calc * 130) / 100; // // No Guard Enemy Accuracy for team
         if (gBattleMons[gBattlerAttacker].species == SPECIES_HYPNO && gBattleMoves[move].effect == EFFECT_SLEEP)
@@ -1747,6 +1747,7 @@ static void UNUSED Unused_ApplyRandomDmgMultiplier(void)
 static void Cmd_adjustnormaldamage(void)
 {
     u8 holdEffect, param;
+	u8 defender;
 
     ApplyRandomDmgMultiplier();
 
@@ -1763,7 +1764,7 @@ static void Cmd_adjustnormaldamage(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    if ((holdEffect == HOLD_EFFECT_FOCUS_BAND || gBattleMons[gBattlerTarget].ability == ABILITY_STURDY) && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP)
+    if ((holdEffect == HOLD_EFFECT_FOCUS_BAND || gBattleMons[gBattlerTarget].ability == ABILITY_STURDY) && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP && (gBattleMons[defender].species != SPECIES_SHEDINJA))
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
@@ -1790,6 +1791,7 @@ static void Cmd_adjustnormaldamage(void)
 static void Cmd_adjustnormaldamage2(void)
 {
     u8 holdEffect, param;
+	u8 defender;
 
     ApplyRandomDmgMultiplier();
 
@@ -1806,7 +1808,7 @@ static void Cmd_adjustnormaldamage2(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    if ((holdEffect == HOLD_EFFECT_FOCUS_BAND || gBattleMons[gBattlerTarget].ability == ABILITY_STURDY) && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP)
+    if ((holdEffect == HOLD_EFFECT_FOCUS_BAND || gBattleMons[gBattlerTarget].ability == ABILITY_STURDY) && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP && (gBattleMons[defender].species != SPECIES_SHEDINJA))
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
@@ -2981,9 +2983,16 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleCommunication[MOVE_EFFECT_BYTE]];
                 break;
             case MOVE_EFFECT_THRASH:
-                if (gBattleMons[gEffectBattler].status2 & STATUS2_LOCK_CONFUSE)
+				if (gBattleMons[gEffectBattler].status2 & STATUS2_LOCK_CONFUSE)
                 {
-                    gBattlescriptCurrInstr++;
+                    if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & SIDE_STATUS_SAFEGUARD)
+                    {
+                        gBattlescriptCurrInstr++;
+                    }
+                    else
+                    {
+                        gBattlescriptCurrInstr++; 
+                    }
                 }
                 else
                 {
@@ -6106,6 +6115,7 @@ static void Cmd_cancelallactions(void)
 static void Cmd_adjustsetdamage(void)
 {
     u8 holdEffect, param;
+	u8 defender;
 
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
@@ -6120,7 +6130,7 @@ static void Cmd_adjustsetdamage(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    if ((holdEffect == HOLD_EFFECT_FOCUS_BAND || gBattleMons[gBattlerTarget].ability == ABILITY_STURDY) && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP)
+    if ((holdEffect == HOLD_EFFECT_FOCUS_BAND || gBattleMons[gBattlerTarget].ability == ABILITY_STURDY) && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP && (gBattleMons[defender].species != SPECIES_SHEDINJA))
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
@@ -7733,6 +7743,7 @@ static void Cmd_setlightscreen(void)
 static void Cmd_tryKO(void)
 {
     u8 holdEffect, param;
+	u8 defender;
 
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
@@ -7747,7 +7758,7 @@ static void Cmd_tryKO(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    if ((holdEffect == HOLD_EFFECT_FOCUS_BAND || gBattleMons[gBattlerTarget].ability == ABILITY_STURDY) && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP)
+    if ((holdEffect == HOLD_EFFECT_FOCUS_BAND || gBattleMons[gBattlerTarget].ability == ABILITY_STURDY) && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP && (gBattleMons[defender].species != SPECIES_SHEDINJA))
     {
         RecordItemEffectBattle(gBattlerTarget, HOLD_EFFECT_FOCUS_BAND);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;

@@ -1123,13 +1123,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_PETAL_DANCE] =
     {
-        .effect = EFFECT_RAMPAGE,
-        .power = 120,
+        .effect = EFFECT_RAPID_SPIN,
+        .power = 90,
         .type = TYPE_GRASS,
         .accuracy = 100,
-        .pp = 20,
-        .secondaryEffectChance = 100,
-        .target = MOVE_TARGET_RANDOM,
+        .pp = 15,
+        .secondaryEffectChance = 50,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
 		.category= MOVE_CATEGORY_SPECIAL,
@@ -2416,7 +2416,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .type = TYPE_FIRE,
         .accuracy = 100,
         .pp = 10,
-        .secondaryEffectChance = 30,
+        .secondaryEffectChance = 50,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
@@ -3707,7 +3707,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = -3,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED,
+        .flags = FLAG_MAKES_CONTACT,
 		.category= MOVE_CATEGORY_PHYSICAL,
     },
 

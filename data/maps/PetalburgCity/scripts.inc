@@ -310,7 +310,7 @@ PetalburgCity_EventScript_BoyApproachPlayer1::
 PetalburgCity_EventScript_BoyApproachPlayer2::
 	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyApproachPlayer2
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	return
 
@@ -418,8 +418,8 @@ PetalburgCity_Movement_BoyWalkToGym2:
 	walk_right
 	walk_right
 	walk_right
-	walk_up
 	walk_right
+	walk_up
 	walk_in_place_faster_up
 	step_end
 
@@ -480,7 +480,6 @@ PetalburgCity_Movement_PlayerWalkToGym1:
 	step_end
 
 PetalburgCity_Movement_PlayerWalkToGym2:
-	walk_up
 	walk_right
 	walk_right
 	walk_right

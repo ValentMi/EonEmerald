@@ -71,10 +71,8 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_ShadowExtraLarge = {
 static const struct SpriteFrameImage sPicTable_TallGrass[] = {
     overworld_frame(gFieldEffectObjectPic_TallGrass, 2, 2, 0),
     overworld_frame(gFieldEffectObjectPic_TallGrass, 2, 2, 1),
-    overworld_frame(gFieldEffectObjectPic_TallGrass, 2, 2, 2),
     overworld_frame(gFieldEffectObjectPic_TallGrass, 2, 2, 3),
     overworld_frame(gFieldEffectObjectPic_TallGrass, 2, 2, 4),
-    overworld_frame(gFieldEffectObjectPic_TallGrass, 2, 2, 5),
 };
 
 static const union AnimCmd sAnim_TallGrass[] =

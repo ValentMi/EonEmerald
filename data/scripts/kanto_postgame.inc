@@ -1586,7 +1586,8 @@ Postgame_EventScript_KrisBattle::
 	
 Postgame_EventScript_DoubleBattleCheckTrigger::
 	lockall
-	getpartysize
+	setvar VAR_0x8004, 6
+	specialvar VAR_RESULT, CountPartyAliveNonEggMons_IgnoreVar0x8004Slot
 	goto_if_lt VAR_RESULT, 2, Postgame_EventScript_NotEnoughToProceed
 	releaseall
 	end

@@ -34,7 +34,9 @@ DewfordTown_House1_EventScript_Woman::
 	end
 	
 DewfordTown_House1_EventScript_LifeGoesSlowly::
-msgbox DewfordTown_House1_Text_LifeGoesSlowlyOnIsland, MSGBOX_DEFAULT
+msgbox DewfordTown_House1_Text_LifeGoesSlowlyOnIsland, MSGBOX_NPC
+	release
+	end
 
 DewfordTown_Text_HaveEggWillYouTakeIt:
 	.string "Oh, what can I do with this?\n"

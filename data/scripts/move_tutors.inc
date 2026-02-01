@@ -1,14 +1,11 @@
 MoveTutor_EventScript_NotEnoughMoney::
 	msgbox Text_YouDontHaveEnoughMoney, MSGBOX_DEFAULT
-	hidemoneybox
 	release
 	end
 
 SlateportCity_PokemonFanClub_EventScript_SwaggerTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_SwaggerTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_SwaggerDeclinedMoney
 	checkmoney 10000
@@ -25,7 +22,6 @@ SlateportCity_PokemonFanClub_EventScript_SwaggerTutor::
 	end
 
 MoveTutor_EventScript_SwaggerDeclinedMoney::
-	hidemoneybox
 	goto MoveTutor_EventScript_SwaggerDeclined
 	end
 
@@ -35,7 +31,6 @@ MoveTutor_EventScript_SwaggerDeclined::
 	end
 
 MoveTutor_EventScript_SwaggerTaught::
-	hidemoneybox
 	msgbox MoveTutor_Text_SwaggerTaught, MSGBOX_DEFAULT
 	release
 	end
@@ -43,8 +38,6 @@ MoveTutor_EventScript_SwaggerTaught::
 MauvilleCity_EventScript_RolloutTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_RolloutTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_RolloutDeclinedMoney
 	checkmoney 10000
@@ -61,7 +54,6 @@ MauvilleCity_EventScript_RolloutTutor::
 	end
 
 MoveTutor_EventScript_RolloutDeclinedMoney::
-	hidemoneybox
 	goto MoveTutor_EventScript_RolloutDeclined
 	end
 
@@ -71,7 +63,6 @@ MoveTutor_EventScript_RolloutDeclined::
 	end
 
 MoveTutor_EventScript_RolloutTaught::
-	hidemoneybox
 	msgbox MoveTutor_Text_RolloutTaught, MSGBOX_DEFAULT
 	release
 	end
@@ -79,8 +70,6 @@ MoveTutor_EventScript_RolloutTaught::
 VerdanturfTown_PokemonCenter_1F_EventScript_FuryCutterTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_FuryCutterTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_FuryCutterDeclinedMoney
 	checkmoney 10000
@@ -97,7 +86,6 @@ VerdanturfTown_PokemonCenter_1F_EventScript_FuryCutterTutor::
 	end
 
 MoveTutor_EventScript_FuryCutterDeclinedMoney::
-	hidemoneybox
 	goto MoveTutor_EventScript_FuryCutterDeclined
 	end
 
@@ -107,7 +95,6 @@ MoveTutor_EventScript_FuryCutterDeclined::
 	end
 
 MoveTutor_EventScript_FuryCutterTaught::
-	hidemoneybox
 	msgbox MoveTutor_Text_FuryCutterTaught, MSGBOX_DEFAULT
 	release
 	end
@@ -115,8 +102,6 @@ MoveTutor_EventScript_FuryCutterTaught::
 LavaridgeTown_House_EventScript_MimicTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_MimicTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_MimicDeclinedMoney
 	checkmoney 10000
@@ -133,7 +118,6 @@ LavaridgeTown_House_EventScript_MimicTutor::
 	end
 
 MoveTutor_EventScript_MimicDeclinedMoney::
-	hidemoneybox
 	goto MoveTutor_EventScript_MimicDeclined
 	end
 
@@ -143,7 +127,6 @@ MoveTutor_EventScript_MimicDeclined::
 	end
 
 MoveTutor_EventScript_MimicTaught::
-	hidemoneybox
 	msgbox MoveTutor_Text_MimicTaught, MSGBOX_DEFAULT
 	release
 	end
@@ -151,8 +134,6 @@ MoveTutor_EventScript_MimicTaught::
 FallarborTown_Mart_EventScript_MetronomeTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_MetronomeTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_MetronomeDeclinedMoney
 	checkmoney 10000
@@ -169,7 +150,6 @@ FallarborTown_Mart_EventScript_MetronomeTutor::
 	end
 
 MoveTutor_EventScript_MetronomeDeclinedMoney::
-	hidemoneybox
 	goto MoveTutor_EventScript_MetronomeDeclined
 	end
 
@@ -179,7 +159,6 @@ MoveTutor_EventScript_MetronomeDeclined::
 	end
 
 MoveTutor_EventScript_MetronomeTaught::
-	hidemoneybox
 	msgbox MoveTutor_Text_MetronomeTaught, MSGBOX_DEFAULT
 	release
 	end
@@ -187,8 +166,6 @@ MoveTutor_EventScript_MetronomeTaught::
 FortreeCity_House2_EventScript_SleepTalkTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_SleepTalkTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_SleepTalkDeclinedMoney
 	checkmoney 10000
@@ -205,7 +182,6 @@ FortreeCity_House2_EventScript_SleepTalkTutor::
 	end
 
 MoveTutor_EventScript_SleepTalkDeclinedMoney::
-	hidemoneybox
 	goto MoveTutor_EventScript_SleepTalkDeclined
 	end
 
@@ -215,7 +191,6 @@ MoveTutor_EventScript_SleepTalkDeclined::
 	end
 
 MoveTutor_EventScript_SleepTalkTaught::
-	hidemoneybox
 	msgbox MoveTutor_Text_SleepTalkTaught, MSGBOX_DEFAULT
 	release
 	end
@@ -223,8 +198,6 @@ MoveTutor_EventScript_SleepTalkTaught::
 LilycoveCity_DepartmentStoreRooftop_EventScript_SubstituteTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_SubstituteTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_SubstituteDeclinedMoney
 	checkmoney 10000
@@ -241,7 +214,6 @@ LilycoveCity_DepartmentStoreRooftop_EventScript_SubstituteTutor::
 	end
 
 MoveTutor_EventScript_SubstituteDeclinedMoney::
-	hidemoneybox
 	goto MoveTutor_EventScript_SubstituteDeclined
 	end
 
@@ -251,7 +223,6 @@ MoveTutor_EventScript_SubstituteDeclined::
 	end
 
 MoveTutor_EventScript_SubstituteTaught::
-	hidemoneybox
 	msgbox MoveTutor_Text_SubstituteTaught, MSGBOX_DEFAULT
 	release
 	end
@@ -259,8 +230,6 @@ MoveTutor_EventScript_SubstituteTaught::
 MossdeepCity_EventScript_DynamicPunchTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_DynamicPunchTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_DynamicPunchDeclinedMoney
 	checkmoney 10000
@@ -277,7 +246,6 @@ MossdeepCity_EventScript_DynamicPunchTutor::
 	end
 
 MoveTutor_EventScript_DynamicPunchDeclinedMoney::
-	hidemoneybox
 	goto MoveTutor_EventScript_DynamicPunchDeclined
 	end
 
@@ -287,7 +255,6 @@ MoveTutor_EventScript_DynamicPunchDeclined::
 	end
 
 MoveTutor_EventScript_DynamicPunchTaught::
-	hidemoneybox
 	msgbox MoveTutor_Text_DynamicPunchTaught, MSGBOX_DEFAULT
 	release
 	end
@@ -295,8 +262,6 @@ MoveTutor_EventScript_DynamicPunchTaught::
 SootopolisCity_PokemonCenter_1F_EventScript_DoubleEdgeTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_DoubleEdgeTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_DoubleEdgeDeclinedMoney
 	checkmoney 10000
@@ -313,7 +278,6 @@ SootopolisCity_PokemonCenter_1F_EventScript_DoubleEdgeTutor::
 	end
 
 MoveTutor_EventScript_DoubleEdgeDeclinedMoney::
-	hidemoneybox
 	goto MoveTutor_EventScript_DoubleEdgeDeclined
 	end
 
@@ -323,7 +287,6 @@ MoveTutor_EventScript_DoubleEdgeDeclined::
 	end
 
 MoveTutor_EventScript_DoubleEdgeTaught::
-	hidemoneybox
 	msgbox MoveTutor_Text_DoubleEdgeTaught, MSGBOX_DEFAULT
 	release
 	end
@@ -331,8 +294,6 @@ MoveTutor_EventScript_DoubleEdgeTaught::
 PacifidlogTown_PokemonCenter_1F_EventScript_ExplosionTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_ExplosionTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_ExplosionDeclinedMoney
 	checkmoney 10000
@@ -349,7 +310,6 @@ PacifidlogTown_PokemonCenter_1F_EventScript_ExplosionTutor::
 	end
 
 MoveTutor_EventScript_ExplosionDeclinedMoney::
-	hidemoneybox
 	goto MoveTutor_EventScript_ExplosionDeclined
 	end
 
@@ -359,7 +319,6 @@ MoveTutor_EventScript_ExplosionDeclined::
 	end
 
 MoveTutor_EventScript_ExplosionTaught::
-	hidemoneybox
 	msgbox MoveTutor_Text_ExplosionTaught, MSGBOX_DEFAULT
 	release
 	end
@@ -367,18 +326,16 @@ MoveTutor_EventScript_ExplosionTaught::
 GSCMoveTutor_EventScript_CurseTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_CURSE_Teach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
 	checkmoney 10000
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_NotEnoughMoney
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
 	msgbox MoveTutor_Text_GSCMoveTutorWhichMon, MSGBOX_DEFAULT
 	setvar VAR_0x8005, TUTOR_MOVE_CURSE
 	call MoveTutor_EventScript_OpenPartyMenu
-	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, FALSE, MoveTutor_EventScript_GSCMoveTutorDeclined
 	removemoney 10000
 	updatemoneybox
 	goto MoveTutor_EventScript_GSCMoveTutorTaught
@@ -387,18 +344,16 @@ GSCMoveTutor_EventScript_CurseTutor::
 GSCMoveTutor_EventScript_ZapCannonTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_ZAP_CANNON_Teach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_RolloutDeclinedMoney
 	checkmoney 10000
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_NotEnoughMoney
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
-	msgbox MoveTutor_Text_GSCMoveTutorWhichMon, MSGBOX_DEFAULT
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_RolloutDeclinedMoney
+	msgbox MoveTutor_Text_RolloutWhichMon, MSGBOX_DEFAULT
 	setvar VAR_0x8005, TUTOR_MOVE_ZAP_CANNON
 	call MoveTutor_EventScript_OpenPartyMenu
-	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_RolloutDeclinedMoney
 	removemoney 10000
 	updatemoneybox
 	goto MoveTutor_EventScript_GSCMoveTutorTaught
@@ -407,18 +362,16 @@ GSCMoveTutor_EventScript_ZapCannonTutor::
 GSCMoveTutor_EventScript_FirePunchTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_FIRE_PUNCH_Teach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
 	checkmoney 10000
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_NotEnoughMoney
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
 	msgbox MoveTutor_Text_GSCMoveTutorWhichMon, MSGBOX_DEFAULT
 	setvar VAR_0x8005, TUTOR_MOVE_FIRE_PUNCH
 	call MoveTutor_EventScript_OpenPartyMenu
-	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, FALSE, MoveTutor_EventScript_GSCMoveTutorDeclined
 	removemoney 10000
 	updatemoneybox
 	goto MoveTutor_EventScript_GSCMoveTutorTaught
@@ -427,18 +380,16 @@ GSCMoveTutor_EventScript_FirePunchTutor::
 GSCMoveTutor_EventScript_IcePunchTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_ICE_PUNCH_Teach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
 	checkmoney 10000
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_NotEnoughMoney
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
 	msgbox MoveTutor_Text_GSCMoveTutorWhichMon, MSGBOX_DEFAULT
 	setvar VAR_0x8005, TUTOR_MOVE_ICE_PUNCH
 	call MoveTutor_EventScript_OpenPartyMenu
-	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, FALSE, MoveTutor_EventScript_GSCMoveTutorDeclined
 	removemoney 10000
 	updatemoneybox
 	goto MoveTutor_EventScript_GSCMoveTutorTaught
@@ -447,37 +398,84 @@ GSCMoveTutor_EventScript_IcePunchTutor::
 GSCMoveTutor_EventScript_ThunderPunchTutor::
 	lock
 	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
 	msgbox MoveTutor_Text_THUNDER_PUNCH_Teach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
 	checkmoney 10000
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_NotEnoughMoney
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_GSCMoveTutorDeclined
 	msgbox MoveTutor_Text_GSCMoveTutorWhichMon, MSGBOX_DEFAULT
 	setvar VAR_0x8005, TUTOR_MOVE_THUNDER_PUNCH
 	call MoveTutor_EventScript_OpenPartyMenu
-	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_GSCMoveTutorDeclinedMoney
+	goto_if_eq VAR_RESULT, FALSE, MoveTutor_EventScript_GSCMoveTutorDeclined
 	removemoney 10000
 	updatemoneybox
 	goto MoveTutor_EventScript_GSCMoveTutorTaught
 	end
 
-MoveTutor_EventScript_GSCMoveTutorDeclinedMoney::
-	hidemoneybox
-	goto MoveTutor_EventScript_GSCMoveTutorDeclined
-	end
-
 MoveTutor_EventScript_GSCMoveTutorDeclined::
 	msgbox MoveTutor_Text_GSCMoveTutorDeclined, MSGBOX_DEFAULT
-	hidemoneybox
 	release
 	end
 
 MoveTutor_EventScript_GSCMoveTutorTaught::
-	hidemoneybox
 	msgbox MoveTutor_Text_GSCMoveTutorTaught, MSGBOX_DEFAULT
+	release
+	end
+	
+TwoIsland_EventScript_BodySlamTutor::
+	lock
+	faceplayer
+	msgbox Text_BodySlamTeach, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_BodySlamDeclined
+	checkmoney 10000
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_NotEnoughMoney
+	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
+	goto_if_eq VAR_RESULT, NO, EventScript_BodySlamDeclined
+	msgbox Text_BodySlamWhichMon
+	setvar VAR_0x8005, TUTOR_MOVE_BODY_SLAM
+	call MoveTutor_EventScript_OpenPartyMenu
+	goto_if_eq VAR_RESULT, FALSE, EventScript_BodySlamDeclined
+	removemoney 10000
+	updatemoneybox
+	goto EventScript_BodySlamTaught
+	end
+
+EventScript_BodySlamDeclined::
+	msgbox Text_BodySlamDeclined
+	release
+	end
+
+EventScript_BodySlamTaught::
+	msgbox Text_BodySlamTaught
+	release
+	end
+	
+SevenIsland_EventScript_SwordsDanceTutor::
+	lock
+	faceplayer
+	msgbox Text_SwordsDanceTeach, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_SwordsDanceDeclined
+	checkmoney 10000
+	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_NotEnoughMoney
+	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
+	goto_if_eq VAR_RESULT, NO, EventScript_SwordsDanceDeclined
+	msgbox Text_SwordsDanceWhichMon
+	setvar VAR_0x8005, TUTOR_MOVE_SWORDS_DANCE
+	call MoveTutor_EventScript_OpenPartyMenu
+	goto_if_eq VAR_RESULT, FALSE, EventScript_SwordsDanceDeclined
+	removemoney 10000
+	updatemoneybox
+	goto EventScript_SwordsDanceTaught
+	end
+
+EventScript_SwordsDanceDeclined::
+	msgbox Text_SwordsDanceDeclined
+	release
+	end
+
+EventScript_SwordsDanceTaught::
+	msgbox Text_SwordsDanceTaught
 	release
 	end
 
@@ -507,38 +505,6 @@ MoveTutor_Text_THUNDER_PUNCH_Teach::
 Text_YouDontHaveEnoughMoney:
     .string "You don't have enough money...$"
 	
-TwoIsland_EventScript_BodySlamTutor::
-	lock
-	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
-	msgbox Text_BodySlamTeach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_BodySlamDeclined
-	checkmoney 10000
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_NotEnoughMoney
-	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
-	goto_if_eq VAR_RESULT, NO, EventScript_BodySlamDeclined
-	msgbox Text_BodySlamWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_BODY_SLAM
-	call MoveTutor_EventScript_OpenPartyMenu
-	goto_if_eq VAR_RESULT, FALSE, EventScript_BodySlamDeclined
-	removemoney 10000
-	updatemoneybox
-	goto EventScript_BodySlamTaught
-	end
-
-EventScript_BodySlamDeclined::
-	msgbox Text_BodySlamDeclined
-	hidemoneybox
-	release
-	end
-
-EventScript_BodySlamTaught::
-	msgbox Text_BodySlamTaught
-	hidemoneybox
-	release
-	end
-	
 Text_BodySlamTeach::
     .string "Ready?\n"
     .string "Boing!\p"
@@ -559,38 +525,6 @@ Text_BodySlamWhichMon::
 
 Text_BodySlamTaught::
     .string "Boioing!$"
-	
-SevenIsland_EventScript_SwordsDanceTutor::
-	lock
-	faceplayer
-	waitmovement 0
-	showmoneybox 0, 0
-	msgbox Text_SwordsDanceTeach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_SwordsDanceDeclined
-	checkmoney 10000
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_NotEnoughMoney
-	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
-	goto_if_eq VAR_RESULT, NO, EventScript_SwordsDanceDeclined
-	msgbox Text_SwordsDanceWhichMon
-	setvar VAR_0x8005, TUTOR_MOVE_SWORDS_DANCE
-	call MoveTutor_EventScript_OpenPartyMenu
-	goto_if_eq VAR_RESULT, FALSE, EventScript_SwordsDanceDeclined
-	removemoney 10000
-	updatemoneybox
-	goto EventScript_SwordsDanceTaught
-	end
-
-EventScript_SwordsDanceDeclined::
-	msgbox Text_SwordsDanceDeclined
-	hidemoneybox
-	release
-	end
-
-EventScript_SwordsDanceTaught::
-	msgbox Text_SwordsDanceTaught
-	hidemoneybox
-	release
-	end
 
 Text_SwordsDanceTeach::
     .string "Not many people come out here.\p"

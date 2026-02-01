@@ -247,7 +247,7 @@ MoveTutor_Text_ZAP_CANNON_Teach:
 	.string "Oh, sorry! I got carried away\n"
 	.string "there, it seems.\p"
 	.string "If you'd like, I'll teach the move\n"
-	.string "ZAP CANNON to a POKéMON of yours?$"
+	.string "Zap Cannon to a Pokémon of yours?$"
 
 MoveTutor_Text_GSCMoveTutorDeclined:
 	.string "Oh…\n"

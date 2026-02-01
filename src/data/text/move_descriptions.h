@@ -142,8 +142,8 @@ static const u8 sWrapDescription[] = _(
     "2 to 5 times with vines, etc.");
 
 static const u8 sTakeDownDescription[] = _(
-    "A reckless charge attack\n"
-    "that also hurts the user.");
+    "A reckless charge attack.\n"
+    "May cause flinching.");
 
 static const u8 sThrashDescription[] = _(
     "A rampage of 2 to 3 turns\n"
@@ -958,16 +958,16 @@ static const u8 sTwisterDescription[] = _(
     "to tear at the foe.");
 
 static const u8 sRainDanceDescription[] = _(
-    "Boosts the power of WATER-\n"
+    "Boosts the power of Water-\n"
     "type moves for 5 turns.");
 
 static const u8 sSunnyDayDescription[] = _(
-    "Boosts the power of FIRE-\n"
+    "Boosts the power of Fire-\n"
     "type moves for 5 turns.");
 
 static const u8 sCrunchDescription[] = _(
     "Crunches with sharp fangs.\n"
-    "May lower SP. DEF.");
+    "May lower Defense.");
 
 static const u8 sMirrorCoatDescription[] = _(
     "Counters the foe's special\n"
@@ -987,7 +987,7 @@ static const u8 sAncientPowerDescription[] = _(
 
 static const u8 sShadowBallDescription[] = _(
     "Hurls a black blob that may\n"
-    "lower the foe's SP. DEF.");
+    "lower the foe's Sp. Def.");
 
 static const u8 sFutureSightDescription[] = _(
     "Heightens inner power to\n"
@@ -1343,7 +1343,7 @@ static const u8 sBlockDescription[] = _(
 
 static const u8 sHowlDescription[] = _(
     "Howls to raise the spirit\n"
-    "and boosts ATTACK.");
+    "and boosts Atk and Acc.");
 
 static const u8 sDragonClawDescription[] = _(
     "Slashes the foe with sharp\n"

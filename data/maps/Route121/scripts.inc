@@ -1,6 +1,6 @@
-.set LOCALID_GRUNT_1, 12
-.set LOCALID_GRUNT_2, 13
-.set LOCALID_GRUNT_3, 14
+.set LOCALID_GRUNT_1, 10
+.set LOCALID_GRUNT_2, 11
+.set LOCALID_GRUNT_3, 12
 
 Route121_MapScripts::
 	.byte 0

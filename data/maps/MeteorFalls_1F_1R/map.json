@@ -190,7 +190,7 @@
     },
     {
       "x": 28,
-      "y": 5,
+      "y": 2,
       "elevation": 3,
       "dest_map": "MAP_METEOR_FALLS_B1F_2R",
       "dest_warp_id": "1"

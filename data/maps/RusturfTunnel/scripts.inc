@@ -1,8 +1,8 @@
 .equ LOCALID_WANDAS_BF, 1
-.set LOCALID_BRINEY, 5
-.set LOCALID_GRUNT, 6
-.set LOCALID_PEEKO, 7
-.equ LOCALID_WANDA, 10
+.set LOCALID_BRINEY, 4
+.set LOCALID_GRUNT, 5
+.set LOCALID_PEEKO, 6
+.equ LOCALID_WANDA, 9
 
 RusturfTunnel_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RusturfTunnel_OnTransition

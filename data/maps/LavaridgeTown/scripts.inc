@@ -252,7 +252,6 @@ LavaridgeTown_EventScript_EggWoman::
 LavaridgeTown_EventScript_ReceivedEgg::
 	msgbox LavaridgeTown_Text_HaveEggWillYouTakeKanto, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_ReceivedJohtoEgg
-	showmoneybox 0, 0
 	msgbox LavaridgeTown_Text_ItWillCost, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_DeclineEgg
 	checkmoney 10000
@@ -263,7 +262,6 @@ LavaridgeTown_EventScript_ReceivedEgg::
 	goto_if_eq VAR_RESULT, PARTY_SIZE, LavaridgeTown_EventScript_NoRoomForEgg
 	msgbox LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_ITEM
-	hidemoneybox
 	message LavaridgeTown_Text_ReceivedTheEgg
 	waitfanfare
 	random 67
@@ -341,7 +339,6 @@ LavaridgeTown_EventScript_ReceivedEgg::
 LavaridgeTown_EventScript_ReceivedJohtoEgg::
 	msgbox LavaridgeTown_Text_HaveEggWillYouTakeJohto, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_ReceivedHoennEgg
-	showmoneybox 0, 0
 	msgbox LavaridgeTown_Text_ItWillCost, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_DeclineEgg
 	checkmoney 10000
@@ -352,7 +349,6 @@ LavaridgeTown_EventScript_ReceivedJohtoEgg::
 	goto_if_eq VAR_RESULT, PARTY_SIZE, LavaridgeTown_EventScript_NoRoomForEgg
 	msgbox LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_ITEM
-	hidemoneybox
 	message LavaridgeTown_Text_ReceivedTheEgg
 	waitfanfare
 	random 48
@@ -411,7 +407,6 @@ LavaridgeTown_EventScript_ReceivedJohtoEgg::
 LavaridgeTown_EventScript_ReceivedHoennEgg::
 	msgbox LavaridgeTown_Text_HaveEggWillYouTakeHoenn, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_DeclineEgg
-	showmoneybox 0, 0
 	msgbox LavaridgeTown_Text_ItWillCost, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_DeclineEgg
 	checkmoney 10000
@@ -422,7 +417,6 @@ LavaridgeTown_EventScript_ReceivedHoennEgg::
 	goto_if_eq VAR_RESULT, PARTY_SIZE, LavaridgeTown_EventScript_NoRoomForEgg
 	msgbox LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_ITEM
-	hidemoneybox
 	message LavaridgeTown_Text_ReceivedTheEgg
 	waitfanfare
 	random 64
@@ -496,19 +490,16 @@ LavaridgeTown_EventScript_ReceivedHoennEgg::
 
 LavaridgeTown_EventScript_NoRoomForEgg::
 	msgbox LavaridgeTown_Text_NoRoomForThisEgg, MSGBOX_DEFAULT
-	hidemoneybox
 	release
 	end
 	
 LavaridgeTown_EventScript_NotEnoughMoney::
 	msgbox LavaridgeTown_Text_NotEnoughMoney, MSGBOX_DEFAULT
-	hidemoneybox
 	release
 	end
 
 LavaridgeTown_EventScript_DeclineEgg::
 	msgbox LavaridgeTown_Text_AsYouWishThen, MSGBOX_DEFAULT
-	hidemoneybox
 	release
 	end
 

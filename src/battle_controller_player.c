@@ -3254,7 +3254,7 @@ static void MoveSelectionDisplaySplitIcon(void)
         switch (species)
         {
             case SPECIES_DUSCLOPS: case SPECIES_PRIMEAPE: case SPECIES_MUK:
-            case SPECIES_BANETTE:  case SPECIES_SHEDINJA:
+            case SPECIES_BANETTE:  case SPECIES_SHEDINJA: case SPECIES_MAWILE: 
                 moveCategory = MOVE_CATEGORY_PHYSICAL;
                 break;
         }

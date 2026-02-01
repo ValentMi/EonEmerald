@@ -38,7 +38,7 @@
     },
     {
       "x": 5,
-      "y": 3,
+      "y": 2,
       "elevation": 3,
       "dest_map": "MAP_METEOR_FALLS_1F_1R",
       "dest_warp_id": "6"
