@@ -1895,7 +1895,7 @@ Postgame_EventScript_RachelDeclined::
 	end
 	
 Postgame_Rachel_AsktoBattle:
-	.string "Hello. I'm Rachel.\n"
+	.string "Hello. I'm Rachel.\p"
 	.string "I just love Pokémon with round,\n"
 	.string "cheerful shapes.\p"
 	.string "There's such potential in every\n"
